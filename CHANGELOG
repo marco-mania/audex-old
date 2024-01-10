@@ -1,32 +1,54 @@
-Version 0.71
-- Czech translation (Pavel Fric)
-- German translation (Thomas Kamps)
-- New feature: Replace spaces with underscores in path- und filenames
-- New feature: Context menu for track listview
-- Bugfix: "Copy profile" function does not update listview
-- Bugfix: Corrected FLAC command line preset
-- Bugfix: Taking over changes in CD data for tags
-- Changed FAAC filename suffix from AAC to M4A
-- Optimized FAAC command line preset
-- Does not overwrite discid file on multi cd any more
-- Many small bugfixes... (thx to all reporters!)
+Changelog 0.71 beta 4 (justice release)
+* Updated header information (all GPLv3+ now)
 
-Version 0.70
-- Many GUI changes
-- More user-friendly common encoder quality selection (ogg vorbis,mp3,flac,faac,wav,custom)
-- KIO slave transfer
-- ListView -> TreeView and checkboxes to select which tracks to rip
-- Squash "/"-or-"\""-in-filename-bug
-- Merge playlist, checksum file on multi-cd
-- Recognizes "(disc 1)" "(disc 2)" in cd title
-- Many, many small bugfixes... (thx to all reporters!)
+Changelog 0.71 beta 3 (urban release)
+* Dutch translation (Kenny Verstraete)
+* Portuguese (Márcio Moraes)
+* Bugfix: Slider update
+* Bugfix: Update profiles after loaded from external file
 
-Version 0.62
-- Removed leaning effect of cover reflection and added a
-  slight blur effect to the reflection
-- Profile combobox now works as expected (I hope... :-) )
-- Perform auto cddb/amazon cover lookup
-- Resized coverfetch dialog (640x480 minimum size)
-- New variable $cover for sending a temporary cover file
-  to a command line endcoder
-- Small bugfixes... (thx to all reporters!)
+Changelog 0.71 beta 2 (anticipation release)
+* Some minor bugfixes...
+
+Changelog 0.71 (beautiful spring release)
+* Czech translation (Pavel Fric)
+* German translation (Thomas Kamps)
+* New feature: Replace spaces with underscores in path- und filenames
+* New feature: Context menu for track listview
+* Bugfix: "Copy profile" function does not update listview
+* Bugfix: Corrected FLAC command line preset
+* Bugfix: Taking over changes in CD data for tags
+* Changed FAAC filename suffix from AAC to M4A
+* Optimized FAAC command line preset
+* Does not overwrite discid file on multi cd any more
+* Many small bugfixes... (thx to all reporters!)
+
+Changelog 0.70 (patchwork easter release):
+* Many GUI changes/fixes
+* More user-friendly common encoder quality selection (ogg vorbis,mp3,flac,faac,wav,custom)
+* KIO slave transfer
+* ListView -> TreeView and checkboxes to select which tracks to rip
+* Squash "/"-or-"\""-in-filename-bug
+* Merge playlist, checksum file on multi-cd
+* Recognizes "(disc 1)" "(disc 2)" in cd title
+* Many, many small bugfixes... (thx to all reporters!)
+
+Changelog 0.62 (cold winter release):
+* Removed leaning effect of cover reflection and added a slight blur effect to the reflection
+* Profile combobox now works as expected (I hope... :-) )
+* Perform auto cddb/cover lookup
+* Resized coverfetch dialog (640x480 minimum size)
+* New variable $cover for sending a temporary cover file to a command line endcoder
+* Small bugfixes... (thx to all reporters!)
+
+Changelog 0.61 (xmas release):
+* Many bugfixes
+* Beyond the "confusing" xml naming scheme, you can use "normal" variables instead
+
+Changelog 0.6 (free weekend release):
+* New XML-based scheme definitions.
+* Assistant will help you creating profiles.
+* Cover fetching from amazon works again (rewritten).
+* Store SFV files for the music files.
+* Store text files with predefined information.
+* A lot of Bugfixes...
