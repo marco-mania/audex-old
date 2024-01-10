@@ -51,6 +51,7 @@
 #include "dialogs/cddaheaderdatadialog.h"
 #include "utils/coverfetcher.h"
 #include "utils/cachedimage.h"
+#include "utils/tmpdir.h"
 
 // fixed point defines
 #define FP_BITS 10
@@ -156,6 +157,8 @@ private:
 
   bool fetching_cover_in_progress;
   CoverBrowserDialog *cover_browser_dialog;
+  
+  TmpDir *tmp_dir;
 
 };
 

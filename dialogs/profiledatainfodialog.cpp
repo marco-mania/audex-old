@@ -47,11 +47,11 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   ui.klineedit_suffix->setText(suffix);
   connect(ui.klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
-  ui.kpushbutton_help->setIcon(KIcon("help-hint"));
   ui.kpushbutton_load->setIcon(KIcon("document-open"));
   ui.kpushbutton_save->setIcon(KIcon("document-save"));
 
-  connect(ui.kpushbutton_help, SIGNAL(clicked()), this, SLOT(help()));
+  connect(ui.kurllabel_aboutvariables, SIGNAL(leftClickedUrl()), this, SLOT(about_variables()));
+  
   connect(ui.kpushbutton_load, SIGNAL(clicked()), this, SLOT(load_text()));
   connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_text()));
 
@@ -95,16 +95,15 @@ void ProfileDataInfoDialog::trigger_changed() {
   enableButtonApply(FALSE);
 }
 
-void ProfileDataInfoDialog::help() {
+void ProfileDataInfoDialog::about_variables() {
 
    KDialog *dialog = new KDialog(this);
    dialog->resize(QSize(700, 480));
    dialog->setCaption(i18n("Usable Variables For Text Template"));
    dialog->setButtons(KDialog::Ok);
-
+  
    KTextBrowser *tb = new KTextBrowser(dialog);
-   tb->setHtml(i18n(
-   "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
+   tb->setHtml(i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">"
    "<html>"
    "<head>"
      "<style type=\"text/css\">"
@@ -112,7 +111,7 @@ void ProfileDataInfoDialog::help() {
      "</style>"
    "</head>"
    "<body>"
-     "Variables will be replaced by a special value and can even contain attributes.<br />"
+     "Variables will be replaced by a special value and can even contain parameters.<br />"
      "For example the variable "
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
      "$artist"
@@ -126,12 +125,12 @@ void ProfileDataInfoDialog::help() {
      "${today format=\"yyyy-MM-dd\"}"
      "</pre></div>"
      "This would print the current date. Setting the format will control how this is done. The example (above)"
-     "would result int the date being printed as 2008-10-07 (if this was the current date). See below for more details.<br /><br />"
+     "would result int the date being printed as 2010-10-07 (if this was the current date). See below for more details.<br /><br />"
      "You can make use of the following variables:<br />"
      "<table border=1>"
      "<thead>"
      "<tr>"
-     "<th>Tag</th><th>Variable</th><th>Description</th><th>Example</th>"
+     "<th>Variable</th><th>Parameter</th><th>Description</th><th>Example</th>"
      "</tr>"
      "</thead>"
      "<tbody>"

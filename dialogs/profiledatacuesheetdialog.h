@@ -16,19 +16,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef WAIT_HEADER
-#define WAIT_HEADER
+#ifndef PROFILEDATACUESHEETDIALOG_H
+#define PROFILEDATACUESHEETDIALOG_H
 
-#include <QThread>
+#include <QWidget>
 
-class Wait : public QThread {
-protected:
-  Wait(int time) : QThread() { Q_UNUSED(time); }
-  void run() {}
+#include <KDebug>
+#include <KDialog>
+
+#include "simplepatternwizarddialog.h"
+
+#include "ui_profiledatacuesheetwidgetUI.h"
+
+class ProfileDataCueSheetDialog : public KDialog {
+
+  Q_OBJECT
+
 public:
-  static void sleep(int time) { QThread::sleep(time); }
-  static void msleep(int time) { QThread::msleep(time); }
-  static void usleep(int time) { QThread::usleep( time); }
+  ProfileDataCueSheetDialog(const QString& pattern, QWidget *parent = 0);
+  ~ProfileDataCueSheetDialog();
+
+  QString pattern;
+
+protected slots:
+  virtual void slotButtonClicked(int button);
+
+  void pattern_wizard();
+
+private slots:
+  void trigger_changed();
+
+private:
+  Ui::ProfileDataCueSheetWidgetUI ui;
+
+  bool save();
+
 };
 
 #endif

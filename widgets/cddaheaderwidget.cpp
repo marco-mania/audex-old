@@ -326,12 +326,15 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   setMinimumSize(QSize(cover_size+(padding*2), (int)(cover_size*1.4)+(padding*2)));
 
+  tmp_dir = new TmpDir("audex", "cover");
+    
   update();
 
 }
 
 CDDAHeaderWidget::~CDDAHeaderWidget() {
   delete action_collection;
+  delete tmp_dir;
 }
 
 QSize CDDAHeaderWidget::sizeHint() const {
@@ -648,7 +651,7 @@ void CDDAHeaderWidget::cover_is_down() {
 
 void CDDAHeaderWidget::google() {
 
-  if ((cdda_model->discInfo()==CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
+  if ((cdda_model->discInfo() == CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
   cursor_on_cover = FALSE;
@@ -696,16 +699,20 @@ void CDDAHeaderWidget::save() {
 }
 
 void CDDAHeaderWidget::view_cover() {
-  KDialog *dialog = new KDialog(this);
-  dialog->setCaption(i18n("View Cover"));
-  dialog->setButtons(KDialog::Ok);
-  QLabel *label = new QLabel();
-  label->setScaledContents(TRUE);
-  label->setPixmap(QPixmap::fromImage(cdda_model->coverImage()));
-  dialog->setMainWidget(label);
-  dialog->exec();
-  delete label;
-  delete dialog;
+  
+  QString tmp_path = tmp_dir->tmpPath();
+  if (tmp_dir->error()) {
+    QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
+    tmp_path = dirs.size()?dirs[0]:"/var/tmp/";
+    if (tmp_path.right(1) != "/") tmp_path += "/";
+    kDebug() << "Temporary folder in use:" << tmp_path;
+  }
+  
+  QString filename = tmp_path+QString("%1.jpeg").arg(cdda_model->coverChecksum());
+  cdda_model->saveCoverToFile(filename);
+  
+  QDesktopServices::openUrl(KUrl(filename));
+
 }
 
 void CDDAHeaderWidget::remove() {
@@ -761,9 +768,13 @@ void CDDAHeaderWidget::set_cover(const QByteArray& cover) {
 
 void CDDAHeaderWidget::fetch_first_cover() {
   if (cover_browser_dialog) {
-    if (cover_browser_dialog->count()==0) {
+    if (cover_browser_dialog->count() == 0) {
       kDebug() << "no cover found";
-      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load your own cover."));
+      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load a custom cover from an image file."));
+      delete cover_browser_dialog;
+      cover_browser_dialog = NULL;
+      fetching_cover_in_progress = FALSE;
+      action_collection->action("fetch")->setEnabled(TRUE);
     } else {
       connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
       cover_browser_dialog->startFetchCover(0);

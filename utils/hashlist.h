@@ -19,10 +19,14 @@
 #ifndef HASHLIST_H
 #define HASHLIST_H
 
+#include <sys/fcntl.h>
+#include <sys/mman.h>
+
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
 #include <QByteArray>
+#include <QCryptographicHash>
 
 #include <KDebug>
 
@@ -34,6 +38,7 @@ public:
   Hashlist();
 
   const QStringList getSFV(const QStringList& filenames);
+  const QStringList getMD5(const QStringList& filenames);
 
 };
 

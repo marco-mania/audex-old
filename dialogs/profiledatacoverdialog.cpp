@@ -51,7 +51,7 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   ui.kintspinbox_y->setValue(size.height());
   connect(ui.kintspinbox_y, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.kcombobox_format->addItem(i18n("JPEG (Joint Photographic Experts Group)"), "JPG");
+  ui.kcombobox_format->addItem(i18n("JPEG (Joint Photographic Experts Group)"), "JPEG");
   ui.kcombobox_format->addItem(i18n("PNG (Portable Network Graphics)"), "PNG");
   ui.kcombobox_format->addItem(i18n("BMP (Windows Bitmap)"), "BMP");
   {

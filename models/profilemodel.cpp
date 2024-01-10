@@ -63,6 +63,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
       case PROFILE_MODEL_COLUMN_PATTERN_INDEX : return cache.at(index.row())[PROFILE_MODEL_PATTERN_KEY];
       case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : return cache.at(index.row())[PROFILE_MODEL_FAT32COMPATIBLE_KEY];
       case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : return cache.at(index.row())[PROFILE_MODEL_UNDERSCORE_KEY];
+      case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX : return cache.at(index.row())[PROFILE_MODEL_2DIGITSTRACKNUM_KEY];
       case PROFILE_MODEL_COLUMN_SC_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_KEY];
       case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_SCALE_KEY];
       case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_SIZE_KEY];
@@ -79,6 +80,10 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
       case PROFILE_MODEL_COLUMN_HL_INDEX : return cache.at(index.row())[PROFILE_MODEL_HL_KEY];
       case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX : return cache.at(index.row())[PROFILE_MODEL_HL_FORMAT_KEY];
       case PROFILE_MODEL_COLUMN_HL_NAME_INDEX : return cache.at(index.row())[PROFILE_MODEL_HL_NAME_KEY];
+      case PROFILE_MODEL_COLUMN_CUE_INDEX : return cache.at(index.row())[PROFILE_MODEL_CUE_KEY];
+      case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX : return cache.at(index.row())[PROFILE_MODEL_CUE_NAME_KEY];
+      case PROFILE_MODEL_COLUMN_SF_INDEX : return cache.at(index.row())[PROFILE_MODEL_SF_KEY];
+      case PROFILE_MODEL_COLUMN_SF_NAME_INDEX : return cache.at(index.row())[PROFILE_MODEL_SF_NAME_KEY];
       case PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX : return cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY];
       case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX : return cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY];
       case PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX : return cache.at(index.row())[PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY];
@@ -155,6 +160,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  break;
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : break;
 	case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : break;
+	case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : break;
@@ -224,10 +230,10 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  break;
 	case PROFILE_MODEL_COLUMN_HL_INDEX : break;
 	case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX :
-          if (value.toString()!="SFV") {
+          if ((value.toString() != "SFV") && (value.toString() != "MD5")) {
 	    error = Error(
 		i18n("The hashlist file format is unknown."),
-		i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV."),
+		i18n("Your given hashlist file format is unknown. Please choose on of these formats: SFV, MD5."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -238,6 +244,28 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	    error = Error(
 		i18n("Hashlist name must not be empty."),
 		i18n("You've given no name for the hashlist. Please set one."),
+		Error::ERROR,
+		this);
+	    return FALSE;
+	  }
+	  break;
+	case PROFILE_MODEL_COLUMN_CUE_INDEX : break;
+	case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX : break;
+	  if (value.toString().isEmpty()) {
+	    error = Error(
+		i18n("Cue filename name must not be empty."),
+		i18n("You've given no name for the cue sheet. Please set one."),
+		Error::ERROR,
+		this);
+	    return FALSE;
+	  }
+	  break;
+	case PROFILE_MODEL_COLUMN_SF_INDEX : break;
+	case PROFILE_MODEL_COLUMN_SF_NAME_INDEX : break;
+	  if (value.toString().isEmpty()) {
+	    error = Error(
+		i18n("Filename name must not be empty."),
+		i18n("You've given no name for the single audio file. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -297,6 +325,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         case PROFILE_MODEL_COLUMN_PATTERN_INDEX : cache[index.row()][PROFILE_MODEL_PATTERN_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : cache[index.row()][PROFILE_MODEL_FAT32COMPATIBLE_KEY] = value; break;
 	case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : cache[index.row()][PROFILE_MODEL_UNDERSCORE_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_2DIGITSTRACKNUM_INDEX : cache[index.row()][PROFILE_MODEL_2DIGITSTRACKNUM_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_INDEX : cache[index.row()][PROFILE_MODEL_SC_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : cache[index.row()][PROFILE_MODEL_SC_SCALE_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : cache[index.row()][PROFILE_MODEL_SC_SIZE_KEY] = value; break;
@@ -313,6 +342,10 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	case PROFILE_MODEL_COLUMN_HL_INDEX : cache[index.row()][PROFILE_MODEL_HL_KEY] = value; break;
 	case PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX : cache[index.row()][PROFILE_MODEL_HL_FORMAT_KEY] = value; break;
 	case PROFILE_MODEL_COLUMN_HL_NAME_INDEX : cache[index.row()][PROFILE_MODEL_HL_NAME_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_CUE_INDEX : cache[index.row()][PROFILE_MODEL_CUE_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_CUE_NAME_INDEX : cache[index.row()][PROFILE_MODEL_CUE_NAME_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_SF_INDEX : cache[index.row()][PROFILE_MODEL_SF_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_SF_NAME_INDEX : cache[index.row()][PROFILE_MODEL_SF_NAME_KEY] = value; break;
 
 	case PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX : cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = value; break;
 	case PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX : cache[index.row()][PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = value; break;
@@ -710,6 +743,7 @@ const Profile ProfileModel::newProfile() {
 
   p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = DEFAULT_FAT32;
   p[PROFILE_MODEL_UNDERSCORE_KEY] = DEFAULT_UNDERSCORE;
+  p[PROFILE_MODEL_2DIGITSTRACKNUM_KEY] = DEFAULT_2DIGITSTRACKNUM;
 
   p[PROFILE_MODEL_SC_KEY] = DEFAULT_SC;
   p[PROFILE_MODEL_SC_SCALE_KEY] = DEFAULT_SC_SCALE;
@@ -727,6 +761,10 @@ const Profile ProfileModel::newProfile() {
   p[PROFILE_MODEL_HL_KEY] = DEFAULT_HL;
   p[PROFILE_MODEL_HL_FORMAT_KEY] = DEFAULT_HL_FORMAT;
   p[PROFILE_MODEL_HL_NAME_KEY] = DEFAULT_HL_NAME;
+  p[PROFILE_MODEL_CUE_KEY] = DEFAULT_CUE;
+  p[PROFILE_MODEL_CUE_NAME_KEY] = DEFAULT_CUE_NAME;
+  p[PROFILE_MODEL_SF_KEY] = DEFAULT_SF;
+  p[PROFILE_MODEL_SF_NAME_KEY] = DEFAULT_SF_NAME;
 
   p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
   p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = DEFAULT_ENCODER_PARAMETERS;
@@ -809,6 +847,7 @@ void ProfileModel::save(KConfig *config) {
     subGroup.writeEntry(PROFILE_MODEL_PATTERN_KEY, cache[i][PROFILE_MODEL_PATTERN_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, cache[i][PROFILE_MODEL_FAT32COMPATIBLE_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_UNDERSCORE_KEY, cache[i][PROFILE_MODEL_UNDERSCORE_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_2DIGITSTRACKNUM_KEY, cache[i][PROFILE_MODEL_2DIGITSTRACKNUM_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_SC_KEY, cache[i][PROFILE_MODEL_SC_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_SC_SCALE_KEY, cache[i][PROFILE_MODEL_SC_SCALE_KEY]);
@@ -826,6 +865,10 @@ void ProfileModel::save(KConfig *config) {
     subGroup.writeEntry(PROFILE_MODEL_HL_KEY, cache[i][PROFILE_MODEL_HL_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_HL_FORMAT_KEY, cache[i][PROFILE_MODEL_HL_FORMAT_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_HL_NAME_KEY, cache[i][PROFILE_MODEL_HL_NAME_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_CUE_KEY, cache[i][PROFILE_MODEL_CUE_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_CUE_NAME_KEY, cache[i][PROFILE_MODEL_CUE_NAME_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_SF_KEY, cache[i][PROFILE_MODEL_SF_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_SF_NAME_KEY, cache[i][PROFILE_MODEL_SF_NAME_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY, cache[i][PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, cache[i][PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY]);
@@ -861,6 +904,7 @@ void ProfileModel::load(KConfig *config) {
     p[PROFILE_MODEL_PATTERN_KEY] = subGroup.readEntry(PROFILE_MODEL_PATTERN_KEY, DEFAULT_PATTERN);
     p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = subGroup.readEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, DEFAULT_FAT32);
     p[PROFILE_MODEL_UNDERSCORE_KEY] = subGroup.readEntry(PROFILE_MODEL_UNDERSCORE_KEY, DEFAULT_UNDERSCORE);
+    p[PROFILE_MODEL_2DIGITSTRACKNUM_KEY] = subGroup.readEntry(PROFILE_MODEL_2DIGITSTRACKNUM_KEY, DEFAULT_2DIGITSTRACKNUM);
 
     p[PROFILE_MODEL_SC_KEY] = subGroup.readEntry(PROFILE_MODEL_SC_KEY, DEFAULT_SC);
     p[PROFILE_MODEL_SC_SCALE_KEY] = subGroup.readEntry(PROFILE_MODEL_SC_SCALE_KEY, DEFAULT_SC_SCALE);
@@ -878,6 +922,10 @@ void ProfileModel::load(KConfig *config) {
     p[PROFILE_MODEL_HL_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_KEY, DEFAULT_HL);
     p[PROFILE_MODEL_HL_FORMAT_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_FORMAT_KEY, DEFAULT_HL_FORMAT);
     p[PROFILE_MODEL_HL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_NAME_KEY, DEFAULT_HL_NAME);
+    p[PROFILE_MODEL_CUE_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_KEY, DEFAULT_CUE);
+    p[PROFILE_MODEL_CUE_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_CUE_NAME_KEY, DEFAULT_CUE_NAME);
+    p[PROFILE_MODEL_SF_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_KEY, DEFAULT_SF);
+    p[PROFILE_MODEL_SF_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_SF_NAME_KEY, DEFAULT_SF_NAME);
 
     p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);
     p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = subGroup.readEntry(PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY, DEFAULT_ENCODER_PARAMETERS);

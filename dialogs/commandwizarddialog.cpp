@@ -35,6 +35,9 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
   connect(ui.klineedit_command, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
   connect(ui.klineedit_command, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
   ui.klineedit_command->setCursorPosition(0);
+  
+  connect(ui.kurllabel_aboutcommandlineschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_commandline_schemes()));
+  connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
 
   connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
   connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
@@ -75,6 +78,47 @@ void CommandWizardDialog::slotButtonClicked(int button) {
 void CommandWizardDialog::trigger_changed() {
   if (ui.klineedit_command->text() != command) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
+}
+
+void CommandWizardDialog::about_commandline_schemes() {
+  QWhatsThis::showText(ui.kurllabel_aboutcommandlineschemes->mapToGlobal(ui.kurllabel_aboutcommandlineschemes->geometry().topLeft()),
+                          i18n("<p>The following variables will be replaced with their particular meaning in every track name.</p>"
+                               "<p><table border=\"1\">"
+                               "<tr><th><em>Variable</em></th><th><em>Description</em></th></tr>"
+                               "<tr><td>$artist</td><td>The artist of the CD. If your CD is a compilation, then this tag represents the title in most cases.</td></tr>"
+                               "<tr><td>$title</td><td>The title of the CD. If your CD is a compilation, then this tag represents the subtitle in most cases.</td></tr>"
+                               "<tr><td>$date</td><td>The release date of the CD. In almost all cases this is the year.</td></tr>"
+                               "<tr><td>$genre</td><td>The genre of the CD.</td></tr>"
+                               "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
+                               "<tr><td>$tartist</td><td>This is the artist of every individual track. It is especially useful on compilation CDs.</td></tr>"
+                               "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
+                               "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
+                               "<tr><td>$cover</td><td>The cover file.</td></tr>"
+                               "<tr><td>$i</td><td>The temporary WAV file (input file) created by Audex from CD audio track. You can use it as a normal input file for your command line encoder.</td></tr>"
+                               "<tr><td>$o</td><td>The full output filename and path (output file). Use it as the output for your command line encoder.</td></tr>"
+                               "</table></p>"),
+                          ui.kurllabel_aboutcommandlineschemes);
+}
+
+void CommandWizardDialog::about_parameters() {
+  QWhatsThis::showText(ui.kurllabel_aboutparameters->mapToGlobal(ui.kurllabel_aboutparameters->geometry().topLeft()),
+                          i18n("<p>Variables in Audex can have parameters. E.g.</p>"
+                               "<pre>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre>"
+                               "<p>A filename of a JPG image with the size of 300x300 will be inserted. "
+                               "If no size is set, the size of the original cover file will be taken. If "
+                               "no cover is set, this variable will be replaced by nothing, otherwise "
+                               "something like <i>/tmp/cover.123.jpg</i> will be inserted. Possible "
+                               "formats are \"JPG\", \"PNG\" and \"GIF\" (Default: \"JPG\").</p>\n"
+                               "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+                               "bear this in mind, if you set the format and size.</i></p>"
+                               "<hr />"
+                               "<p>\"preparam\" and \"postparam\" define parameters inserted before "
+                               "(pre) or behind (post) the variable. These values are <b>only</b> shown if a value is set."
+                               "Works with all commandline variables.</p>"
+                               "<hr />"
+                               "<p><b><i>To have a complete overview of parameters go to the Audex webpage.</i></b></p>"
+                               ),
+                          ui.kurllabel_aboutparameters);
 }
 
 void CommandWizardDialog::insAlbumArtist() {

@@ -171,10 +171,10 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       }
       
       //if we have eyeD3, use this for tagging as lame can't handle unicode
-      if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA)==0) {
+      if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA) == 0) {
        
 	cmd += QString::fromUtf8(" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
-	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
+	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\""VAR_ALBUM_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
 	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" --set-text-frame=\"TCON:$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--set-text-frame=TPOS:\"}");
         if (embed_cover) {
           cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
@@ -196,13 +196,13 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
     }
 
     case EncoderAssistant::OGGENC : {
-      int quality = parameters.valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY);
+      double quality = parameters.valueToDouble(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY);
       bool min_bitrate = parameters.valueToBool(ENCODER_OGGENC_MINBITRATE_KEY);
       int min_bitrate_value = parameters.valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE);
       bool max_bitrate = parameters.valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY);
       int max_bitrate_value = parameters.valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE);
       QString cmd = ENCODER_OGGENC_BIN;
-      cmd += QString(" -q %1").arg(quality);
+      cmd += QString(" -q %1").arg(quality, 0, 'f', 2);
 
       if (min_bitrate) {
         cmd += QString(" -m %1").arg(min_bitrate_value);
@@ -234,8 +234,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       int quality = parameters.valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
       QString cmd = ENCODER_FAAC_BIN;
       cmd += QString(" -q %1").arg(quality);
-      cmd += QString::fromUtf8(" -w -s --title \"$"VAR_TRACK_TITLE"\" --artist \"$"VAR_TRACK_ARTIST"\" --album \"$"VAR_ALBUM_TITLE\
-                               "\" --year \"$"VAR_DATE"\" --track $"VAR_TRACK_NO" --disc $cdno --genre \"$"VAR_GENRE\
+      cmd += QString::fromUtf8(" --title \"$"VAR_TRACK_TITLE"\" --artist \"$"VAR_TRACK_ARTIST"\" --album \"$"VAR_ALBUM_TITLE\
+                               "\" --year \"$"VAR_DATE"\" --track $"VAR_TRACK_NO" ${"VAR_CDNO" pre=\"--disc \"} --genre \"$"VAR_GENRE\
                                "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
 
       return cmd;

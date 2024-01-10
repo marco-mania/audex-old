@@ -33,7 +33,6 @@
 #include <KStandardDirs>
 
 #include "utils/cachedimage.h"
-#include "utils/pid.h"
 
 #define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
 
@@ -94,6 +93,7 @@ public:
   void setCover(CachedImage *cover) { this->cover = cover; }
   void setFAT32Compatible(const bool fat32compatible) { this->fat32compatible = fat32compatible; }
   void setReplaceSpacesWithUnderscores(const bool replacespaceswithunderscores) { this->replacespaceswithunderscores = replacespaceswithunderscores; }
+  void set2DigitsTrackNum(const bool _2digitstracknum) { this->_2digitstracknum = _2digitstracknum; }
   void setTMPPath(const QString& tmppath) { this->tmppath = tmppath; }
   void setDiscid(const quint32 discid) { this->discid = discid; }
   void setSize(const qreal size) { this->size = size; }
@@ -120,6 +120,7 @@ private:
   CachedImage *cover;
   bool fat32compatible;
   bool replacespaceswithunderscores;
+  bool _2digitstracknum;
   QString tmppath;
   quint32 discid;
   qreal size;
@@ -127,6 +128,7 @@ private:
   int nooftracks;
 
   bool demomode;
+  /*TEMP*/bool found_suffix;
 
   QString p_text;
   QString p_element;
@@ -155,7 +157,7 @@ public:
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix,
-	bool fat32compatible, bool replacespaceswithunderscores);
+	bool fat32compatible, bool replacespaceswithunderscores, bool _2digitstracknum);
 
   const QString parseCommandPattern(const QString& pattern,
 	const QString& input, const QString& output,

@@ -36,9 +36,20 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
 
   QString title = QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title());
   ui.label_header->setText(title);
+  
+  p_single_file = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool();
 
-  ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
-  ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
+  if (p_single_file) {
+   
+    ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
+    ui.label_encoding->setText(i18n("Encoding"));
+    
+  } else {
+  
+    ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
+    ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
+    
+  }
 
   audex = new Audex(this, profile_model, cdda_model);
 
@@ -75,7 +86,8 @@ int ExtractingProgressDialog::exec() {
   KConfigGroup grp(KGlobal::config(), "ExtractingProgressDialog");
 
   resize(600, 400);
-  current_extract_overall = (current_encode_overall=0);
+  current_extract_overall = 0;
+  current_encode_overall = 0;
   ui.details_button->setArrowType(grp.readEntry("Simple", TRUE) ? Qt::UpArrow : Qt::DownArrow);
   toggle_details();
   show();
@@ -92,7 +104,7 @@ int ExtractingProgressDialog::exec() {
 }
 
 void ExtractingProgressDialog::calc_overall_progress() {
-  ui.progressBar_overall->setValue(((current_extract_overall+current_encode_overall)/2.0f)+0.5);
+  ui.progressBar_overall->setValue((int)(((float)(current_extract_overall+current_encode_overall)/2.0f)+.5f));
 }
 
 void ExtractingProgressDialog::toggle_details() {
@@ -170,8 +182,17 @@ void ExtractingProgressDialog::show_changed_extract_track(int no, int total, con
   Q_UNUSED(artist);
   Q_UNUSED(title);
   
-  ui.label_extracting->setText((1==total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
-  ui.label_overall_track->setText((1==total) ? i18n("Overall Progress (Ripping Track)") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
+  if (!p_single_file) {
+    
+    ui.label_extracting->setText((1==total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
+    ui.label_overall_track->setText((1==total) ? i18n("Overall Progress") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
+    
+  } else {
+    
+    ui.label_extracting->setText(i18n("Ripping whole CD as single track"));
+    ui.label_overall_track->setText(i18n("Overall Progress"));
+    
+  }
   
 }
 
@@ -183,7 +204,7 @@ void ExtractingProgressDialog::show_changed_encode_track(int no, int total, cons
     ui.label_encoding->setText("<i>"+i18n("Waiting for an encoding job...")+"</i>");
     ui.label_speed_encoding->clear();
   } else {
-    ui.label_encoding->setText((1==total) ? i18n("Encoding Track") : i18n("Encoding Track %1 of %2", no, total));
+    if (!p_single_file) ui.label_encoding->setText((1==total) ? i18n("Encoding Track") : i18n("Encoding Track %1 of %2", no, total));
   }
 
 }
@@ -328,7 +349,7 @@ void ExtractingProgressDialog::ask_timeout() {
 				"However, do you want to continue extraction?"),
 				i18n("Cancel extraction"),
 				KStandardGuiItem::yes(),
-				KStandardGuiItem::no()) == KMessageBox::Yes) {
+				KStandardGuiItem::no()) == KMessageBox::No) {
     audex->cancel();
   }
 

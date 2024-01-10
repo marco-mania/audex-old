@@ -26,15 +26,15 @@
 int main (int argc, char *argv[]) {
 
   KAboutData aboutData("audex", 0, ki18n("Audex"), AUDEX_VERSION,
-                       ki18n("CDDA Extractor for KDE"),
+                       ki18n("KDE CDDA Extractor"),
                        KAboutData::License_GPL,
-                       ki18n("(c) 2007-2011 by Marco Nelles"),
+                       ki18n("Copyright © 2007–2011 by Marco Nelles"),
                        KLocalizedString(),
                        "http://kde.maniatek.com/audex",
                        "audex@maniatek.com");
-  aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer, Main developer"), "marco@maniatek.de");
-  aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements, Development"), 0, "");
-  aboutData.addCredit(ki18n("credativ GmbH"), ki18n("Special thanks to credativ GmbH (Germany) for supporting"), 0, "http://www.credativ.com/");
+  aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer, main developer"), "marco@maniatek.de");
+  aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements, development"), 0, "");
+  aboutData.addCredit(ki18n("credativ GmbH"), ki18n("Special thanks to credativ GmbH (Germany) for support"), 0, "http://www.credativ.com/");
   aboutData.addCredit(ki18n("freedb.org"), ki18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
   aboutData.addCredit(ki18n("Xiph.Org Foundation"), ki18n("Special thanks to Xiph.Org Foundation for providing compact disc ripper"), 0, "http://www.xiph.org/paranoia/index.html");
   aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"), ki18nc("EMAIL OF TRANSLATORS", "Your emails"));

@@ -118,6 +118,26 @@ int CDDAParanoia::lastSectorOfTrack(int track) {
   return -1;
 }
 
+int CDDAParanoia::firstSectorOfDisc() {
+  if (paranoia_drive) {
+    mutex.lock();
+    long first_sector = cdda_disc_firstsector(paranoia_drive);
+    mutex.unlock();
+    return first_sector;
+  }
+  return -1;
+}
+
+int CDDAParanoia::lastSectorOfDisc() {
+  if (paranoia_drive) {
+    mutex.lock();
+    long last_sector = cdda_disc_lastsector(paranoia_drive);
+    mutex.unlock();
+    return last_sector;
+  }
+  return -1;
+}
+
 int CDDAParanoia::numOfTracks() {
   if (paranoia_drive) return (paranoia_drive->tracks<0)?0:paranoia_drive->tracks;
   return 0;

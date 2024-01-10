@@ -8,7 +8,7 @@ set(DEBIAN_PACKAGE_DESCRIPTION "Audex")
 set(DEBIAN_PACKAGE_SECTION "Multimedia")
 set(CPACK_SOURCE_GENERATOR "TBZ2")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
-set(CPACK_PACKAGE_VERSION_MINOR "73")
+set(CPACK_PACKAGE_VERSION_MINOR "74")
 set(CPACK_PACKAGE_VERSION_BETA " beta 1")
 set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.com>")
 set(AUDEX_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}${CPACK_PACKAGE_VERSION_BETA}")
@@ -16,7 +16,7 @@ set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 include(CPack)
 
-set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
 configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 find_package(KDE4 REQUIRED)
@@ -28,7 +28,7 @@ include(MacroLibrary)
 include_directories(
     ${KDE4_INCLUDES}
     ${KDEMULTIMEDIA_INCLUDE_DIR}
-    ${CMAKE_SOURCE_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_BINARY_DIR}
     ${CDPARANOIA_INCLUDE_DIR}
 )
@@ -55,6 +55,8 @@ set(audex_SRCS
   utils/3rdparty/crc32.cpp
   utils/parameters.cpp
   utils/cachedimage.cpp
+  utils/cuesheetwriter.cpp
+  utils/tmpdir.cpp
   widgets/cddaheaderwidget.cpp
   widgets/generalsettingswidget.cpp
   widgets/profilewidget.cpp
@@ -72,6 +74,8 @@ set(audex_SRCS
   dialogs/profiledataplaylistdialog.cpp
   dialogs/profiledatainfodialog.cpp
   dialogs/profiledatahashlistdialog.cpp
+  dialogs/profiledatacuesheetdialog.cpp
+  dialogs/profiledatasinglefiledialog.cpp
   dialogs/patternwizarddialog.cpp
   dialogs/commandwizarddialog.cpp
   dialogs/simplepatternwizarddialog.cpp
@@ -97,6 +101,8 @@ kde4_add_ui_files(audex_SRCS
   dialogs/profiledataplaylistwidgetUI.ui
   dialogs/profiledatainfowidgetUI.ui
   dialogs/profiledatahashlistwidgetUI.ui
+  dialogs/profiledatacuesheetwidgetUI.ui
+  dialogs/profiledatasinglefilewidgetUI.ui
   dialogs/patternwizardwidgetUI.ui
   dialogs/commandwizardwidgetUI.ui
   dialogs/simplepatternwizardwidgetUI.ui
@@ -107,7 +113,7 @@ kde4_add_ui_files(audex_SRCS
 kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 kde4_add_executable(audex ${audex_SRCS})
-target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${AUDEX_ID3_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDEMULTIMEDIA_LIBRARIES})
+target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDE4_KIO_LIBRARY} ${KDEMULTIMEDIA_LIBRARIES} ${QT_QTXML_LIBRARY} )
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
 install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)

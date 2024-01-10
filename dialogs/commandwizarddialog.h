@@ -20,7 +20,7 @@
 #define COMMANDWIZARDDIALOG_H
 
 #include <QWidget>
-#include <QImage>
+#include <QWhatsThis>
 
 #include <KDebug>
 #include <KDialog>
@@ -44,6 +44,9 @@ protected slots:
 
 private slots:
   void trigger_changed();
+  
+  void about_commandline_schemes();
+  void about_parameters();
 
   void insAlbumArtist();
   void insAlbumTitle();

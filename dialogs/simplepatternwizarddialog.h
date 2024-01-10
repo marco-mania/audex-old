@@ -20,6 +20,7 @@
 #define SIMPLEPATTERNWIZARDDIALOG_H
 
 #include <QWidget>
+#include <QWhatsThis>
 
 #include <KDebug>
 #include <KDialog>
@@ -43,12 +44,16 @@ protected slots:
 
 private slots:
   void trigger_changed();
+  
+  void about_schemes();
+  void about_parameters();
 
   void insAlbumArtist();
   void insAlbumTitle();
   void insCDNo();
   void insDate();
   void insGenre();
+  void insSuffix();
 
   void update_example();
 

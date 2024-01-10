@@ -88,6 +88,8 @@ private:
   bool progressbar_np_flag;
   int current_encode_overall;
   int current_extract_overall;
+  
+  bool p_single_file;
 
 };
 

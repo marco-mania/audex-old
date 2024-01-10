@@ -63,9 +63,16 @@ void CDDAExtractThread::run() {
 
   if (b_interrupt) return;
 
-  b_interrupt = b_error = FALSE;
-  first_sector = paranoia->firstSectorOfTrack(track);
-  last_sector = paranoia->lastSectorOfTrack(track);
+  b_interrupt = FALSE;
+  b_error = FALSE;
+  
+  if (track == 0) {
+    first_sector = paranoia->firstSectorOfDisc();
+    last_sector = paranoia->lastSectorOfDisc();
+  } else {
+    first_sector = paranoia->firstSectorOfTrack(track);
+    last_sector = paranoia->lastSectorOfTrack(track);
+  }
 
   if (first_sector < 0 || last_sector < 0) {
     emit info(i18n("Extracting finished."));
@@ -90,10 +97,12 @@ void CDDAExtractThread::run() {
   paranoia->paranoiaSeek(first_sector, SEEK_SET);
   current_sector = first_sector;
 
-  {
+  if (track > 0) {
     QString min = QString("%1").arg((sectors_all / 75) / 60, 2, 10, QChar('0'));
     QString sec = QString("%1").arg((sectors_all / 75) % 60, 2, 10, QChar('0'));
     emit info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
+  } else {
+    emit info(i18n("Ripping whole CD as single track."));
   }
   extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
 
@@ -139,7 +148,13 @@ void CDDAExtractThread::run() {
   if (b_error)
     emit error(i18n("An error occured while ripping track %1.", track));
 
-  if ((!b_interrupt) && (!b_error)) emit info(i18n("Ripping OK (Track %1).", track));
+  if ((!b_interrupt) && (!b_error)) {
+    if (track > 0) {
+      emit info(i18n("Ripping OK (Track %1).", track));
+    } else {
+      emit info(i18n("Ripping OK."));
+    }
+  }
 
   kDebug () << "Reading finished.";
   extract_protocol.append(i18n("Reading finished"));

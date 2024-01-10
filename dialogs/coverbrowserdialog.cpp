@@ -33,7 +33,7 @@ CoverBrowserDialog::~CoverBrowserDialog() {
 }
 
 void CoverBrowserDialog::fetchThumbnails(const QString& searchstring, const int fetchCount) {
-  if (fetchCount==0)
+  if (fetchCount == 0)
     cover_fetcher.startFetchThumbnails(searchstring, Preferences::fetchCount());
   else
     cover_fetcher.startFetchThumbnails(searchstring, fetchCount);
@@ -52,6 +52,7 @@ void CoverBrowserDialog::slotButtonClicked(int button) {
 }
 
 void CoverBrowserDialog::select_this(QListWidgetItem* item) {
+  cover_fetcher.stopFetchThumbnails();
   int match = item->data(Qt::UserRole).toInt();
   cover_fetcher.startFetchCover(match);
   accept();

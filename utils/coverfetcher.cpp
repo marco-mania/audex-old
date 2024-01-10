@@ -57,6 +57,16 @@ void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int f
 
 }
 
+void CoverFetcher::stopFetchThumbnails() {
+  
+  if ((_status != FETCHING_THUMBNAIL) && (_status != SEARCHING)) return;
+  
+  if (job) job->kill();
+  
+  _status = NOS; emit statusChanged(NOS);
+  
+}
+
 void CoverFetcher::startFetchCover(const int no) {
   
   if (_status != NOS) return;
@@ -99,7 +109,7 @@ void CoverFetcher::fetched_html_data(KJob* job) {
     buffer = storedJob->data();
   }
 
-  if (buffer.count()==0) {
+  if (buffer.count() == 0) {
     kDebug() << "Google server: empty response";
     emit error(i18n("Google server: Empty response."),
 	i18n("Try again later. Make a bug report."));
@@ -182,7 +192,7 @@ void CoverFetcher::parse_html_response(const QString& xml) {
 
 bool CoverFetcher::fetch_cover_thumbnail() {
 
-  if (cover_urls_thumbnails.count()==0) {
+  if (cover_urls_thumbnails.count() == 0) {
     emit nothingFetched();
     return FALSE;
   }

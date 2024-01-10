@@ -37,6 +37,7 @@ public:
   ~CoverFetcher();
 
   void startFetchThumbnails(const QString& searchstring, const int fetchNo = 8);
+  void stopFetchThumbnails();
   void startFetchCover(const int no);
   
   const QByteArray thumbnail(int index);
@@ -50,6 +51,8 @@ public:
     FETCHING_THUMBNAIL,
     FETCHING_COVER
   };
+  
+  inline Status status() const { return _status; }
 
 signals:
   void fetchedThumbnail(const QByteArray& thumbnail, const QString& caption, int no);

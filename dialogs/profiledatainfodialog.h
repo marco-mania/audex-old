@@ -50,7 +50,8 @@ protected slots:
 private slots:
   void trigger_changed();
 
-  void help();
+  void about_variables();
+  
   void load_text();
   void save_text();
 

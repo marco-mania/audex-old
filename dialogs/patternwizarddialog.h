@@ -20,6 +20,7 @@
 #define PATTERNWIZARDDIALOG_H
 
 #include <QWidget>
+#include <QWhatsThis>
 
 #include <KDebug>
 #include <KDialog>
@@ -44,6 +45,9 @@ protected slots:
 private slots:
   void trigger_changed();
 
+  void about_filename_schemes();
+  void about_parameters();
+  
   void insAlbumArtist();
   void insAlbumTitle();
   void insTrackArtist();
@@ -55,7 +59,7 @@ private slots:
   void insSuffix();
 
   void update_example();
-
+  
 private:
   Ui::PatternWizardWidgetUI ui;
 

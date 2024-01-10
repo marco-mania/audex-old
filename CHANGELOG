@@ -1,3 +1,18 @@
+Changelog 0.74 beta 1 (daktari release)
+* New feature: Simple cue sheet support (but does not detect pregaps yet)
+* New feature: Single file rip
+* New feature: Adds MD5 to hashlist options
+* Fixes some issues with cover browser
+* Uses external image viewer to show cover
+* Bugfix in Ogg Vorbis settings widget
+* Ogg Vorbis setting widget now allows to set fractional quality values
+* Bugfix in commandline for FAAC
+* 2 digits track number option for filenames
+* New parameters for file name scheme variables: left (see kde.maniatek.com/audex for full documentation)
+* New helptext for scheme wizard dialogs
+* Pattern of playlists, hashlists and cover files now need a $suffix variable
+* Some more small bugfixes...
+
 Changelog 0.73 beta 1 (alive release)
 * New feature: Use eyeD3 for MP3 tagging if available
 * Bugfix: Crash on cancel

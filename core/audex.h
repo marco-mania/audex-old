@@ -32,14 +32,14 @@
 #include "models/cddamodel.h"
 #include "utils/patternparser.h"
 #include "utils/playlist.h"
-#include "utils/wait.h"
 #include "utils/cddaextractthread.h"
 #include "utils/wavefilewriter.h"
 #include "utils/encoderwrapper.h"
-#include "utils/pid.h"
+#include "utils/tmpdir.h"
 #include "utils/upload.h"
 #include "utils/hashlist.h"
 #include "utils/parameters.h"
+#include "utils/cuesheetwriter.h"
 
 #include "preferences.h"
 
@@ -189,19 +189,11 @@ private:
   CDDAExtractThread *cdda_extract_thread;
   AudexJobs *jobs;
   WaveFileWriter *wave_file_writer;
+  TmpDir *tmp_dir;
 
   QString p_profile_name;
   QString p_suffix;
-
-  inline static QString temp_path() {
-    static QString tmp;
-    if (tmp.isEmpty()) {
-      QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
-      tmp = dirs.size()?dirs[0]:"/var/tmp/";
-      kDebug() << "Found temporary path" << tmp;
-    }
-    return tmp;
-  }
+  bool p_single_file;
 
   bool construct_target_filename(QString& targetFilename,
 	int trackno, int cdno, int gindex,
@@ -210,11 +202,19 @@ private:
 	const QString& date, const QString& genre,
 	const QString& ext, const QString& basepath,
 	bool fat_compatible, bool replacespaceswithunderscores,
+        bool _2digitstracknum,
 	bool overwrite_existing_files, bool is_first_track);
+	
+  bool construct_target_filename_for_singlefile(QString& targetFilename,
+	int cdno,
+	const QString& artist, const QString& title,
+	const QString& date, const QString& genre,
+	const QString& ext, const QString& basepath,
+	bool overwrite_existing_files);
 
   bool check();
 
-  QString tmp_dir;
+  QString tmp_path;
   QString target_dir;
   QStringList target_filename_list;
 
@@ -247,7 +247,7 @@ private:
   int last_measuring_point_encoder_percent;
 
   qreal size_of_all_files_in_list(const QStringList& filenames) const;
-
+  
 };
 
 #endif

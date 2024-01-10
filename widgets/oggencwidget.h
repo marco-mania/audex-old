@@ -51,10 +51,12 @@ signals:
   void triggerChanged();
 private slots:
   void quality_changed_by_slider(int quality);
-  void quality_changed_by_spinbox(int quality);
-  void set_bitrate(int quality);
+  void quality_changed_by_spinbox(float quality);
+  void set_bitrate(float quality);
   void enable_min_bitrate(bool enable);
+  void set_minbitrate(int bitrate);
   void enable_max_bitrate(bool enable);
+  void set_maxbitrate(int bitrate);
   void trigger_changed();
 private:
   Parameters *parameters;

@@ -39,6 +39,8 @@
 #include "dialogs/profiledataplaylistdialog.h"
 #include "dialogs/profiledatainfodialog.h"
 #include "dialogs/profiledatahashlistdialog.h"
+#include "dialogs/profiledatacuesheetdialog.h"
+#include "dialogs/profiledatasinglefiledialog.h"
 #include "dialogs/patternwizarddialog.h"
 
 #include "ui_profiledatawidgetUI.h"
@@ -63,6 +65,11 @@ private slots:
   void enable_settings_playlist(bool enabled);
   void enable_settings_info(bool enabled);
   void enable_settings_hashlist(bool enabled);
+  void enable_settings_cuesheet(bool enabled);
+  void enable_settings_singlefile(bool enabled);
+  
+  void enable_filenames(bool enabled);
+  void enable_filenames_inv(bool disabled);
 
   void pattern_wizard();
 
@@ -70,6 +77,8 @@ private slots:
   void playlist_settings();
   void info_settings();
   void hashlist_settings();
+  void cuesheet_settings();
+  void singlefile_settings();
 
 private:
   Ui::ProfileDataWidgetUI ui;
@@ -104,6 +113,10 @@ private:
 
   QString pdhd_format;
   QString pdhd_pattern;
+  
+  QString pdud_pattern;
+  
+  QString pdsd_pattern;
 
   bool save();
 

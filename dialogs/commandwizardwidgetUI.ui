@@ -7,17 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>430</width>
-    <height>241</height>
+    <height>259</height>
    </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0" colspan="6">
     <widget class="KLineEdit" name="klineedit_command"/>
    </item>
-   <item row="1" column="0" colspan="6">
+   <item row="1" column="0">
     <widget class="QLabel" name="label_album_example">
      <property name="maximumSize">
       <size>
@@ -50,6 +47,24 @@
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
        </active>
        <inactive>
         <colorrole role="Base">
@@ -58,6 +73,24 @@
            <red>224</red>
            <green>223</green>
            <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
           </color>
          </brush>
         </colorrole>
@@ -72,6 +105,24 @@
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
        </disabled>
       </palette>
      </property>
@@ -80,7 +131,7 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="6">
+   <item row="3" column="0" colspan="2">
     <widget class="QLabel" name="label_sampler_example">
      <property name="maximumSize">
       <size>
@@ -113,6 +164,24 @@
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
        </active>
        <inactive>
         <colorrole role="Base">
@@ -121,6 +190,24 @@
            <red>224</red>
            <green>223</green>
            <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
           </color>
          </brush>
         </colorrole>
@@ -135,6 +222,24 @@
           </color>
          </brush>
         </colorrole>
+        <colorrole role="Highlight">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>124</red>
+           <green>130</green>
+           <blue>119</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="HighlightedText">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>255</red>
+           <green>255</green>
+           <blue>255</blue>
+          </color>
+         </brush>
+        </colorrole>
        </disabled>
       </palette>
      </property>
@@ -143,7 +248,38 @@
      </property>
     </widget>
    </item>
-   <item row="5" column="0">
+   <item row="5" column="0" colspan="6">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="KUrlLabel" name="kurllabel_aboutcommandlineschemes">
+       <property name="text">
+        <string>About commandline schemes</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="KUrlLabel" name="kurllabel_aboutparameters">
+       <property name="text">
+        <string>About parameters</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="6" column="0">
     <widget class="KPushButton" name="kpushbutton_albumartist">
      <property name="minimumSize">
       <size>
@@ -158,16 +294,14 @@
       </size>
      </property>
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with artist of the whole CD.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;If your CD is a compilation, then this tag represents the title in most cases.&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Album Artist</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="1" colspan="2">
+   <item row="6" column="1" colspan="2">
     <widget class="KPushButton" name="kpushbutton_albumtitle">
      <property name="minimumSize">
       <size>
@@ -182,16 +316,14 @@
       </size>
      </property>
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the title of the whole CD.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;If your CD is a compilation, then this tag represents the subtitle in most cases.&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Album Title</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="3" colspan="2">
+   <item row="6" column="3" colspan="2">
     <widget class="KPushButton" name="kpushbutton_trackartist">
      <property name="minimumSize">
       <size>
@@ -206,14 +338,14 @@
       </size>
      </property>
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the artist of the individual track.&lt;p&gt;&lt;/p&gt;It is especially useful on compilation CDs.&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Track Artist</string>
      </property>
     </widget>
    </item>
-   <item row="5" column="5">
+   <item row="6" column="5">
     <widget class="KPushButton" name="kpushbutton_tracktitle">
      <property name="minimumSize">
       <size>
@@ -228,106 +360,84 @@
       </size>
      </property>
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the track title. Normally each track on a CD has its own title.&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Track Title</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="0">
+   <item row="7" column="0">
     <widget class="KPushButton" name="kpushbutton_trackno">
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the track number of the individual track.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;This tag has two properties:
-&lt;ul&gt;&lt;li&gt;&lt;i&gt;length&lt;/i&gt; defines how many digits the number should consist of at least (Default: 2).&lt;/li&gt;&lt;li&gt;&lt;i&gt;fillchar&lt;/i&gt; sets the character usedto fill the free spaces in front of the number, if it has less digits than defined by &lt;i&gt;length&lt;/i&gt;. (Default: 0).&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Track #</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="1" colspan="2">
+   <item row="7" column="1" colspan="2">
     <widget class="KPushButton" name="kpushbutton_cdno">
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the CD number of a multi-CD album. Often compilations consist of several CDs.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;This tag has two properties:
-&lt;ul&gt;&lt;li&gt;&lt;i&gt;length&lt;/i&gt; defines how many digits the number should consist of at least (Default: 2).&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;fillchar&lt;/i&gt; sets the char taken to fill the free spaces in front of the number, if it has less digits than defined by &lt;i&gt;length&lt;/i&gt;. (Default: 0).&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Note: This tag will only be replaced if the multi-CD flag is enabled for the CD.&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>CD #</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="3" colspan="2">
+   <item row="7" column="3" colspan="2">
     <widget class="KPushButton" name="kpushbutton_date">
      <property name="toolTip">
-      <string>This tag will be replaced with the release date of the CD. In almost all cases this is the year.</string>
+      <string/>
      </property>
      <property name="text">
       <string>Date</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="5">
+   <item row="7" column="5">
     <widget class="KPushButton" name="kpushbutton_genre">
      <property name="toolTip">
-      <string>This tag will be replaced with the genre.</string>
+      <string/>
      </property>
      <property name="text">
       <string>Genre</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="0" colspan="2">
+   <item row="8" column="0" colspan="2">
     <widget class="KPushButton" name="kpushbutton_cover_file">
      <property name="toolTip">
-      <string>&lt;p&gt;This tag will be replaced with the temporary filename of the cover, e.g. to insert the cover in the id3 v2.3 tag with LAME. The cover file will be created automatically by Audex.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;This tag has six properties:&lt;ul&gt;
-&lt;li&gt;&lt;i&gt;format&lt;/i&gt; defines the image format. Possible values are &quot;PNG&quot;, &quot;JPG&quot; and &quot;GIF&quot; (Default: &quot;JPG&quot;). &lt;/li&gt;
-&lt;li&gt;&lt;i&gt;x&lt;/i&gt; (width) and &lt;i&gt;y&lt;/i&gt; (height) can be used to resize the cover image. If these are not set, then size of the cover image won't be changed.&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;usenocover&lt;/i&gt; if this is set to &lt;i&gt;true&lt;/i&gt; then the image which is shown if no cover for the current album is set will b used. (Default: false).&lt;/li&gt;
-&lt;li&gt;&lt;i&gt;preparam&lt;/i&gt; and &lt;i&gt;postparam&lt;/i&gt; define parameters inserted before (pre) or behind (post) the filename of the temporary cover. &lt;/li&gt;&lt;/ul&gt;
-&lt;i&gt;These value are &lt;b&gt;only&lt;/b&gt; shown if a cover set, or &quot;usenocover&quot; is set to &quot;true&quot;.&lt;/i&gt;&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;Eamples:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;${cover format=&quot;JPG&quot; x=&quot;300&quot; y=&quot;300&quot; preparam=&quot;-ti &quot;}&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;A filename of an JPG image with the size of 300x300 will be inserted. If no cover is set, this variable will be replaced by nothing, otherwise something like &lt;i&gt;/tmp/cover.123.jpg&lt;/i&gt; will be inserted.&lt;/p&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; LAME discards cover files larger than 128 KiB. Please bear this in mind, if you set the format and size.&lt;/i&gt;&lt;/p&gt;</string>
+      <string/>
      </property>
      <property name="text">
       <string>Cover File</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="2" colspan="2">
+   <item row="8" column="2" colspan="2">
     <widget class="KPushButton" name="kpushbutton_input_file">
      <property name="toolTip">
-      <string>This will be replaced with a temporary WAV file created by Audex from CD audio track. You can use it as a normal input file for your command line encoder.</string>
+      <string/>
      </property>
      <property name="text">
       <string>Input File</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="4" colspan="2">
+   <item row="8" column="4" colspan="2">
     <widget class="KPushButton" name="kpushbutton_output_file">
      <property name="toolTip">
-      <string>This tag will be replaced with the full output filename and path. Use it as the output for your command line encoder.</string>
+      <string/>
      </property>
      <property name="text">
       <string>Output File</string>
      </property>
     </widget>
    </item>
-   <item row="8" column="1" colspan="2">
+   <item row="9" column="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -344,14 +454,19 @@
  </widget>
  <customwidgets>
   <customwidget>
+   <class>KPushButton</class>
+   <extends>QPushButton</extends>
+   <header>kpushbutton.h</header>
+  </customwidget>
+  <customwidget>
    <class>KLineEdit</class>
    <extends>QLineEdit</extends>
    <header>klineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <class>KUrlLabel</class>
+   <extends>QLabel</extends>
+   <header>kurllabel.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

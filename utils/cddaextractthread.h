@@ -39,7 +39,7 @@ public slots:
   void setParanoiaMode(int mode) { paranoia_mode = mode; }
   void setMaxRetries(int r) { paranoia_retries = r; }
   void setNeverSkip(bool b) { never_skip = b; }
-  void setTrackToRip(unsigned int t) { track = t; }
+  void setTrackToRip(unsigned int t) { track = t; } // if t==0 rip whole cd
   void skipTrack(unsigned int t) { overall_sectors_read += paranoia->numOfFramesOfTrack(t); }
 
   bool isProcessing();

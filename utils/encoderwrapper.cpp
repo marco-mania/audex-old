@@ -58,7 +58,6 @@ bool EncoderWrapper::encode(int n,
   PatternParser patternparser;
   QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath);
  
-  qDebug() << command;
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);
   proc.start();

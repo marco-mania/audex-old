@@ -616,6 +616,10 @@ int CDDAModel::lengthOfTrack(int n) const {
   return compact_disc->trackLength(n);
 }
 
+const QList<unsigned> CDDAModel::discSignature() const {
+  return compact_disc->discSignature();
+}
+
 bool CDDAModel::isAudioTrack(int n) const {
   return compact_disc->isAudio(n);
 }
@@ -870,12 +874,12 @@ void CDDAModel::slot_disc_status_changed(KCompactDisc::DiscStatus status) {
 
   }
 
-  if (disc_status==DiscNoStatus) {
+  if (disc_status == DiscNoStatus) {
     disc_info = DiscNoInfo;
     emit discInfoChanged(disc_info);
   }
 
-  if (ds!=drive_status) emit driveStatusChanged(drive_status);
+  if (ds != drive_status) emit driveStatusChanged(drive_status);
   emit discStatusChanged(disc_status);
 
   stop();

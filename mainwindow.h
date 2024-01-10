@@ -48,6 +48,7 @@
 #include <libkcddb/cdinfo.h>
 
 #include "utils/error.h"
+#include "utils/cuesheetwriter.h"
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"

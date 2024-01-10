@@ -67,6 +67,9 @@ public:
 
   int firstSectorOfTrack(int track);
   int lastSectorOfTrack(int track);
+  
+  int firstSectorOfDisc();
+  int lastSectorOfDisc();
 
   int numOfTracks();
   int numOfAudioTracks();

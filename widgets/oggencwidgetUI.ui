@@ -16,9 +16,6 @@
     <height>300</height>
    </size>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0" colspan="4">
     <widget class="QGroupBox" name="groupBox">
@@ -32,16 +29,16 @@
       <string>Quality</string>
      </property>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0" colspan="3">
+      <item row="0" column="0" colspan="4">
        <widget class="QSlider" name="horizontalSlider_quality">
         <property name="minimum">
-         <number>-1</number>
+         <number>-10</number>
         </property>
         <property name="maximum">
-         <number>10</number>
+         <number>100</number>
         </property>
         <property name="pageStep">
-         <number>1</number>
+         <number>10</number>
         </property>
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -51,12 +48,24 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="3">
-       <widget class="KIntSpinBox" name="kintspinbox_quality">
+      <item row="0" column="4">
+       <widget class="KDoubleNumInput" name="kdoublenuminput_quality">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="maximumSize">
          <size>
-          <width>55</width>
+          <width>60</width>
           <height>16777215</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="font">
@@ -66,10 +75,16 @@
          </font>
         </property>
         <property name="minimum">
-         <number>-1</number>
+         <double>-1.000000000000000</double>
         </property>
         <property name="maximum">
-         <number>10</number>
+         <double>10.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>1.000000000000000</double>
+        </property>
+        <property name="decimals">
+         <number>1</number>
         </property>
        </widget>
       </item>
@@ -78,6 +93,7 @@
         <property name="font">
          <font>
           <weight>50</weight>
+          <italic>true</italic>
           <bold>false</bold>
          </font>
         </property>
@@ -86,20 +102,23 @@
         </property>
        </widget>
       </item>
-      <item row="1" column="1" colspan="2">
+      <item row="1" column="3">
        <widget class="QLabel" name="label_highest">
         <property name="font">
          <font>
           <weight>50</weight>
+          <italic>true</italic>
           <bold>false</bold>
          </font>
         </property>
+        <property name="mouseTracking">
+         <bool>true</bool>
+        </property>
         <property name="text">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;right&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Highest&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>Highest</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -168,7 +187,7 @@ p, li { white-space: pre-wrap; }
         </property>
        </widget>
       </item>
-      <item row="2" column="2" colspan="2">
+      <item row="2" column="2">
        <widget class="QLabel" name="label_kbits">
         <property name="font">
          <font>
@@ -189,25 +208,21 @@ p, li { white-space: pre-wrap; }
      <property name="text">
       <string>Set minimum bitrate</string>
      </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
     </widget>
    </item>
    <item row="1" column="1">
     <widget class="KIntSpinBox" name="kintspinbox_minbitrate">
      <property name="maximumSize">
       <size>
-       <width>55</width>
+       <width>75</width>
        <height>16777215</height>
       </size>
      </property>
      <property name="maximum">
-      <number>1000</number>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="2">
-    <widget class="QLabel" name="label_minbitrate_kbps">
-     <property name="text">
-      <string>kbit/s</string>
+      <number>200</number>
      </property>
     </widget>
    </item>
@@ -235,12 +250,15 @@ p, li { white-space: pre-wrap; }
     <widget class="KIntSpinBox" name="kintspinbox_maxbitrate">
      <property name="maximumSize">
       <size>
-       <width>55</width>
+       <width>75</width>
        <height>16777215</height>
       </size>
      </property>
      <property name="maximum">
-      <number>100</number>
+      <number>1000</number>
+     </property>
+     <property name="value">
+      <number>200</number>
      </property>
     </widget>
    </item>
@@ -323,12 +341,24 @@ p, li { white-space: pre-wrap; }
      </property>
     </spacer>
    </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="label_minbitrate_kbps">
+     <property name="text">
+      <string>kbit/s</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
   <customwidget>
    <class>KIntSpinBox</class>
    <extends>QSpinBox</extends>
+   <header>knuminput.h</header>
+  </customwidget>
+  <customwidget>
+   <class>KDoubleNumInput</class>
+   <extends>QWidget</extends>
    <header>knuminput.h</header>
   </customwidget>
   <customwidget>

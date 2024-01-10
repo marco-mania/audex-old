@@ -28,20 +28,27 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
     return;
   }
 
-  horizontalSlider_quality->setValue(parameters->valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
-  kintspinbox_quality->setValue(parameters->valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
+  horizontalSlider_quality->setValue((int)(parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY)*10));
+  
+  kdoublenuminput_quality->setValue(parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
+  
   set_bitrate(parameters->valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY));
+  
   enable_min_bitrate(parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY));
+  checkBox_minbitrate->setChecked(parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY));
   kintspinbox_minbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE));
+  set_minbitrate(parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE));
   enable_max_bitrate(parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY));
+  checkBox_maxbitrate->setChecked(parameters->valueToBool(ENCODER_OGGENC_MAXBITRATE_KEY));
   kintspinbox_maxbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
+  set_maxbitrate(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
   klineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
 
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
-  connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_spinbox(int)));
-  connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+  connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(quality_changed_by_spinbox(float)));
+  connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(trigger_changed()));
 
   connect(checkBox_minbitrate, SIGNAL(toggled(bool)), this, SLOT(enable_min_bitrate(bool)));
   connect(checkBox_minbitrate, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
@@ -49,7 +56,9 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
   connect(checkBox_maxbitrate, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
   connect(kintspinbox_minbitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+  connect(kintspinbox_minbitrate, SIGNAL(valueChanged(int)), this, SLOT(set_minbitrate(int)));
   connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
+  connect(kintspinbox_maxbitrate, SIGNAL(valueChanged(int)), this, SLOT(set_maxbitrate(int)));
 
   connect(klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
@@ -65,7 +74,7 @@ bool oggencWidget::save() {
 
   bool success = TRUE;
 
-  parameters->setValue(ENCODER_OGGENC_QUALITY_KEY, horizontalSlider_quality->value());
+  parameters->setValue(ENCODER_OGGENC_QUALITY_KEY, kdoublenuminput_quality->value());
   parameters->setValue(ENCODER_OGGENC_MINBITRATE_KEY, checkBox_minbitrate->isChecked());
   parameters->setValue(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, kintspinbox_minbitrate->value());
   parameters->setValue(ENCODER_OGGENC_MAXBITRATE_KEY, checkBox_maxbitrate->isChecked());
@@ -79,28 +88,34 @@ bool oggencWidget::save() {
 }
 
 void oggencWidget::quality_changed_by_slider(int quality) {
+  
+  float q = (float)((float)quality/10.0f);
+  
+  kdoublenuminput_quality->blockSignals(TRUE);
+  kdoublenuminput_quality->setValue(q);
+  kdoublenuminput_quality->blockSignals(FALSE);
 
-  kintspinbox_quality->blockSignals(TRUE);
-  kintspinbox_quality->setValue(quality);
-  kintspinbox_quality->blockSignals(FALSE);
-
-  set_bitrate(quality);
+  set_bitrate(q);
 
 }
 
-void oggencWidget::quality_changed_by_spinbox(int quality) {
+void oggencWidget::quality_changed_by_spinbox(float quality) {
 
+  int q = (int)((float)quality*10.0f);
+  
   horizontalSlider_quality->blockSignals(TRUE);
-  horizontalSlider_quality->setValue(quality);
+  horizontalSlider_quality->setValue(q);
   horizontalSlider_quality->blockSignals(FALSE);
 
   set_bitrate(quality);
 
 }
 
-void oggencWidget::set_bitrate(int quality) {
+void oggencWidget::set_bitrate(float quality) {
 
-  switch (quality) {
+  int q = (int)quality;
+  
+  switch (q) {
 
     case -1 : lineEdit_kbps->setText("48"); break;
     case 0 : lineEdit_kbps->setText("64"); break;
@@ -126,6 +141,14 @@ void oggencWidget::enable_min_bitrate(bool enable) {
 
 }
 
+void oggencWidget::set_minbitrate(int bitrate) {
+ 
+  kintspinbox_maxbitrate->blockSignals(TRUE);
+  kintspinbox_maxbitrate->setMinimum(bitrate);
+  kintspinbox_maxbitrate->blockSignals(FALSE);
+  
+}
+
 void oggencWidget::enable_max_bitrate(bool enable) {
 
   kintspinbox_maxbitrate->setEnabled(enable);
@@ -133,10 +156,18 @@ void oggencWidget::enable_max_bitrate(bool enable) {
 
 }
 
+void oggencWidget::set_maxbitrate(int bitrate) {
+ 
+  kintspinbox_minbitrate->blockSignals(TRUE);
+  kintspinbox_minbitrate->setMaximum(bitrate);
+  kintspinbox_minbitrate->blockSignals(FALSE);
+  
+}
+
 void oggencWidget::trigger_changed() {
 
   changed = (
-    horizontalSlider_quality->value() != parameters->valueToInt(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY) ||
+    kdoublenuminput_quality->value() != parameters->valueToFloat(ENCODER_OGGENC_QUALITY_KEY, ENCODER_OGGENC_QUALITY) ||
     kintspinbox_minbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MINBITRATE_VALUE_KEY, ENCODER_OGGENC_MINBITRATE_VALUE) ||
     checkBox_minbitrate->isChecked() != parameters->valueToBool(ENCODER_OGGENC_MINBITRATE_KEY) ||
     kintspinbox_maxbitrate->value() != parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE) ||

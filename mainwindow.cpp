@@ -107,15 +107,26 @@ void MainWindow::cddb_submit() {
 }
 
 void MainWindow::rip() {
-
-  if (cdda_model->discInfo()==CDDAModel::DiscNoInfo) {
+  
+  if (cdda_model->discInfo() == CDDAModel::DiscNoInfo) {
 
     if (KMessageBox::warningYesNo(this, i18n("No disc information set. Do you really want to continue?"),
 				i18n("Disc information not found"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no(),
-				i18n("no_disc_info_warn"))== KMessageBox::No) return;
+				"no_disc_info_warn")== KMessageBox::No) return;
 
+  }
+
+  if ((profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_INDEX)).toBool()) &&
+      (cdda_model->numOfAudioTracksInSelection() < cdda_model->numOfAudioTracks())) {
+    
+    if (KMessageBox::warningYesNo(this, i18n("Single file rip selected but not all audio tracks to rip selected. Do you really want to continue?"),
+				i18n("Not all audio tracks selected for single file rip"),
+				KStandardGuiItem::yes(),
+				KStandardGuiItem::no(),
+				"singlefile_selection_warn")== KMessageBox::No) return;
+    
   }
 
   ExtractingProgressDialog *dialog = new ExtractingProgressDialog(profile_model, cdda_model, this);
@@ -298,7 +309,7 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
-  if (row > 0) {
+  if (row >= 0) {
     profile_model->blockSignals(TRUE);
     profile_model->setRowAsCurrentProfileIndex(row);
     profile_model->blockSignals(FALSE);
@@ -307,7 +318,7 @@ void MainWindow::current_profile_updated_from_ui(int row) {
 
 void MainWindow::update_profile_action(int index) {
 
-  if (index==-1) {
+  if (index == -1) {
     if (layout_enabled) {
       actionCollection()->action("profile_label")->setEnabled(FALSE);
       actionCollection()->action("profile")->setEnabled(FALSE);
@@ -355,7 +366,7 @@ void MainWindow::swap_artists_and_titles() {
 				i18n("Swap artists and titles"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no(),
-				i18n("no_swap_artists_and_titles_warn"))== KMessageBox::No) return;
+				"no_swap_artists_and_titles_warn")== KMessageBox::No) return;
 
   cdda_model->swapArtistAndTitle();
   cdda_model->swapArtistAndTitleOfTracks();
@@ -368,7 +379,7 @@ void MainWindow::capitalize() {
 				i18n("Capitalize artists and titles"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no(),
-				i18n("no_capitalize_warn"))== KMessageBox::No) return;
+				"no_capitalize_warn")== KMessageBox::No) return;
 
   cdda_model->capitalizeHeader();
   cdda_model->capitalizeTracks();
@@ -381,7 +392,7 @@ void MainWindow::auto_fill_artists() {
 				i18n("Autofill artists"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no(),
-				i18n("no_autofill_warn"))== KMessageBox::No) return;
+				"no_autofill_warn")== KMessageBox::No) return;
 
   cdda_model->setTitleArtistsFromHeader();
 

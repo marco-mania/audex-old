@@ -144,6 +144,8 @@ public:
   int lengthOfAudioTracks() const;
   int lengthOfAudioTracksInSelection() const;
   int lengthOfTrack(int n) const;
+  
+  const QList<unsigned> discSignature() const;
 
   bool isAudioTrack(int n) const;
 

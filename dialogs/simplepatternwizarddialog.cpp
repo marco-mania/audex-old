@@ -35,12 +35,16 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, con
   connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
   connect(ui.klineedit_pattern, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
   ui.klineedit_pattern->setCursorPosition(0);
+  
+  connect(ui.kurllabel_aboutschemes, SIGNAL(leftClickedUrl()), this, SLOT(about_schemes()));
+  connect(ui.kurllabel_aboutparameters, SIGNAL(leftClickedUrl()), this, SLOT(about_parameters()));
 
   connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
   connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
   connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
   connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
   connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
+  connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
 
   this->pattern = pattern;
   this->suffix = suffix;
@@ -69,6 +73,37 @@ void SimplePatternWizardDialog::slotButtonClicked(int button) {
 void SimplePatternWizardDialog::trigger_changed() {
   if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
+}
+
+void SimplePatternWizardDialog::about_schemes() {
+  QWhatsThis::showText(ui.kurllabel_aboutschemes->mapToGlobal(ui.kurllabel_aboutschemes->geometry().topLeft()),
+                          i18n("<p>The following variables will be replaced with their particular meaning in every track name.</p>"
+                               "<p><table border=\"1\">"
+                               "<tr><th><em>Variable</em></th><th><em>Description</em></th></tr>"
+                               "<tr><td>$artist</td><td>The artist of the CD. If your CD is a compilation, then this tag represents the title in most cases.</td></tr>"
+                               "<tr><td>$title</td><td>The title of the CD. If your CD is a compilation, then this tag represents the subtitle in most cases.</td></tr>"
+                               "<tr><td>$date</td><td>The release date of the CD. In almost all cases this is the year.</td></tr>"
+                               "<tr><td>$genre</td><td>The genre of the CD.</td></tr>"
+                               "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
+                               "<tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \".m3u\", \".md5\" ...).</td></tr>"
+                               "</table></p>"),
+                          ui.kurllabel_aboutschemes);
+}
+
+void SimplePatternWizardDialog::about_parameters() {
+  QWhatsThis::showText(ui.kurllabel_aboutparameters->mapToGlobal(ui.kurllabel_aboutparameters->geometry().topLeft()),
+                          i18n("<p>Variables in Audex can have parameters. E.g.</p>"
+                               "<pre>$title (${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre>"
+                               "<p>This means, that the cd number will be forced to a length of 2 digits. If the number is less than 10, it will be filled up with \"0\".</p>"
+                               "<pre>${title lowercase=\"true\"}.$suffix<br />"
+                               "${title uppercase=\"true\"}.$suffix</pre>"
+                               "<p>The title will be uppercased or lowercased. This works with the other variables, too.</p>"
+                               "<pre>${artist left=\"1\"} - $title.$suffix</pre>"
+                               "<p>Take one character from the left, which is the first one.</p>"
+                               "<hr />"
+                               "<p><b><i>To have a complete overview of parameters go to the Audex webpage.</i></b></p>"
+                               ),
+                          ui.kurllabel_aboutparameters);
 }
 
 void SimplePatternWizardDialog::insAlbumArtist() {
@@ -102,6 +137,13 @@ void SimplePatternWizardDialog::insDate() {
 void SimplePatternWizardDialog::insGenre() {
   QString text = ui.klineedit_pattern->text();
   text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_GENRE));
+  ui.klineedit_pattern->setText(text);
+  update_example();
+}
+
+void SimplePatternWizardDialog::insSuffix() {
+  QString text = ui.klineedit_pattern->text();
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_SUFFIX));
   ui.klineedit_pattern->setText(text);
   update_example();
 }
