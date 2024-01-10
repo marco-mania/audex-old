@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -28,7 +28,7 @@ int main (int argc, char *argv[]) {
   KAboutData aboutData("audex", 0, ki18n("Audex"), AUDEX_VERSION,
                        ki18n("KDE CDDA Extractor"),
                        KAboutData::License_GPL,
-                       ki18n("Copyright © 2007–2011 by Marco Nelles"),
+                       ki18n("Copyright © 2007–2013 by Marco Nelles"),
                        KLocalizedString(),
                        "http://kde.maniatek.com/audex",
                        "audex@maniatek.com");

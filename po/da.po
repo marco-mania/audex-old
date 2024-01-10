@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"POT-Creation-Date: 2013-01-21 03:33+0100\n"
 "PO-Revision-Date: 2012-10-18 18:57+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -1950,7 +1950,7 @@ msgstr "Google-server: Tomt svar."
 msgid "Try again later. Make a bug report."
 msgstr "Prøv igen senere. Opret en fejlrapport."
 
-#: utils/coverfetcher.cpp:176
+#: utils/coverfetcher.cpp:178
 #, kde-format
 msgid "%1x%2, %3 KiB"
 msgstr "%1x%2, %3 KiB"

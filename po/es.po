@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"POT-Creation-Date: 2013-01-21 03:33+0100\n"
 "PO-Revision-Date: 2012-09-21 00:40+0200\n"
 "Last-Translator: Rocio Gallego <traducciones@rociogallego.com>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -1907,7 +1907,7 @@ msgstr "Servidor de Google: Respuesta vacía"
 msgid "Try again later. Make a bug report."
 msgstr "Inténtelo de nuevo más tarde. Elabore un informe de fallo."
 
-#: utils/coverfetcher.cpp:176
+#: utils/coverfetcher.cpp:178
 #, kde-format
 msgid "%1x%2, %3 KiB"
 msgstr "%1x%2, %3 KiB"

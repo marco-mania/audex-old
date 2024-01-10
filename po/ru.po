@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"POT-Creation-Date: 2013-01-21 03:33+0100\n"
 "PO-Revision-Date: 2010-08-24 20:21+0400\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -2148,7 +2148,7 @@ msgstr " "
 msgid "Try again later. Make a bug report."
 msgstr ""
 
-#: utils/coverfetcher.cpp:176
+#: utils/coverfetcher.cpp:178
 #, kde-format
 msgid "%1x%2, %3 KiB"
 msgstr ""

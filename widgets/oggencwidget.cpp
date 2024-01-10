@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -47,7 +47,7 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
-  connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(quality_changed_by_spinbox(float)));
+  connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(quality_changed_by_spinbox(double)));
   connect(kdoublenuminput_quality, SIGNAL(valueChanged(double)), this, SLOT(trigger_changed()));
 
   connect(checkBox_minbitrate, SIGNAL(toggled(bool)), this, SLOT(enable_min_bitrate(bool)));
@@ -99,7 +99,7 @@ void oggencWidget::quality_changed_by_slider(int quality) {
 
 }
 
-void oggencWidget::quality_changed_by_spinbox(float quality) {
+void oggencWidget::quality_changed_by_spinbox(double quality) {
 
   int q = (int)((float)quality*10.0f);
   

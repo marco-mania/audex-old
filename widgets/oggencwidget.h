@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -51,7 +51,7 @@ signals:
   void triggerChanged();
 private slots:
   void quality_changed_by_slider(int quality);
-  void quality_changed_by_spinbox(float quality);
+  void quality_changed_by_spinbox(double quality);
   void set_bitrate(float quality);
   void enable_min_bitrate(bool enable);
   void set_minbitrate(int bitrate);

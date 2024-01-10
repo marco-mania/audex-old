@@ -1,3 +1,8 @@
+Changelog 0.76 beta 2 (well-work release)
+* Some minor code fixes
+* Cue sheet writer now follows the file format specs (not using OGG and FLAC anymore)
+* Some minor bugfixes...
+
 Changelog 0.76 beta 1 (uddebo release)
 * Fix google cover fetcher
 * Fix compile issues with GCC 4.7

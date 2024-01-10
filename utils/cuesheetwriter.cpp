@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -88,10 +88,9 @@ QStringList CueSheetWriter::cueSheet(const QStringList& filenames) const {
 
 
 QString CueSheetWriter::p_filetype(const QString& filename) const {
-   
+  
   QString result = "WAVE";
-  if (filename.toLower().endsWith("flac")) result = "FLAC";
-  else if (filename.toLower().endsWith("ogg")) result = "OGG";
+  if ((filename.toLower().endsWith("aiff")) || (filename.toLower().endsWith("aif"))) result = "AIFF";
   else if (filename.toLower().endsWith("mp3")) result = "MP3";
   
   return result;

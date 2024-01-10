@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -63,16 +63,16 @@ signals:
   void error(const QString& errorstr);
 
 private:
-  void write_empty_header();
-  void update_header();
+  void p_write_empty_header();
+  void p_update_header();
 
-  Endianess _endianess;
+  Endianess p_endianess;
 
-  QFile output_file;
-  QDataStream output_stream;
-  QString _filename;
+  QFile p_output_file;
+  QDataStream p_output_stream;
+  QString p_filename;
 
-  long data_written;
+  long p_data_written;
 
 };
 

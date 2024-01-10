@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"POT-Creation-Date: 2013-01-21 03:33+0100\n"
 "PO-Revision-Date: 2012-07-02 11:29+0700\n"
 "Last-Translator: sutha <sutha@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros>\n"
@@ -1896,7 +1896,7 @@ msgstr "ម៉ាស៊ីន​បម្រើ​ហ្គូហ្គល​ �
 msgid "Try again later. Make a bug report."
 msgstr "ព្យាយាម​​ម្ដង​ទៀត​នៅ​ពេល​ក្រោយ​ ។ ធ្វើ​​របាយការណ៍​កំហុស ។"
 
-#: utils/coverfetcher.cpp:176
+#: utils/coverfetcher.cpp:178
 #, kde-format
 msgid "%1x%2, %3 KiB"
 msgstr "%1x%2, %3 គីឡូបៃ"

@@ -1,25 +1,28 @@
-# KDE 4.9 Finnish translation sprint 2012-06/07
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Author: Luksi
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: 2012-07-04 13:39:23+0000\n"
-"Last-Translator: Ei tietoa\n"
+"POT-Creation-Date: 2013-01-21 03:33+0100\n"
+"PO-Revision-Date: 2013-01-20 20:05:07+0000\n"
+"Last-Translator: Finnish <lokalisointi@lists.coss.fi>\n"
 "Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2012-06-15 09:00:12+0000\n"
-"X-Generator: MediaWiki 1.20alpha (r113129); Translate 2012-07-04\n"
+"X-POT-Import-Date: 2012-12-01 22:27:08+0000\n"
+"X-Generator: MediaWiki 1.21alpha (963ddae); Translate 2012-11-08\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Korvaa olemassa olevat tiedostot"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
@@ -30,7 +33,7 @@ msgstr ""
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: audex.kcfg:22
 msgid "Eject CD tray after extraction finished"
-msgstr ""
+msgstr "Avaa CD-asema onnistuneen purkamisen jälkeen"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
@@ -56,7 +59,7 @@ msgstr ""
 #. i18n: ectx: label, entry (cdDevice), group (general)
 #: audex.kcfg:42
 msgid "CD Device"
-msgstr ""
+msgstr "CD-laite"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
@@ -79,22 +82,22 @@ msgstr ""
 #. i18n: ectx: label, entry (upload), group (general)
 #: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 msgid "Upload files to server"
-msgstr ""
+msgstr "Lähetä tiedostot palvelimelle"
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:62
 msgid "URL of server"
-msgstr ""
+msgstr "Palvelimen osoite"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
 msgid "&Audex"
-msgstr ""
+msgstr "&Audex"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:13
 msgid "&CDDB"
-msgstr ""
+msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:18
@@ -105,7 +108,7 @@ msgstr ""
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
 msgid "&Settings"
-msgstr ""
+msgstr "&Asetukset"
 
 #: core/audex.cpp:112
 msgid "No profile selected. Operation abort."
@@ -133,12 +136,12 @@ msgstr ""
 #: core/audex.cpp:557 core/audex.cpp:617
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr ""
+msgstr "Kansio ”%1” luotiin onnistuneesti."
 
 #: core/audex.cpp:560 core/audex.cpp:620
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "Kansio ”%1” on jo olemassa."
 
 #: core/audex.cpp:567
 #, kde-format
@@ -190,7 +193,7 @@ msgstr ""
 
 #: core/audex.cpp:696
 msgid "Eject CD tray"
-msgstr ""
+msgstr "Avaa levyasema"
 
 #: core/audex.cpp:734
 #, kde-format
@@ -228,7 +231,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
 msgid "Various Artists"
-msgstr ""
+msgstr "Useita esittäjiä"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:23
@@ -238,7 +241,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
 msgid "Artist:"
-msgstr ""
+msgstr "Esittäjä:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
@@ -258,19 +261,19 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
 msgid "Genre:"
-msgstr ""
+msgstr "Tyylilaji:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
 msgid "Year:"
-msgstr ""
+msgstr "Vuosi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
 msgid ""
 "Additional\n"
 "Information:"
-msgstr ""
+msgstr "Lisätiedot:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:171
@@ -280,7 +283,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_discid_2)
 #: dialogs/cddaheaderdatawidgetUI.ui:178
 msgid "0x00000000"
-msgstr ""
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
@@ -355,18 +358,18 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
 msgid "Album Artist"
-msgstr ""
+msgstr "Albumin esittäjä"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
 msgid "Album Title"
-msgstr ""
+msgstr "Albumin nimi"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
 msgid "Track Artist"
-msgstr ""
+msgstr "Raidan esittäjä"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
@@ -400,7 +403,7 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
 msgid "Genre"
-msgstr ""
+msgstr "Tyylilaji"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
@@ -419,7 +422,7 @@ msgstr ""
 
 #: dialogs/coverbrowserdialog.cpp:40
 msgid "Searching for covers..."
-msgstr ""
+msgstr "Etsitään kansikuvia..."
 
 #: dialogs/coverbrowserdialog.cpp:75
 #, kde-format
@@ -435,7 +438,7 @@ msgstr[1] ""
 
 #: dialogs/coverbrowserdialog.cpp:84
 msgid "No Covers Found"
-msgstr ""
+msgstr "Kansikuvia ei löytynyt"
 
 #: dialogs/coverbrowserdialog.cpp:104
 msgid "Fetch Cover From Google"
@@ -466,15 +469,15 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:168
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Haluatko varmasti perua?"
 
 #: dialogs/extractingprogressdialog.cpp:169
 msgid "Cancel"
-msgstr ""
+msgstr "Peru"
 
 #: dialogs/extractingprogressdialog.cpp:187
 msgid "Ripping Track"
-msgstr ""
+msgstr "Ripataan raitaa"
 
 #: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
@@ -510,17 +513,17 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:263
 #, c-format, kde-format
 msgid "Speed: %1x"
-msgstr ""
+msgstr "Nopeus: %1x"
 
 #: dialogs/extractingprogressdialog.cpp:278
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Kaikki työt valmistuivat onnistuneesti."
 
 #: dialogs/extractingprogressdialog.cpp:282
 #: dialogs/extractingprogressdialog.cpp:283
 #: dialogs/extractingprogressdialog.cpp:284
 msgid "Finished!"
-msgstr ""
+msgstr "Valmis!"
 
 #: dialogs/extractingprogressdialog.cpp:289
 msgid "At least one job failed."
@@ -530,7 +533,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:294
 #: dialogs/extractingprogressdialog.cpp:295
 msgid "Failed!"
-msgstr ""
+msgstr "Epäonnistui!"
 
 #: dialogs/extractingprogressdialog.cpp:311
 msgid "Show encoding log..."
@@ -538,7 +541,7 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:315
 msgid "Show rip log..."
-msgstr ""
+msgstr "Näytä rippausloki..."
 
 #: dialogs/extractingprogressdialog.cpp:351
 msgid ""
@@ -566,12 +569,12 @@ msgstr ""
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
 msgid "Show/hide details"
-msgstr ""
+msgstr "Näytä/piilota tiedot"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -696,20 +699,20 @@ msgstr ""
 
 #: dialogs/profiledatadialog.cpp:97
 msgid "Modify Profile"
-msgstr ""
+msgstr "Muokkaa profiilia"
 
 #: dialogs/profiledatadialog.cpp:180
 msgid "Create Profile"
-msgstr ""
+msgstr "Luo profiili"
 
 #: dialogs/profiledatadialog.cpp:184
 msgid "New Profile"
-msgstr ""
+msgstr "Uusi profiili"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
 msgid "Playlist Settings"
-msgstr ""
+msgstr "Soittolistan asetukset"
 
 #: dialogs/profiledatahashlistdialog.cpp:40
 msgid "SFV (Simple File Verification)"
@@ -847,12 +850,12 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
 msgid "Filenames"
-msgstr ""
+msgstr "Tiedostonimet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:130
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "Luo FAT32-yhteensopivat tiedostonimet"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:143
@@ -873,7 +876,7 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
 msgid "Extra"
-msgstr ""
+msgstr "Ekstrat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
@@ -890,12 +893,12 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
 #: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
 msgid "Settings.."
-msgstr ""
+msgstr "Asetukset..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:221
 msgid "Create playlist in target folder"
-msgstr ""
+msgstr "Luo soittolista kohdekansioon"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:260
@@ -920,16 +923,16 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:345
 msgid "Write single file"
-msgstr ""
+msgstr "Kirjoita yksittäinen tiedosto"
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "Tallenna"
 
 #: dialogs/protocoldialog.cpp:62
 #, kde-format
 msgid "Save %1"
-msgstr ""
+msgstr "Tallenna %1"
 
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
@@ -970,7 +973,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
 msgid "Example:"
-msgstr ""
+msgstr "Esimerkki:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
 #: dialogs/simplepatternwizardwidgetUI.ui:152
@@ -979,7 +982,7 @@ msgstr ""
 
 #: main.cpp:28
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:29
 msgid "KDE CDDA Extractor"
@@ -987,11 +990,11 @@ msgstr ""
 
 #: main.cpp:31
 msgid "Copyright © 2007–2011 by Marco Nelles"
-msgstr ""
+msgstr "Tekijänoikeus © 2007–2011 Marco Nelles"
 
 #: main.cpp:35
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:35
 msgid "Current maintainer, main developer"
@@ -999,7 +1002,7 @@ msgstr ""
 
 #: main.cpp:36
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:36
 msgid "GUI improvements, development"
@@ -1015,7 +1018,7 @@ msgstr ""
 
 #: main.cpp:38
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
@@ -1032,7 +1035,7 @@ msgstr ""
 #: main.cpp:40
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Kalle Korhonen"
 
 #: main.cpp:40
 msgctxt "EMAIL OF TRANSLATORS"
@@ -1072,15 +1075,15 @@ msgstr ""
 
 #: mainwindow.cpp:148
 msgid "General settings"
-msgstr ""
+msgstr "Perusasetukset"
 
 #: mainwindow.cpp:151
 msgid "Profiles"
-msgstr ""
+msgstr "Profiilit"
 
 #: mainwindow.cpp:171
 msgid "Remote Server"
-msgstr ""
+msgstr "Etäpalvelin"
 
 #: mainwindow.cpp:183
 msgid "No status information available"
@@ -1088,23 +1091,23 @@ msgstr ""
 
 #: mainwindow.cpp:187 models/cddamodel.cpp:683
 msgid "No disc in drive"
-msgstr ""
+msgstr "Ei levyä asemassa"
 
 #: mainwindow.cpp:191
 msgid "Audio disc in drive"
-msgstr ""
+msgstr "Äänilevy asemassa"
 
 #: mainwindow.cpp:200 models/cddamodel.cpp:685
 msgid "Drive tray open"
-msgstr ""
+msgstr "Levyasema on auki"
 
 #: mainwindow.cpp:204 models/cddamodel.cpp:686
 msgid "Drive not ready"
-msgstr ""
+msgstr "Asema ei ole valmis"
 
 #: mainwindow.cpp:208 models/cddamodel.cpp:687
 msgid "Drive error"
-msgstr ""
+msgstr "Asemaan liittyvä virhe"
 
 #: mainwindow.cpp:245
 msgid "Fetching CDDB information..."
@@ -1158,19 +1161,19 @@ msgstr ""
 
 #: mainwindow.cpp:416
 msgid "Eject"
-msgstr ""
+msgstr "Poista levy asemasta"
 
 #: mainwindow.cpp:423
 msgid "Profile:"
-msgstr ""
+msgstr "Profiili:"
 
 #: mainwindow.cpp:435
 msgid "&Profile:"
-msgstr ""
+msgstr "&Profiili:"
 
 #: mainwindow.cpp:441
 msgid "Profile"
-msgstr ""
+msgstr "Profiili"
 
 #: mainwindow.cpp:449
 msgid "Fetch Info"
@@ -1182,7 +1185,7 @@ msgstr ""
 
 #: mainwindow.cpp:462
 msgid "Rip..."
-msgstr ""
+msgstr "Rippaa..."
 
 #: mainwindow.cpp:471
 msgid "Split Titles..."
@@ -1198,15 +1201,15 @@ msgstr ""
 
 #: mainwindow.cpp:486
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "Automaattinen esittäjien täyttö"
 
 #: mainwindow.cpp:491
 msgid "Select All Tracks"
-msgstr ""
+msgstr "Valitse kaikki raidat"
 
 #: mainwindow.cpp:496
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "Poista kaikki valinnat"
 
 #: mainwindow.cpp:501
 msgid "Invert Selection"
@@ -1233,7 +1236,7 @@ msgstr ""
 
 #: models/cddamodel.cpp:684
 msgid "Disc in drive"
-msgstr ""
+msgstr "Levy asemassa"
 
 #: models/cddamodel.cpp:690
 msgid "No drive status available"
@@ -1241,7 +1244,7 @@ msgstr ""
 
 #: models/cddamodel.cpp:699
 msgid "Disc playing"
-msgstr ""
+msgstr "Levyä toistetaan"
 
 #: models/cddamodel.cpp:700
 msgid "Disc paused"
@@ -1257,7 +1260,7 @@ msgstr ""
 
 #: models/cddamodel.cpp:713
 msgid "Audio disc"
-msgstr ""
+msgstr "Äänilevy"
 
 #: models/cddamodel.cpp:714
 msgid "No audio disc"
@@ -1273,7 +1276,7 @@ msgstr ""
 
 #: models/cddamodel.cpp:727
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
 msgid "Phonon Metadata"
@@ -1333,27 +1336,27 @@ msgstr ""
 
 #: models/cddamodel.h:46
 msgid "Rip"
-msgstr ""
+msgstr "Rippaa"
 
 #: models/cddamodel.h:47
 msgid "Track"
-msgstr ""
+msgstr "Raita"
 
 #: models/cddamodel.h:48
 msgid "Artist"
-msgstr ""
+msgstr "Esittäjä"
 
 #: models/cddamodel.h:49
 msgid "Title"
-msgstr ""
+msgstr "Nimike"
 
 #: models/cddamodel.h:50
 msgid "Length"
-msgstr ""
+msgstr "Kesto"
 
 #: models/profilemodel.cpp:134
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Profiilinimi ei saa olla tyhjä."
 
 #: models/profilemodel.cpp:135
 msgid "You have given no name for the profile. Please set one."
@@ -1377,7 +1380,7 @@ msgstr ""
 
 #: models/profilemodel.cpp:170
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "Kuvan tiedostomuoto on tuntematon."
 
 #: models/profilemodel.cpp:171
 msgid ""
@@ -1509,7 +1512,7 @@ msgstr ""
 
 #: utils/cachedimage.cpp:142
 msgid "File does not exist."
-msgstr ""
+msgstr "Tiedostoa ei ole olemassa."
 
 #: utils/cachedimage.cpp:142
 msgid "Please check if the file really exists."
@@ -1517,7 +1520,7 @@ msgstr ""
 
 #: utils/cachedimage.cpp:151
 msgid "Cannot open file."
-msgstr ""
+msgstr "Tiedoston avaus ei onnistu."
 
 #: utils/cachedimage.cpp:151
 msgid "Please check your file. Maybe you do not have proper permissions."
@@ -1713,26 +1716,26 @@ msgstr ""
 msgid "Try again later. Make a bug report."
 msgstr ""
 
-#: utils/coverfetcher.cpp:176
+#: utils/coverfetcher.cpp:178
 #, kde-format
 msgid "%1x%2, %3 KiB"
 msgstr ""
 
 #: utils/encoderassistant.h:66
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:98
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:128
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (häviötön)"
 
 #: utils/encoderassistant.h:139
 msgid "MP4 (AAC)"
-msgstr ""
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:157
 msgid "WAVE (Raw Uncompressed)"
@@ -1775,7 +1778,7 @@ msgstr ""
 #: utils/encoderwrapper.cpp:143 utils/encoderwrapper.cpp:155
 #: utils/encoderwrapper.cpp:157 utils/encoderwrapper.cpp:163
 msgid "Please check your profile."
-msgstr ""
+msgstr "Tarkista profiilisi."
 
 #: utils/encoderwrapper.cpp:153
 #, kde-format
@@ -1826,20 +1829,20 @@ msgstr ""
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "Lähetetään tiedostoa %1 palvelimelle. Odota hetki..."
 
 #: utils/upload.cpp:68
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "Tiedoston %1 lähetys palvelimelle valmistui."
 
 #: widgets/cddaheaderwidget.cpp:461
 msgid "Released: "
-msgstr ""
+msgstr "Julkaistu: "
 
 #: widgets/cddaheaderwidget.cpp:462
 msgid "Genre: "
-msgstr ""
+msgstr "Tyylilaji: "
 
 #: widgets/cddaheaderwidget.cpp:463
 msgid "CD Number: "
@@ -1848,7 +1851,7 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
@@ -2092,11 +2095,11 @@ msgstr ""
 #: widgets/profilewidget.cpp:80
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa profiilin ”%1”?"
 
 #: widgets/profilewidget.cpp:81
 msgid "Delete profile"
-msgstr ""
+msgstr "Poista profiiili"
 
 #: widgets/profilewidget.cpp:129
 msgid "Load Profiles"
@@ -2129,34 +2132,34 @@ msgstr[1] ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 msgid "Add..."
-msgstr ""
+msgstr "Lisää..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 msgid "Remove"
-msgstr ""
+msgstr "Poista"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
-msgstr ""
+msgstr "Muokkaa..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
 msgid "Copy"
-msgstr ""
+msgstr "Kopioi"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 msgid "Load..."
-msgstr ""
+msgstr "Lataa..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 msgid "Save..."
-msgstr ""
+msgstr "Tallenna..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 msgid "URL:"
-msgstr ""
+msgstr "Verkko-osoite:"

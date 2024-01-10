@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * Copyright (C) 2007-2013 Marco Nelles (audex@maniatek.com)
  * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
@@ -19,8 +19,8 @@
 #include "wavefilewriter.h"
 
 WaveFileWriter::WaveFileWriter() {
-  data_written = 0;
-  _endianess = LittleEndian;
+  p_data_written = 0;
+  p_endianess = LittleEndian;
 }
 
 WaveFileWriter::~WaveFileWriter() {
@@ -31,12 +31,12 @@ bool WaveFileWriter::open(const QString& filename) {
 
   close();
 
-  data_written = 0;
+  p_data_written = 0;
 
-  output_file.setFileName(filename);
-  if (output_file.open(QIODevice::WriteOnly)) {
-    _filename = filename;
-    write_empty_header();
+  p_output_file.setFileName(filename);
+  if (p_output_file.open(QIODevice::WriteOnly)) {
+    p_filename = filename;
+    p_write_empty_header();
     return TRUE;
   } else {
     return FALSE;
@@ -45,34 +45,34 @@ bool WaveFileWriter::open(const QString& filename) {
 }
 
 bool WaveFileWriter::isOpen() {
-  return output_file.isOpen();
+  return p_output_file.isOpen();
 }
 
 QString WaveFileWriter::filename() const {
-  return _filename;
+  return p_filename;
 }
 
 void WaveFileWriter::setEndianess(const Endianess e) {
-  _endianess = e;
+  p_endianess = e;
 }
 
 WaveFileWriter::Endianess WaveFileWriter::endianess() {
-  return _endianess;
+  return p_endianess;
 }
 
 void WaveFileWriter::close() {
 
   if (isOpen()) {
-    if (data_written) {
+    if (p_data_written) {
       //update wave header
-      update_header();
-      output_file.close();
+      p_update_header();
+      p_output_file.close();
     } else {
-      output_file.close();
-      output_file.remove();
+      p_output_file.close();
+      p_output_file.remove();
     }
   }
-  _filename = QString::null;
+  p_filename = QString::null;
 
 }
 
@@ -80,10 +80,10 @@ void WaveFileWriter::write(const QByteArray& data) {
 
   int len = data.size();
   if (isOpen()) {
-    if (_endianess == LittleEndian) {
-      qint64 ret = output_file.write(data);
+    if (p_endianess == LittleEndian) {
+      qint64 ret = p_output_file.write(data);
       if (ret==-1) {
-        emit error(output_file.errorString());
+        emit error(p_output_file.errorString());
         return;
       }
     } else {
@@ -97,16 +97,16 @@ void WaveFileWriter::write(const QByteArray& data) {
         buffer[i] = data.data()[i+1];
         buffer[i+1] = data.data()[i];
       }
-      output_file.write(buffer, len);
+      p_output_file.write(buffer, len);
       delete [] buffer;
     }
-    data_written += len;
+    p_data_written += len;
   }
 
 }
 
-void WaveFileWriter::write_empty_header() {
-  static const char riffHeader[] = {
+void WaveFileWriter::p_write_empty_header() {
+  static const unsigned char riffHeader[] = {
     0x52, 0x49, 0x46, 0x46, // 0  "RIFF"
     0x00, 0x00, 0x00, 0x00, // 4  wavSize
     0x57, 0x41, 0x56, 0x45, // 8  "WAVE"
@@ -119,33 +119,33 @@ void WaveFileWriter::write_empty_header() {
     0x64, 0x61, 0x74, 0x61, // 36 "data"
     0x00, 0x00, 0x00, 0x00  // 40 byteCount
   };
-  output_file.write(riffHeader, 44);
+  p_output_file.write((char*)riffHeader, 44);
 }
 
-void WaveFileWriter::update_header() {
+void WaveFileWriter::p_update_header() {
   if (isOpen()) {
-    output_file.flush();
+    p_output_file.flush();
 
     char c[4];
-    qint32 wavSize = data_written+44-8;
+    qint32 wavSize = p_data_written+44-8;
 
     // jump to the wavSize position in the header
 
-    output_file.seek(4);
+    p_output_file.seek(4);
     c[0] = (wavSize >> 0 ) & 0xff;
     c[1] = (wavSize >> 8 ) & 0xff;
     c[2] = (wavSize >> 16) & 0xff;
     c[3] = (wavSize >> 24) & 0xff;
-    output_file.write(c, 4);
+    p_output_file.write(c, 4);
 
-    output_file.seek(40);
-    c[0] = (data_written >> 0 ) & 0xff;
-    c[1] = (data_written >> 8 ) & 0xff;
-    c[2] = (data_written >> 16) & 0xff;
-    c[3] = (data_written >> 24) & 0xff;
-    output_file.write(c, 4);
+    p_output_file.seek(40);
+    c[0] = (p_data_written >> 0 ) & 0xff;
+    c[1] = (p_data_written >> 8 ) & 0xff;
+    c[2] = (p_data_written >> 16) & 0xff;
+    c[3] = (p_data_written >> 24) & 0xff;
+    p_output_file.write(c, 4);
 
     // jump back to the end
-    output_file.seek(output_file.size());
+    p_output_file.seek(p_output_file.size());
   }
 }
