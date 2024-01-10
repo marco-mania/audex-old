@@ -95,6 +95,7 @@ private Q_SLOTS:
   void configuration_updated(const QString& dialog_name);
 
   void current_profile_updated_from_ui(int row);
+  void update_profile_action(int index);
   void update_profile_action();
 
   void split_titles();

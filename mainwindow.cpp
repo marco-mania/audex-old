@@ -56,6 +56,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_submit(bool)));
 
   connect(profile_model, SIGNAL(profilesRemovedOrInserted()), this, SLOT(update_profile_action()));
+  connect(profile_model, SIGNAL(currentProfileIndexChanged(int)), this, SLOT(update_profile_action(int)));
 
   setup_actions();
   setup_layout();
@@ -74,7 +75,6 @@ bool MainWindow::firstStart() {
 
   if (Preferences::firstStart()) {
     profile_model->autoCreate();
-    profile_model->commit();
     Preferences::setFirstStart(FALSE);
     Preferences::self()->writeConfig();
     return TRUE;
@@ -295,10 +295,26 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
-  current_profile_index = profile_model->rowCount() > 0
-                          ? profile_model->data(profile_model->index(row, PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX)).toInt()
-                          : -1;
-  profile_model->setCurrentProfileIndex(current_profile_index);
+  profile_model->blockSignals(TRUE);
+  profile_model->setRowAsCurrentProfileIndex(row);
+  profile_model->blockSignals(FALSE);
+}
+
+void MainWindow::update_profile_action(int index) {
+
+  if (index==-1) {
+    if (layout_enabled) {
+      actionCollection()->action("profile_label")->setEnabled(FALSE);
+      actionCollection()->action("profile")->setEnabled(FALSE);
+    }
+  } else {
+    if (layout_enabled) {
+      actionCollection()->action("profile_label")->setEnabled(TRUE);
+      actionCollection()->action("profile")->setEnabled(TRUE);
+    }
+    profile_combobox->setCurrentIndex(profile_model->getRowByIndex(index));
+  }
+
 }
 
 void MainWindow::update_profile_action() {
@@ -306,7 +322,7 @@ void MainWindow::update_profile_action() {
   // When the Profile model emits 'reset' the profile combo clears its current settings.
   // Therefore, we need to try and reset these...
   if (profile_combobox->currentText().isEmpty()) {
-    set_profile(current_profile_index);
+    profile_combobox->setCurrentIndex(profile_model->currentProfileRow());
   }
 
   if (layout_enabled) {
@@ -396,7 +412,7 @@ void MainWindow::setup_actions() {
   profile_combobox->setMaximumWidth(220);
   profile_combobox->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
   profile_combobox->resize(QSize(220, profile_combobox->height()));
-  set_profile(profile_model->currentProfileIndex());
+  profile_combobox->setCurrentIndex(profile_model->currentProfileRow());
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
   KAction *plabelAction = new KAction(this);
@@ -539,23 +555,4 @@ void MainWindow::selection_changed(const int num_selected) {
   actionCollection()->action("rip")->setEnabled(num_selected>0);
   actionCollection()->action("selectall")->setEnabled(num_selected<cdda_model->numOfAudioTracks());
   actionCollection()->action("selectnone")->setEnabled(num_selected>0);
-}
-
-void MainWindow::set_profile(int profile_index) {
-
-  if (profile_model->rowCount()) {
-    int row = 0;
-    for (int i = 0; i < profile_model->rowCount(); ++i) {
-      if (profile_model->data(profile_model->index(i, PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX)).toInt() == profile_index) {
-        row = i;
-        break;
-      }
-    }
-    profile_combobox->setCurrentIndex(row);
-    profile_model->setCurrentProfileIndex(profile_index);
-    current_profile_index = profile_index;
-  } else {
-    current_profile_index = -1;
-  }
-
 }

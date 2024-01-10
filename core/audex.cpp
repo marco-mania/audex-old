@@ -101,20 +101,24 @@ Audex::~Audex() {
   delete wave_file_writer;
   delete jobs;
 
-  QDir dir(tmp_dir);
-  if (dir.exists()) {
-    kDebug() << QString("Deleting empty temporary directory \"%1\"").arg(tmp_dir);
-    dir.rmdir(tmp_dir);
+  if (!tmp_dir.isEmpty()) {
+    QDir dir(tmp_dir);
+    if (dir.exists()) {
+      kDebug() << QString("Deleting empty temporary directory \"%1\"").arg(tmp_dir);
+      dir.rmdir(tmp_dir);
+    }
   }
 
 }
 
 bool Audex::prepare() {
 
-  if (profile_model->currentProfileRow()<0) {
+  if (profile_model->currentProfileIndex()<0) {
     slot_error(i18n("No profile selected. Operation abort."));
     return FALSE;
   }
+
+  kDebug() << "Using profile with index" << profile_model->currentProfileIndex();
 
   PID pid;
   tmp_dir = temp_path();
@@ -772,11 +776,13 @@ void Audex::execute_finish() {
   }
 
   //flush temporary path
-  QDir tmp(tmp_dir);
-  QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
-  for (int i = 0; i < files.count(); ++i) {
-    QFile::remove(tmp_dir+files[i]);
-    kDebug() << "Deleted temporary file" << tmp_dir+files[i];
+  if (!tmp_dir.isEmpty()) {
+    QDir tmp(tmp_dir);
+    QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
+    for (int i = 0; i < files.count(); ++i) {
+      QFile::remove(tmp_dir+files[i]);
+      kDebug() << "Deleted temporary file" << tmp_dir+files[i];
+    }
   }
 
   emit finished(_finished_successful);

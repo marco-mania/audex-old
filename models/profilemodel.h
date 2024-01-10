@@ -43,7 +43,7 @@
 
 #define DEFAULT_ENCODER_PARAMETERS	""
 
-#define DEFAULT_PATTERN			"$"VAR_ALBUM_ARTIST"/$"VAR_ALBUM_TITLE"/$"VAR_TRACK_NO" - $"VAR_TRACK_TITLE".$"VAR_SUFFIX
+#define DEFAULT_PATTERN			"$"VAR_ALBUM_ARTIST"/$"VAR_ALBUM_TITLE"/${"VAR_TRACK_NO" length=\"2\" fillchar=\"0\"} - $"VAR_TRACK_TITLE".$"VAR_SUFFIX
 
 #define DEFAULT_FAT32			FALSE
 #define DEFAULT_UNDERSCORE		FALSE
@@ -114,6 +114,7 @@ enum ProfileColumns {
 };
 
 #define PROFILE_MODEL_PROFILEINDEX_KEY			"profile_key"
+//#define PROFILE_MODEL_PROFILEINDEX_KEY			"profile_index"
 #define PROFILE_MODEL_NAME_KEY				"name"
 #define PROFILE_MODEL_ENCODER_SELECTED_KEY		"current_encoder"
 
@@ -172,6 +173,7 @@ public:
 
   int currentProfileIndex() const;
   int currentProfileRow() const;
+  int getRowByIndex(int profile_index) const;
 
   void clear();
 
@@ -203,9 +205,11 @@ public slots:
   bool loadProfilesFromFile(const QString& filename);
 
   void setCurrentProfileIndex(int profile_index);
+  int setRowAsCurrentProfileIndex(int row); //returns profile index
 
 signals:
   void profilesRemovedOrInserted();
+  void currentProfileIndexChanged(int index);
 
 private:
   const Profile newProfile();

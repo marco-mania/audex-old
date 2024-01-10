@@ -801,7 +801,7 @@ msgstr "Interpret"
 
 #: models/cddamodel.h:44
 msgid "Title"
-msgstr "Albumtitel"
+msgstr "Titel"
 
 #: models/cddamodel.h:45
 msgid "Length"

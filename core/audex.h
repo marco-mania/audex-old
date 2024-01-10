@@ -197,6 +197,7 @@ private:
     if (tmp.isEmpty()) {
       QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
       tmp = dirs.size()?dirs[0]:"/var/tmp/";
+      kDebug() << "Found temporary path" << tmp;
     }
     return tmp;
   }

@@ -346,9 +346,14 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex& parent) {
     c = row+count;
   }
 
-  for (int i = row; i < c; ++i) cache.removeAt(i);
+  for (int i = row; i < c; ++i) {
+    cache.removeAt(i);
+  }
 
   reset();
+
+  //update current profile index. maybe current has been deleted?
+  setCurrentProfileIndex(current_profile_index);
 
   emit profilesRemovedOrInserted();
 
@@ -368,6 +373,8 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent) {
     return FALSE;
   }
 
+  bool wasEmpty = (cache.count()==0);
+
   if (row == cache.count()) {
     for (int i = 0; i < count; ++i) cache.append(newProfile());
   } else {
@@ -376,6 +383,11 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent) {
 
   reset();
 
+  if (wasEmpty) {
+    //set first profile as current index
+    setCurrentProfileIndex(cache.at(0)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt());
+  }
+
   emit profilesRemovedOrInserted();
 
   return TRUE;
@@ -383,14 +395,27 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent) {
 }
 
 void ProfileModel::setCurrentProfileIndex(int profile_index) {
-  if (cache.count()==0) current_profile_index = -1; else if (!indexExists(profile_index)) current_profile_index = 0;
-  if (profile_index != current_profile_index) {
-    current_profile_index = profile_index;
+  int pi = profile_index;
+  if (cache.count()==0) {
+    pi = -1;
+  } else if (!indexExists(profile_index)) {
+    //set first profile as current index
+    pi = cache.at(0)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt();
+  }
+  if (pi != current_profile_index) {
+    current_profile_index = pi;
     KConfig config;
     KConfigGroup profilesGroup(&config, "Profiles");
-    profilesGroup.writeEntry("Standard", profile_index);
+    profilesGroup.writeEntry("Standard", pi);
     profilesGroup.config()->sync();
+    emit currentProfileIndexChanged(pi);
   }
+}
+
+int ProfileModel::setRowAsCurrentProfileIndex(int row) {
+  int i = cache.at(row).value(PROFILE_MODEL_PROFILEINDEX_KEY, -1).toInt();
+  setCurrentProfileIndex(i);
+  return i;
 }
 
 int ProfileModel::currentProfileIndex() const {
@@ -399,8 +424,12 @@ int ProfileModel::currentProfileIndex() const {
 }
 
 int ProfileModel::currentProfileRow() const {
+  return getRowByIndex(current_profile_index);
+}
+
+int ProfileModel::getRowByIndex(int profile_index) const {
   for (int i = 0; i < cache.count(); ++i)
-    if (current_profile_index==cache.at(i)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt()) return i;
+    if (profile_index==cache.at(i)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt()) return i;
   return -1;
 }
 
@@ -456,6 +485,8 @@ void ProfileModel::sortItems() {
 void ProfileModel::autoCreate() {
 
   bool flag = FALSE;
+
+  bool wasEmpty = (cache.count()==0);
 
   if (EncoderAssistant::available(EncoderAssistant::LAME)) {
 
@@ -568,7 +599,13 @@ void ProfileModel::autoCreate() {
 
   if (flag) {
     sortItems();
+    if (wasEmpty) {
+      //set first profile as current index
+      setCurrentProfileIndex(cache.at(0)[PROFILE_MODEL_PROFILEINDEX_KEY].toInt());
+    }
   }
+
+  commit();
 
 }
 
