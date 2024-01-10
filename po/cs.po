@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: http://opensource.maniatek.de/audex\n"
 "POT-Creation-Date: 2009-05-11 18:49+0200\n"
-"PO-Revision-Date: 2009-05-11 20:22+0200\n"
+"PO-Revision-Date: 2009-06-26 08:56+0200\n"
 "Last-Translator: Pavel Fric <pavelfric@seznam.cz>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
@@ -692,7 +692,7 @@ msgstr "Odeslat informace"
 
 #: mainwindow.cpp:432
 msgid "Rip..."
-msgstr "Získat z CD..."
+msgstr "Získat skladby..."
 
 #: mainwindow.cpp:441
 msgid "Split titles..."
@@ -810,7 +810,7 @@ msgstr "Vybrat záznam v CDDB:"
 
 #: models/cddamodel.h:41
 msgid "Rip"
-msgstr "Získat z CD"
+msgstr "Získat skladby"
 
 #: models/cddamodel.h:42
 msgid "Track"
@@ -999,7 +999,7 @@ msgstr "Po zrušení operace smazat neúplné soubory"
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: rc.cpp:9
 msgid "Eject CD tray after extraction finished"
-msgstr "Vysunout CD z mechaniky po skončení získávání dat"
+msgstr "Vysunout CD z mechaniky po skončení získávání skladeb"
 
 #. i18n: file: audex.kcfg:26
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
@@ -1169,7 +1169,7 @@ msgstr "CD číslo:"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: rc.cpp:69
 msgid "Track Offset:"
-msgstr "Vyrovnání stopy:"
+msgstr "Odskok stopy:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:108
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
@@ -1577,7 +1577,7 @@ msgstr "Rychlost: 0x"
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: rc.cpp:207
 msgid "Overall Ripping Progress"
-msgstr "Postup získávání celkem"
+msgstr "Celkový postup při získávání stop"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:115
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)

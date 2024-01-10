@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <KApplication>
+#include <KUniqueApplication>
 #include <KAboutData>
 #include <KCmdLineArgs>
 
@@ -38,7 +38,8 @@ int main (int argc, char *argv[]) {
   aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"), ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
   KCmdLineArgs::init(argc, argv, &aboutData);
-  KApplication app;
+
+  KUniqueApplication app;
 
   MainWindow* window = new MainWindow();
   window->show();

@@ -414,7 +414,7 @@ bool ProfileDataDialog::save() {
 
   if (success) {
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.klineedit_name->text());
-    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->currentIndex());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.klineedit_pattern->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX), ui.checkBox_underscore->isChecked());
