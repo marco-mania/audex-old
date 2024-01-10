@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -57,7 +57,8 @@ bool EncoderWrapper::encode(int n,
 
   PatternParser patternparser;
   QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath);
-
+ 
+  qDebug() << command;
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);
   proc.start();
@@ -155,9 +156,9 @@ void EncoderWrapper::processError(QProcess::ProcessError err) {
     case QProcess::Timedout :
       emit error(i18n("%1 timed out. This should not happen.", encoder), i18n("Please check your profile.")); break;
     case QProcess::WriteError :
-      emit error(i18n("An error occurred when attempting to write to %1.", encoder), i18n("For example, the proc may not be running, or it may have closed its input channel.")); break;
+      emit error(i18n("An error occurred when attempting to write to %1.", encoder), i18n("For example, the process may not be running, or it may have closed its input channel.")); break;
     case QProcess::ReadError :
-      emit error(i18n("An error occurred when attempting to read from %1.", encoder), i18n("For example, the proc may not be running.")); break;
+      emit error(i18n("An error occurred when attempting to read from %1.", encoder), i18n("For example, the process may not be running.")); break;
     case QProcess::UnknownError :
       emit error(i18n("An unknown error occurred to %1. This should not happen.", encoder), i18n("Please check your profile.")); break;
   }

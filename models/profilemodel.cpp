@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -56,6 +56,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
 
       case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX : return cache.at(index.row())[PROFILE_MODEL_PROFILEINDEX_KEY];
       case PROFILE_MODEL_COLUMN_NAME_INDEX : return cache.at(index.row())[PROFILE_MODEL_NAME_KEY];
+      case PROFILE_MODEL_COLUMN_ICON_INDEX : return cache.at(index.row())[PROFILE_MODEL_ICON_KEY];
 
       case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX : return cache.at(index.row())[PROFILE_MODEL_ENCODER_SELECTED_KEY];
 
@@ -89,7 +90,16 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
   }
 
   if (role == Qt::DecorationRole) {
-    return KIcon("application-x-zerosize");
+    QString iconName(cache.at(index.row())[PROFILE_MODEL_ICON_KEY].toString());
+
+    if(!iconName.isEmpty()) {
+      KIcon icon(iconName);
+      if(!icon.isNull()) {
+        return icon;
+      }
+    }
+
+    return KIcon(DEFAULT_ICON);
   }
 
   return QVariant();
@@ -111,6 +121,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
       switch (index.column()) {
 
         case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX : break;
+        case PROFILE_MODEL_COLUMN_ICON_INDEX : break;
 
         case PROFILE_MODEL_COLUMN_NAME_INDEX :
 	  if (value.toString().isEmpty()) {
@@ -251,7 +262,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         if (found) {
           error = Error(
 		i18n("Profile name already exists."),
-		i18n("Your profile name %1 already exists in the set of profiles. Please choose an unique one.", value.toString()),
+		i18n("Your profile name %1 already exists in the set of profiles. Please choose a unique one.", value.toString()),
 		Error::ERROR,
 		this);
           return FALSE;
@@ -268,7 +279,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
         if (found) {
           error = Error(
 		i18n("Profile index already exists."),
-		i18n("Your profile index %1 already exists in the set of profiles. Please choose an unique one.", value.toInt()),
+		i18n("Your profile index %1 already exists in the set of profiles. Please choose a unique one.", value.toInt()),
 		Error::ERROR,
 		this);
           return FALSE;
@@ -279,6 +290,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 
         case PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX : cache[index.row()][PROFILE_MODEL_PROFILEINDEX_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_NAME_INDEX : cache[index.row()][PROFILE_MODEL_NAME_KEY] = value; break;
+        case PROFILE_MODEL_COLUMN_ICON_INDEX : cache[index.row()][PROFILE_MODEL_ICON_KEY] = value; break;
 
         case PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX : cache[index.row()][PROFILE_MODEL_ENCODER_SELECTED_KEY] = value; break;
 
@@ -493,6 +505,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_MOBILE_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_MOBILE_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
       p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::MOBILE).toString();
       cache.append(p);
@@ -502,6 +515,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_NORMAL_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_NORMAL_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
       p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::NORMAL).toString();
       cache.append(p);
@@ -511,6 +525,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_EXTREME_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::LAME) + LABEL_EXTREME_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::LAME);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::LAME;
       p[PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::LAME, EncoderAssistant::EXTREME).toString();;
       cache.append(p);
@@ -524,6 +539,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_MOBILE_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_MOBILE_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
       p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::MOBILE).toString();
       cache.append(p);
@@ -533,6 +549,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_NORMAL_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_NORMAL_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
       p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::NORMAL).toString();
       cache.append(p);
@@ -542,6 +559,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_EXTREME_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::OGGENC) + LABEL_EXTREME_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::OGGENC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::OGGENC;
       p[PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::OGGENC, EncoderAssistant::EXTREME).toString();
       cache.append(p);
@@ -553,6 +571,7 @@ void ProfileModel::autoCreate() {
   if ((!nameExists(EncoderAssistant::name(EncoderAssistant::FLAC))) && (EncoderAssistant::available(EncoderAssistant::FLAC))) {
     Profile p = newProfile();
     p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FLAC);
+    p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FLAC);
     p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FLAC;
     cache.append(p);
     flag = TRUE;
@@ -563,6 +582,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_MOBILE_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_MOBILE_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
       p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::MOBILE).toString();
       cache.append(p);
@@ -572,6 +592,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_NORMAL_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_NORMAL_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
       p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::NORMAL).toString();
       cache.append(p);
@@ -581,6 +602,7 @@ void ProfileModel::autoCreate() {
     if (!nameExists(EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_EXTREME_QUALITY)) {
       Profile p = newProfile();
       p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::FAAC) + LABEL_EXTREME_QUALITY;
+      p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::FAAC);
       p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::FAAC;
       p[PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY] = EncoderAssistant::stdParameters(EncoderAssistant::FAAC, EncoderAssistant::EXTREME).toString();
       cache.append(p);
@@ -592,6 +614,7 @@ void ProfileModel::autoCreate() {
   if ((!nameExists(EncoderAssistant::name(EncoderAssistant::WAVE))) && (EncoderAssistant::available(EncoderAssistant::WAVE))) {
     Profile p = newProfile();
     p[PROFILE_MODEL_NAME_KEY] = EncoderAssistant::name(EncoderAssistant::WAVE);
+    p[PROFILE_MODEL_ICON_KEY] = EncoderAssistant::icon(EncoderAssistant::WAVE);
     p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = (int)EncoderAssistant::WAVE;
     cache.append(p);
     flag = TRUE;
@@ -779,6 +802,7 @@ void ProfileModel::save(KConfig *config) {
 
     subGroup.writeEntry(PROFILE_MODEL_PROFILEINDEX_KEY, cache[i][PROFILE_MODEL_PROFILEINDEX_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_NAME_KEY, cache[i][PROFILE_MODEL_NAME_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_ICON_KEY, cache[i][PROFILE_MODEL_ICON_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, cache[i][PROFILE_MODEL_ENCODER_SELECTED_KEY]);
 
@@ -830,6 +854,7 @@ void ProfileModel::load(KConfig *config) {
 
     p[PROFILE_MODEL_PROFILEINDEX_KEY] = subGroup.readEntry(PROFILE_MODEL_PROFILEINDEX_KEY, DEFAULT_PROFILEINDEX);
     p[PROFILE_MODEL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_NAME_KEY, DEFAULT_NAME);
+    p[PROFILE_MODEL_ICON_KEY] = subGroup.readEntry(PROFILE_MODEL_ICON_KEY, DEFAULT_ICON);
 
     p[PROFILE_MODEL_ENCODER_SELECTED_KEY] = subGroup.readEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, DEFAULT_ENCODER_SELECTED);
 

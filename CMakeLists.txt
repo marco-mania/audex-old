@@ -1,14 +1,16 @@
 project (audex)
 
+cmake_minimum_required(VERSION 2.8)
+
 set(CPACK_PACKAGE_DESCRIPTION_FILE "${CMAKE_CURRENT_SOURCE_DIR}/README")
 set(CPACK_GENERATOR "DEB;RPM;TGZ")
 set(DEBIAN_PACKAGE_DESCRIPTION "Audex")
 set(DEBIAN_PACKAGE_SECTION "Multimedia")
 set(CPACK_SOURCE_GENERATOR "TBZ2")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
-set(CPACK_PACKAGE_VERSION_MINOR "72")
+set(CPACK_PACKAGE_VERSION_MINOR "73")
 set(CPACK_PACKAGE_VERSION_BETA " beta 1")
-set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.de>")
+set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.com>")
 set(AUDEX_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}${CPACK_PACKAGE_VERSION_BETA}")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
 set(CPACK_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
@@ -19,10 +21,9 @@ configure_file(config.h.cmake ${CMAKE_BINARY_DIR}/config.h)
 
 find_package(KDE4 REQUIRED)
 find_package(KdeMultimedia REQUIRED)
-include(MacroLibrary)
+find_package(Cdparanoia REQUIRED)
 
-find_package(Cdparanoia)
-macro_log_feature(CDPARANOIA_FOUND "cdparanoia" "Reads digital audio directly from a CD, then writes the data to a file or pipe in several different formats" "http://www.xiph.org/paranoia/" FALSE "" "Required for building Audex.")
+include(MacroLibrary)
 
 include_directories(
     ${KDE4_INCLUDES}
@@ -32,12 +33,13 @@ include_directories(
     ${CDPARANOIA_INCLUDE_DIR}
 )
 
+set(CMAKE_C_FLAGS "${AUDEX_ID3_CFLAGS} ${CMAKE_C_FLAGS}")
+
 set(audex_SRCS
   main.cpp
   mainwindow.cpp
   models/cddamodel.cpp
   models/profilemodel.cpp
-  utils/diskfreespace.cpp
   utils/pid.cpp
   utils/coverfetcher.cpp
   utils/patternparser.cpp
@@ -45,6 +47,7 @@ set(audex_SRCS
   utils/wavefilewriter.cpp
   utils/cddaparanoia.cpp
   utils/encoderwrapper.cpp
+  utils/errordialog.cpp
   utils/cddaextractthread.cpp
   utils/upload.cpp
   utils/encoderassistant.cpp
@@ -104,7 +107,7 @@ kde4_add_ui_files(audex_SRCS
 kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 kde4_add_executable(audex ${audex_SRCS})
-target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDEMULTIMEDIA_LIBRARIES})
+target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${AUDEX_ID3_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} ${KDEMULTIMEDIA_LIBRARIES})
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
 install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)

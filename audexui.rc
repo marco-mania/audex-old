@@ -15,7 +15,7 @@
       <Action name="submit" />
       <Separator/>
       <Menu name="titlecorrectiontools">
-        <text context="@title:menu">Title correction tools</text>
+        <text context="@title:menu">Title Correction Tools</text>
         <Action name="splittitles" />
         <Action name="swapartistsandtitles" />
         <Action name="capitalize" />

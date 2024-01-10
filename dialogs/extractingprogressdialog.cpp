@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,14 +34,11 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
 
-  QString title = QString("<h2>%1 - %2</h2>").arg(cdda_model->artist()).arg(cdda_model->title());
-  if (title.length() > 32) {
-    title = title.left(32)+"...";
-  }
+  QString title = QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title());
   ui.label_header->setText(title);
 
-  ui.label_extracting->setText(i18n("Ripping Track  0 / %1", cdda_model->numOfAudioTracks()));
-  ui.label_encoding->setText(i18n("Encoding Track  0 / %1", cdda_model->numOfAudioTracks()));
+  ui.label_extracting->setText(i18n("Ripping Track 0 of %1", cdda_model->numOfAudioTracks()));
+  ui.label_encoding->setText(i18n("Encoding Track 0 of %1", cdda_model->numOfAudioTracks()));
 
   audex = new Audex(this, profile_model, cdda_model);
 
@@ -54,20 +51,17 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   connect(audex, SIGNAL(progressExtractTrack(int)), this, SLOT(show_progress_extract_track(int)));
   connect(audex, SIGNAL(progressExtractOverall(int)), this, SLOT(show_progress_extract_overall(int)));
   connect(audex, SIGNAL(progressEncodeTrack(int)), this, SLOT(show_progress_encode_track(int)));
+  connect(audex, SIGNAL(progressEncodeOverall(int)), this, SLOT(show_progress_encode_overall(int)));
   connect(audex, SIGNAL(changedExtractTrack(int, int, const QString&, const QString&)), this, SLOT(show_changed_extract_track(int, int, const QString&, const QString&)));
   connect(audex, SIGNAL(changedEncodeTrack(int, int, const QString&)), this, SLOT(show_changed_encode_track(int, int, const QString&)));
   connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
+  connect(ui.details_button, SIGNAL(pressed()), this, SLOT(toggle_details()));
 
-  showButtonSeparator(true);
+  showButtonSeparator(TRUE);
   finished = FALSE;
 
   progressbar_np_flag = FALSE;
-  ui.filename->setText(QString());
-
-  if(cdda_model->numOfAudioTracksInSelection()<2) {
-    ui.label_overall->setVisible(false);
-    ui.progressBar_overall->setVisible(false);
-  }
+  
 }
 
 ExtractingProgressDialog::~ExtractingProgressDialog() {
@@ -77,17 +71,61 @@ ExtractingProgressDialog::~ExtractingProgressDialog() {
 }
 
 int ExtractingProgressDialog::exec() {
+  
+  KConfigGroup grp(KGlobal::config(), "ExtractingProgressDialog");
 
+  resize(600, 400);
+  current_extract_overall = (current_encode_overall=0);
+  ui.details_button->setArrowType(grp.readEntry("Simple", TRUE) ? Qt::UpArrow : Qt::DownArrow);
+  toggle_details();
   show();
   setModal(TRUE);
   if (audex->prepare()) {
     audex->start();
   }
-  return KDialog::exec();
+  int rv = KDialog::exec();
 
+  grp.writeEntry("Simple", (Qt::DownArrow==ui.details_button->arrowType()));
+  
+  return rv;
+  
+}
+
+void ExtractingProgressDialog::calc_overall_progress() {
+  ui.progressBar_overall->setValue(((current_extract_overall+current_encode_overall)/2.0f)+0.5);
+}
+
+void ExtractingProgressDialog::toggle_details() {
+  
+  if (Qt::UpArrow == ui.details_button->arrowType()) {
+    
+    ui.details_button->setArrowType(Qt::DownArrow);
+    ui.details->setVisible(FALSE);
+    ui.label_overall->setVisible(FALSE);
+    ui.label_overall_track->setVisible(TRUE);
+    ui.progressBar_overall->setVisible(TRUE);
+    resize(width(), 32);
+    
+  } else {
+    
+    ui.details_button->setArrowType(Qt::UpArrow);
+    ui.details->setVisible(TRUE);
+    ui.label_overall_track->setVisible(FALSE);
+    
+    if (cdda_model->numOfAudioTracksInSelection() < 2) {
+      ui.label_overall->setVisible(FALSE);
+      ui.progressBar_overall->setVisible(FALSE);
+    } else {
+      ui.label_overall->setVisible(TRUE);
+    }
+    resize(width(), 400);
+    
+  }
+  
 }
 
 void ExtractingProgressDialog::slotButtonClicked(int button) {
+  
   switch(button) {
     case Cancel:
       cancel();
@@ -104,6 +142,7 @@ void ExtractingProgressDialog::slotButtonClicked(int button) {
     default:
       KDialog::slotButtonClicked(button);
   }
+  
 }
 
 void ExtractingProgressDialog::cancel() {
@@ -117,8 +156,8 @@ void ExtractingProgressDialog::cancel() {
     if (KMessageBox::warningYesNo(this, i18n("Do you really want to cancel?"),
 				i18n("Cancel"),
 				KStandardGuiItem::yes(),
-				KStandardGuiItem::no())== KMessageBox::Yes) {
-      setButtons(Close);
+				KStandardGuiItem::no()) == KMessageBox::Yes) {
+      enableButton(Cancel, FALSE);
       audex->cancel();
     }
 
@@ -127,21 +166,24 @@ void ExtractingProgressDialog::cancel() {
 }
 
 void ExtractingProgressDialog::show_changed_extract_track(int no, int total, const QString& artist, const QString& title) {
-
-  ui.label_extracting->setText(1==total ? i18n("Ripping Track") : i18n("Ripping Track %1 / %2", no, total));
-  ui.label_track->setText(cdda_model->isVarious() ? QString("(%1 - %2)").arg(artist).arg(title) : QString("(%1)").arg(title));
-
+  
+  Q_UNUSED(artist);
+  Q_UNUSED(title);
+  
+  ui.label_extracting->setText((1==total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
+  ui.label_overall_track->setText((1==total) ? i18n("Overall Progress (Ripping Track)") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
+  
 }
 
 void ExtractingProgressDialog::show_changed_encode_track(int no, int total, const QString& filename) {
 
-  if (no==0) {
+  Q_UNUSED(filename);
+  
+  if (no == 0) {
     ui.label_encoding->setText("<i>"+i18n("Waiting for an encoding job...")+"</i>");
     ui.label_speed_encoding->clear();
-    ui.filename->setText(QString());
   } else {
-    ui.label_encoding->setText(1==total ? i18n("Encoding Track") : i18n("Encoding Track %1 / %2", no, total));
-    ui.filename->setText(QChar('(')+filename+QChar(')'));
+    ui.label_encoding->setText((1==total) ? i18n("Encoding Track") : i18n("Encoding Track %1 of %2", no, total));
   }
 
 }
@@ -154,13 +196,12 @@ void ExtractingProgressDialog::show_progress_extract_track(int percent) {
 
 void ExtractingProgressDialog::show_progress_extract_overall(int percent) {
 
-  ui.progressBar_overall->setValue(percent);
-
+  current_extract_overall = percent;
+  calc_overall_progress();
+  
 }
 
 void ExtractingProgressDialog::show_progress_encode_track(int percent) {
-
-  //ui.progressBar_encoding->setValue(percent);
 
   if (percent >= 0) {
     ui.progressBar_encoding->setValue(percent);
@@ -179,6 +220,13 @@ void ExtractingProgressDialog::show_progress_encode_track(int percent) {
 
 }
 
+void ExtractingProgressDialog::show_progress_encode_overall(int percent) {
+
+  current_encode_overall = percent;
+  calc_overall_progress();
+  
+}
+
 void ExtractingProgressDialog::show_speed_encode(double speed) {
 
   QString s = QString("%1").arg((double)speed, 0, 'f', 2);
@@ -195,9 +243,10 @@ void ExtractingProgressDialog::show_speed_extract(double speed) {
 
 void ExtractingProgressDialog::conclusion(bool successful) {
 
-  QFlags<KDialog::ButtonCode> buttons=Close;
+  QFlags<KDialog::ButtonCode> buttons = Close;
 
   finished = TRUE;
+  
   QPalette pal(ui.label_extracting->palette());
   KColorScheme kcs(QPalette::Active);
   if (successful) {
@@ -207,8 +256,10 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
     ui.label_extracting->setText("<font style=\"font-weight:bold;\">"+i18n("Finished!")+"</font>");
     ui.label_encoding->setText("<font style=\"font-weight:bold;\">"+i18n("Finished!")+"</font>");
+    ui.label_overall_track->setText("<font style=\"font-weight:bold;\">"+i18n("Finished!")+"</font>");
     ui.progressBar_extracting->setValue(100);
     ui.progressBar_encoding->setValue(100);
+    ui.progressBar_overall->setValue(100);
   } else {
     QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-cancel"), i18n("At least one job failed."));
     pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
@@ -216,17 +267,26 @@ void ExtractingProgressDialog::conclusion(bool successful) {
     ui.klistwidget->scrollToItem(item);
     ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
     ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
-    if (audex->encoderProtocol().count()>0) { buttons|=User1; }
-    if (audex->extractProtocol().count()>0) { buttons|=User2; }
+    ui.label_overall_track->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
+    if (audex->encoderProtocol().count() > 0) { buttons |= User1; }
+    if (audex->extractProtocol().count() > 0) { buttons |= User2; }
   }
+  
+  ui.progressBar_extracting->setEnabled(FALSE);
+  ui.progressBar_encoding->setEnabled(FALSE);
+  ui.progressBar_overall->setEnabled(FALSE);
+  ui.label_speed_extracting->setEnabled(FALSE);
+  ui.label_speed_encoding->setEnabled(FALSE);
+  ui.label_overall->setEnabled(FALSE);
+  
   ui.label_extracting->setPalette(pal);
   ui.label_encoding->setPalette(pal);
   setButtons(buttons);
-  if (audex->encoderProtocol().count()>0) {
+  if (audex->encoderProtocol().count() > 0) {
     setButtonText(User1, i18n("Show encoding log..."));
     setButtonIcon(User1, KIcon("media-optical-audio"));
   }
-  if (audex->extractProtocol().count()>0) {
+  if (audex->extractProtocol().count() > 0) {
     setButtonText(User2, i18n("Show rip log..."));
     setButtonIcon(User2, KIcon("media-optical"));
   }
@@ -242,7 +302,6 @@ void ExtractingProgressDialog::show_info(const QString& message) {
 }
 
 void ExtractingProgressDialog::show_warning(const QString& message) {
-
   QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-warning"), message);
   ui.klistwidget->addItem(item);
   ui.klistwidget->scrollToItem(item);
@@ -264,12 +323,12 @@ void ExtractingProgressDialog::show_error(const QString& message, const QString&
 
 void ExtractingProgressDialog::ask_timeout() {
 
-  if (KMessageBox::questionYesNo(this, i18n("Ripping speed is extremly slow for the last 5 minutes by now.\nDue to extraction quality, audex is so configured, never skip any detected error. "
-				"So if your disc is really broken extracting maybe never ends.\nIn some cases only this drive can't rip audio data from this disc. Maybe try another one.\n\n"
+  if (KMessageBox::questionYesNo(this, i18n("Ripping speed was extremly slow for the last 5 minutes.\nDue to extraction quality, audex is configured to never skip any detected error. "
+				"If your disc is really broken extraction may never end!\nIn some cases, it might be that only this drive has difficulty ripping audio data from this disc. Maybe try another one.\n\n"
 				"However, do you want to continue extraction?"),
 				i18n("Cancel extraction"),
 				KStandardGuiItem::yes(),
-				KStandardGuiItem::no())== KMessageBox::Yes) {
+				KStandardGuiItem::no()) == KMessageBox::Yes) {
     audex->cancel();
   }
 

@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
  */
 
 #include "profiledatadialog.h"
+#include "utils/errordialog.h"
 
 ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profileRow, QWidget *parent) : KDialog(parent) {
 
@@ -96,6 +97,9 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     connect(ui.klineedit_name, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
     ui.klineedit_name->setCursorPosition(0);
 
+    ui.kiconbutton_icon->setIcon(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString());
+    connect(ui.kiconbutton_icon, SIGNAL(iconChanged(const QString&)), this, SLOT(trigger_changed()));
+
     set_encoder(profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toInt());
     connect(ui.kcombobox_encoder, SIGNAL(activated(int)), this, SLOT(trigger_changed()));
 
@@ -152,6 +156,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
     setButtons(KDialog::Ok | KDialog::Cancel);
 
     ui.klineedit_name->setText(i18n("New Profile"));
+    ui.kiconbutton_icon->setIcon(DEFAULT_ICON);
 
     set_encoder(DEFAULT_ENCODER_SELECTED);
 
@@ -183,6 +188,7 @@ ProfileDataDialog::ProfileDataDialog(ProfileModel *profileModel, const int profi
 
   }
 
+  ui.klineedit_name->setFocus();
   showButtonSeparator(TRUE);
   resize(0, 0);  // For some reason dialog start of big...
 
@@ -204,11 +210,11 @@ void ProfileDataDialog::slotButtonClicked(int button) {
     if (save()) {
       accept();
     } else {
-      KMessageBox::detailedError(this, error.message(), error.details());
+      ErrorDialog::show(this, error.message(), error.details());
     }
   } else if (button == KDialog::Apply) {
     if (!save()) {
-      KMessageBox::detailedError(this, error.message(), error.details());
+      ErrorDialog::show(this, error.message(), error.details());
     }
   } else {
     KDialog::slotButtonClicked(button);
@@ -232,6 +238,7 @@ void ProfileDataDialog::set_encoder_by_combobox(const int index) {
 void ProfileDataDialog::trigger_changed() {
   enableButtonApply(
       ui.klineedit_name->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_NAME_INDEX)).toString() ||
+      ui.kiconbutton_icon->icon() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ICON_INDEX)).toString() ||
       ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()) != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX)).toString() ||
       ui.klineedit_pattern->text() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString() ||
       ui.checkBox_fat32compatible->isChecked() != profile_model->data(profile_model->index(profile_row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool() ||
@@ -414,6 +421,7 @@ bool ProfileDataDialog::save() {
 
   if (success) {
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_NAME_INDEX), ui.klineedit_name->text());
+    if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ICON_INDEX), ui.kiconbutton_icon->icon());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX), ui.kcombobox_encoder->itemData(ui.kcombobox_encoder->currentIndex()));
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PATTERN_INDEX), ui.klineedit_pattern->text());
     if (success) success = profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX), ui.checkBox_fat32compatible->isChecked());

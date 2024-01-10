@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -104,7 +104,7 @@ Audex::~Audex() {
   if (!tmp_dir.isEmpty()) {
     QDir dir(tmp_dir);
     if (dir.exists()) {
-      kDebug() << QString("Deleting empty temporary directory \"%1\"").arg(tmp_dir);
+      kDebug() << QString("Deleting empty temporary folder \"%1\"").arg(tmp_dir);
       dir.rmdir(tmp_dir);
     }
   }
@@ -124,11 +124,11 @@ bool Audex::prepare() {
   tmp_dir = temp_path();
   if (tmp_dir.right(1) != "/") tmp_dir += "/";
   tmp_dir += "audex."+QString("%1").arg(pid.getPID())+"/";
-  kDebug() << "Temporary directory in use:" << tmp_dir;
+  kDebug() << "Temporary folder in use:" << tmp_dir;
   QDir *dir = new QDir(tmp_dir);
   if (!dir->exists()) {
     if (!dir->mkpath(tmp_dir)) {
-      slot_error(i18n("Unable to create temporary directory \"%1\". Please check. Abort operation.", tmp_dir));
+      slot_error(i18n("Unable to create temporary folder \"%1\". Please check. Abort operation.", tmp_dir));
       return FALSE;
     }
   }
@@ -392,6 +392,10 @@ void Audex::progress_extract(int percent_of_track, int sector, int overall_secto
 
 void Audex::progress_encode(int percent) {
   emit progressEncodeTrack(percent);
+  if (0 != percent) {
+    emit progressEncodeOverall( ((en_track_count>0 ? ((en_track_count-1)*100.0f) : 0) + (percent*1.0f)) / 
+                                 (float)cdda_model->numOfAudioTracksInSelection() );
+  }
   current_encoder_percent = percent;
 }
 
@@ -426,8 +430,8 @@ void Audex::slot_info(const QString& description) {
 
 void Audex::check_if_thread_still_running() {
   if (cdda_extract_thread->isRunning()) {
-    // this could happen if the thread is stuck in paranoia_read
-    // because of an unreadable cd
+    //this could happen if the thread is stuck in paranoia_read
+    //because of an unreadable cd
     cdda_extract_thread->terminate();
     kDebug() << "Terminate extracting thread.";
   }
@@ -448,7 +452,7 @@ bool Audex::construct_target_filename(QString& targetFilename,
 
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
-    emit error(i18n("Cant find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
+    emit error(i18n("Can't find path \"%1\".", targetFilename), i18n("Please check your path (write access?)"));
     return FALSE;
   }
   QString targetPath = targetFilename.mid(0, lastSlash);
@@ -457,18 +461,18 @@ bool Audex::construct_target_filename(QString& targetFilename,
   QDir *dir = new QDir(targetPath);
   if (!dir->exists()) {
     if (!dir->mkpath(targetPath)) {
-      emit error(i18n("Unable to create directory \"%1\".", targetPath), i18n("Please check your path (write access?)"));
+      emit error(i18n("Unable to create folder \"%1\".", targetPath), i18n("Please check your path (write access?)"));
       return FALSE;
     } else {
-      emit info(i18n("Directory \"%1\" successfully created.", targetPath));
+      emit info(i18n("Folder \"%1\" successfully created.", targetPath));
     }
   } else {
-    if (is_first_track) emit warning(i18n("Directory \"%1\" already exists.", targetPath));
+    if (is_first_track) emit warning(i18n("Folder \"%1\" already exists.", targetPath));
   }
   delete dir;
 
-  DiskFreeSpace diskfreespace;
-  quint64 free = diskfreespace.getFreeSpace(targetPath) / 1024;
+  KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(targetPath);
+  quint64 free = diskfreespace.available() / 1024;
   if (free < 200*1024) {
     emit warning(i18n("Free space on \"%1\" is less than 200 MB. Problems with low space possible.", targetPath));
   }
@@ -499,23 +503,23 @@ bool Audex::check() {
   QString tmp = temp_path();
 
   if (tmp.isEmpty()) {
-    slot_error(i18n("Temporary directory name \"%1\" must not be empty.", tmp), i18n("Please set one."));
+    slot_error(i18n("Temporary folder name \"%1\" must not be empty.", tmp), i18n("Please set one."));
     return FALSE;
   }
 
   QDir *dir = new QDir(tmp);
   if (!dir->exists()) {
-    slot_error(i18n("Temporary directory \"%1\" does not exists.", tmp), i18n("Please check."));
+    slot_error(i18n("Temporary folder \"%1\" does not exists.", tmp), i18n("Please check."));
     return FALSE;
   }
   delete dir;
 
-  DiskFreeSpace diskfreespace;
-  quint64 free = diskfreespace.getFreeSpace(tmp) / 1024;
+  KDiskFreeSpaceInfo diskfreespace = KDiskFreeSpaceInfo::freeSpaceInfo(tmp);
+  quint64 free = diskfreespace.available() / 1024;
   if (free < 800*1024) {
-    slot_warning(i18n("Free space on temporary directory \"%1\" is less than 800 MiB. Problems with low space possible.", tmp));
+    slot_warning(i18n("Free space on temporary folder \"%1\" is less than 800 MiB. Problems with low space possible.", tmp));
   } else if (free < 200*1024) {
-    slot_error(i18n("Temporary directory \"%1\" needs at least 200 MiB of free memory.", tmp), i18n("Please free space or set another path."));
+    slot_error(i18n("Temporary folder \"%1\" needs at least 200 MiB of free space.", tmp), i18n("Please free space or set another path."));
     return FALSE;
   }
 
@@ -531,12 +535,12 @@ void Audex::request_finish(bool successful) {
     return;
   }
 
-  if (process_counter>0) {
-
+  if (process_counter > 0) {
+    
     encoder_wrapper->cancel();
     cdda_extract_thread->cancel();
-    QTimer::singleShot(1000, this, SLOT(check_if_thread_still_running()));
-
+    QTimer::singleShot(2000, this, SLOT(check_if_thread_still_running()));
+    
   } else {
 
     execute_finish();

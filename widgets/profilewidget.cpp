@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
 
   listView->setModel(profile_model);
   listView->setModelColumn(1);
+  listView->setIconSize(QSize(22, 22));
   connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(_update()));
   connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile(const QModelIndex&)));
   connect(kpushbutton_add, SIGNAL(clicked()), this, SLOT(add_profile()));
@@ -118,14 +119,14 @@ void profileWidget::copy_profile() {
 }
 
 void profileWidget::save_profiles() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Save cover"));
+  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Save Cover"));
   if (!filename.isEmpty()) {
     profile_model->saveProfilesToFile(filename);
   }
 }
 
 void profileWidget::load_profiles() {
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Load profiles"));
+  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*.apf", this, i18n("Load Profiles"));
   if (!filename.isEmpty()) {
     profile_model->loadProfilesFromFile(filename);
   }

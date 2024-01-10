@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -26,6 +26,7 @@
 
 #include <KDebug>
 #include <KLocale>
+#include <KDiskFreeSpaceInfo>
 
 #include "models/profilemodel.h"
 #include "models/cddamodel.h"
@@ -35,7 +36,6 @@
 #include "utils/cddaextractthread.h"
 #include "utils/wavefilewriter.h"
 #include "utils/encoderwrapper.h"
-#include "utils/diskfreespace.h"
 #include "utils/pid.h"
 #include "utils/upload.h"
 #include "utils/hashlist.h"
@@ -163,6 +163,7 @@ signals:
   void progressExtractTrack(int percent);
   void progressExtractOverall(int percent);
   void progressEncodeTrack(int percent);
+  void progressEncodeOverall(int percent);
 
   void speedExtract(double times);
   void speedEncode(double times);
@@ -212,6 +213,7 @@ private:
 	bool overwrite_existing_files, bool is_first_track);
 
   bool check();
+
   QString tmp_dir;
   QString target_dir;
   QStringList target_filename_list;

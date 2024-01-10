@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -126,7 +126,7 @@ void CDDAExtractThread::run() {
       sectors_read++;
       overall_sectors_read++;
       float fraction = 0.0f;
-      if (sectors_all>0) fraction = (float)sectors_read / (float)sectors_all;
+      if (sectors_all > 0) fraction = (float)sectors_read / (float)sectors_all;
       emit progress((int)(100.0f*fraction), current_sector, overall_sectors_read);
 
     }

@@ -1,8 +1,5 @@
 This files make Audex linux dependant:
 
-utils/diskfreespace.h
-utils/diskfreespace.cpp
-
 utils/pid.h
 utils/pid.cpp
 

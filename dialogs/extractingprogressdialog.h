@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@
 #include <KDialog>
 #include <KMessageBox>
 #include <KColorScheme>
+#include <KConfigGroup>
+#include <KGlobal>
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
@@ -46,6 +48,7 @@ public slots:
   int exec();
 
 private slots:
+  void toggle_details();
   void slotButtonClicked(int button);
   void cancel();
 
@@ -55,6 +58,7 @@ private slots:
   void show_progress_extract_track(int percent);
   void show_progress_extract_overall(int percent);
   void show_progress_encode_track(int percent);
+  void show_progress_encode_overall(int percent);
 
   void show_speed_encode(double speed);
   void show_speed_extract(double speed);
@@ -68,6 +72,7 @@ private slots:
   void ask_timeout();
 
 private:
+  void calc_overall_progress();
   void open_encoder_protocol_dialog();
   void open_extract_protocol_dialog();
 
@@ -81,6 +86,8 @@ private:
   bool finished;
 
   bool progressbar_np_flag;
+  int current_encode_overall;
+  int current_extract_overall;
 
 };
 

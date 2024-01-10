@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,17 +17,18 @@
  */
 
 #include "mainwindow.h"
+#include "utils/errordialog.h"
 
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   profile_model = new ProfileModel(this);
   if (!profile_model) {
     kDebug() << "Unable to create ProfileModel object. Low mem?";
-    KMessageBox::detailedError(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
+    ErrorDialog::show(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
   if (profile_model->lastError().isValid()) {
-    KMessageBox::detailedError(this, profile_model->lastError().message(), profile_model->lastError().details());
+    ErrorDialog::show(this, profile_model->lastError().message(), profile_model->lastError().details());
     return;
   }
 
@@ -36,11 +37,11 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   cdda_model = new CDDAModel(this, KCompactDisc::cdromDeviceUrl(Preferences::cdDevice()).path());
   if (!cdda_model) {
     kDebug() << "Unable to create CDDAModel object. Low mem?";
-    KMessageBox::detailedError(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
+    ErrorDialog::show(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
     return;
   }
   if (cdda_model->lastError().isValid()) {
-    KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+    ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
     return;
   }
 
@@ -101,7 +102,7 @@ void MainWindow::cddb_lookup() {
 
 void MainWindow::cddb_submit() {
   if (!cdda_model->submitCDDB()) {
-    KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+    ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
   }
 }
 
@@ -168,7 +169,7 @@ void MainWindow::configure() {
 void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
   switch (status) {
     case CDDAModel::DriveNoStatus :
-      status_label->setText(i18n("No Status information available"));
+      status_label->setText(i18n("No status information available"));
       enable_layout(FALSE);
       break;
     case CDDAModel::DriveEmpty :
@@ -180,7 +181,7 @@ void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
       enable_layout(TRUE);
       resizeColumns();
       if (Preferences::cddbLookupAuto()) {
-        kDebug() << "Performing cddb auto lookup";
+        kDebug() << "Performing CDDB auto lookup";
         QTimer::singleShot(0, this, SLOT(cddb_lookup()));
       }
       break;
@@ -229,15 +230,16 @@ void MainWindow::disc_info_changed(const CDDAModel::DiscInfo info) {
 }
 
 void MainWindow::cddb_lookup_start() {
-  statusBar()->addWidget(cddb_label);
-  cddb_label->setText(i18n("Fetching CDDB information..."));
+  status_label_prev = status_label->text();
+  status_label->setText(i18n("Fetching CDDB information..."));
 }
 
 void MainWindow::cddb_lookup_done(const bool successful) {
   if (!successful) {
-    KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+    ErrorDialog::show(this, i18n("CDDB lookup failed, with the following error:\n%1", cdda_model->lastError().message()),
+                     cdda_model->lastError().details(), i18n("CDD Lookup Failure"));
   }
-  statusBar()->removeWidget(cddb_label);
+  status_label->setText(status_label_prev);
   update_layout();
   disable_submit();
 }
@@ -296,9 +298,11 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
-  profile_model->blockSignals(TRUE);
-  profile_model->setRowAsCurrentProfileIndex(row);
-  profile_model->blockSignals(FALSE);
+  if (row > 0) {
+    profile_model->blockSignals(TRUE);
+    profile_model->setRowAsCurrentProfileIndex(row);
+    profile_model->blockSignals(FALSE);
+  }
 }
 
 void MainWindow::update_profile_action(int index) {
@@ -453,12 +457,12 @@ void MainWindow::setup_actions() {
   actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
 
   KAction *splitTitlesAction = new KAction(this);
-  splitTitlesAction->setText(i18n("Split titles..."));
+  splitTitlesAction->setText(i18n("Split Titles..."));
   actionCollection()->addAction("splittitles", splitTitlesAction);
   connect(splitTitlesAction, SIGNAL(triggered(bool)), this, SLOT(split_titles()));
 
   KAction *swapArtistsAndTitlesAction = new KAction(this);
-  swapArtistsAndTitlesAction->setText(i18n("Swap artists and titles"));
+  swapArtistsAndTitlesAction->setText(i18n("Swap Artists And Titles"));
   actionCollection()->addAction("swapartistsandtitles", swapArtistsAndTitlesAction);
   connect(swapArtistsAndTitlesAction, SIGNAL(triggered(bool)), this, SLOT(swap_artists_and_titles()));
 
@@ -468,17 +472,17 @@ void MainWindow::setup_actions() {
   connect(capitalizeAction, SIGNAL(triggered(bool)), this, SLOT(capitalize()));
 
   KAction *autoFillArtistsAction = new KAction(this);
-  autoFillArtistsAction->setText(i18n("Auto fill artists"));
+  autoFillArtistsAction->setText(i18n("Auto Fill Artists"));
   actionCollection()->addAction("autofillartists", autoFillArtistsAction);
   connect(autoFillArtistsAction, SIGNAL(triggered(bool)), this, SLOT(auto_fill_artists()));
 
   KAction *selectAllAction = new KAction(this);
-  selectAllAction->setText(i18n("Select all tracks"));
+  selectAllAction->setText(i18n("Select All Tracks"));
   actionCollection()->addAction("selectall", selectAllAction);
   connect(selectAllAction, SIGNAL(triggered(bool)), this, SLOT(select_all()));
 
   KAction *selectNoneAction = new KAction(this);
-  selectNoneAction->setText(i18n("Select no tracks"));
+  selectNoneAction->setText(i18n("Deselect All Tracks"));
   actionCollection()->addAction("selectnone", selectNoneAction);
   connect(selectNoneAction, SIGNAL(triggered(bool)), this, SLOT(select_none()));
 
@@ -519,13 +523,7 @@ void MainWindow::setup_layout() {
   addDockWidget(Qt::LeftDockWidgetArea, cdda_header_dock);
 
   status_label = new QLabel();
-  status_label->setAlignment(Qt::AlignHCenter);
-  status_label->setMinimumSize(QSize(250, 10));
   statusBar()->addWidget(status_label);
-  cddb_label = new QLabel();
-  cddb_label->setAlignment(Qt::AlignHCenter);
-  cddb_label->setMinimumSize(QSize(100, 10));
-
 }
 
 void MainWindow::select_all() {

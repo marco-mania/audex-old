@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -101,7 +101,7 @@ public:
   void setNoOfTracks(const int nooftracks) { this->nooftracks = nooftracks; }
   void setDemoMode(const bool demomode) { this->demomode = demomode; }
 
-  inline const QString text() const { return _text; }
+  inline const QString text() const { return p_text; }
 
 private:
   QString pattern;
@@ -128,7 +128,8 @@ private:
 
   bool demomode;
 
-  QString _text;
+  QString p_text;
+  QString p_element;
 
   bool is_filename_pattern;
   bool is_command_pattern;

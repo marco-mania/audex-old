@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,24 @@ const QString EncoderAssistant::name(const EncoderAssistant::Encoder encoder) {
     case EncoderAssistant::FAAC : return ENCODER_FAAC_NAME;
     case EncoderAssistant::WAVE : return ENCODER_WAVE_NAME;
     case EncoderAssistant::CUSTOM : return ENCODER_CUSTOM_NAME;
+    default : return "";
+
+  }
+
+  return "";
+
+}
+
+const QString EncoderAssistant::icon(const EncoderAssistant::Encoder encoder) {
+
+  switch (encoder) {
+
+    case EncoderAssistant::LAME : return ENCODER_LAME_ICON;
+    case EncoderAssistant::OGGENC : return ENCODER_OGGENC_ICON;
+    case EncoderAssistant::FLAC : return ENCODER_FLAC_ICON;
+    case EncoderAssistant::FAAC : return ENCODER_FAAC_ICON;
+    case EncoderAssistant::WAVE : return ENCODER_WAVE_ICON;
+    case EncoderAssistant::CUSTOM : return ENCODER_CUSTOM_ICON;
     default : return "";
 
   }
@@ -151,12 +169,29 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       if ((v.startsWith("3.95")) || (v.startsWith("3.96")) || (v.startsWith("3.97"))) {
         cmd += QString(" --vbr-new");
       }
-      if (embed_cover) {
-        cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" preparam=\"--ti \"}");
+      
+      //if we have eyeD3, use this for tagging as lame can't handle unicode
+      if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA)==0) {
+       
+	cmd += QString::fromUtf8(" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
+	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
+	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" --set-text-frame=\"TCON:$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--set-text-frame=TPOS:\"}");
+        if (embed_cover) {
+          cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
+        }
+	cmd += QString::fromUtf8(" --set-encoding=latin1 $"VAR_OUTPUT_FILE" && eyeD3 --to-v2.3 $"VAR_OUTPUT_FILE);
+	
+      } else {
+        
+        if (embed_cover) {
+          cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--ti \"}");
+        }
+        cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$"VAR_TRACK_TITLE"\" --ta \"$"VAR_TRACK_ARTIST \
+                             "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn $"VAR_TRACK_NO" --tg \"$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--tv TPOS=\"}"\
+                             " $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
+        
       }
-      cmd += QString::fromUtf8(" --id3v2-only --ignore-tag-errors --tt \"$"VAR_TRACK_TITLE"\" --ta \"$"VAR_TRACK_ARTIST\
-                           "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn $"VAR_TRACK_NO" --tg \"$"VAR_GENRE \
-                           "\" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
+      
       return cmd;
     }
 
@@ -179,7 +214,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
 
       cmd += QString::fromUtf8(" -c \"Artist=$"VAR_TRACK_ARTIST"\" -c \"Title=$"VAR_TRACK_TITLE"\" -c \"Album=$"VAR_ALBUM_TITLE\
                                "\" -c \"Date=$"VAR_DATE"\" -c \"Tracknumber=$"VAR_TRACK_NO"\" -c \"Genre=$"VAR_GENRE\
-                               "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
+			       "\" ${"VAR_CDNO" pre=\"-c Discnumber=\"}"\
+                               " -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
 
       return cmd;
     }

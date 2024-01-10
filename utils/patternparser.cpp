@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -49,6 +49,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = TRUE; return TRUE; }
   if (qName == VAR_TEXT_PATTERN) { is_text_pattern = TRUE; return TRUE; }
 
+  p_element.clear();
+
   if (qName == VAR_ALBUM_ARTIST) {
     if ((is_filename_pattern) || (is_simple_pattern)) {
       QString s;
@@ -57,11 +59,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-      _text += s;
+      p_element += s;
     } else if (is_command_pattern) {
-      _text += make_compatible_2(artist);
+      p_element += make_compatible_2(artist);
     } else {
-      _text += artist;
+      p_element += artist;
     }
   }
   if (qName == VAR_ALBUM_TITLE) {
@@ -72,11 +74,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-      _text += s;
+      p_element += s;
     } else if (is_command_pattern) {
-      _text += make_compatible_2(title);
+      p_element += make_compatible_2(title);
     } else {
-      _text += title;
+      p_element += title;
     }
   }
   if (qName == VAR_DATE) {
@@ -87,11 +89,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-      _text += s;
+      p_element += s;
     } else if (is_command_pattern) {
-      _text += make_compatible_2(date);
+      p_element += make_compatible_2(date);
     } else {
-      _text += date;
+      p_element += date;
     }
   }
   if (qName == VAR_GENRE) {
@@ -102,11 +104,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-      _text += s;
+      p_element += s;
     } else if (is_command_pattern) {
-      _text += make_compatible_2(genre);
+      p_element += make_compatible_2(genre);
     } else {
-      _text += genre;
+      p_element += genre;
     }
   }
 
@@ -118,9 +120,9 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QChar fc = '0';
         if (!atts.value("fillchar").isEmpty()) fc = atts.value("fillchar").at(0);
         if (ok)
-          _text += QString("%1").arg(cdno, l, 10, fc);
+          p_element += QString("%1").arg(cdno, l, 10, fc);
         else
-          _text += QString("%1").arg(cdno);
+          p_element += QString("%1").arg(cdno);
       }
     }
   }
@@ -133,11 +135,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
           else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
         if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
-        _text += s;
+        p_element += s;
       } else if (is_command_pattern) {
-        _text += make_compatible_2(tartist);
+        p_element += make_compatible_2(tartist);
       } else {
-        _text += tartist;
+        p_element += tartist;
       }
     }
     if (qName == VAR_TRACK_TITLE) {
@@ -148,11 +150,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
         if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
           else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-        _text += s;
+        p_element += s;
       } else if (is_command_pattern) {
-        _text += make_compatible_2(ttitle);
+        p_element += make_compatible_2(ttitle);
       } else {
-        _text += ttitle;
+        p_element += ttitle;
       }
     }
     if (qName == VAR_TRACK_NO) {
@@ -163,15 +165,15 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QChar fc = '0';
       if (!atts.value("fillchar").isEmpty()) fc = atts.value("fillchar").at(0);
       if (ok)
-        _text += QString("%1").arg(t, l, 10, fc);
+        p_element += QString("%1").arg(t, l, 10, fc);
       else
-        _text += QString("%1").arg(t);
+        p_element += QString("%1").arg(t);
     }
-    if (qName == VAR_SUFFIX) _text += suffix;
+    if (qName == VAR_SUFFIX) p_element += suffix;
   }
   if (is_command_pattern) {
-    if (qName == VAR_INPUT_FILE) _text += "\""+input+"\"";
-    if (qName == VAR_OUTPUT_FILE) _text += "\""+output+"\"";
+    if (qName == VAR_INPUT_FILE) p_element += "\""+input+"\"";
+    if (qName == VAR_OUTPUT_FILE) p_element += "\""+output+"\"";
     if (qName == VAR_COVER_FILE) {
 
       QString format = STANDARD_EMBED_COVER_FORMAT;
@@ -202,11 +204,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QString tmp_dir = tmppath;
         if (tmp_dir.right(1) != "/") tmp_dir += "/";
         tmp_dir += "audex."+QString("%1").arg(pid.getPID());
-        kDebug() << "Temporary directory in use:" << tmp_dir;
+        kDebug() << "Temporary folder in use:" << tmp_dir;
         QDir *dir = new QDir(tmp_dir);
         if (!dir->exists()) {
           if (!dir->mkpath(tmp_dir)) {
-            kDebug() << "Unable to create temporary directory " << tmp_dir << ". No temporary cover file will be saved. Please check.";
+            kDebug() << "Unable to create temporary folder " << tmp_dir << ". No temporary cover file will be saved. Please check.";
             stop = TRUE;
           }
         }
@@ -246,9 +248,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       }
 
       if (!stop) {
-        QString preparam = atts.value("preparam");
-        QString postparam = atts.value("postparam");
-        _text += preparam+"\""+filename+"\""+postparam;
+        p_element = "\""+filename+"\"";
       }
 
     }
@@ -262,40 +262,48 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       bool ok;
       int p = atts.value("precision").toInt(&ok);
       if (!ok) p = 2;
-      if (iec=='b') _text += QString("%1").arg(size, 0, 'f', p);
-        else if (iec=='k') _text += QString("%1").arg(size / 1024.0f, 0, 'f', p);
-          else if (iec=='m') _text += QString("%1").arg(size / (1024.0f*1024.0f), 0, 'f', p);
-            else if (iec=='g') _text += QString("%1").arg(size / (1024.0f*1024.0f*1024.0f), 0, 'f', p);
+      if (iec=='b') p_element += QString("%1").arg(size, 0, 'f', p);
+        else if (iec=='k') p_element += QString("%1").arg(size / 1024.0f, 0, 'f', p);
+          else if (iec=='m') p_element += QString("%1").arg(size / (1024.0f*1024.0f), 0, 'f', p);
+            else if (iec=='g') p_element += QString("%1").arg(size / (1024.0f*1024.0f*1024.0f), 0, 'f', p);
     }
-    if (qName == VAR_CD_LENGTH) _text += QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0'));
-    if (qName == VAR_CD_NO_OF_TRACKS) _text += QString("%1").arg(nooftracks);
+    if (qName == VAR_CD_LENGTH) p_element += QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0'));
+    if (qName == VAR_CD_NO_OF_TRACKS) p_element += QString("%1").arg(nooftracks);
     if (qName == VAR_TODAY) {
       QString format;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
       if (format.isEmpty()) {
-        _text += QString("%1").arg(QDate::currentDate().toString());
+        p_element += QString("%1").arg(QDate::currentDate().toString());
       } else {
-        _text += QString("%1").arg(QDate::currentDate().toString(format));
+        p_element += QString("%1").arg(QDate::currentDate().toString(format));
       }
     }
     if (qName == VAR_NOW) {
       QString format;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
       if (format.isEmpty()) {
-        _text += QString("%1").arg(QDateTime::currentDateTime().toString());
+        p_element += QString("%1").arg(QDateTime::currentDateTime().toString());
       } else {
-        _text += QString("%1").arg(QDateTime::currentDateTime().toString(format));
+        p_element += QString("%1").arg(QDateTime::currentDateTime().toString(format));
       }
     }
-    if (qName == VAR_LINEBREAK) _text += "\n";
+    if (qName == VAR_LINEBREAK) p_element += "\n";
     if (qName == VAR_DISCID) {
       bool ok;
       int base = atts.value("base").toInt(&ok);
       if (!ok) base = 16;
-      _text += QString("%1").arg(discid, 0, base);
+      p_element += QString("%1").arg(discid, 0, base);
     }
   }
-
+  
+  
+  if (!p_element.isEmpty()) {
+  
+    QString pre = atts.value("pre");
+    QString post = atts.value("post");
+    p_text += pre+p_element+post;
+  
+  }
 
   return TRUE;
 
@@ -306,9 +314,9 @@ bool SaxHandler::endElement(const QString& namespaceURI, const QString& localNam
   Q_UNUSED(namespaceURI);
   Q_UNUSED(localName);
 
-  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = FALSE; _text.replace("//", "/"); _text = _text.simplified(); return TRUE; }
-  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = FALSE; _text.replace("//", "/"); _text = _text.simplified(); return TRUE; }
-  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = FALSE; _text.replace("//", "/"); _text = _text.simplified()+"."+suffix; return TRUE; }
+  if (qName == VAR_FILENAME_PATTERN) { is_filename_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
+  if (qName == VAR_COMMAND_PATTERN) { is_command_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified(); return TRUE; }
+  if (qName == VAR_SIMPLE_PATTERN) { is_simple_pattern = FALSE; p_text.replace("//", "/"); p_text = p_text.simplified()+"."+suffix; return TRUE; }
   if (qName == VAR_TEXT_PATTERN) { is_text_pattern = FALSE; return TRUE; }
 
   return TRUE;
@@ -316,7 +324,7 @@ bool SaxHandler::endElement(const QString& namespaceURI, const QString& localNam
 }
 
 bool SaxHandler::characters(const QString& ch) {
-  _text += ch;
+  p_text += ch;
   return TRUE;
 }
 
@@ -450,7 +458,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setFAT32Compatible(fatcompatible);
   handler.setTMPPath(tmppath);
   handler.setDemoMode(demomode);
-
+  
   QXmlInputSource inputSource;
   inputSource.setData("<commandpattern>"+p_xmlize_pattern(pattern)+"</commandpattern>");
   QXmlSimpleReader reader;
@@ -523,6 +531,11 @@ const QString PatternParser::p_xmlize_pattern(const QString& pattern) {
   int s = 0;
   for (int i = 0; i < pattern.length(); ++i) {
 
+     if (pattern[i] == '&') {
+       newpattern += "&amp;";
+       continue;
+     }
+    
      switch (s) {
 
        //outside var

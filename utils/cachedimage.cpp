@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -201,7 +201,7 @@ bool CachedImage::compare_format(const QByteArray& f1, const QByteArray& f2) con
 
 bool CachedImage::_save(QIODevice *device, const QByteArray& format, const QSize& size) {
   if ((!format.isEmpty()) && (!QImageReader::supportedImageFormats().contains(format))) {
-    _error = Error(i18n("Unsupported image format"), i18n("Please use common image formats like jpeg, png or gif as they are supported on almost all systems."), Error::ERROR);
+    _error = Error(i18n("Unsupported image format"), i18n("Please use common image formats like JPEG, PNG or GIF as they are supported on almost all systems."), Error::ERROR);
     return FALSE;
   }
   QImage image = QImage::fromData(_data);

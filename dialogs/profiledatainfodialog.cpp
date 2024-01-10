@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -113,21 +113,20 @@ void ProfileDataInfoDialog::help() {
    "</head>"
    "<body>"
      "Variables will be replaced by a special value and can even contain attributes.<br />"
-     "For example the variable"
+     "For example the variable "
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
      "$artist"
      "</pre></div>"
-     "or the equivalent<br />"
+     "or the equivalent"
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
      "${artist}"
      "</pre></div>"
-     "will be replaced by the relevant artist of the cd.<br />"
-     "Also variables can have attributes. See this example:"
+     "will be replaced by the relevant artist of the cd. Variables may also have attribute, for example:"
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-     "${today format=\"yyyy-MM-dd\" }"
+     "${today format=\"yyyy-MM-dd\"}"
      "</pre></div>"
-     "This means, that the current date is printed. To define how this is done, you can set a format. The example"
-     "would result to the output 2008-10-07, as this would be the current date. See below for more details.<br /><br />"
+     "This would print the current date. Setting the format will control how this is done. The example (above)"
+     "would result int the date being printed as 2008-10-07 (if this was the current date). See below for more details.<br /><br />"
      "You can make use of the following variables:<br />"
      "<table border=1>"
      "<thead>"
@@ -215,7 +214,7 @@ void ProfileDataInfoDialog::help() {
 }
 
 void ProfileDataInfoDialog::load_text() {
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*", this, i18n("Load text template"));
+  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "*", this, i18n("Load Text Template"));
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::ReadOnly)) {
@@ -227,7 +226,7 @@ void ProfileDataInfoDialog::load_text() {
 }
 
 void ProfileDataInfoDialog::save_text() {
-  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*", this, i18n("Save text template"));
+  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*", this, i18n("Save Text Template"));
   if (!filename.isEmpty()) {
     QFile file(filename);
     if (file.open(QFile::WriteOnly | QFile::Truncate)) {

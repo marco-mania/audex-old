@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -17,6 +17,7 @@
  */
 
 #include "cddaheaderwidget.h"
+#include "utils/errordialog.h"
 
 static QImage mirrorImage(const QImage &img, MirrorStyle mirrorStyle = MirrorOverX, FadeStyle fadeStyle = FadeDown) {
 
@@ -412,7 +413,6 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
   QPainter p;
 
   p.begin(this);
-  p.fillRect(rect(), palette().background());
 
   if (enabled) {
     bool vertical=rect().height()>rect().width() && rect().width()<((cover_size+padding)*2);
@@ -678,10 +678,10 @@ void CDDAHeaderWidget::google() {
 
 void CDDAHeaderWidget::load() {
   kDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
-  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load cover"));
+  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load Cover"));
   if (!filename.isEmpty()) {
     if (!cdda_model->setCover(filename)) {
-      KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+      ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
     }
   }
 }
@@ -690,7 +690,7 @@ void CDDAHeaderWidget::save() {
   QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
   if (!filename.isEmpty()) {
     if (!cdda_model->saveCoverToFile(filename)) {
-      KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+      ErrorDialog::show(this, cdda_model->lastError().message(), cdda_model->lastError().details());
     }
   }
 }
@@ -763,7 +763,7 @@ void CDDAHeaderWidget::fetch_first_cover() {
   if (cover_browser_dialog) {
     if (cover_browser_dialog->count()==0) {
       kDebug() << "no cover found";
-      KMessageBox::detailedError(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load your own cover."));
+      ErrorDialog::show(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load your own cover."));
     } else {
       connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
       cover_browser_dialog->startFetchCover(0);

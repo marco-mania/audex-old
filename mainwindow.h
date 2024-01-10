@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -122,8 +122,7 @@ private:
   QLabel *profile_label;
   KComboBox *profile_combobox;
   QLabel *status_label;
-  QLabel *mode_label;
-  QLabel *cddb_label;
+  QString status_label_prev;
 
   void setup_actions();
   void setup_layout();

@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
-"Report-Msgid-Bugs-To: http://opensource.maniatek.de/audex\n"
+"Report-Msgid-Bugs-To: http://kde.maniatek.com/audex\n"
 "POT-Creation-Date: 2009-05-11 18:49+0200\n"
 "PO-Revision-Date: 2009-07-31 01:59+0400\n"
 "Last-Translator: Serj Poltavski\n"
@@ -623,8 +623,8 @@ msgid "CDDA Extractor for KDE"
 msgstr "Программа для копирования и кодирования аудио CD "
 
 #: main.cpp:31
-msgid "(c) 2007-2009 by Marco Nelles"
-msgstr "(c) 2007-2009 by Marco Nelles"
+msgid "(c) 2007-2011 by Marco Nelles"
+msgstr "(c) 2007-2011 by Marco Nelles"
 
 #: main.cpp:35
 msgid "Marco Nelles"

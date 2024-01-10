@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2009 Marco Nelles (audex@maniatek.de)
- * <http://opensource.maniatek.de/audex>
+ * Copyright (C) 2007-2011 Marco Nelles (audex@maniatek.com)
+ * <http://kde.maniatek.com/audex>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -38,6 +38,7 @@
 
 #define DEFAULT_PROFILEINDEX		-1
 #define DEFAULT_NAME			""
+#define DEFAULT_ICON			"audio-x-generic"
 
 #define DEFAULT_ENCODER_SELECTED	0
 
@@ -73,6 +74,7 @@ enum ProfileColumns {
 
   PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX = 0,
   PROFILE_MODEL_COLUMN_NAME_INDEX,
+  PROFILE_MODEL_COLUMN_ICON_INDEX,
 
   PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX,
 
@@ -116,6 +118,7 @@ enum ProfileColumns {
 #define PROFILE_MODEL_PROFILEINDEX_KEY			"profile_key"
 //#define PROFILE_MODEL_PROFILEINDEX_KEY			"profile_index"
 #define PROFILE_MODEL_NAME_KEY				"name"
+#define PROFILE_MODEL_ICON_KEY 				"icon"
 #define PROFILE_MODEL_ENCODER_SELECTED_KEY		"current_encoder"
 
 #define PROFILE_MODEL_PATTERN_KEY			"pattern"
