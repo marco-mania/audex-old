@@ -22,6 +22,10 @@
       <label>Eject CD tray after extraction finished</label>
       <default>false</default>
     </entry>
+    <entry name="cddbLookupAuto" type="Bool">
+      <label>Perform CDDB lookup automatically</label>
+      <default>false</default>
+    </entry>
     <entry name="amazonLocale" type="Int">
       <label>Amazon localization</label>
       <default>0</default>

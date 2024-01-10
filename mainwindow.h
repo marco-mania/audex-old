@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,7 @@
 #include <QTableView>
 #include <QDockWidget>
 #include <QInputDialog>
+#include <QTimer>
 
 #include <KXmlGuiWindow>
 #include <KApplication>
@@ -93,7 +94,9 @@ private slots:
 
   void configuration_updated(const QString& dialog_name);
 
-  void profile_updated();
+  void current_profile_updated_from_ui(int row);
+  void current_profile_updated(int row);
+  void update_profile_action();
 
   void split_titles();
   void swap_artists_and_titles();
@@ -117,6 +120,8 @@ private:
 
   QDockWidget *cdda_header_dock;
   CDDAHeaderWidget *cdda_header_widget;
+
+  bool layout_enabled;
 
 };
 

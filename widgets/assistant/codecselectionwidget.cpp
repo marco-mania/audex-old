@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,9 +25,11 @@ codecselectionWidget::codecselectionWidget(EncoderAssistant *encoderAssistant, Q
   encoder_assistant = encoderAssistant;
 
   QStringList list = encoder_assistant->availableEncoderList();
-  for (int i = 0; i < list.count(); ++i) {
+  QStringList list_v = encoder_assistant->availableEncoderListWithVersions();
+  for (int i = 0; i < list_v.count(); ++i) {
     QListWidgetItem *item = new QListWidgetItem;
-    item->setText(list.at(i));
+    item->setText(list_v.at(i));
+    item->setData(Qt::UserRole, list.at(i));
     item->setFlags(Qt::ItemIsSelectable | Qt::ItemIsUserCheckable | Qt::ItemIsEnabled);
     item->setCheckState(Qt::Checked);
     klistwidget_codecs->addItem(item);
@@ -42,7 +44,7 @@ codecselectionWidget::~codecselectionWidget() {
 const QStringList codecselectionWidget::selectedEncoderTexts() {
   QStringList list;
   for (int i = 0; i < klistwidget_codecs->count(); ++i) {
-    if (klistwidget_codecs->item(i)->checkState()==Qt::Checked) list << klistwidget_codecs->item(i)->text();
+    if (klistwidget_codecs->item(i)->checkState()==Qt::Checked) list << klistwidget_codecs->item(i)->data(Qt::UserRole).toString();
   }
   return list;
 }

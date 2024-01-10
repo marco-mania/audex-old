@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -73,35 +73,35 @@ void SimpleMaskWizardDialog::trigger_changed() {
 
 void SimpleMaskWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_ARTIST)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_ALBUM_ARTIST));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void SimpleMaskWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_TITLE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_ALBUM_TITLE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void SimpleMaskWizardDialog::insCDNo() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_CDNO)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_CDNO));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void SimpleMaskWizardDialog::insDate() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_DATE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_DATE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void SimpleMaskWizardDialog::insGenre() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_GENRE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_GENRE));
   ui.klineedit_mask->setText(text);
   update_example();
 }

@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
-
+ 
 #ifndef COVERFETCHER_HEADER
 #define COVERFETCHER_HEADER
 
@@ -35,7 +35,7 @@ public:
   CoverFetcher(QObject *parent = 0);
   ~CoverFetcher();
 
-  void startFetch(const QString& searchstring);
+  void startFetch(const QString& searchstring, const int fetchNo = -1);
 
   QImage cover(int index);
   QString caption(int index);
@@ -43,6 +43,7 @@ public:
 
   //us = International; fr = France; de = Germany; jp = Japan; uk = United Kingdom; ca = Canada
   void setLocale(const QString &locale);
+  void setLocale(const int locale);
 
   enum Status {
     NOS,
@@ -66,6 +67,7 @@ private slots:
   void fetched_xml_data(KJob* job);
 
 private:
+  int fetch_no;
   QStringList cover_asins;
   QStringList amazon_urls;
   QStringList cover_urls;

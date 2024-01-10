@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -47,10 +47,10 @@ public:
   explicit profileWidget(ProfileModel *profileModel, QWidget *parent = 0);
   ~profileWidget();
 private slots:
-  void update_profile(const QModelIndex& current, const QModelIndex& previous);
   void update();
   void add_profile();
   void rem_profile();
+  void mod_profile(const QModelIndex& index);
   void mod_profile();
   void copy_profile();
   void assistant();

@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,9 +34,13 @@ CoverFetcher::~CoverFetcher() {
   clear_covers();
 }
 
-void CoverFetcher::startFetch(const QString& searchstring) {
+void CoverFetcher::startFetch(const QString& searchstring, const int fetchNo) {
 
   if (_status!=NOS) return;
+
+  if (fetchNo == 0) return;
+
+  fetch_no = fetchNo;
 
   // Static license Key. Thanks hydrogen ;-)
   const QString LICENSE("11ZKJS8X1ETSTJ6MT802");
@@ -93,6 +97,10 @@ void CoverFetcher::setLocale(const QString &locale) {
 
 }
 
+void CoverFetcher::setLocale(const int locale) {
+  setLocale(QString("%1").arg(locale));
+}
+
 void CoverFetcher::fetched_xml_data(KJob* job) {
 
   QByteArray buffer;
@@ -134,13 +142,12 @@ void CoverFetcher::fetched_xml_data(KJob* job) {
           covers.append(image); int f_i_p = f_i+1;
           emit fetched(*image, cover_names[f_i], f_i_p);
         }
-        f_i++;
-        if (cover_urls.count()>0) {
-          fetch_covers();
-        } else {
+	if (((fetch_no > -1) && (++f_i==fetch_no)) || (cover_urls.count()==0)) {
           _status = NOS; emit statusChanged(NOS);
           f_i = 0;
           emit allFetched();
+	} else {
+          fetch_covers();
         }
       } break;
 

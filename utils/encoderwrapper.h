@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #define ENCODERWRAPPER_HEADER
 
 #include <QString>
+#include <QImage>
 
 #include <KDebug>
 #include <KLocale>
@@ -43,8 +44,8 @@ public slots:
 	int cdno, int trackoffset,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, const QString& basepath,
-	bool fat_compatible,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover, const QString& basepath,
+	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output);
   void cancel();
 

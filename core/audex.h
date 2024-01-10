@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -228,7 +228,7 @@ private:
   int current_encoder_percent;
   int last_measuring_point_encoder_percent;
 
-  const qreal size_of_all_files_in_list(const QStringList& filenames) const;
+  qreal size_of_all_files_in_list(const QStringList& filenames) const;
 
 };
 

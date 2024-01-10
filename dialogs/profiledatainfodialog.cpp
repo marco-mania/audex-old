@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -98,13 +98,8 @@ void ProfileDataInfoDialog::help() {
 
    KDialog *dialog = new KDialog(this);
    dialog->resize(QSize(700, 480));
-   dialog->setCaption(i18n("Usable XML Tags for text template"));
+   dialog->setCaption(i18n("Usable variables for text template"));
    dialog->setButtons(KDialog::Ok);
-
-  /*if (qName == TAG_ALBUM_ARTIST) _text += artist;
-  if (qName == TAG_ALBUM_TITLE) _text += title;
-  if (qName == TAG_DATE) _text += date;
-  if (qName == TAG_GENRE) _text += genre;*/
 
    KTextBrowser *tb = new KTextBrowser(dialog);
    tb->setHtml(i18n(
@@ -116,57 +111,64 @@ void ProfileDataInfoDialog::help() {
      "</style>"
    "</head>"
    "<body>"
-     "Tags are like variables with some attributes. They will be replaced by a special value.<br />"
-     "For example the tag"
+     "Variables will be replaced by a special value and can even contain attributes.<br />"
+     "For example the variable"
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-     "&lt;artist /&gt;"
+     "$artist"
+     "</pre></div>"
+     "or the equivalent<br />"
+     "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
+     "${artist}"
      "</pre></div>"
      "will be replaced by the relevant artist of the cd.<br />"
-     "Also tags can have attributes. See this example:"
+     "Also variables can have attributes. See this example:"
      "<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
-     "&lt;today format=\"yyyy-MM-dd\" /&gt;"
+     "${today format=\"yyyy-MM-dd\" }"
      "</pre></div>"
      "This means, that the current date is printed. To define how this is done, you can set a format. The example"
-     "would result to the output 2008-04-13, as this would be the current date. See below for more details.<br /><br />"
-     "You can make use of the following tags:<br />"
+     "would result to the output 2008-10-07, as this would be the current date. See below for more details.<br /><br />"
+     "You can make use of the following variables:<br />"
      "<table border=1>"
      "<thead>"
      "<tr>"
-     "<th>Tag</th><th>Attributes</th><th>Description</th><th>Example</th>"
+     "<th>Tag</th><th>Variable</th><th>Description</th><th>Example</th>"
      "</tr>"
      "</thead>"
      "<tbody>"
      "<tr>"
-     "<td>&lt;artist /&gt;</td><td></td><td>Prints the relevant artist of the extracted cd.</td><td></td>"
+     "<td>$artist</td><td></td><td>Prints the relevant artist of the extracted cd.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;title /&gt;</td><td></td><td>Prints the relevant title of the extracted cd.</td><td></td>"
+     "<td>$title</td><td></td><td>Prints the relevant title of the extracted cd.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;date /&gt;</td><td></td><td>Prints the relevant date (usually release year) of the extracted cd.</td><td></td>"
+     "<td>$date</td><td></td><td>Prints the relevant date (usually release year) of the extracted cd.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;genre /&gt;</td><td></td><td>Prints the relevant genre of the extracted cd.</td><td></td>"
+     "<td>$genre;</td><td></td><td>Prints the relevant genre of the extracted cd.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;size /&gt;</td><td>iec,precision</td><td>Prints the overall size of all extracted (compressed) music files (incl. the cover). The attribute iec can be one of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the number of decimal places. Default attributes are iec=\"m\" and precision=\"2\"</td><td>&lt;size iec=\"k\" precision=\"2\" /&gt;</td>"
+     "<td>$size</td><td>iec,precision</td><td>Prints the overall size of all extracted (compressed) music files (incl. the cover). The attribute iec can be one of the following: b, k, m, g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the number of decimal places. Default attributes are iec=\"m\" and precision=\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;length /&gt;</td><td></td><td>Prints the relevant overall length of all extracted tracks. The format is min:sec.</td><td></td>"
+     "<td>$length</td><td></td><td>Prints the relevant overall length of all extracted tracks. The format is min:sec.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;nooftracks /&gt;</td><td></td><td>Prints the total number of extracted tracks.</td><td></td>"
+     "<td>$nooftracks</td><td></td><td>Prints the total number of extracted tracks.</td><td></td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;discid /&gt;</td><td>base</td><td>Prints the discid of the current cd. The attribute base is the base of the number. The default is 16 (hexadecimal).</td><td>&lt;discid base=\"16\" /&gt;</td>"
+     "<td>$discid</td><td>base</td><td>Prints the discid of the current cd. The attribute base is the base of the number. The default is 16 (hexadecimal).</td><td>${discid base=\"16\"}</td>"
      "</tr>"
      "<tr>"
-     "<td>&lt;today /&gt;</td><td>format</td><td>Prints the current date. The attribute format specifies the output (*).</td><td>&lt;today format=\"yyyy-MM-dddd\" /&gt;</td>"
+     "<td>$today</td><td>format</td><td>Prints the current date. The attribute format specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td>"
+     "</tr>"
+     "<tr>"
+     "<td>$now</td><td>format</td><td>Prints the current date and/or time. The attribute format specifies the output (*).</td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td>"
      "</tr>"
      "</tbody>"
      "</table>"
      "<br /><br />"
-     "(* date format expressions)"
+     "(* date/time format expressions)"
      "<table cellpadding=\"2\" cellspacing=\"1\" border=\"1\">"
      "<thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></thead>"
      "<tr valign=\"top\"><td>d</td><td>The day as a number without a leading zero (1 to 31).</td></tr>"
@@ -179,6 +181,22 @@ void ProfileDataInfoDialog::help() {
      "<tr valign=\"top\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</td></tr>"
      "<tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 to 99).</td></tr>"
      "<tr valign=\"top\"><td>yyyy</td><td>The year as four digit number.</td></tr>"
+     "</table>"
+     "<br />"
+     "<table cellpadding=\"2\" cellspacing=\"1\" border=\"1\">"
+     "<thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></thead>"
+     "<tr valign=\"top\"><td>h</td><td>The hour without a leading zero (0 to 23 or 1 to 12 if AM/PM display).</td></tr>"
+     "<tr valign=\"top\"><td>hh</td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display).</td></tr>"
+     "<tr valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, even with AM/PM display).</td></tr>"
+     "<tr valign=\"top\"><td>HH</td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</td></tr>"
+     "<tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 to 59).</td></tr>"
+     "<tr valign=\"top\"><td>mm</td><td>The minute with a leading zero (00 to 59).</td></tr>"
+     "<tr valign=\"top\"><td>s</td><td>The second without a leading zero (0 to 59).</td></tr>"
+     "<tr valign=\"top\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr>"
+     "<tr valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></tr>"
+     "<tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes (000 to 999).</td></tr>"
+     "<tr valign=\"top\"><td>AP or A</td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr>"
+     "<tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or 'pm'.</td></tr>"
      "</table>"
    "</body>"
    "</html>"

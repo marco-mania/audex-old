@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,7 +20,7 @@
 
 ProfileModel::ProfileModel(QObject *parent) {
   Q_UNUSED(parent);
-  current_profile_row = 0;
+  current_profile_row = -1;
   revert();
 }
 
@@ -361,6 +361,18 @@ bool ProfileModel::removeRows(int row, int count, const QModelIndex& parent) {
 
   reset();
 
+  if (cache.count()==0) {
+    current_profile_row = -1;
+    emit currentProfileChanged(-1);
+  } else if (current_profile_row>=cache.count()) {
+    current_profile_row = cache.count()-1;
+    emit currentProfileChanged(current_profile_row);
+  } else {
+    emit currentProfileChanged(current_profile_row);
+  }
+
+  emit profilesRemovedOrInserted();
+
   return TRUE;
 
 }
@@ -385,26 +397,40 @@ bool ProfileModel::insertRows(int row, int count, const QModelIndex& parent) {
 
   reset();
 
+  if (current_profile_row==-1) {
+    current_profile_row = 0;
+    emit currentProfileChanged(0);
+  } else {
+    emit currentProfileChanged(current_profile_row);
+  }
+
+  emit profilesRemovedOrInserted();
+
   return TRUE;
 
 }
 
 void ProfileModel::setCurrentProfileRow(int row) {
-  if ((row < 0) || (row >= cache.count())) return;
-  current_profile_row = row;
-  emit currentProfileChanged(row);
+  if (cache.count()==0) row = -1; else if ((row < 0) || (row >= cache.count())) row = 0;
+  if (row != current_profile_row) {
+    current_profile_row = row;
+  }
 }
 
-const int ProfileModel::currentProfileRow() const {
+int ProfileModel::currentProfileRow() const {
   if (cache.count()==0) return -1;
   return current_profile_row;
 }
 
 void ProfileModel::clear() {
   cache.clear();
+  if (current_profile_row != -1) {
+    current_profile_row = -1;
+    emit currentProfileChanged(-1);
+  }
 }
 
-const bool ProfileModel::nameExists(const QString& name) const {
+bool ProfileModel::nameExists(const QString& name) const {
 
   for (int j = 0; j < cache.count(); ++j)
     if (name==cache.at(j)[PROFILE_MODEL_NAME_KEY].toString()) return TRUE;
@@ -413,7 +439,7 @@ const bool ProfileModel::nameExists(const QString& name) const {
 
 }
 
-const int ProfileModel::profileIndexMax() const {
+int ProfileModel::profileIndexMax() const {
 
   int index = -1;
 
@@ -426,7 +452,7 @@ const int ProfileModel::profileIndexMax() const {
 
 }
 
-const Error ProfileModel::lastError() const {
+Error ProfileModel::lastError() const {
   return error;
 }
 
@@ -578,5 +604,12 @@ void ProfileModel::load(KConfig *config) {
     p[PROFILE_MODEL_HL_FORMAT_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_FORMAT_KEY, "SFV");
     p[PROFILE_MODEL_HL_NAME_KEY] = subGroup.readEntry(PROFILE_MODEL_HL_NAME_KEY, "checksums");
     cache.append(p);
+  }
+  if (profileCount>0) {
+    if (current_profile_row==-1) {
+      current_profile_row = 0;
+      emit currentProfileChanged(0);
+    }
+    emit profilesRemovedOrInserted();
   }
 }

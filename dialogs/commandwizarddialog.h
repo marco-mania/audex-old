@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,6 +20,7 @@
 #define COMMANDWIZARDDIALOG_H
 
 #include <QWidget>
+#include <QImage>
 
 #include <KDebug>
 #include <KDialog>
@@ -52,6 +53,7 @@ private slots:
   void insCDNo();
   void insDate();
   void insGenre();
+  void insCoverFile();
   void insInFile();
   void insOutFile();
 

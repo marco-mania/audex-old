@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -121,14 +121,14 @@ public:
   bool removeRows(int row, int count, const QModelIndex& parent = QModelIndex());
   bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex());
 
-  const int currentProfileRow() const;
+  int currentProfileRow() const;
 
   void clear();
 
-  const bool nameExists(const QString& name) const;
-  const int profileIndexMax() const;
+  bool nameExists(const QString& name) const;
+  int profileIndexMax() const;
 
-  const Error lastError() const;
+  Error lastError() const;
 
 public slots:
   void commit();
@@ -143,6 +143,8 @@ public slots:
 
 signals:
   void currentProfileChanged(const int row);
+
+  void profilesRemovedOrInserted();
 
 private:
   const Profile newProfile(const QString& name = "", const QString& mask = "", const QString& command = "", const QString& suffix = "",

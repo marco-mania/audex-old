@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -78,77 +78,77 @@ void MaskWizardDialog::trigger_changed() {
 
 void MaskWizardDialog::insHomePath() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_HOME_PATH)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_HOME_PATH));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insBasePath() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_BASE_PATH)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_BASE_PATH));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_ARTIST)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_ALBUM_ARTIST));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_TITLE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_ALBUM_TITLE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insTrackArtist() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_ARTIST)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_TRACK_ARTIST));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insTrackTitle() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_TITLE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_TRACK_TITLE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insTrackNo() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_NO)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_TRACK_NO));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insCDNo() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_CDNO)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_CDNO));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insDate() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_DATE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_DATE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insGenre() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_GENRE)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_GENRE));
   ui.klineedit_mask->setText(text);
   update_example();
 }
 
 void MaskWizardDialog::insSuffix() {
   QString text = ui.klineedit_mask->text();
-  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_SUFFIX)+" />");
+  text.insert(ui.klineedit_mask->cursorPosition(), "$"+QString(TAG_SUFFIX));
   ui.klineedit_mask->setText(text);
   update_example();
 }

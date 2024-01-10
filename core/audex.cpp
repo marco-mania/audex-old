@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -276,6 +276,7 @@ void Audex::start_encode() {
   QString year = cdda_model->year();
   QString genre = cdda_model->genre();
   QString suffix = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SUFFIX_INDEX)).toString();
+  QImage cover = cdda_model->cover();
   QString basepath = Preferences::basePath();
   bool fat32_compatible = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
 
@@ -288,7 +289,7 @@ void Audex::start_encode() {
   en_track_filename = job->sourceFilename();
   en_track_index = job->trackNo();
   if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
-	artist, title, tartist, ttitle, genre, year, suffix, basepath, fat32_compatible,
+	artist, title, tartist, ttitle, genre, year, suffix, cover, basepath, fat32_compatible, Preferences::tempPath(),
 	job->sourceFilename(), targetFilename)) {
     request_finish(FALSE);
   }
@@ -729,11 +730,19 @@ void Audex::execute_finish() {
 
   }
 
+  //flush temporary path
+  QDir tmp(tmp_dir);
+  QStringList files = tmp.entryList(QStringList() << "*", QDir::Files | QDir::NoDotAndDotDot);
+  for (int i = 0; i < files.count(); ++i) {
+    QFile::remove(tmp_dir+files[i]);
+    kDebug() << "Deleted temporary file" << tmp_dir+files[i];
+  }
+
   emit finished(_finished_successful);
 
 }
 
-const qreal Audex::size_of_all_files_in_list(const QStringList& filenames) const {
+qreal Audex::size_of_all_files_in_list(const QStringList& filenames) const {
   qreal size = .0f;
   for (int i = 0; i < filenames.count(); ++i) {
     QFileInfo info(filenames.at(i));

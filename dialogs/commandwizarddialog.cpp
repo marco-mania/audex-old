@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -44,6 +44,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
   connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
   connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
   connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
+  connect(ui.kpushbutton_cover_file, SIGNAL(clicked()), this, SLOT(insCoverFile()));
   connect(ui.kpushbutton_input_file, SIGNAL(clicked()), this, SLOT(insInFile()));
   connect(ui.kpushbutton_output_file, SIGNAL(clicked()), this, SLOT(insOutFile()));
 
@@ -77,70 +78,77 @@ void CommandWizardDialog::trigger_changed() {
 
 void CommandWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_ALBUM_ARTIST)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_ALBUM_ARTIST));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_ALBUM_TITLE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_ALBUM_TITLE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackArtist() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_TRACK_ARTIST)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_ARTIST));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackTitle() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_TRACK_TITLE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_TITLE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackNo() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_TRACK_NO)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_NO));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCDNo() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_CDNO)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_CDNO));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insDate() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_DATE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_DATE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insGenre() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_GENRE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_GENRE));
+  ui.klineedit_command->setText(text);
+  update_example();
+}
+
+void CommandWizardDialog::insCoverFile() {
+  QString text = ui.klineedit_command->text();
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_COVER_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insInFile() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_INPUT_FILE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_INPUT_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insOutFile() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "<"+QString(TAG_OUTPUT_FILE)+" />");
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_OUTPUT_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
@@ -157,14 +165,14 @@ void CommandWizardDialog::update_example() {
 	"/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
 	2, 1, 1,
 	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-	"2006", "Rock", "ogg", "~", FALSE);
+	"2006", "Rock", "ogg", QImage(), "~", FALSE, QDir::tempPath(), TRUE);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = maskparser.parseCommandMask(ui.klineedit_command->text(),
 	"/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
 	4, 2, 1,
 	"Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
-	"2003", "Darkwave", "ogg", "~", FALSE);
+	"2003", "Darkwave", "ogg", QImage(), "~", FALSE, QDir::tempPath(), TRUE);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }

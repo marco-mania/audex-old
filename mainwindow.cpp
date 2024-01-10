@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -37,7 +37,8 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), this, SLOT(disc_info_changed(const CDDAModel::DiscInfo)));
   connect(cdda_model, SIGNAL(cddbLookupStarted()), this, SLOT(cddb_lookup_start()));
   connect(cdda_model, SIGNAL(cddbLookupDone(const bool)), this, SLOT(cddb_lookup_done(const bool)));
-  connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
+  //DISABLED BY NOW
+  //connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
   connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(update_layout()));
   connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_submit(bool)));
 
@@ -51,6 +52,8 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
     KMessageBox::detailedError(this, profile_model->lastError().message(), profile_model->lastError().details());
     return;
   }
+  connect(profile_model, SIGNAL(profilesRemovedOrInserted()), this, SLOT(update_profile_action()));
+  connect(profile_model, SIGNAL(currentProfileChanged(int)), this, SLOT(current_profile_updated(int)));
 
   setup_actions();
   setup_layout();
@@ -63,7 +66,10 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 void MainWindow::startAssistant() {
   if (Preferences::firstStart()) {
     AssistantDialog *dialog = new AssistantDialog(profile_model, this);
-    if (dialog->exec() == QDialog::Accepted) update();
+    if (dialog->exec() == QDialog::Accepted) {
+      update();
+      current_profile_updated(profile_model->currentProfileRow());
+    }
     delete dialog;
     Preferences::setFirstStart(FALSE);
     Preferences::self()->writeConfig();
@@ -84,6 +90,7 @@ void MainWindow::cddb_lookup() {
 }
 
 void MainWindow::cddb_submit() {
+  //DISABLED BY NOW
   //cdda_model->submitCDDB();
 }
 
@@ -102,6 +109,8 @@ void MainWindow::extract() {
   cdda_model->setSelection(cdda_table_view->selectionModel()->selectedRows());
 
   ExtractingProgressDialog *dialog = new ExtractingProgressDialog(profile_model, cdda_model, this);
+
+  dialog->setWindowModality(Qt::ApplicationModal);
 
   dialog->exec();
 
@@ -154,12 +163,16 @@ void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
       enable_layout(FALSE);
       break;
     case CDDAModel::DriveEmpty :
-      status_label->setText(i18n("Audio disc in drive"));
+      status_label->setText(i18n("No disc in drive"));
       enable_layout(TRUE);
       break;
     case CDDAModel::DriveReady :
       status_label->setText(i18n("Audio disc in drive"));
       enable_layout(TRUE);
+      if (Preferences::cddbLookupAuto()) {
+        kDebug() << "Performing cddb auto lookup";
+        QTimer::singleShot(5000, this, SLOT(cddb_lookup()));
+      }
       break;
     case CDDAModel::DriveOpen :
       status_label->setText(i18n("Drive tray open"));
@@ -189,6 +202,19 @@ void MainWindow::disc_changed(const CDDAModel::DiscType type) {
 
 void MainWindow::disc_info_changed(const CDDAModel::DiscInfo info) {
   Q_UNUSED(info);
+  switch (info) {
+    case CDDAModel::DiscNoInfo :
+      break;
+    case CDDAModel::DiscManualInfo :
+      break;
+    case CDDAModel::DiscCDTEXTInfo :
+    case CDDAModel::DiscCDDBInfo :
+    case CDDAModel::DiscPhonenMetadataInfo :
+      cdda_header_widget->amazonAuto();
+      break;
+    default :
+      break;
+  }
   update_layout();
 }
 
@@ -216,11 +242,13 @@ void MainWindow::update_layout() {
 }
 
 void MainWindow::enable_layout(bool enabled) {
+  layout_enabled = enabled;
   cdda_table_view->setEnabled(enabled);
   cdda_header_dock->setEnabled(enabled);
   cdda_header_widget->setEnabled(enabled);
-  actionCollection()->action("profile")->setEnabled(enabled);
-  profile_combobox->setEnabled(enabled);
+  actionCollection()->action("profile_label")->setEnabled((profile_model->rowCount() > 0) && (enabled));
+  profile_combobox->setEnabled((profile_model->rowCount() > 0) && (enabled));
+  actionCollection()->action("profile")->setEnabled((profile_model->rowCount() > 0) && (enabled));
   actionCollection()->action("fetch")->setEnabled(enabled);
   if (cdda_model->isModified())
     actionCollection()->action("submit")->setEnabled(enabled);
@@ -246,11 +274,25 @@ void MainWindow::configuration_updated(const QString& dialog_name) {
   Preferences::self()->writeConfig();
 }
 
-void MainWindow::profile_updated() {
+void MainWindow::current_profile_updated_from_ui(int row) {
   KConfig config;
   KConfigGroup uicg(&config, "Profiles");
-  uicg.writeEntry("Standard", profile_combobox->currentIndex());
-  profile_model->setCurrentProfileRow(profile_combobox->currentIndex());
+  uicg.writeEntry("Standard", row);
+  profile_model->setCurrentProfileRow(row);
+}
+
+void MainWindow::current_profile_updated(int row) {
+  KConfig config;
+  KConfigGroup uicg(&config, "Profiles");
+  uicg.writeEntry("Standard", row);
+  profile_combobox->setCurrentIndex(row);
+}
+
+void MainWindow::update_profile_action() {
+  if (layout_enabled) {
+    actionCollection()->action("profile_label")->setEnabled(profile_model->rowCount() > 0);
+    actionCollection()->action("profile")->setEnabled(profile_model->rowCount() > 0);
+  }
 }
 
 void MainWindow::split_titles() {
@@ -318,6 +360,9 @@ void MainWindow::setup_actions() {
   profile_combobox->setModel(profile_model);
   profile_combobox->setModelColumn(0);
   profile_combobox->setMinimumWidth(80);
+  profile_combobox->setMaximumWidth(220);
+  profile_combobox->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
+  profile_combobox->resize(QSize(220, profile_combobox->height()));
   if (profile_model->rowCount() > 0) {
     KConfig config;
     KConfigGroup uicg(&config, "Profiles");
@@ -326,7 +371,7 @@ void MainWindow::setup_actions() {
     profile_combobox->setCurrentIndex(row);
     profile_model->setCurrentProfileRow(row);
   }
-  connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(profile_updated()));
+  connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
   KAction *plabelAction = new KAction(this);
   plabelAction->setText(i18n("&Profile: "));
@@ -340,6 +385,7 @@ void MainWindow::setup_actions() {
   profileAction->setDefaultWidget(profile_combobox);
   profileAction->setShortcutConfigurable(FALSE);
   actionCollection()->addAction("profile", profileAction);
+  update_profile_action();
 
   KAction* cddbLookupAction = new KAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
@@ -353,6 +399,8 @@ void MainWindow::setup_actions() {
   cddbSubmitAction->setShortcut(Qt::CTRL + Qt::Key_S);
   actionCollection()->addAction("submit", cddbSubmitAction);
   connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
+  //BY NOW IT IS DISABLED
+  cddbSubmitAction->setEnabled(FALSE);
 
   KAction* extractAction = new KAction(this);
   extractAction->setText(i18n("Extract CDDA..."));

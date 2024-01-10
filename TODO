@@ -1,0 +1,11 @@
+Version 0.7
+- Multi-profile-feature
+- See on extraction progress dialog which profile is being used
+- Bring cover to extraction progress dialog
+- Date/time in extracting-log
+- SSH/SFTP transfer of files
+- Larger extract button
+- Extract all/selected
+- Splash screen
+- Nocover from amarok 2
+- Replace internal CRC32 functions with QCryptographichash functions

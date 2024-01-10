@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -204,7 +204,7 @@ Qt::ItemFlags CDDAModel::flags(const QModelIndex &index) const {
 
 }
 
-const unsigned int CDDAModel::discid() const {
+unsigned int CDDAModel::discid() const {
   return compact_disc->discId();
 }
 
@@ -313,7 +313,7 @@ void CDDAModel::setCDNum(const int n) {
   }
 }
 
-const int CDDAModel::cdNum() const {
+int CDDAModel::cdNum() const {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return -1;
   return cd_info.get("DNO").toInt();
 }
@@ -327,7 +327,7 @@ void CDDAModel::setTrackOffset(const int n) {
   }
 }
 
-const int CDDAModel::trackOffset() const {
+int CDDAModel::trackOffset() const {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return 1;
   return cd_info.get("DTRACKOFFSET").toInt();
 }
@@ -341,7 +341,7 @@ void CDDAModel::setMultiCD(const bool multi) {
   }
 }
 
-const bool CDDAModel::isMultiCD() const {
+bool CDDAModel::isMultiCD() const {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
   return cd_info.get("DMULTICD").toBool();
 }
@@ -388,7 +388,7 @@ void CDDAModel::clearCover() {
   reset();
 }
 
-const bool CDDAModel::guessVarious() {
+bool CDDAModel::guessVarious() {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
   QString a;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
@@ -406,7 +406,7 @@ void CDDAModel::setVarious(bool various) {
   }
 }
 
-const bool CDDAModel::isVarious() {
+bool CDDAModel::isVarious() {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
   return cd_info.get("DVARIOUS").toBool();
 }
@@ -540,7 +540,7 @@ QModelIndexList CDDAModel::selection() const {
   return _selection;
 }
 
-const bool CDDAModel::isTrackInSelection(int n) const {
+bool CDDAModel::isTrackInSelection(int n) const {
   //if nothing is selected, behave like all selected
   if (_selection.count() == 0) return TRUE;
   for (int i = 0; i < _selection.count(); ++i) {
@@ -557,7 +557,7 @@ void CDDAModel::confirm() {
   modified = FALSE;
 }
 
-const Error CDDAModel::lastError() const {
+Error CDDAModel::lastError() const {
   return error;
 }
 
@@ -738,6 +738,8 @@ void CDDAModel::slot_disc_status_changed(KCompactDisc::DiscStatus status) {
 
   if (ds!=drive_status) emit driveStatusChanged(drive_status);
   emit discStatusChanged(disc_status);
+
+  stop();
 
 }
 

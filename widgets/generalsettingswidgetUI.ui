@@ -36,27 +36,38 @@
      <property name="title" >
       <string>General Settings</string>
      </property>
-     <layout class="QGridLayout" >
+     <layout class="QGridLayout" name="gridLayout_3" >
       <item row="0" column="0" >
-       <widget class="QCheckBox" name="kcfg_overwriteExistingFiles" >
-        <property name="text" >
-         <string>Overwrite existing files</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" >
-       <widget class="QCheckBox" name="kcfg_deletePartialFiles" >
-        <property name="text" >
-         <string>Delete partial files after cancel</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" >
-       <widget class="QCheckBox" name="kcfg_ejectCDTray" >
-        <property name="text" >
-         <string>Eject CD tray after extracting finished</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout" >
+        <item>
+         <widget class="QCheckBox" name="kcfg_overwriteExistingFiles" >
+          <property name="text" >
+           <string>Overwrite existing files</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="kcfg_deletePartialFiles" >
+          <property name="text" >
+           <string>Delete partial files after cancel</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="kcfg_ejectCDTray" >
+          <property name="text" >
+           <string>Eject CD tray after extracting finished</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="kcfg_cddbLookupAuto" >
+          <property name="text" >
+           <string>Perform CDDB lookup automatically</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </widget>

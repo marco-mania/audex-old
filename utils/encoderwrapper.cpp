@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,7 +29,7 @@ EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandMask, cons
   connect(&proc, SIGNAL(error(QProcess::ProcessError)), this, SLOT(processError(QProcess::ProcessError)));
 
   proc.setOutputChannelMode(KProcess::SeparateChannels);
-  proc.setReadChannel(QProcess::StandardError);
+  proc.setReadChannel(KProcess::StandardError);
 
   termination = FALSE;
   processing = 0;
@@ -46,19 +46,17 @@ bool EncoderWrapper::encode(int n,
 	int cdno, int trackoffset,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, const QString& basepath,
-	bool fat_compatible,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover, const QString& basepath,
+	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output) {
 
   if (!processing) processing = 1; else return FALSE;
   termination = FALSE;
 
   if (command_mask.isEmpty()) { emit error(i18n("Command mask is empty.")); return FALSE; }
-  int firstSpace = command_mask.indexOf(' ');
-  encoder = command_mask.left(firstSpace);
 
   MaskParser maskparser;
-  QString command = maskparser.parseCommandMask(command_mask, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, basepath, fat_compatible);
+  QString command = maskparser.parseCommandMask(command_mask, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, basepath, fat_compatible, tmppath);
 
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);

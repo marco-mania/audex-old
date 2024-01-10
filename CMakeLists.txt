@@ -3,10 +3,16 @@ project (audex)
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
 
 find_package(KDE4 REQUIRED)
+include(MacroLibrary)
+
+find_package(Cdparanoia)
+macro_log_feature(CDPARANOIA_FOUND "cdparanoia" "Reads digital audio directly from a CD, then writes the data to a file or pipe in several different formats" "http://www.xiph.org/paranoia/" FALSE "" "Required for building Audex.")
+
 include_directories(
 	${KDE4_INCLUDES}
 	${CMAKE_SOURCE_DIR}
 	${CMAKE_BINARY_DIR}
+	${CDPARANOIA_INCLUDE_DIR}
 )
 
 set(audex_SRCS
@@ -82,11 +88,13 @@ kde4_add_ui_files(audex_SRCS
 kde4_add_kcfg_files(audex_SRCS preferences.kcfgc)
 
 kde4_add_executable(audex ${audex_SRCS})
-target_link_libraries(audex ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} kcddb kcompactdisc cdda_paranoia cdda_interface)
+target_link_libraries(audex ${CDPARANOIA_LIBRARIES} ${KDE4_KDEUI_LIBS} ${KDE4_KUTILS_LIBS} kcddb kcompactdisc)
 
 install(TARGETS audex DESTINATION ${BIN_INSTALL_DIR})
 install(FILES audexui.rc DESTINATION  ${DATA_INSTALL_DIR}/audex)
-#install(FILES audex.kcfg  DESTINATION  ${KCFG_INSTALL_DIR})
+install(FILES audex.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 add_subdirectory(icons)
 add_subdirectory(images)
+
+macro_display_feature_log()

@@ -1,3 +1,21 @@
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
 #include <KApplication>
 #include <KAboutData>
 #include <KCmdLineArgs>
@@ -6,13 +24,13 @@
 
 int main (int argc, char *argv[]) {
 
-  KAboutData aboutData("audex", 0, ki18n("Audex"), "0.6",
+  KAboutData aboutData("audex", 0, ki18n("Audex"), "0.62",
                        ki18n("CDDA Extractor for KDE"),
                        KAboutData::License_GPL,
-                       ki18n("(c) 2007-2008 by Marco Nelles"),
+                       ki18n("(c) 2007-2009 by Marco Nelles"),
                        KLocalizedString(),
-                       "http://www.anyaudio.de/audex",
-                       "bugs@anyaudio.de");
+                       "http://opensource.maniatek.de/audex",
+                       "audex@maniatek.de");
   aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer"), "marco@maniatek.de");
   aboutData.addCredit(ki18n("freedb.org"), ki18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
 

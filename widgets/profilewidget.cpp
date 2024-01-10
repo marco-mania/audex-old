@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,9 +28,8 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
 
   listView->setModel(profile_model);
   listView->setModelColumn(0);
-  connect(listView->selectionModel(), SIGNAL(currentRowChanged(const QModelIndex&, const QModelIndex&)), this, SLOT(update_profile(const QModelIndex&, const QModelIndex&)));
   connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(update()));
-  connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile()));
+  connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile(const QModelIndex&)));
   connect(kpushbutton_add, SIGNAL(clicked()), this, SLOT(add_profile()));
   connect(kpushbutton_rem, SIGNAL(clicked()), this, SLOT(rem_profile()));
   connect(kpushbutton_mod, SIGNAL(clicked()), this, SLOT(mod_profile()));
@@ -47,20 +46,12 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
   kpushbutton_load->setIcon(KIcon("document-open"));
   kpushbutton_save->setIcon(KIcon("document-save"));
 
-  if (profile_model->rowCount()>0)
-    listView->setCurrentIndex(profile_model->index(0, 0));
-
   update();
 
 }
 
 profileWidget::~profileWidget() {
 
-}
-
-void profileWidget::update_profile(const QModelIndex& current, const QModelIndex& previous) {
-  Q_UNUSED(previous);
-  profile_model->setCurrentProfileRow(current.row());
 }
 
 void profileWidget::update() {
@@ -105,17 +96,23 @@ void profileWidget::rem_profile() {
 
 }
 
-void profileWidget::mod_profile() {
+void profileWidget::mod_profile(const QModelIndex& index) {
 
-  ProfileDataDialog *dialog = new ProfileDataDialog(profile_model, profile_model->currentProfileRow(), this);
+  ProfileDataDialog *dialog = new ProfileDataDialog(profile_model, index.row(), this);
 
-  if (dialog->exec() == QDialog::Accepted) update_profile(profile_model->index(profile_model->currentProfileRow(), 0), QModelIndex());
+  dialog->exec();
 
   delete dialog;
 
   profile_model->commit();
 
   update();
+
+}
+
+void profileWidget::mod_profile() {
+
+  mod_profile(listView->currentIndex());
 
 }
 

@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -89,6 +89,89 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   if (is_command_mask) {
     if (qName == TAG_INPUT_FILE) _text += "\""+input+"\"";
     if (qName == TAG_OUTPUT_FILE) _text += "\""+output+"\"";
+    if (qName == TAG_COVER_FILE) {
+
+      QString format = "JPEG";
+      if (!atts.value("format").isEmpty()) format = atts.value("format");
+
+      if ((format.toLower() != "jpg") &&
+          (format.toLower() != "jpeg") &&
+	  (format.toLower() != "png") &&
+	  (format.toLower() != "gif")) format = "JPG";
+
+      QString filename;
+      bool stop = FALSE;
+      if (demomode) {
+
+        filename = tmppath+"/audexcover.123."+format.toLower();
+
+      } else {
+
+        int x = -1;
+        int y = -1;
+        bool ok;
+        if (!atts.value("x").isEmpty()) x = atts.value("x").toInt(&ok);
+        if (!ok) x = -1;
+        if (!atts.value("y").isEmpty()) y = atts.value("y").toInt(&ok);
+        if (!ok) y = -1;
+
+        QByteArray ba = QCryptographicHash::hash(QString(artist+title+date+QString("%1").arg(x*y)+format).toUtf8(), QCryptographicHash::Md5);
+        QString mda5 = ba.toHex();
+
+        PID pid;
+        QString tmp_dir = tmppath;
+        if (tmp_dir.right(1) != "/") tmp_dir += "/";
+        tmp_dir += "audex."+QString("%1").arg(pid.getPID());
+        kDebug() << "Temporary directory in use:" << tmp_dir;
+        QDir *dir = new QDir(tmp_dir);
+        if (!dir->exists()) {
+          if (!dir->mkpath(tmp_dir)) {
+            kDebug() << "Unable to create temporary directory " << tmp_dir << ". No temporary cover file will be saved. Please check.";
+            stop = TRUE;
+          }
+        }
+
+        if (!stop) filename = tmp_dir+"/cover."+QString("%1").arg(mda5)+"."+format.toLower();
+
+        if ((!QFile::exists(filename)) && (!stop)) {
+
+          QImage c;
+          if (cover.isNull()) {
+	    if (IS_TRUE(atts.value("usenocover"))) {
+	      c = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+	    } else {
+              stop = TRUE;
+	    }
+	  } else {
+            c = cover;
+	  }
+
+	  if (!stop) {
+
+            if ((x != -1) && (y != -1)) {
+              c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+            }
+
+	    if (!c.save(filename)) {
+              kDebug() << "WARNING! Could not create temporary cover file" << filename;
+	    } else {
+              kDebug() << "Successfully created temporary cover file" << filename << "(" << QFile(filename).size() / 1024 << "KiB)";
+	    }
+
+	  }
+
+	}
+      
+      }
+
+      if (!stop) {
+        QString preparam = atts.value("preparam");
+        QString postparam = atts.value("postparam");
+        _text += preparam+"\""+filename+"\""+postparam;
+      }
+ 
+    }
+ 
   }
   if (is_text_mask) {
     if (qName == TAG_CD_SIZE) {
@@ -112,6 +195,15 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         _text += QString("%1").arg(QDate::currentDate().toString());
       } else {
         _text += QString("%1").arg(QDate::currentDate().toString(format));
+      }
+    }
+    if (qName == TAG_NOW) {
+      QString format;
+      if (!atts.value("format").isEmpty()) format = atts.value("format");
+      if (format.isEmpty()) {
+        _text += QString("%1").arg(QDateTime::currentDateTime().toString());
+      } else {
+        _text += QString("%1").arg(QDateTime::currentDateTime().toString(format));
       }
     }
     if (qName == TAG_LINEBREAK) _text += "\n";
@@ -199,7 +291,7 @@ QString MaskParser::parseFilenameMask(const QString& mask,
   handler.setFAT32Compatible(fat32compatible);
 
   QXmlInputSource inputSource;
-  inputSource.setData("<filenamemask>"+mask+"</filenamemask>");
+  inputSource.setData("<filenamemask>"+p_xmlize_mask(mask)+"</filenamemask>");
   QXmlSimpleReader reader;
   reader.setContentHandler(&handler);
   reader.setErrorHandler(&handler);
@@ -214,8 +306,8 @@ QString MaskParser::parseCommandMask(const QString& mask,
 	int trackno, int cdno, int trackoffset,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
-	const QString& date, const QString& genre, const QString& suffix, const QString& basepath,
-	bool fatcompatible) {
+	const QString& date, const QString& genre, const QString& suffix, const QImage& cover, const QString& basepath,
+	bool fatcompatible, const QString& tmppath, const bool demomode) {
 
   SaxHandler handler;
   handler.setInputFile(input);
@@ -230,11 +322,14 @@ QString MaskParser::parseCommandMask(const QString& mask,
   handler.setDate(date);
   handler.setGenre(genre);
   handler.setSuffix(suffix);
+  handler.setCover(cover);
   handler.setBasepath(basepath);
   handler.setFAT32Compatible(fatcompatible);
+  handler.setTMPPath(tmppath);
+  handler.setDemoMode(demomode);
 
   QXmlInputSource inputSource;
-  inputSource.setData("<commandmask>"+mask+"</commandmask>");
+  inputSource.setData("<commandmask>"+p_xmlize_mask(mask)+"</commandmask>");
   QXmlSimpleReader reader;
   reader.setContentHandler(&handler);
   reader.setErrorHandler(&handler);
@@ -259,7 +354,7 @@ QString MaskParser::parseSimpleMask(const QString& mask,
   handler.setFAT32Compatible(fat32compatible);
 
   QXmlInputSource inputSource;
-  inputSource.setData("<simplemask>"+mask+"</simplemask>");
+  inputSource.setData("<simplemask>"+p_xmlize_mask(mask)+"</simplemask>");
   QXmlSimpleReader reader;
   reader.setContentHandler(&handler);
   reader.setErrorHandler(&handler);
@@ -285,12 +380,87 @@ void MaskParser::parseInfoText(QStringList& text,
   handler.setNoOfTracks(nooftracks);
 
   QXmlInputSource inputSource;
-  inputSource.setData("<textmask>"+text.join("\n")+"</textmask>");
+  inputSource.setData("<textmask>"+p_xmlize_mask(text.join("\n"))+"</textmask>");
   QXmlSimpleReader reader;
   reader.setContentHandler(&handler);
   reader.setErrorHandler(&handler);
   reader.parse(inputSource);
 
   text = handler.text().split('\n');
+
+}
+
+const QString MaskParser::p_xmlize_mask(const QString& mask) {
+
+  QString newmask;
+
+  QString name;
+  QString attr;
+  int s = 0;
+  for (int i = 0; i < mask.length(); ++i) {
+
+     switch (s) {
+
+       //outside var
+       case 0 :
+         if (mask[i] == '$') {
+	   name.clear();
+           s = 1;
+	   continue;
+	 }
+	 break;
+
+       //inside var
+       case 1 :
+         if (mask[i] == '{') {
+	   s = 3;
+	 } else if (mask[i] == '$') {
+           newmask += '$';
+	   s = 0;
+	 } else {
+           s = 2;
+	   name += mask[i];
+	 }
+	 continue;
+
+       //inside simple var
+       case 2 :
+         if (!mask[i].isLetter()) {
+	   if (!name.trimmed().isEmpty()) newmask += "<"+name+" />";
+	   name.clear();
+           s = 0;
+	   if (mask[i] == '$') {
+	     name.clear();
+             s = 1;
+	     continue;
+	   } else {
+	     newmask += mask[i];
+	   }
+	   continue;
+	 }
+	 name += mask[i];
+         continue;
+
+       //inside extended var
+       case 3 :
+         if (mask[i] == '}') {
+	   if (!name.trimmed().isEmpty()) newmask += "<"+name+" />";
+	   name.clear();
+           s = 0;
+	   continue;
+	 }
+	 name += mask[i];
+         continue;
+
+     }
+
+     newmask += mask[i];
+
+  }
+
+  //rest at the end?
+  if ((s==2) && (!name.trimmed().isEmpty())) newmask += "<"+name+" />";
+
+  return newmask;
 
 }

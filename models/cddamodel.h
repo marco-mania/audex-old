@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -65,7 +65,7 @@ public:
 
   Qt::ItemFlags flags(const QModelIndex &index) const;
 
-  const unsigned int discid() const;
+  unsigned int discid() const;
   void setArtist(const QString& a);
   const QString artist() const;
   void setTitle(const QString& t);
@@ -79,11 +79,11 @@ public:
   void setExtendedData(const QStringList& e);
   const QStringList extendedData() const;
   void setCDNum(const int n);
-  const int cdNum() const;
+  int cdNum() const;
   void setTrackOffset(const int n);
-  const int trackOffset() const;
+  int trackOffset() const;
   void setMultiCD(const bool multi);
-  const bool isMultiCD() const;
+  bool isMultiCD() const;
 
   void setCustomData(const QString& type, const QVariant& data);
   const QVariant customData(const QString& type) const;
@@ -95,9 +95,9 @@ public:
   void setCover(const QImage& image);
   void clearCover();
 
-  const bool guessVarious();
+  bool guessVarious();
   void setVarious(bool various);
-  const bool isVarious();
+  bool isVarious();
 
   void swapArtistAndTitleOfTracks();
   void swapArtistAndTitle();
@@ -121,7 +121,7 @@ public:
 
   void setSelection(const QModelIndexList& list);
   QModelIndexList selection() const;
-  const bool isTrackInSelection(int n) const;
+  bool isTrackInSelection(int n) const;
 
   bool isModified() const;
   void confirm();
@@ -129,7 +129,7 @@ public:
   //enum MessageType { mtWarning, mtError };
   //bool isValid(QString *message, QCDDAModel::MessageType *type);
 
-  const Error lastError() const;
+  Error lastError() const;
 
   enum DriveStatus {
     DriveNoStatus,

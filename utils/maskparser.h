@@ -1,6 +1,6 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,9 +24,17 @@
 #include <QXmlDefaultHandler>
 #include <QDir>
 #include <QDate>
+#include <QDateTime>
+#include <QImage>
+#include <QCryptographicHash>
 
 #include <KDebug>
 #include <KLocale>
+#include <KStandardDirs>
+
+#include "../utils/pid.h"
+
+#define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
 
 #define TAG_FILENAME_MASK				"filenamemask"
 #define TAG_COMMAND_MASK				"commandmask"
@@ -47,12 +55,14 @@
 
 #define TAG_INPUT_FILE					"i"
 #define TAG_OUTPUT_FILE					"o"
+#define TAG_COVER_FILE					"cover"
 
 #define TAG_DISCID					"discid"
 #define TAG_CD_SIZE					"size"
 #define TAG_CD_LENGTH					"length"
 #define TAG_CD_NO_OF_TRACKS				"nooftracks"
 #define TAG_TODAY					"today"
+#define TAG_NOW						"now"
 #define TAG_LINEBREAK					"br"
 
 
@@ -80,12 +90,15 @@ public:
   void setDate(const QString& date) { this->date = date; }
   void setGenre(const QString& genre) { this->genre = genre; }
   void setSuffix(const QString& suffix) { this->suffix = suffix; }
+  void setCover(const QImage& cover) { this->cover = cover; }
   void setBasepath(const QString& basepath) { this->basepath = basepath; }
   void setFAT32Compatible(const bool fat32compatible) { this->fat32compatible = fat32compatible; }
+  void setTMPPath(const QString& tmppath) { this->tmppath = tmppath; }
   void setDiscid(const quint32 discid) { this->discid = discid; }
   void setSize(const qreal size) { this->size = size; }
   void setLength(const int length) { this->length = length; }
   void setNoOfTracks(const int nooftracks) { this->nooftracks = nooftracks; }
+  void setDemoMode(const bool demomode) { this->demomode = demomode; }
 
   inline const QString text() const { return _text; }
 
@@ -103,12 +116,16 @@ private:
   QString date;
   QString genre;
   QString suffix;
+  QImage cover;
   QString basepath;
   bool fat32compatible;
+  QString tmppath;
   quint32 discid;
   qreal size;
   int length;
   int nooftracks;
+
+  bool demomode;
 
   QString _text;
 
@@ -140,8 +157,9 @@ public:
 	int trackno, int cdno, int trackoffset,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
-	const QString& date, const QString& genre, const QString& suffix, const QString& basepath,
-	bool fat32compatible);
+	const QString& date, const QString& genre, const QString& suffix, const QImage& cover, const QString& basepath,
+	bool fat32compatible, const QString& tmppath,
+	const bool demomode = FALSE);
 
   QString parseSimpleMask(const QString& mask,
 	int cdno, const QString& artist, const QString& title,
@@ -156,6 +174,9 @@ public:
 signals:
   void error(const QString& message,
 	const QString& details = QString());
+
+private:
+  const QString p_xmlize_mask(const QString& mask);
 
 };
 

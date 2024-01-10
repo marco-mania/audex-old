@@ -1,6 +1,6 @@
-/* ADEX CDDA EXTRACTOR
- * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
- * http://www.anyaudio.de/audex
+/* AUDEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2009 by Marco Nelles (audex@maniatek.de)
+ * http://opensource.maniatek.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,8 @@
 AssistantDialog::AssistantDialog(ProfileModel *profileModel, QWidget *parent) : KAssistantDialog(parent) {
 
   Q_UNUSED(parent);
+
+  setCaption(i18n("Assistant"));
 
   profile_model = profileModel;
 
@@ -76,7 +78,7 @@ void AssistantDialog::create_profiles() {
     if (filenamewidget->radioButton_manual->isChecked())
       mask = filenameschemewidget->klineedit_scheme->text();
     else
-      mask = "<basepath />/<artist />/<artist /> [<date />] <title />/<cdno /><trackno length=\"2\" fillchar=\"0\" /> - <tartist /> - <ttitle />.<suffix />";
+      mask = "$basepath/$artist/$artist [$date] $title/$cdno${trackno length=\"2\" fillchar=\"0\"} - $tartist - $ttitle.$suffix";
     QString suffix = encoder_assistant.suffix(encoder);
     bool fat32 = additionswidget->checkBox_fat32->isChecked();
     bool cover = additionswidget->checkBox_cover->isChecked();
@@ -120,12 +122,12 @@ void AssistantDialog::add_profile(const QString& name, const QString& mask, cons
     profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_INDEX), cover);
     if (cover) {
       profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX), "JPG");
-      profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX), "<title />");
+      profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_SC_NAME_INDEX), "$title");
     }
     profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_INDEX), playlist);
     if (playlist) {
       profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX), "M3U");
-      profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX), "<title />");
+      profile_model->setData(profile_model->index(row, PROFILE_MODEL_COLUMN_PL_NAME_INDEX), "$title");
     }
   }
 
