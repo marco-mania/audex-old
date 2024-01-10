@@ -53,6 +53,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(artist); else s = make_compatible(artist);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+        else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(artist);
@@ -65,6 +67,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(title); else s = make_compatible(title);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+        else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(title);
@@ -77,6 +81,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(date); else s = make_compatible(date);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+        else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(date);
@@ -89,6 +95,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(genre); else s = make_compatible(genre);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+        else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(genre);
@@ -117,6 +125,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QString s;
         if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(tartist); else s = make_compatible(tartist);
         if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+	if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+	  else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
         _text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(tartist);
@@ -129,6 +139,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QString s;
         if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(ttitle); else s = make_compatible(ttitle);
 	if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+	if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+	  else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
 	_text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(ttitle);

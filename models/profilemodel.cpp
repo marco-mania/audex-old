@@ -761,6 +761,8 @@ bool ProfileModel::saveProfilesToFile(const QString& filename) {
 bool ProfileModel::loadProfilesFromFile(const QString& filename) {
   KConfig config(filename);
   load(&config);
+  reset();
+  commit();
   return TRUE;
 }
 

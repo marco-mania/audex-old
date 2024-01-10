@@ -37,8 +37,8 @@ oggencWidget::oggencWidget(Parameters *parameters, QWidget *parent) : oggencWidg
   kintspinbox_maxbitrate->setValue(parameters->valueToInt(ENCODER_OGGENC_MAXBITRATE_VALUE_KEY, ENCODER_OGGENC_MAXBITRATE_VALUE));
   klineedit_suffix->setText(parameters->value(ENCODER_OGGENC_SUFFIX_KEY, ENCODER_OGGENC_SUFFIX));
 
-  connect(horizontalSlider_quality, SIGNAL(sliderMoved(int)), this, SLOT(quality_changed_by_slider(int)));
-  connect(horizontalSlider_quality, SIGNAL(sliderMoved(int)), this, SLOT(trigger_changed()));
+  connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
+  connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
   connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_spinbox(int)));
   connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
@@ -80,7 +80,9 @@ bool oggencWidget::save() {
 
 void oggencWidget::quality_changed_by_slider(int quality) {
 
+  kintspinbox_quality->blockSignals(TRUE);
   kintspinbox_quality->setValue(quality);
+  kintspinbox_quality->blockSignals(FALSE);
 
   set_bitrate(quality);
 
@@ -88,7 +90,9 @@ void oggencWidget::quality_changed_by_slider(int quality) {
 
 void oggencWidget::quality_changed_by_spinbox(int quality) {
 
+  horizontalSlider_quality->blockSignals(TRUE);
   horizontalSlider_quality->setValue(quality);
+  horizontalSlider_quality->blockSignals(FALSE);
 
   set_bitrate(quality);
 

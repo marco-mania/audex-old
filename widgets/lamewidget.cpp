@@ -59,7 +59,7 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
   connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(enable_CBR(bool)));
   connect(checkBox_cbr, SIGNAL(toggled(bool)), this, SLOT(trigger_changed()));
 
-  connect(horizontalSlider_bitrate, SIGNAL(sliderMoved(int)), this, SLOT(bitrate_changed_by_slider(int)));
+  connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_slider(int)));
   connect(horizontalSlider_bitrate, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
   connect(kintspinbox_bitrate, SIGNAL(valueChanged(int)), this, SLOT(bitrate_changed_by_spinbox(int)));
@@ -134,19 +134,21 @@ void lameWidget::enable_CBR(bool enable) {
     }
     if (nb==-1) nb = bitrates.last();
 
+    horizontalSlider_bitrate->blockSignals(TRUE);
     horizontalSlider_bitrate->setMinimum(0);
     horizontalSlider_bitrate->setMaximum(8);
     horizontalSlider_bitrate->setSingleStep(1);
     horizontalSlider_bitrate->setPageStep(1);
     horizontalSlider_bitrate->setValue(i-1);
+    horizontalSlider_bitrate->blockSignals(FALSE);
 
+    kintspinbox_bitrate->blockSignals(TRUE);
     kintspinbox_bitrate->setMinimum(80);
     kintspinbox_bitrate->setMaximum(320);
     kintspinbox_bitrate->setSingleStep(16);
-    kintspinbox_bitrate->blockSignals(TRUE);
     kintspinbox_bitrate->setValue(nb);
-    kintspinbox_bitrate->blockSignals(FALSE);
     kintspinbox_bitrate->setReadOnly(TRUE);
+    kintspinbox_bitrate->blockSignals(FALSE);
 
     real_bitrate = nb;
 
@@ -154,19 +156,21 @@ void lameWidget::enable_CBR(bool enable) {
 
   } else {
 
+    horizontalSlider_bitrate->blockSignals(TRUE);
     horizontalSlider_bitrate->setMinimum(80);
     horizontalSlider_bitrate->setMaximum(320);
     horizontalSlider_bitrate->setSingleStep(1);
     horizontalSlider_bitrate->setPageStep(10);
     horizontalSlider_bitrate->setValue(real_bitrate);
+    horizontalSlider_bitrate->blockSignals(FALSE);
 
+    kintspinbox_bitrate->blockSignals(TRUE);
     kintspinbox_bitrate->setMinimum(80);
     kintspinbox_bitrate->setMaximum(320);
     kintspinbox_bitrate->setSingleStep(1);
-    kintspinbox_bitrate->blockSignals(TRUE);
     kintspinbox_bitrate->setValue(real_bitrate);
-    kintspinbox_bitrate->blockSignals(FALSE);
     kintspinbox_bitrate->setReadOnly(FALSE);
+    kintspinbox_bitrate->blockSignals(FALSE);
 
     p_cbr_flag = FALSE;
 
@@ -181,7 +185,9 @@ void lameWidget::bitrate_changed_by_slider(int bitrate) {
     if (bitrate < 0) bitrate = 0;
     if (bitrate >= bitrates.count()) bitrate = bitrates.count()-1;
 
+    kintspinbox_bitrate->blockSignals(TRUE);
     kintspinbox_bitrate->setValue(bitrates[bitrate]);
+    kintspinbox_bitrate->blockSignals(FALSE);
 
     real_bitrate = bitrates[bitrate];
 
@@ -201,7 +207,9 @@ void lameWidget::bitrate_changed_by_spinbox(int bitrate) {
 
   if (!p_cbr_flag) {
 
+    horizontalSlider_bitrate->blockSignals(TRUE);
     horizontalSlider_bitrate->setValue(bitrate);
+    horizontalSlider_bitrate->blockSignals(FALSE);
 
     real_bitrate = bitrate;
 

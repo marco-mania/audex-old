@@ -32,7 +32,7 @@ faacWidget::faacWidget(Parameters *parameters, QWidget *parent) : faacWidgetUI(p
   kintspinbox_quality->setValue(parameters->valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY));
   klineedit_suffix->setText(parameters->value(ENCODER_FAAC_SUFFIX_KEY, ENCODER_FAAC_SUFFIX));
 
-  connect(horizontalSlider_quality, SIGNAL(sliderMoved(int)), this, SLOT(quality_changed_by_slider(int)));
+  connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_slider(int)));
   connect(horizontalSlider_quality, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
   connect(kintspinbox_quality, SIGNAL(valueChanged(int)), this, SLOT(quality_changed_by_spinbox(int)));
@@ -63,13 +63,17 @@ bool faacWidget::save() {
 
 void faacWidget::quality_changed_by_slider(int quality) {
 
+  kintspinbox_quality->blockSignals(TRUE);
   kintspinbox_quality->setValue(quality);
+  kintspinbox_quality->blockSignals(FALSE);
 
 }
 
 void faacWidget::quality_changed_by_spinbox(int quality) {
 
+  horizontalSlider_quality->blockSignals(TRUE);
   horizontalSlider_quality->setValue(quality);
+  horizontalSlider_quality->blockSignals(FALSE);
 
 }
 

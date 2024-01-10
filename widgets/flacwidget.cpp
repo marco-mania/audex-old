@@ -32,7 +32,7 @@ flacWidget::flacWidget(Parameters *parameters, QWidget *parent) : flacWidgetUI(p
   kintspinbox_compression->setValue(parameters->valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION));
   klineedit_suffix->setText(parameters->value(ENCODER_FLAC_SUFFIX_KEY, ENCODER_FLAC_SUFFIX));
 
-  connect(horizontalSlider_compression, SIGNAL(sliderMoved(int)), this, SLOT(compression_changed_by_slider(int)));
+  connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_slider(int)));
   connect(horizontalSlider_compression, SIGNAL(valueChanged(int)), this, SLOT(trigger_changed()));
 
   connect(kintspinbox_compression, SIGNAL(valueChanged(int)), this, SLOT(compression_changed_by_spinbox(int)));
@@ -63,13 +63,17 @@ bool flacWidget::save() {
 
 void flacWidget::compression_changed_by_slider(int compression) {
 
+  kintspinbox_compression->blockSignals(TRUE);
   kintspinbox_compression->setValue(compression);
+  kintspinbox_compression->blockSignals(FALSE);
 
 }
 
 void flacWidget::compression_changed_by_spinbox(int compression) {
 
+  horizontalSlider_compression->blockSignals(TRUE);
   horizontalSlider_compression->setValue(compression);
+  horizontalSlider_compression->blockSignals(FALSE);
 
 }
 
