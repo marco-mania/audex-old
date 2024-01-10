@@ -1,227 +1,236 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Marco Nelles <marco@maniatek.de>, 2009.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: de.new\n"
 "Report-Msgid-Bugs-To: http://opensource.maniatek.de/audex\n"
 "POT-Creation-Date: 2009-05-11 18:49+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2009-05-11 19:41+0200\n"
+"Last-Translator: Marco Nelles <marco@maniatek.de>\n"
+"Language-Team: de <kde-i18n-de@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.3\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/audex.cpp:115
 msgid "No profile selected. Operation abort."
-msgstr ""
+msgstr "Kein Profil ausgewählt. Aktion abgebrochen."
 
 #: core/audex.cpp:127
 msgid ""
 "Unable to create temporary directory \"%1\". Please check. Abort operation."
 msgstr ""
+"Kann temporäres Verzeichnis \"%1\" nicht erstellen. Bitte prüfen. Aktion "
+"abgebrochen."
 
 #: core/audex.cpp:139
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "Starte Auslesen und Kodieren mit dem Profil \"%1\"..."
 
 #: core/audex.cpp:447
 msgid "Cant find path \"%1\"."
-msgstr ""
+msgstr "Kann den Pfad \"%1\" nicht finden."
 
 #: core/audex.cpp:447 core/audex.cpp:456
 msgid "Please check your path (write access?)"
-msgstr ""
+msgstr "Bitte überprüfen Sie den Pfad (Schreibrechte vorhanden?)"
 
 #: core/audex.cpp:456
 msgid "Unable to create directory \"%1\"."
-msgstr ""
+msgstr "Kann Verzeichnis \"%1\" nicht erstellen."
 
 #: core/audex.cpp:459
 msgid "Directory \"%1\" successfully created."
-msgstr ""
+msgstr "Verzeichnis \"%1\" erfolgreich erstellt."
 
 #: core/audex.cpp:462
 msgid "Directory \"%1\" already exists."
-msgstr ""
+msgstr "Verzeichnis \"%1\" existiert bereits."
 
 #: core/audex.cpp:469
 msgid ""
 "Free space on \"%1\" is less than 200 MB. Problems with low space possible."
 msgstr ""
+"Auf \"%1\" sind weniger als 200MB Speicher frei. Es können Speicherprobleme "
+"auftreten."
 
 #: core/audex.cpp:475
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
+msgstr "Warnung: Die Datei \"%1\" existiert bereist. Wird überschrieben."
 
 #: core/audex.cpp:477 core/audex.cpp:579 core/audex.cpp:611 core/audex.cpp:659
 #: core/audex.cpp:698 core/audex.cpp:735
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
+msgstr "Warnung: Die Datei \"%1\" existiert bereits. Wird übersprungen."
 
 #: core/audex.cpp:498
 msgid "Temporary directory name \"%1\" must not be empty."
-msgstr ""
+msgstr "Der Name für das temporäres Verzeichnis \"%1\" darf nicht leer sein."
 
 #: core/audex.cpp:498
 msgid "Please set one."
-msgstr ""
+msgstr "Bitte wählen Sie eins."
 
 #: core/audex.cpp:504
 msgid "Temporary directory \"%1\" does not exists."
-msgstr ""
+msgstr "Temporäres Verzeichnis \"%1\" existiert nicht."
 
 #: core/audex.cpp:504
 msgid "Please check."
-msgstr ""
+msgstr "Bitte überprüfen."
 
 #: core/audex.cpp:512
 msgid ""
 "Free space on temporary directory \"%1\" is less than 800 MiB. Problems with "
 "low space possible."
 msgstr ""
+"Auf \"%1\" sind weniger als 800 MiB Speicher frei. Es können "
+"Speicherprobleme auftreten."
 
 #: core/audex.cpp:514
 msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
 msgstr ""
+"Das temporäre Verzeichnis \"%1\" benötigt mindestens 200MiB freien Speicher."
 
 #: core/audex.cpp:514
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "Bitte Speicher freimachen oder einen anderen Pfad wählen."
 
 #: core/audex.cpp:547
 msgid "Eject CD tray"
-msgstr ""
+msgstr "CD auswerfen"
 
 #: core/audex.cpp:584
 msgid "Cover \"%1\" successfully saved."
-msgstr ""
+msgstr "Cover \"%1\" erfolgreich gespeichert."
 
 #: core/audex.cpp:637
 msgid "Playlist \"%1\" successfully created."
-msgstr ""
+msgstr "Playlist \"%1\" erfolgreich erstellt."
 
 #: core/audex.cpp:672
 msgid "Infofile \"%1\" successfully stored."
-msgstr ""
+msgstr "Infodatei \"%1\" erfolgreich gespeichert."
 
 #: core/audex.cpp:717
 msgid "Hashlist \"%1\" successfully stored."
-msgstr ""
+msgstr "Hashliste \"%1\" erfolgreich gespeichert."
 
 #: core/audex.cpp:748
 msgid "Discid successfully stored."
-msgstr ""
+msgstr "Disk-ID erfolgreich gespeichert."
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:459
 msgid "Edit Data"
-msgstr ""
+msgstr "Daten ändern"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
-msgstr ""
+msgstr "Assistent für Kommando"
 
 #: dialogs/coverbrowserdialog.cpp:51
 msgid "Searching for covers..."
-msgstr ""
+msgstr "Suche nach Cover ..."
 
 #: dialogs/coverbrowserdialog.cpp:74
 msgid ""
 "%1\n"
 "Cover Size: %2x%3"
 msgstr ""
+"%1\n"
+"Cover Größe: %2x%3"
 
 #: dialogs/coverbrowserdialog.cpp:78
 msgid "Fetching Cover %1 / %2..."
-msgstr ""
+msgstr "Hole Cover %1 / %2 ..."
 
 #: dialogs/coverbrowserdialog.cpp:82
 msgid "Found %1 Covers"
-msgstr ""
+msgstr "%1 Cover gefunden"
 
 #: dialogs/coverbrowserdialog.cpp:86
 msgid "No Covers Found"
-msgstr ""
+msgstr "Keine Cover gefunden"
 
 #: dialogs/coverbrowserdialog.cpp:99
 msgid "Fetch Cover From Amazon"
-msgstr ""
+msgstr "Hole Cover von Amazon"
 
 #: dialogs/extractingprogressdialog.cpp:30
 msgid "Rip And Encode"
-msgstr ""
+msgstr "Auslesen und Kodieren"
 
 #: dialogs/extractingprogressdialog.cpp:39
 msgid "Ripping Track  0 / %1"
-msgstr ""
+msgstr "Lese Track 0 / %1 aus"
 
 #: dialogs/extractingprogressdialog.cpp:40
 msgid "Encoding Track  0 / %1"
-msgstr ""
+msgstr "Kodiere Track 0 / %1"
 
 #: dialogs/extractingprogressdialog.cpp:113
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Wollen Sie wirklich abbrechen?"
 
 #: dialogs/extractingprogressdialog.cpp:114
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: dialogs/extractingprogressdialog.cpp:127
 msgid "Ripping Track"
-msgstr ""
+msgstr "Lese Track aus"
 
 #: dialogs/extractingprogressdialog.cpp:127
 msgid "Ripping Track %1 / %2"
-msgstr ""
+msgstr "Lese Track %1 / %2 aus"
 
 #: dialogs/extractingprogressdialog.cpp:135
 msgid "Waiting for an encoding job..."
-msgstr ""
+msgstr "Wartet auf einen Kodierungsauftrag"
 
 #: dialogs/extractingprogressdialog.cpp:139
 msgid "Encoding Track"
-msgstr ""
+msgstr "Kodiere Track"
 
 #: dialogs/extractingprogressdialog.cpp:139
 msgid "Encoding Track %1 / %2"
-msgstr ""
+msgstr "Kodiere Track %1 / %2"
 
 #: dialogs/extractingprogressdialog.cpp:181
 #: dialogs/extractingprogressdialog.cpp:188
 #, c-format
 msgid "Speed: %1x"
-msgstr ""
+msgstr "Geschwindigkeit %1x"
 
 #: dialogs/extractingprogressdialog.cpp:200
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Alle Aufträge erfolgreich beendet,"
 
 #: dialogs/extractingprogressdialog.cpp:204
 #: dialogs/extractingprogressdialog.cpp:205
 msgid "Finished!"
-msgstr ""
+msgstr "Fertig!"
 
 #: dialogs/extractingprogressdialog.cpp:209
 msgid "At least one job failed."
-msgstr ""
+msgstr "Mindestens ein Auftrag ist fehlgeschlagen."
 
 #: dialogs/extractingprogressdialog.cpp:213
 #: dialogs/extractingprogressdialog.cpp:214
 msgid "Failed!"
-msgstr ""
+msgstr "Fehlgeschlagen!"
 
 #: dialogs/extractingprogressdialog.cpp:222
 msgid "Show encoding log..."
-msgstr ""
+msgstr "Zeige Kodierungslog ..."
 
 #: dialogs/extractingprogressdialog.cpp:226
 msgid "Show rip log..."
-msgstr ""
+msgstr "Zeige Ausleselog ..."
 
 #: dialogs/extractingprogressdialog.cpp:263
 msgid ""
@@ -233,26 +242,34 @@ msgid ""
 "\n"
 "However, do you want to continue extraction?"
 msgstr ""
+"Die Auslesegeschwindigkeit ist seit 5 Minuten extrem langsam.\n"
+"Um bestmögliche Auslesequalität zu erreichen Audex überspringt keine "
+"Fehler. Sollte die CD wirklich beschädigt sein, könnte das Auslesen niemals "
+"enden.\n"
+"In einigen Fällen kann das Laufwerk eine Audiodaten auslesen. "
+"Vielleicht hiflt ein anderes Laufwerk.\n"
+"\n"
+"Wollen Sie mit dem Auslesen dennoch fortfahren?"
 
 #: dialogs/extractingprogressdialog.cpp:266
 msgid "Cancel extraction"
-msgstr ""
+msgstr "Aulesen abbrechen"
 
 #: dialogs/extractingprogressdialog.cpp:275
 msgid "Encoding protocol"
-msgstr ""
+msgstr "Kodierungsprotokoll"
 
 #: dialogs/extractingprogressdialog.cpp:281
 msgid "Ripping protocol"
-msgstr ""
+msgstr "Ausleseprotokoll"
 
 #: dialogs/patternwizarddialog.cpp:30
 msgid "Filename Pattern Wizard"
-msgstr ""
+msgstr "Assistent für Dateinamen"
 
 #: dialogs/profiledatacoverdialog.cpp:37
 msgid "Cover Settings"
-msgstr ""
+msgstr "Cover Einstellungen"
 
 #: dialogs/profiledatacoverdialog.cpp:54
 msgid "JPEG (Joint Photographic Experts Group)"
@@ -268,28 +285,28 @@ msgstr ""
 
 #: dialogs/profiledatadialog.cpp:91
 msgid "Modify Profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #: dialogs/profiledatadialog.cpp:150
 msgid "Create Profile"
-msgstr ""
+msgstr "Profil erstellen"
 
 #: dialogs/profiledatadialog.cpp:154
 msgid "New Profile"
-msgstr ""
+msgstr "Neues Profil"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
 msgid "Playlist Settings"
-msgstr ""
+msgstr "Playlist Einstellungen"
 
 #: dialogs/profiledatainfodialog.cpp:34
 msgid "Info Settings"
-msgstr ""
+msgstr "Infodatei Einstellungen"
 
 #: dialogs/profiledatainfodialog.cpp:102
 msgid "Usable Variables For Text Template"
-msgstr ""
+msgstr "Verwendbare Variablen für die Textvorlage"
 
 #: dialogs/profiledatainfodialog.cpp:107
 msgid ""
@@ -366,34 +383,113 @@ msgid ""
 "\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
 "'pm'.</td></tr></table></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" "
+"\"http://www.w3.org/TR/REC-html40/strict.dtd\"><html><head><style "
+"type=\"text/css\">p, li { white-space: pre-wrap; "
+"}</style></head><body>Variuablen werden durch spezielle Werte erstezt, die "
+"auch Attribute enthalten können<br />Zum Beispiel wird Die Variable<div "
+"style=\"font-family:monospace; background: #b3c1d6; color: "
+"black\"><pre>$artist</pre></div>oder das Äquivalent<br /><div "
+"style=\"font-family:monospace; background: #b3c1d6; color: "
+"black\"><pre>${artist}</pre></div>durch den entsprechenden Interpreten der "
+"CD ersetzt.<br />Variablen können auch Attribute enthalten. Beispiel:<div "
+"style=\"font-family:monospace; background: #b3c1d6; color: "
+"black\"><pre>${today format=\"dd.MM.yyyy\" }</pre></div>Dies bedeutet das "
+"aktuelle Datum. Sie können das Format festlegen.Das Beispiel gibt das Format "
+"07.10.2008 in dem aktuellen Datum. Siehe unten für meher Details..<br /><br "
+"/>Sie können folgende Variablen nutzen:<br /><table "
+"border=1><thead><tr><th>Tag</th><th>Variable</th><th>Beschreibung</th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></td><td>Der "
+"Interpret der CD.</td><td></td></tr><tr><td>$title</td><td></td><td>Der "
+"(Album)-Titel der CD.</td><td></td></tr><tr><td>$date</td><td></td><td>Das "
+"Datum (meißt Jahr) der "
+"CD.</td><td></td></tr><tr><td>$genre;</td><td></td><td>Das Genre der "
+"CD.</td><td></td></tr><tr><td>$size</td><td>iec,precision</td><td>Die "
+"gesammte Größe der kodieren Musikdateien (Mit Cover)Das Attribut iec kann "
+"eins die Werte anhemen: b, k, m, g. b : Byte, k : KB, m : MB and g : GB. Das "
+"Attribut precision gibt die Anzahl der Nachkommastellen. Standart Attribute "
+"sind iec=\"m\" und precision=\"2\"</td><td>${size iec=\"k\" "
+"precision=\"2\"}</td></tr><tr><td>$length</td><td></td><td>Die gesammte "
+"Länge aller ausgelesenen Tracks. Das Format ist "
+"min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Die Anzahl "
+"alle augelesenen "
+"Tracks</td><td></td></tr><tr><td>$discid</td><td>base</td><td>Die ID der "
+"aktuellen CD.Das Attribut base ist die Darstellungsbasis der Zahl. Standart "
+"ist 16 (Hexadecimal).</td><td>${discid "
+"base=\"16\"}</td></tr><tr><td>$today</td><td>format</td><td>Das aktuelle "
+"Datum. Das Attribut format gibt die Formatierung an (*).</td><td>${today "
+"format=\"dd.MM.yyyy\"}</td></tr><tr><td>$now</td><td>format</td><td>Das "
+"Aktuelle Datum und/oder aktulle Zeit. Das Attribut format gibt die "
+"Formatierung an (*).</td><td>${now format=\"dd.MM.yyyy "
+"hh:mm:ss\"}</td></tr></tbody></table><br /><br />(* Datum/Zeit "
+"Format-Ausdrücke)<table cellpadding=\"2\" cellspacing=\"1\" "
+"border=\"1\"><thead><tr "
+"valign=\"top\"><th>Expression</th><th>Output</th></tr></thead><tr "
+"valign=\"top\"><td>d</td><td>Der aktuelle Tag ohne führende Null  (1 bis "
+"31).</td></tr><tr valign=\"top\"><td>dd</td><td>Der aktuelle Tag mit "
+"führende Null (01 mit 31).</td></tr><tr "
+"valign=\"top\"><td>ddd</td><td>Abgekürzter Name des aktuellen Tages "
+"(e.g&#x2e; 'Mo' Bis 'So').</td></tr><tr valign=\"top\"><td>dddd</td><td>Name "
+"des aktuellen Tages (e.g&#x2e; 'Montag' bis 'Sonntag').</td></tr><tr "
+"valign=\"top\"><td>M</td><td>Der aktulle Monat ohne führende Null (1 bis "
+"12).</td></tr><tr valign=\"top\"><td>MM</td><td>Der aktuelle Monat mit "
+"führende Null (01 bis 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>Der "
+"abgekürzte Name des aktuellen Monats (e.g&#x2e; 'Jan' bis "
+"'Dez').</td></tr><tr valign=\"top\"><td>MMMM</td><td>Der Name des aktuellen "
+"Monats (e.g&#x2e; 'Januar' bis 'Dezember').</td></tr><tr "
+"valign=\"top\"><td>yy</td><td>Zweistellige Jahreszahl (00 bis "
+"99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>Viestellige "
+"Jahreszahl.</td></tr></table><br /><table cellpadding=\"2\" "
+"cellspacing=\"1\" border=\"1\"><thead><tr "
+"valign=\"top\"><th>Ausdrücke</th><th>Output</th></tr></thead><tr "
+"valign=\"top\"><td>h</td><td>Die aktuelle Stunde ohne führende Null (0 bis "
+"23 oder 1 bis 12 bei einer AM/PM Anzeige).</td></tr><tr "
+"valign=\"top\"><td>hh</td><td>Die aktuelle Stunde mit führende Null (00 bis "
+"23 oder 01 bis 12 bei einer AM/PM Anzeige).</td></tr><tr "
+"valign=\"top\"><td>H</td><td>Die aktulle Stunde ohne führende Null (0 bis "
+"23, auch bei einer AM/PM Anzeige).</td></tr><tr "
+"valign=\"top\"><td>HH</td><td>Die aktuelle Stunde mit führender Null (00 bis "
+"23, auch bei einer AM/PM Anzeige).</td></tr><tr "
+"valign=\"top\"><td>m</td><td>Die aktuelle Minute ohne führende Null (0 bis "
+"59).</td></tr><tr valign=\"top\"><td>mm</td><td>Die aktuelle Minute mit "
+"führender Null (00 bis 59).</td></tr><tr valign=\"top\"><td>s</td><td>Die "
+"aktuelle Sekunde ohne führende Null (0 bis 59).</td></tr><tr "
+"valign=\"top\"><td>ss</td> <td>Die aktuelle Sekunde mit führender Null (00 "
+"bis 59).</td></tr><tr valign=\"top\"><td>z</td><td>Die aktuelle Millisekunde "
+"ohne führende Null (0 bis 999).</td></tr><tr "
+"valign=\"top\"><td>zz</td><td>Die aktuelle Millisekunde mit führenden Nullen "
+"(000 bis 999).</td></tr><tr valign=\"top\"><td>AP oder A</td><td>Wird als "
+"eine AM/PM Zeit intepretiert. AP muss entweder 'AM' oder 'PM' "
+"sein.</td></tr><tr valign=\"top\"><td>ap or a</td><td>Wird als eine AM/PM "
+"Zeit intepretiert. ap muss entweder 'am' oder 'pm' "
+"sein.</td></tr></table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:215
 msgid "Load text template"
-msgstr ""
+msgstr "Textvorlage laden"
 
 #: dialogs/profiledatainfodialog.cpp:227
 msgid "Save text template"
-msgstr ""
+msgstr "Textvorlage speichern"
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 #: dialogs/protocoldialog.cpp:62
 msgid "Save "
-msgstr ""
+msgstr "Speichern "
 
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
-msgstr ""
+msgstr "Assistent für Muster"
 
 #: main.cpp:28
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:29
 msgid "CDDA Extractor for KDE"
-msgstr ""
+msgstr "CDDA Auleser für KDE"
 
 #: main.cpp:31
 msgid "(c) 2007-2009 by Marco Nelles"
@@ -405,7 +501,7 @@ msgstr ""
 
 #: main.cpp:35
 msgid "Current maintainer"
-msgstr ""
+msgstr "Gegenwärtiger Betreiber"
 
 #: main.cpp:36
 msgid "freedb.org"
@@ -413,7 +509,7 @@ msgstr ""
 
 #: main.cpp:36
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr ""
+msgstr "Speziellen Dank an freecd.org für eine freie CDDB Datenbank"
 
 #: main.cpp:37
 msgid "Craig Drummond"
@@ -421,38 +517,40 @@ msgstr ""
 
 #: main.cpp:37
 msgid "GUI improvements"
-msgstr ""
+msgstr "GUI Verbesserungen"
 
 #: main.cpp:38
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Thomas Kamps"
 
 #: main.cpp:38
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "anubis1@linux-ecke.de"
 
 #: mainwindow.cpp:26
 msgid "Unable to create ProfileModel object."
-msgstr ""
+msgstr "Kann Profilmodell Objekt nicht erstellen."
 
 #: mainwindow.cpp:26 mainwindow.cpp:39
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Interner Fehler. Überprüfen Sie Ihre Hardware. Sollte alles in Ordnung sein, "
+"machen Sie bitte einen Fehlerbericht."
 
 #: mainwindow.cpp:39
 msgid "Unable to create CDDAModel object."
-msgstr ""
+msgstr "Kann CDDAModel Objekt nicht erstellen."
 
 #: mainwindow.cpp:112
 msgid "No disc information set. Do you really want to continue?"
-msgstr ""
+msgstr "Es wurden eine CD Informationen gesetzt. Wollen Sie forfahren?"
 
 #: mainwindow.cpp:113
 msgid "Disc information not found"
-msgstr ""
+msgstr "CD Informationen nicht gefunden."
 
 #: mainwindow.cpp:116
 msgid "no_disc_info_warn"
@@ -460,47 +558,47 @@ msgstr ""
 
 #: mainwindow.cpp:136
 msgid "General settings"
-msgstr ""
+msgstr "Allgemein"
 
 #: mainwindow.cpp:139
 msgid "Profiles"
-msgstr ""
+msgstr "Profile"
 
 #: mainwindow.cpp:159
 msgid "Remote Server"
-msgstr ""
+msgstr "Server"
 
 #: mainwindow.cpp:171
 msgid "No Status information available"
-msgstr ""
+msgstr "Keine Statusinformationen verfügbar"
 
 #: mainwindow.cpp:175 models/cddamodel.cpp:622
 msgid "No disc in drive"
-msgstr ""
+msgstr "Keine CD im Laufwerk"
 
 #: mainwindow.cpp:179
 msgid "Audio disc in drive"
-msgstr ""
+msgstr "Audio-CD im Laufwerk"
 
 #: mainwindow.cpp:188 models/cddamodel.cpp:624
 msgid "Drive tray open"
-msgstr ""
+msgstr "Laufwerk offen"
 
 #: mainwindow.cpp:192 models/cddamodel.cpp:625
 msgid "Drive not ready"
-msgstr ""
+msgstr "Laufwerk nicht bereit"
 
 #: mainwindow.cpp:196 models/cddamodel.cpp:626
 msgid "Drive error"
-msgstr ""
+msgstr "Laufwerksfehler"
 
 #: mainwindow.cpp:233
 msgid "Fetching CDDB information..."
-msgstr ""
+msgstr "Hole CDDB Informationen ..."
 
 #: mainwindow.cpp:322
 msgid "Split titles"
-msgstr ""
+msgstr "Titel trennen"
 
 #: mainwindow.cpp:323
 msgid ""
@@ -508,14 +606,17 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
+"Bitte geben Sie einen Trennungszeichenkette ein. Achten Sie auf "
+"Leerzeichen.\n"
+"Trenner:"
 
 #: mainwindow.cpp:333
 msgid "Do you really want to swap all artists and titles?"
-msgstr ""
+msgstr "Wollen Sie alle Interpreten und Albumstitel tauschen?"
 
 #: mainwindow.cpp:334 mainwindow.cpp:446
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "Interpreten und Albumstitel tauschen"
 
 #: mainwindow.cpp:337
 msgid "no_swap_artists_and_titles_warn"
@@ -523,11 +624,11 @@ msgstr ""
 
 #: mainwindow.cpp:346
 msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
+msgstr "Wollen Sie wirklich alle Interpreten und Albumtitel kapitalisieren?"
 
 #: mainwindow.cpp:347
 msgid "Capitalize artists and titles"
-msgstr ""
+msgstr "Interpreten und Albemtitel kapitalisieren"
 
 #: mainwindow.cpp:350
 msgid "no_capitalize_warn"
@@ -535,11 +636,11 @@ msgstr ""
 
 #: mainwindow.cpp:359
 msgid "Do you really want to autofill track artists?"
-msgstr ""
+msgstr "Wollen Sie wirklich alle Interpreten automatisch füllen?"
 
 #: mainwindow.cpp:360
 msgid "Autofill artists"
-msgstr ""
+msgstr "Interpreten automatisch füllen"
 
 #: mainwindow.cpp:363
 msgid "no_autofill_warn"
@@ -547,105 +648,107 @@ msgstr ""
 
 #: mainwindow.cpp:384
 msgid "Eject"
-msgstr ""
+msgstr "Auswerfen"
 
 #: mainwindow.cpp:391
 msgid "Profile: "
-msgstr ""
+msgstr "Profil: "
 
 #: mainwindow.cpp:403
 msgid "&Profile: "
-msgstr ""
+msgstr "&Profil: "
 
 #: mainwindow.cpp:409
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: mainwindow.cpp:417
 msgid "Fetch Info"
-msgstr ""
+msgstr "Hole Informationen"
 
 #: mainwindow.cpp:424
 msgid "Submit Info"
-msgstr ""
+msgstr "Information senden"
 
 #: mainwindow.cpp:432
 msgid "Rip..."
-msgstr ""
+msgstr "Auslesen ..."
 
 #: mainwindow.cpp:441
 msgid "Split titles..."
-msgstr ""
+msgstr "Albemtitel trennen ..."
 
 #: mainwindow.cpp:451
 msgid "Capitalize"
-msgstr ""
+msgstr "Kaptialisieren"
 
 #: mainwindow.cpp:456
 msgid "Auto fill artists"
-msgstr ""
+msgstr "Interpreten automatisch füllen"
 
 #: mainwindow.cpp:461
 msgid "Select all tracks"
-msgstr ""
+msgstr "Alle auswählen"
 
 #: mainwindow.cpp:466
 msgid "Select no tracks"
-msgstr ""
+msgstr "Alle abwählen"
 
 #: mainwindow.cpp:471
 msgid "Invert Selection"
-msgstr ""
+msgstr "Auswahl umkehren"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
-msgstr ""
+msgstr "Kann KCompactDisk Objekt nicht erstellen."
 
 #: models/cddamodel.cpp:26 models/cddamodel.cpp:38
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
+"Dies ist ein interner Fehler. Überprüfen Sie Ihre Hardware. Sollte alles in "
+"Ordnung sein, machen Sie bitte ein Fehlerbericht."
 
 #: models/cddamodel.cpp:38
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "Kann KCDDB Objekt nicht erstellen."
 
 #: models/cddamodel.cpp:623
 msgid "Disc in drive"
-msgstr ""
+msgstr "CD im Laufwerk"
 
 #: models/cddamodel.cpp:629
 msgid "No drive status available"
-msgstr ""
+msgstr "Kein Laufwerksstatus verfügbar"
 
 #: models/cddamodel.cpp:638
 msgid "Disc playing"
-msgstr ""
+msgstr "Spiele CD"
 
 #: models/cddamodel.cpp:639
 msgid "Disc paused"
-msgstr ""
+msgstr "CD pausiert"
 
 #: models/cddamodel.cpp:640
 msgid "Disc stopped"
-msgstr ""
+msgstr "CD gestoppt"
 
 #: models/cddamodel.cpp:643
 msgid "No disc status available"
-msgstr ""
+msgstr "Kein CD-Status verfügbar"
 
 #: models/cddamodel.cpp:652
 msgid "Audio disc"
-msgstr ""
+msgstr "Audio-CD"
 
 #: models/cddamodel.cpp:653
 msgid "No audio disc"
-msgstr ""
+msgstr "Keine Audio-CD"
 
 #: models/cddamodel.cpp:656
 msgid "No disc type information available"
-msgstr ""
+msgstr "Keine Informationen zum CD-Typ verfügbar"
 
 #: models/cddamodel.cpp:665
 msgid "CD-Text"
@@ -657,33 +760,36 @@ msgstr ""
 
 #: models/cddamodel.cpp:667
 msgid "Phonon Metadata"
-msgstr ""
+msgstr "Phonon Metadaten"
 
 #: models/cddamodel.cpp:670
 msgid "No disc information available"
-msgstr ""
+msgstr "Keine CD-Informationen verfügbar"
 
 #: models/cddamodel.cpp:808
 msgid "No entry found in CDDB."
-msgstr ""
+msgstr "Kein CDDB-Eintrag gefunden."
 
 #: models/cddamodel.cpp:808
 msgid ""
 "This means no data found in the CDDB database. Please enter the data "
 "manually. Maybe try another CDDB server."
 msgstr ""
+"Dies bedeutet, dass keine Daten in der CDDB-Datenbank gefunden wurden. Bitte "
+"geben Sie die Daten manuell ein. Sie können auch einen anderen CDDB-Server "
+"ausprobieren."
 
 #: models/cddamodel.cpp:825
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "CDDB-Eintrag wählen"
 
 #: models/cddamodel.cpp:826
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "Wählen Sie einen CDDB-Eintrag"
 
 #: models/cddamodel.h:41
 msgid "Rip"
-msgstr ""
+msgstr "Auslesen"
 
 #: models/cddamodel.h:42
 msgid "Track"
@@ -691,149 +797,162 @@ msgstr ""
 
 #: models/cddamodel.h:43
 msgid "Artist"
-msgstr ""
+msgstr "Interpret"
 
 #: models/cddamodel.h:44
 msgid "Title"
-msgstr ""
+msgstr "Albumtitel"
 
 #: models/cddamodel.h:45
 msgid "Length"
-msgstr ""
+msgstr "Länge"
 
 #: models/profilemodel.cpp:118
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Der Name des Profils darf nicht leer sein."
 
 #: models/profilemodel.cpp:119
 msgid "You've given no name for the profile. Please set one."
-msgstr ""
+msgstr "Sie haben kein Namen für das Profil eingegeben."
 
 #: models/profilemodel.cpp:128
 msgid "Profile encoder is not defined."
-msgstr ""
+msgstr "Kodierer für das Profil ist nicht angegeben."
 
 #: models/profilemodel.cpp:129
 msgid "You've given no encoder for the profile. Please set one."
 msgstr ""
+"Sie haben keinen Kodierer für das Profil gesetzt. Bitte setzen Sie einen."
 
 #: models/profilemodel.cpp:138
 msgid "Profile filename pattern is not defined."
-msgstr ""
+msgstr "Dateinamensmuster für das Profil ist nicht angegeben."
 
 #: models/profilemodel.cpp:139
 msgid "You've given no filename pattern for the profile. Please set one."
 msgstr ""
+"Sie haben kein Datennamensmuster für das Profil angegeben. Bitte geben Sie "
+"eins an."
 
 #: models/profilemodel.cpp:153
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "Das Bildformat ist unbekannt."
 
 #: models/profilemodel.cpp:154
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPG/JPEG, PNG or BMP."
 msgstr ""
+"Ihr gewähltes Bildformat ist unbekannt. Bitte wählen Sie eins von den "
+"Formaten: JPG/JPEG, PNG oder BMP."
 
 #: models/profilemodel.cpp:163
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "Covername darf nicht leer sein."
 
 #: models/profilemodel.cpp:164
 msgid "You've given no name for the cover. Please set one."
-msgstr ""
+msgstr "Sie haben kein Namen für das Cover gesetzt. Bitte Setzen Sie eins."
 
 #: models/profilemodel.cpp:174
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "Das Playlistformat ist unbekannt."
 
 #: models/profilemodel.cpp:175
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
+"Iht gewähltes Playlistformat ist unbekannt. Bitte wählen Sie eine von "
+"disesen Formaten: M3U, PLS oder XSPF."
 
 #: models/profilemodel.cpp:184
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "Der Name für die Playlist darf nicht leer sein."
 
 #: models/profilemodel.cpp:185
 msgid "You've given no name for the playlist. Please set one."
-msgstr ""
+msgstr "Sie haben keinen Namen für die Playlist gegeben. Bitte geben Sie eins."
 
 #: models/profilemodel.cpp:197
 msgid "Info text name must not be empty."
-msgstr ""
+msgstr "Der Name für die Infodatei darf nicht leer sein."
 
 #: models/profilemodel.cpp:198
 msgid "You've given no name for the info text file. Please set one."
 msgstr ""
+"Sie haben keinen Namen für die Infodatei gegeben. Bitte geben Sie eins."
 
 #: models/profilemodel.cpp:207
 msgid "Info text file name suffix must not be empty."
-msgstr ""
+msgstr "Die Endung für die Informationsdatei darf nicht leer sein."
 
 #: models/profilemodel.cpp:208
 msgid "You've given no suffix for the info text file. Please set one."
 msgstr ""
+"Sie haben keine Endung für die Infodatei gegeben. Bitte geben Sie eins."
 
 #: models/profilemodel.cpp:218
 msgid "The hashlist file format is unknown."
-msgstr ""
+msgstr "Das Format für die Hashlist ist unbekannt."
 
 #: models/profilemodel.cpp:219
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
 "formats: SFV."
 msgstr ""
+"Ihr gewähltes Hashlist-Format ist unbekannt. Bitte wählen Sie eins von "
+"diesen Formaten: SFV."
 
 #: models/profilemodel.cpp:228
 msgid "Hashlist name must not be empty."
-msgstr ""
+msgstr "Der Name für die Hashlist darf nicht leer sein."
 
 #: models/profilemodel.cpp:229
 msgid "You've given no name for the hashlist. Please set one."
-msgstr ""
+msgstr "Sie haben keinen Namen für die Hashlist gegeben. Bitte geben Sie eins."
 
 #: models/profilemodel.cpp:253
 msgid "Profile name already exists."
-msgstr ""
+msgstr "Der Profilname existiert bereits."
 
 #: models/profilemodel.cpp:254
 msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose an "
 "unique one."
 msgstr ""
+"Der Profilname %1 existiert bereits. Bitte geben Sie einen anderen ein."
 
 #: models/profilemodel.cpp:270
 msgid "Profile index already exists."
-msgstr ""
+msgstr "Profilindex existiert bereits."
 
 #: models/profilemodel.cpp:271
 msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose "
 "an unique one."
 msgstr ""
+"Der Profilindex %1 existiert bereits. Bitte geben Sie einen anderen an."
 
 #: models/profilemodel.cpp:321
 msgid "Unknown error. No index found in profile model."
-msgstr ""
+msgstr "Unbekannter Fehler: Kein Index im Profilmodel gefunden."
 
 #: models/profilemodel.cpp:322
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "Dies ist ein interner Fehler. Bitte melden Sie diesen."
 
 #: models/profilemodel.h:153
 msgid " (Mobile Quality)"
-msgstr ""
+msgstr " (Niedrige Qualität (Für mobile Player))"
 
 #: models/profilemodel.h:154
 msgid " (Normal Quality)"
-msgstr ""
+msgstr " (Normale Qualität)"
 
 #: models/profilemodel.h:155
 msgid " (Extreme Quality)"
-msgstr ""
+msgstr " (Sehr hohe Qualität)"
 
 #. i18n: file: audex.kcfg:14
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -841,7 +960,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #: rc.cpp:3 rc.cpp:491
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Existierende Datei überschreiben"
 
 #. i18n: file: audex.kcfg:18
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
@@ -849,37 +968,37 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #: rc.cpp:6 rc.cpp:494
 msgid "Delete partial files after cancel"
-msgstr ""
+msgstr "Unfertige Dateien nach Abbruch löschen"
 
 #. i18n: file: audex.kcfg:22
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: rc.cpp:9
 msgid "Eject CD tray after extraction finished"
-msgstr ""
+msgstr "Nach Ausleseende CD auswerfen"
 
 #. i18n: file: audex.kcfg:26
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: rc.cpp:12
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "CDDB-Abfrage automatisch durchführen"
 
 #. i18n: file: audex.kcfg:30
 #. i18n: ectx: label, entry (amazonLocale), group (general)
 #: rc.cpp:15
 msgid "Amazon localization"
-msgstr ""
+msgstr "Amazon Lokalität"
 
 #. i18n: file: audex.kcfg:34
 #. i18n: ectx: label, entry (wikipediaLocale), group (general)
 #: rc.cpp:18
 msgid "Wikipedia localization"
-msgstr ""
+msgstr "Wikipedia-Sprache"
 
 #. i18n: file: audex.kcfg:38
 #. i18n: ectx: label, entry (cdDevice), group (general)
 #: rc.cpp:21
 msgid "CD Device"
-msgstr ""
+msgstr "CD-Laufwerk"
 
 #. i18n: file: audex.kcfg:42
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
@@ -887,7 +1006,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
 #: rc.cpp:24 rc.cpp:515
 msgid "Full paranoia mode (best quality)"
-msgstr ""
+msgstr "Voller Paranoia-Modus (Beste Qualität)"
 
 #. i18n: file: audex.kcfg:46
 #. i18n: ectx: label, entry (neverSkip), group (general)
@@ -895,13 +1014,13 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
 #: rc.cpp:27 rc.cpp:518
 msgid "Never skip on read error"
-msgstr ""
+msgstr "Lesefehler niemals überspringen"
 
 #. i18n: file: audex.kcfg:50
 #. i18n: ectx: label, entry (basePath), group (general)
 #: rc.cpp:30
 msgid "Base path to store music files"
-msgstr ""
+msgstr "Basispfad zum Speichern der Musikdateien"
 
 #. i18n: file: audex.kcfg:54
 #. i18n: ectx: label, entry (upload), group (general)
@@ -909,19 +1028,19 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
 #: rc.cpp:33 rc.cpp:646
 msgid "Upload files to server"
-msgstr ""
+msgstr "Dateien zum Server hochladen"
 
 #. i18n: file: audex.kcfg:58
 #. i18n: ectx: label, entry (url), group (general)
 #: rc.cpp:36
 msgid "URL of server"
-msgstr ""
+msgstr "URL des Servers"
 
 #. i18n: file: audexui.rc:6
 #. i18n: ectx: Menu (file)
 #: rc.cpp:39
 msgid "&Audex"
-msgstr ""
+msgstr "&Audex"
 
 #. i18n: file: audexui.rc:13
 #. i18n: ectx: Menu (cddb)
@@ -934,13 +1053,13 @@ msgstr ""
 #: rc.cpp:45
 msgctxt "@title:menu"
 msgid "Title correction tools"
-msgstr ""
+msgstr "Werkzeug zum Albumtitel berichtigen"
 
 #. i18n: file: audexui.rc:25
 #. i18n: ectx: Menu (settings)
 #: rc.cpp:48
 msgid "&Settings"
-msgstr ""
+msgstr "&Einstellungen"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:13
 #. i18n: ectx: property (windowTitle), widget (QWidget, CDDAHeaderDataWidgetUI)
@@ -995,7 +1114,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: rc.cpp:54
 msgid "Various Artists"
-msgstr ""
+msgstr "Verschiedene Interpreten"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:26
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
@@ -1007,19 +1126,19 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: rc.cpp:60
 msgid "Artist:"
-msgstr ""
+msgstr "Interpret:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:68
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: rc.cpp:63
 msgid "Title:"
-msgstr ""
+msgstr "Albumtitel:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:78
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: rc.cpp:66
 msgid "CD Number:"
-msgstr ""
+msgstr "CD Nummer:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:92
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1037,7 +1156,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: rc.cpp:75
 msgid "Year:"
-msgstr ""
+msgstr "Jahr:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:158
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
@@ -1045,7 +1164,7 @@ msgstr ""
 msgid ""
 "Additional\n"
 "Information:"
-msgstr ""
+msgstr "Kommentar:"
 
 #. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:174
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
@@ -1065,7 +1184,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: rc.cpp:91 rc.cpp:222
 msgid "Album Example:"
-msgstr ""
+msgstr "Album Beispiel:"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:92
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
@@ -1073,7 +1192,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: rc.cpp:94 rc.cpp:225
 msgid "Sampler Example:"
-msgstr ""
+msgstr "Sammlungsbeispiel:"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:163
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
@@ -1088,6 +1207,10 @@ msgid ""
 "<p>If your CD is a compilation, then this tag represents the title in most "
 "cases.</p>"
 msgstr ""
+"<p>Dieser Tag wird mit dem Interpreten der ganzen CD ersetzt.</p>\n"
+"<hr />\n"
+"<p>Sollte die CD eine Sammelung sein, wird dieser Tag in den meisten Fällen "
+"durch den Albumtitel  ersetzt</p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:166
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
@@ -1097,7 +1220,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
 #: rc.cpp:102 rc.cpp:233 rc.cpp:406
 msgid "Album Artist"
-msgstr ""
+msgstr "Interpret des Albums"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:187
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
@@ -1112,6 +1235,10 @@ msgid ""
 "<p>If your CD is a compilation, then this tag represents the subtitle in "
 "most cases.</p>"
 msgstr ""
+"<p>Dieser Tag wird mit dem Interpreten der ganzen CD ersetzt.</p>\n"
+"<hr />\n"
+"<p>Sollte die CD eine Sammelung sein, wird dieser Tag in den meisten Fällen "
+"durch den Albumtitel  ersetzt</p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:190
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
@@ -1121,7 +1248,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: rc.cpp:110 rc.cpp:241 rc.cpp:414
 msgid "Album Title"
-msgstr ""
+msgstr "Albumtitel"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:209
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackartist)
@@ -1139,7 +1266,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: rc.cpp:116 rc.cpp:247
 msgid "Track Artist"
-msgstr ""
+msgstr "Interpret des Tracks"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:231
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_tracktitle)
@@ -1150,6 +1277,8 @@ msgid ""
 "<p>This tag will be replaced with the track title. Normally each track on a "
 "CD has its own title.</p>"
 msgstr ""
+"<p>Dieser Tag wird durch den Namen des Tracks ersetzt. Normalerweise hat "
+"jeder Track auf einer CD einen eigenen Namen.</p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:234
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
@@ -1157,7 +1286,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: rc.cpp:122 rc.cpp:253
 msgid "Track Title"
-msgstr ""
+msgstr "Titel"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:244
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackno)
@@ -1174,6 +1303,13 @@ msgid ""
 "fill the free spaces in front of the number, if it has less digits than "
 "defined by <i>length</i>. (Default: 0).</li></ul></p>"
 msgstr ""
+"<p>Dieser Tag wird durch ie Nummer des einzelenen Tracks ersetzt.</p>\n"
+"<hr />\n"
+"<p>Dieser Tag hat zwei Eigenschaften:\n"
+"<ul><li><i>length</i> gibt an aus wievielen Dezimalstellen die Zahl bestahen "
+"soll (Standart: 2).</li><li><i>fillchar</i> gibt das Zeichen an, mit dem die "
+"Zahl am Anfang gefüllt wird, wenn die Zahl weniger Stellen hat als durch "
+"<i>length</i> angegeben. (Standard: 0).</li></ul></p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:247
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
@@ -1204,6 +1340,17 @@ msgid ""
 "<p>Note: This tag will only be replaced if the multi-CD flag is enabled for "
 "the CD.</p>"
 msgstr ""
+"<p>Dieser Tag wird durch die CD-Nummer eines Multi-CD Albums ersetzt. Oft "
+"bestehen Sammelungen aus mehreren CDs.</p>\n"
+"<hr />\n"
+"<p>Dieser Tag hat zwei Eigenschaften:\n"
+"<ul><li><i>length</i> gibt an aus wievielen Dezimalstellen die Zahl bestahen "
+"soll (Standart: 2).</li><li><i>fillchar</i> gibt das Zeichen an, mit dem die "
+"Zahl am Anfang gefüllt wird, wenn die Zahl weniger Stellen hat als durch "
+"<i>length</i> angegeben. (Standart: 0).</li></ul></p>\n"
+"<hr />\n"
+"<p>Bemerkung: Dieser Tag wird nur dann ersetzt, wenn das Multi-CD Flag bei "
+"der CD gesetzt ist.</p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:263
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
@@ -1226,6 +1373,8 @@ msgid ""
 "This tag will be replaced with the release date of the CD. In almost all "
 "cases this is the year."
 msgstr ""
+"Dieser Tag wird durch das Erscheinungsjahr der CD ersetzt. In den meisten "
+"Fällen ist es das Jahr."
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:273
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
@@ -1235,7 +1384,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
 #: rc.cpp:149 rc.cpp:280 rc.cpp:432
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:280
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
@@ -1245,7 +1394,7 @@ msgstr ""
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
 #: rc.cpp:152 rc.cpp:283 rc.cpp:435
 msgid "This tag will be replaced with the genre."
-msgstr ""
+msgstr "Dieser Tag wird durch das Genre ersetzt."
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:283
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
@@ -1289,12 +1438,41 @@ msgid ""
 "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
 "bear this in mind, if you set the format and size.</i></p>"
 msgstr ""
+"<p>Dieser Tag wird durch den temporären Dateinamen des Covers ersetzt, um es "
+"beispielsweise in dem id3 v2.3 tag bei LAME einzufügen. Das Cover wird von "
+"Audex automatisch erstellt.</p>\n"
+"<hr />\n"
+"<p>Dieser Tag hat 6 Eigenschaften:<ul>\n"
+"<li><i>format</i> Gibt das Bildformat. Mögliche Werte sind \"PNG\", \"JPG\" "
+"und \"GIF\" (Stnadart: \"JPG\"). </li>\n"
+"<li><i>x</i> (Breite) and <i>y</i> (Höhe) können benutzt werden, um die "
+"Größe des Bildes zu setzen. Wenn diese Eigenschatfen nciht gesetzt sind, "
+"wird die Größe es Bildes nicht verändert.</li>\n"
+"<li><i>usenocover</i> Wenn diese Eigenschaft den Wert <i>true</i> hat, wird "
+"das Bild, das gezeigt wird, falls das Album kein Cover hat, benutzt. "
+"(Standart: false).</li>\n"
+"<li><i>preparam</i> und <i>postparam</i> Definiert Parameer die vor "
+"(preparam) oder nach (postparam) dem Dateianems des temporären Covers "
+"eingefügt werden. </li></ul>\n"
+"<i>Diese Werte werden <b>nur</b> genzeigt, falls ein Cover gesetzt ist, oder "
+"\"usenocover\" ist auf \"true\" gesetzt.</i></p>\n"
+"<hr />\n"
+"<p>Beispiel:</p>\n"
+"<p><code>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti "
+"\"}</code></p>\n"
+"<p>Ein Dateiname eines JPG-Bildes mit der Größe 300x300 wird eingefügt. Wenn "
+"kein Cover gesetzt ist, wird dieser Tag durch nichst ersetzt, sonst wird "
+"etwa <i>/tmp/cover.123.jpg</i> eingefügt.</p>\n"
+"<hr />\n"
+"<p><i><b>Bemerkung:</b> LAME verwirft Cover-Dateien die Größer sind als "
+"128KB. Dies sollte beachtet werden, wenn Format und Größe gesetzt "
+"werden.</i></p>"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:306
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: rc.cpp:174
 msgid "Cover File"
-msgstr ""
+msgstr "Cover Datei"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:313
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_input_file)
@@ -1304,12 +1482,15 @@ msgid ""
 "audio track. You can use it as a normal input file for your command line "
 "encoder."
 msgstr ""
+"Dieser Tag wurch durch die temporäre WAV-Dateie erstezt, die durch Audex vom "
+"CD-Track erzeugt wird. Sie können es als normale Input-Datei in der "
+"Kommandozeile Ihres Kodierers benutzen."
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:316
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
 #: rc.cpp:180
 msgid "Input File"
-msgstr ""
+msgstr "Input-Datei"
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:323
 #. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_output_file)
@@ -1318,30 +1499,32 @@ msgid ""
 "This tag will be replaced with the full output filename and path. Use it as "
 "the output for your command line encoder."
 msgstr ""
+"Dieser Tag wird durch den Output-Dateinamen und Pfad ersetzt. Benutzen Sie "
+"es als Output ihres Kodieres."
 
 #. i18n: file: dialogs/commandwizardwidgetUI.ui:326
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
 #: rc.cpp:186
 msgid "Output File"
-msgstr ""
+msgstr "Output-Datei"
 
 #. i18n: file: dialogs/coverbrowserwidgetUI.ui:22
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: rc.cpp:192
 msgid "TextLabel"
-msgstr ""
+msgstr "Textlabel"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:24
 #. i18n: ectx: property (text), widget (QLabel, label_header)
 #: rc.cpp:198
 msgid "<h2>Artist - Album</h2>"
-msgstr ""
+msgstr "Interpret - Ablum"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:43
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #: rc.cpp:201
 msgid "Ripping Track 8 / 12"
-msgstr ""
+msgstr "Lese Track 8 / 12 aus"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:74
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
@@ -1349,19 +1532,19 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
 #: rc.cpp:204 rc.cpp:216
 msgid "Speed: 0x"
-msgstr ""
+msgstr "Geschwindigkeit: 0x"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:96
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: rc.cpp:207
 msgid "Overall Ripping Progress"
-msgstr ""
+msgstr "Gesammter Ausleseprozess"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:115
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: rc.cpp:210
 msgid "Encoding Track 8 / 12"
-msgstr ""
+msgstr "Kodiere Track 8 / 12"
 
 #. i18n: file: dialogs/extractingprogresswidgetUI.ui:133
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, filename)
@@ -1377,18 +1560,21 @@ msgid ""
 "<p>It is defined by the profile. In most cases it will be either \"mp3\" or "
 "\"ogg\".</p>"
 msgstr ""
+"<p>Dieser Tag wird durch die Dateiendung ersetzt.</p>\n"
+"<p>Es ist durch das Profil gesetzt. In den meisten Fällen ist es \"mp3\" "
+"oder \"ogg\".</p>"
 
 #. i18n: file: dialogs/patternwizardwidgetUI.ui:288
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
 #: rc.cpp:293
 msgid "Suffix"
-msgstr ""
+msgstr "Endung"
 
 #. i18n: file: dialogs/profiledatacoverwidgetUI.ui:26
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: rc.cpp:299
 msgid "Scale before store:"
-msgstr ""
+msgstr "Vor dem Speichern Skalieren:"
 
 #. i18n: file: dialogs/profiledatacoverwidgetUI.ui:52
 #. i18n: ectx: property (text), widget (QLabel, label_x)
@@ -1410,7 +1596,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: rc.cpp:308
 msgid "Cover pattern:"
-msgstr ""
+msgstr "Cover Muster:"
 
 #. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:42
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
@@ -1418,13 +1604,13 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: rc.cpp:317 rc.cpp:338
 msgid "Name/Pattern:"
-msgstr ""
+msgstr "Name/Muster:"
 
 #. i18n: file: dialogs/profiledatainfowidgetUI.ui:26
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: rc.cpp:323
 msgid "Information text:"
-msgstr ""
+msgstr "Informationstext:"
 
 #. i18n: file: dialogs/profiledatainfowidgetUI.ui:45
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
@@ -1443,7 +1629,7 @@ msgstr ""
 #: rc.cpp:326 rc.cpp:447 rc.cpp:466 rc.cpp:485 rc.cpp:579 rc.cpp:616
 #: rc.cpp:662
 msgid "Suffix:"
-msgstr ""
+msgstr "Endung:"
 
 #. i18n: file: dialogs/profiledatainfowidgetUI.ui:68
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
@@ -1451,49 +1637,49 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: rc.cpp:329 rc.cpp:353
 msgid "Pattern:"
-msgstr ""
+msgstr "Muster:"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:22
 #. i18n: ectx: property (text), widget (QLabel, label_name)
 #: rc.cpp:344
 msgid "Profile Name:"
-msgstr ""
+msgstr "Profilname:"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:66
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_encoder)
 #: rc.cpp:347
 msgid "Encoder"
-msgstr ""
+msgstr "Kodierer"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:115
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_filenames)
 #: rc.cpp:350
 msgid "Filenames"
-msgstr ""
+msgstr "Dateinamen"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:164
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: rc.cpp:356
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "Erzeuge FAT32 kompatible Dateinamen"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:177
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: rc.cpp:359
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "Ersetze Leerzeichen durch Unterstriche"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:206
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: rc.cpp:362
 msgid "Extra Files"
-msgstr ""
+msgstr "Exta Dateien"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:218
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: rc.cpp:365
 msgid "Store cover file in target folder"
-msgstr ""
+msgstr "Speichere Cover ins Zielverzeichnis"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:231
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
@@ -1505,43 +1691,43 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
 #: rc.cpp:368 rc.cpp:374 rc.cpp:380 rc.cpp:386
 msgid "Settings.."
-msgstr ""
+msgstr "Einstellungen..."
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:244
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: rc.cpp:371
 msgid "Create playlist in target folder"
-msgstr ""
+msgstr "Erzeuge Playlist ins Zielverzeichnis"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:283
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: rc.cpp:377
 msgid "Store info file in target folder"
-msgstr ""
+msgstr "Speichere Information ins Zielverzeichnis"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:309
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: rc.cpp:383
 msgid "Store hashlist in target folder"
-msgstr ""
+msgstr "Speichere Hashlist ins Zielverzeichnis"
 
 #. i18n: file: dialogs/profiledatawidgetUI.ui:335
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
 #: rc.cpp:389
 msgid "Store discid in target folder"
-msgstr ""
+msgstr "Speichere Disk-ID ins Zielverzeichnis"
 
 #. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:29
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: rc.cpp:398
 msgid "Example:"
-msgstr ""
+msgstr "Beispiel:"
 
 #. i18n: file: widgets/customwidgetUI.ui:32
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: rc.cpp:444
 msgid "Command Pattern:"
-msgstr ""
+msgstr "Kommando-Muster:"
 
 #. i18n: file: widgets/faacwidgetUI.ui:32
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
@@ -1549,7 +1735,7 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: rc.cpp:453 rc.cpp:585
 msgid "Quality"
-msgstr ""
+msgstr "Qualität"
 
 #. i18n: file: widgets/faacwidgetUI.ui:85
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
@@ -1561,7 +1747,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: rc.cpp:456 rc.cpp:475 rc.cpp:566 rc.cpp:588
 msgid "Lowest"
-msgstr ""
+msgstr "Kleinste"
 
 #. i18n: file: widgets/faacwidgetUI.ui:102
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
@@ -1584,30 +1770,40 @@ msgid ""
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Highest</"
 "p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Höchste</"
+"p></body></html>"
 
 #. i18n: file: widgets/flacwidgetUI.ui:32
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: rc.cpp:472
 msgid "Compression"
-msgstr ""
+msgstr "Kompression"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:33
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: rc.cpp:497
 msgid "Eject CD tray after finished extraction"
-msgstr ""
+msgstr "Nach dem Auslesen CD auswerfen"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:40
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #: rc.cpp:500
 msgid "Automatically lookup CDDB information"
-msgstr ""
+msgstr "Automatisch CDDB-Informationen abfragen"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:47
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
 #: rc.cpp:503
 msgid "Localizations"
-msgstr ""
+msgstr "Lokalitäten"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:53
 #. i18n: ectx: property (text), widget (QLabel, label_amazonLocale)
@@ -1625,25 +1821,25 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: rc.cpp:512
 msgid "Device"
-msgstr ""
+msgstr "Laufwerk"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:113
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: rc.cpp:521
 msgid "Paths"
-msgstr ""
+msgstr "Pfade"
 
 #. i18n: file: widgets/generalsettingswidgetUI.ui:124
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: rc.cpp:524
 msgid "Base path to store music files:"
-msgstr ""
+msgstr "Basispfad um die Musikdateien zu speichern"
 
 #. i18n: file: widgets/lamewidgetUI.ui:44
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: rc.cpp:530
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "Qualität/Bitrate"
 
 #. i18n: file: widgets/lamewidgetUI.ui:56
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
@@ -1651,12 +1847,13 @@ msgstr ""
 msgid ""
 "This preset should provide near transparency to most people on most music."
 msgstr ""
+"Diese Vorgabe ist für die meisten Leute und die meisten tracks geeignet."
 
 #. i18n: file: widgets/lamewidgetUI.ui:59
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: rc.cpp:536
 msgid "Medium (140...185 kbit/s)"
-msgstr ""
+msgstr "Mittel (140 ... 185 Kb/s)"
 
 #. i18n: file: widgets/lamewidgetUI.ui:72
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
@@ -1665,12 +1862,14 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"Wenn Sie ein gutes Gehör und eine entsprechende Anlage haben, wird diese "
+"Vorgabe eine hörbare bessere Qualität lifern als der \"Standard\" Modus"
 
 #. i18n: file: widgets/lamewidgetUI.ui:75
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: rc.cpp:542
 msgid "Extreme (220...260 kbits/s)"
-msgstr ""
+msgstr "Extrem (220 ... 260 Kb/s)"
 
 #. i18n: file: widgets/lamewidgetUI.ui:101
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
@@ -1679,12 +1878,14 @@ msgid ""
 "This preset should generally be transparent to most people on most music and "
 "is already quite high in quality."
 msgstr ""
+"Diese Vorgabe ist für die meisten Leute und die meisten tracks geeignet und "
+"hat bereits eine recht hohe Qualität"
 
 #. i18n: file: widgets/lamewidgetUI.ui:104
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: rc.cpp:548
 msgid "Standard (170...210 kbit/s)"
-msgstr ""
+msgstr "Standard (170 ... 210 Kb/s)"
 
 #. i18n: file: widgets/lamewidgetUI.ui:117
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
@@ -1694,42 +1895,44 @@ msgid ""
 "but if you must have the absolute highest quality with no regard to "
 "filesize, this is the way to go."
 msgstr ""
+"Diese Vorgabe ist für die meisten Leute übertrieben, aber wenn Sie maximale "
+"Qualität unabhängig der Dateigröße brauchen, nehmen Sie diese Vorgabe."
 
 #. i18n: file: widgets/lamewidgetUI.ui:120
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: rc.cpp:554
 msgid "Insane (320 kbit/s)"
-msgstr ""
+msgstr "Ultra (320 Kb/s)"
 
 #. i18n: file: widgets/lamewidgetUI.ui:133
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: rc.cpp:557 utils/encoderassistant.h:151
 msgid "Custom"
-msgstr ""
+msgstr "Eigen"
 
 #. i18n: file: widgets/lamewidgetUI.ui:143
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: rc.cpp:560
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Konstante Bitrate"
 
 #. i18n: file: widgets/lamewidgetUI.ui:156
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: rc.cpp:563
 msgid "Target Bitrate (kbit/s)"
-msgstr ""
+msgstr "Ziel Bitrate (Kb/s)"
 
 #. i18n: file: widgets/lamewidgetUI.ui:242
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: rc.cpp:576
 msgid "Embed cover in music file"
-msgstr ""
+msgstr "Cover in Musikdatei einbetten"
 
 #. i18n: file: widgets/oggencwidgetUI.ui:133
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: rc.cpp:598
 msgid "Target Bitrate ~"
-msgstr ""
+msgstr "Ziel Bitrate ~"
 
 #. i18n: file: widgets/oggencwidgetUI.ui:180
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
@@ -1739,61 +1942,61 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
 #: rc.cpp:601 rc.cpp:607 rc.cpp:613
 msgid "kbit/s"
-msgstr ""
+msgstr "Kb/s"
 
 #. i18n: file: widgets/oggencwidgetUI.ui:190
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: rc.cpp:604
 msgid "Set minimum bitrate"
-msgstr ""
+msgstr "Minimale Birate setzen"
 
 #. i18n: file: widgets/oggencwidgetUI.ui:230
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: rc.cpp:610
 msgid "Set maximum bitrate"
-msgstr ""
+msgstr "Maximale Bitrate setzen"
 
 #. i18n: file: widgets/profilewidgetUI.ui:24
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: rc.cpp:622
 msgid "Add..."
-msgstr ""
+msgstr "Hinzufügen ..."
 
 #. i18n: file: widgets/profilewidgetUI.ui:31
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: rc.cpp:625
 msgid "Remove"
-msgstr ""
+msgstr "Entfernen"
 
 #. i18n: file: widgets/profilewidgetUI.ui:38
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: rc.cpp:628
 msgid "Modify..."
-msgstr ""
+msgstr "Ändern ..."
 
 #. i18n: file: widgets/profilewidgetUI.ui:45
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: rc.cpp:631
 msgid "Copy"
-msgstr ""
+msgstr "Kopieren"
 
 #. i18n: file: widgets/profilewidgetUI.ui:68
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
 #: rc.cpp:634 widgets/profilewidget.cpp:139 widgets/profilewidget.cpp:149
 msgid "Codec Scan"
-msgstr ""
+msgstr "Codes suchen"
 
 #. i18n: file: widgets/profilewidgetUI.ui:88
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: rc.cpp:637
 msgid "Load..."
-msgstr ""
+msgstr "Laden ..."
 
 #. i18n: file: widgets/profilewidgetUI.ui:95
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: rc.cpp:640
 msgid "Save..."
-msgstr ""
+msgstr "Speichern ..."
 
 #. i18n: file: widgets/remoteserversettingswidgetUI.ui:45
 #. i18n: ectx: property (text), widget (QLabel, label)
@@ -1816,42 +2019,52 @@ msgid ""
 "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">No "
 "settings are needed for wave files.</p></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Für "
+"WAVE-Dateien sind keine Einstellungen nötig.</p></body></html>"
 
 #: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
 msgid "Internal device error."
-msgstr ""
+msgstr "Interner Laufwerksfehler."
 
 #: utils/cddaextractthread.cpp:32
 msgid "Check your device and make a bug report."
-msgstr ""
+msgstr "Überprüfen Sie ihr Laufwerk und machen Sie einen Fehlerbereicht."
 
 #: utils/cddaextractthread.cpp:70
 msgid "Extracting finished."
-msgstr ""
+msgstr "Auslesen beendet."
 
 #: utils/cddaextractthread.cpp:95
 msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
+msgstr "Lese Track %1 (%2:%3) aus ..."
 
 #: utils/cddaextractthread.cpp:97
 msgid "Start reading track %1 with %2 sectors"
-msgstr ""
+msgstr "Starte das Lesen vom Track %1 mit %2 Sektoren"
 
 #: utils/cddaextractthread.cpp:136
 msgid "User canceled extracting."
-msgstr ""
+msgstr "Auslesen durch Benutzer abgebrochen"
 
 #: utils/cddaextractthread.cpp:139
 msgid "An error occured while ripping track %1."
-msgstr ""
+msgstr "Es ist ein Fehler beim Auslesen von Track %1 aufgetreten."
 
 #: utils/cddaextractthread.cpp:141
 msgid "Ripping OK (Track %1)."
-msgstr ""
+msgstr "Auslesen OK (Track %1)."
 
 #: utils/cddaextractthread.cpp:144
 msgid "Reading finished"
-msgstr ""
+msgstr "Lesen beendet"
 
 #: utils/cddaextractthread.cpp:187
 msgid ""
@@ -1911,27 +2124,30 @@ msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
 "\"%1\"."
 msgstr ""
+"Überprüfen Sie Ihr Laufwerk. Ist es wirklich \"%1\"? Wenn ja, überprüfen Sie "
+"Ihre Zugriffsrechte auf \"%1\"."
 
 #: utils/coverfetcher.cpp:110
 msgid "There was an error communicating with Amazon."
-msgstr ""
+msgstr "Beim Laden von Amzon tart ein Fehler auf."
 
 #: utils/coverfetcher.cpp:110
 msgid "Try again later. Otherwise make a bug report."
 msgstr ""
+"Versuchen sie es später erneut. Ansonsten machen Sie einen Fehlerbericht."
 
 #: utils/coverfetcher.cpp:121
 msgid "amazon server: Empty response."
-msgstr ""
+msgstr "Amazon-Server: Leere Antwort."
 
 #: utils/coverfetcher.cpp:122 utils/coverfetcher.cpp:172
 #: utils/coverfetcher.cpp:185
 msgid "Try again later. Make a bug report."
-msgstr ""
+msgstr "Versuchen Sie es später erneut. Machen Sie einen Fehlerbericht."
 
 #: utils/coverfetcher.cpp:171 utils/coverfetcher.cpp:184
 msgid "The XML obtained from Amazon is invalid."
-msgstr ""
+msgstr "XML Daten von Amazon ungültig."
 
 #: utils/encoderassistant.h:66
 msgid "MP3"
@@ -1955,84 +2171,87 @@ msgstr ""
 
 #: utils/encoderwrapper.cpp:56
 msgid "Command pattern is empty."
-msgstr ""
+msgstr "Kommandomuster ist leer."
 
 #: utils/encoderwrapper.cpp:68
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "Kodiere Track %1 ..."
 
 #: utils/encoderwrapper.cpp:86
 msgid "Deleted partial file \"%1\"."
-msgstr ""
+msgstr "Unfertige Datei \"%1\" gelöscht."
 
 #: utils/encoderwrapper.cpp:91
 msgid "User canceled encoding."
-msgstr ""
+msgstr "Kodierung durch Benutzer abgebrochen."
 
 #: utils/encoderwrapper.cpp:139
 msgid "Encoding OK (\"%1\")."
-msgstr ""
+msgstr "Kodierung OK (\"%1\")."
 
 #: utils/encoderwrapper.cpp:141
 msgid "An error occured while encoding file \"%1\"."
-msgstr ""
+msgstr "Beim Kodieren der Datei \"%1\" trat ein Fehler auf."
 
 #: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
 #: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
 msgid "Please check your profile."
-msgstr ""
+msgstr "Bitter überprüfen Sie Ihr Profil."
 
 #: utils/encoderwrapper.cpp:152
 msgid "%1 failed to start."
-msgstr ""
+msgstr "%1 konnte nicht gestartet werden."
 
 #: utils/encoderwrapper.cpp:152
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
+"Entweder fehlt das Programm, oder Sie haben keine Rechte es aufzurufen."
 
 #: utils/encoderwrapper.cpp:154
 msgid "%1 crashed some time after starting successfully."
-msgstr ""
+msgstr "%1 ist nach dem erfolgreichem Start abgestürzt."
 
 #: utils/encoderwrapper.cpp:156
 msgid "%1 timed out. This should not happen."
-msgstr ""
+msgstr "Timeout für %1. Dies sollte normalerweise nicht passieren."
 
 #: utils/encoderwrapper.cpp:158
 msgid "An error occurred when attempting to write to %1."
-msgstr ""
+msgstr "Beim Versuch %1 zu schreiebn trat ein Fehler auf."
 
 #: utils/encoderwrapper.cpp:158
 msgid ""
 "For example, the proc may not be running, or it may have closed its input "
 "channel."
 msgstr ""
+"Zum Beispiel läuft das Programm nicht, oer es hat seinen Eingangskanel "
+"geschlossen."
 
 #: utils/encoderwrapper.cpp:160
 msgid "An error occurred when attempting to read from %1."
-msgstr ""
+msgstr "Beim Versuch von %1 zu lesen trat ein Fehler auf."
 
 #: utils/encoderwrapper.cpp:160
 msgid "For example, the proc may not be running."
-msgstr ""
+msgstr "Zum Beispiel läuft das Programm nicht."
 
 #: utils/encoderwrapper.cpp:162
 msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
+msgstr "Bei %1 trat ein unbekannter Fehler auf. Dies sollte nicht passieren."
 
 #: utils/upload.cpp:61
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "Lade %1 zum server hoch. Bitte warten..."
 
 #: utils/upload.cpp:68
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "%1 zum Server hochgeladen."
 
 #: widgets/cddaheaderwidget.cpp:423
 msgid "Released: "
-msgstr ""
+msgstr "Erschienen: "
 
 #: widgets/cddaheaderwidget.cpp:424
 msgid "Genre: "
@@ -2040,7 +2259,7 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:425
 msgid "CD Number: "
-msgstr ""
+msgstr "CD Nummer: "
 
 #: widgets/cddaheaderwidget.cpp:460
 msgid "Wikipedia"
@@ -2048,63 +2267,63 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:485
 msgid "No CD in drive"
-msgstr ""
+msgstr "Keine Cd im Laufwerk"
 
 #: widgets/cddaheaderwidget.cpp:637
 msgid "Load cover"
-msgstr ""
+msgstr "Cover laden"
 
 #: widgets/cddaheaderwidget.cpp:645
 msgid "Save Cover"
-msgstr ""
+msgstr "Cover speichern"
 
 #: widgets/cddaheaderwidget.cpp:653
 msgid "View Cover"
-msgstr ""
+msgstr "Cover zeigen"
 
 #: widgets/cddaheaderwidget.cpp:735
 msgid "Fetch Cover From Amazon..."
-msgstr ""
+msgstr "Cover von Amazon holen ..."
 
 #: widgets/cddaheaderwidget.cpp:740
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Eigenes Cover setzen ..."
 
 #: widgets/cddaheaderwidget.cpp:745
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "Cover speichern unter ..."
 
 #: widgets/cddaheaderwidget.cpp:750
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Zeige volles Cover ..."
 
 #: widgets/cddaheaderwidget.cpp:755
 msgid "Remove Cover"
-msgstr ""
+msgstr "Cover entfernen"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "International/USA"
-msgstr ""
+msgstr "International/USA"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Germany"
-msgstr ""
+msgstr "Deutschland"
 
 #: widgets/generalsettingswidget.cpp:26
 msgid "France"
-msgstr ""
+msgstr "Frankreich"
 
 #: widgets/generalsettingswidget.cpp:27
 msgid "Canada"
-msgstr ""
+msgstr "Kanada"
 
 #: widgets/generalsettingswidget.cpp:28
 msgid "Japan"
-msgstr ""
+msgstr "Japan"
 
 #: widgets/generalsettingswidget.cpp:29
 msgid "UK"
-msgstr ""
+msgstr "Großbritanbien"
 
 #: widgets/generalsettingswidget.cpp:32
 msgid "English"
@@ -2152,19 +2371,19 @@ msgstr ""
 
 #: widgets/profilewidget.cpp:79
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Wollen Sie wirklich das Profil \"%1\" löschen?"
 
 #: widgets/profilewidget.cpp:80
 msgid "Delete profile"
-msgstr ""
+msgstr "Profil löschen"
 
 #: widgets/profilewidget.cpp:121
 msgid "Save cover"
-msgstr ""
+msgstr "Cover speichern"
 
 #: widgets/profilewidget.cpp:128
 msgid "Load profiles"
-msgstr ""
+msgstr "Profil laden"
 
 #: widgets/profilewidget.cpp:137
 msgid ""
@@ -2172,15 +2391,19 @@ msgid ""
 "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
 "some sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>Wollen Sie ihr System nach Codes absuchen lassen (Lame, Ogg Vorbis, Flac, "
+"etc.)?</p><p><font style=\"font-style:italic;\">Dies wird versuchen anhand "
+"der gefundenenn Codecs Profile zu erstellen.</font></p>"
 
 #: widgets/profilewidget.cpp:145
 msgid "No new codecs found"
-msgstr ""
+msgstr "Keine neuen Codes gefunden"
 
 #: widgets/profilewidget.cpp:147
 msgid "1 new profile added"
-msgstr ""
+msgstr "1 neues Profil erzeugt"
 
 #: widgets/profilewidget.cpp:148
 msgid "%1 new profiles added"
-msgstr ""
+msgstr "%1 neue Profile erzeugt"
+

@@ -41,6 +41,7 @@
 #include <KTextEdit>
 #include <KPushButton>
 #include <KMessageBox>
+#include <KMenu>
 #include <libkcompactdisc/kcompactdisc.h>
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
@@ -102,6 +103,14 @@ private Q_SLOTS:
   void auto_fill_artists();
   void toggle(const QModelIndex &idx);
   void resizeColumns();
+
+  void select_all();
+  void select_none();
+  void invert_selection();
+
+  void cdda_context_menu(const QPoint& pos);
+
+  void selection_changed(const int num_selected);
 
 private:
   CDDAModel *cdda_model;

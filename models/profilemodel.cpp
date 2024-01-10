@@ -61,6 +61,7 @@ QVariant ProfileModel::data(const QModelIndex &index, int role) const {
 
       case PROFILE_MODEL_COLUMN_PATTERN_INDEX : return cache.at(index.row())[PROFILE_MODEL_PATTERN_KEY];
       case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : return cache.at(index.row())[PROFILE_MODEL_FAT32COMPATIBLE_KEY];
+      case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : return cache.at(index.row())[PROFILE_MODEL_UNDERSCORE_KEY];
       case PROFILE_MODEL_COLUMN_SC_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_KEY];
       case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_SCALE_KEY];
       case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : return cache.at(index.row())[PROFILE_MODEL_SC_SIZE_KEY];
@@ -142,6 +143,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  }
 	  break;
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : break;
+	case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : break;
         case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : break;
@@ -282,6 +284,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 
         case PROFILE_MODEL_COLUMN_PATTERN_INDEX : cache[index.row()][PROFILE_MODEL_PATTERN_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX : cache[index.row()][PROFILE_MODEL_FAT32COMPATIBLE_KEY] = value; break;
+	case PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX : cache[index.row()][PROFILE_MODEL_UNDERSCORE_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_INDEX : cache[index.row()][PROFILE_MODEL_SC_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_SCALE_INDEX : cache[index.row()][PROFILE_MODEL_SC_SCALE_KEY] = value; break;
         case PROFILE_MODEL_COLUMN_SC_SIZE_INDEX : cache[index.row()][PROFILE_MODEL_SC_SIZE_KEY] = value; break;
@@ -439,7 +442,7 @@ int ProfileModel::getNewIndex() const {
 
 }
 
-/*static bool lessThan(const Profile &p1, const Profile &p2) {
+static bool lessThan(const Profile &p1, const Profile &p2) {
   return (QString::localeAwareCompare(p1[PROFILE_MODEL_NAME_KEY].toString(), p2[PROFILE_MODEL_NAME_KEY].toString()) < 0);
 }
 
@@ -448,7 +451,7 @@ void ProfileModel::sortItems() {
   qSort(cache.begin(), cache.end(), lessThan);
   reset();
   emit profilesRemovedOrInserted();
-}*/
+}
 
 void ProfileModel::autoCreate() {
 
@@ -564,8 +567,7 @@ void ProfileModel::autoCreate() {
   }
 
   if (flag) {
-    reset();
-    emit profilesRemovedOrInserted();
+    sortItems();
   }
 
 }
@@ -647,6 +649,7 @@ const Profile ProfileModel::newProfile() {
   p[PROFILE_MODEL_PATTERN_KEY] = DEFAULT_PATTERN;
 
   p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = DEFAULT_FAT32;
+  p[PROFILE_MODEL_UNDERSCORE_KEY] = DEFAULT_UNDERSCORE;
 
   p[PROFILE_MODEL_SC_KEY] = DEFAULT_SC;
   p[PROFILE_MODEL_SC_SCALE_KEY] = DEFAULT_SC_SCALE;
@@ -704,7 +707,9 @@ int ProfileModel::copy(const int profileRow) {
   p[PROFILE_MODEL_NAME_KEY] = name;
   p[PROFILE_MODEL_PROFILEINDEX_KEY] = key;
   cache.append(p);
-  /*sortItems();*/
+
+  reset();
+  emit profilesRemovedOrInserted();
 
   return key;
 
@@ -739,7 +744,7 @@ void ProfileModel::save(KConfig *config) {
     subGroup.writeEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, cache[i][PROFILE_MODEL_ENCODER_SELECTED_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_PATTERN_KEY, cache[i][PROFILE_MODEL_PATTERN_KEY]);
-    subGroup.writeEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, cache[i][PROFILE_MODEL_FAT32COMPATIBLE_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_UNDERSCORE_KEY, cache[i][PROFILE_MODEL_UNDERSCORE_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_SC_KEY, cache[i][PROFILE_MODEL_SC_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_SC_SCALE_KEY, cache[i][PROFILE_MODEL_SC_SCALE_KEY]);
@@ -790,6 +795,7 @@ void ProfileModel::load(KConfig *config) {
 
     p[PROFILE_MODEL_PATTERN_KEY] = subGroup.readEntry(PROFILE_MODEL_PATTERN_KEY, DEFAULT_PATTERN);
     p[PROFILE_MODEL_FAT32COMPATIBLE_KEY] = subGroup.readEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, DEFAULT_FAT32);
+    p[PROFILE_MODEL_UNDERSCORE_KEY] = subGroup.readEntry(PROFILE_MODEL_UNDERSCORE_KEY, DEFAULT_UNDERSCORE);
 
     p[PROFILE_MODEL_SC_KEY] = subGroup.readEntry(PROFILE_MODEL_SC_KEY, DEFAULT_SC);
     p[PROFILE_MODEL_SC_SCALE_KEY] = subGroup.readEntry(PROFILE_MODEL_SC_SCALE_KEY, DEFAULT_SC_SCALE);

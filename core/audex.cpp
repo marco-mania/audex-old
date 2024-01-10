@@ -181,16 +181,25 @@ void Audex::start_extract() {
     QString suffix = p_suffix;
     QString basepath = Preferences::basePath();
     bool fat32_compatible = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
+    bool replacespaceswithunderscores = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_UNDERSCORE_INDEX)).toBool();
     int cdnum;
     if (!cdda_model->isMultiCD()) cdnum = 0; else cdnum = cdda_model->cdNum();
     int trackoffset = cdda_model->trackOffset();
     bool overwrite = Preferences::overwriteExistingFiles();
 
     QString targetFilename;
-    if (!construct_target_filename(targetFilename, ex_track_index, cdnum, trackoffset,
-	artist, title, tartist, ttitle, year, genre, suffix, basepath, fat32_compatible, overwrite, (ex_track_index==1))) {
-      request_finish(FALSE);
-      return;
+    if (cdda_model->isVarious()) {
+      if (!construct_target_filename(targetFilename, ex_track_index, cdnum, trackoffset,
+	  artist, title, tartist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, overwrite, (ex_track_index==1))) {
+        request_finish(FALSE);
+        return;
+      }
+    } else {
+      if (!construct_target_filename(targetFilename, ex_track_index, cdnum, trackoffset,
+	  artist, title, artist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, overwrite, (ex_track_index==1))) {
+        request_finish(FALSE);
+        return;
+      }
     }
     ex_track_target_filename = targetFilename;
 
@@ -284,10 +293,18 @@ void Audex::start_encode() {
 
   en_track_filename = job->sourceFilename();
   en_track_index = job->trackNo();
-  if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
-	artist, title, tartist, ttitle, genre, year, suffix, cover, fat32_compatible, temp_path(),
-	job->sourceFilename(), targetFilename)) {
-    request_finish(FALSE);
+  if (cdda_model->isVarious()) {
+    if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
+	  artist, title, tartist, ttitle, genre, year, suffix, cover, fat32_compatible, temp_path(),
+	  job->sourceFilename(), targetFilename)) {
+      request_finish(FALSE);
+    }
+  } else {
+    if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
+	  artist, title, artist, ttitle, genre, year, suffix, cover, fat32_compatible, temp_path(),
+	  job->sourceFilename(), targetFilename)) {
+      request_finish(FALSE);
+    }
   }
   process_counter++;
 
@@ -418,12 +435,12 @@ bool Audex::construct_target_filename(QString& targetFilename,
 	const QString& tartist, const QString& ttitle,
 	const QString& year, const QString& genre,
 	const QString& ext, const QString& basepath,
-	bool fat_compatible,
+	bool fat_compatible, bool replacespaceswithunderscores,
 	bool overwrite_existing_files, bool is_first_track) {
 
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseFilenamePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString(),
-	trackno, cdno, gindex, artist, title, tartist, ttitle, year, genre, ext, fat_compatible);
+	trackno, cdno, gindex, artist, title, tartist, ttitle, year, genre, ext, fat_compatible, replacespaceswithunderscores);
 
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
@@ -711,18 +728,22 @@ void Audex::execute_finish() {
     di = target_dir+"/discid";
 
     bool to_store = TRUE;
-    if (!overwrite) {
+    if (((!cdda_model->isMultiCD()) || (cdda_model->cdNum()<1)) && (!overwrite)) {
       QFileInfo info(di);
       if (info.exists()) {
         to_store = FALSE;
-	emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
+        emit warning(i18n("Warning! File \"%1\" already exists. Skipping.", info.fileName()));
       }
     }
     if (to_store) {
       QFile file(di);
-      if (file.open(QFile::WriteOnly | QFile::Truncate)) {
+      if (file.open(QFile::WriteOnly | QIODevice::Append)) {
         QTextStream out(&file);
-        out << QString("%1").arg(cdda_model->discid());
+	if (!cdda_model->isMultiCD()) {
+          out << QString("%1").arg(cdda_model->discid());
+	} else {
+          out << QString("CD %1: %2\n").arg(cdda_model->cdNum()).arg(cdda_model->discid());
+	}
 	file.close();
 	emit info(i18n("Discid successfully stored."));
       }

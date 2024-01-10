@@ -28,7 +28,7 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
 
   listView->setModel(profile_model);
   listView->setModelColumn(1);
-  connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(update()));
+  connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(_update()));
   connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile(const QModelIndex&)));
   connect(kpushbutton_add, SIGNAL(clicked()), this, SLOT(add_profile()));
   connect(kpushbutton_rem, SIGNAL(clicked()), this, SLOT(rem_profile()));
@@ -46,7 +46,7 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
 
   kpushbutton_init->setIcon(KIcon("view-refresh"));
 
-  update();
+  _update();
 
 }
 
@@ -54,7 +54,7 @@ profileWidget::~profileWidget() {
 
 }
 
-void profileWidget::update() {
+void profileWidget::_update() {
   kpushbutton_rem->setEnabled(listView->selectionModel()->selectedIndexes().count()>0);
   kpushbutton_mod->setEnabled(listView->selectionModel()->selectedIndexes().count()>0);
   kpushbutton_copy->setEnabled(listView->selectionModel()->selectedIndexes().count()>0);
@@ -68,9 +68,9 @@ void profileWidget::add_profile() {
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
   delete dialog;
 
-  listView->setCurrentIndex(profile_model->index(profile_model->rowCount(), 0));
+  profile_model->sortItems();
 
-  update();
+  _update();
 
 }
 
@@ -81,16 +81,14 @@ void profileWidget::rem_profile() {
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no())== KMessageBox::No) return;
 
-  int rs = listView->currentIndex().row();
-  profile_model->removeRows(rs, 1);
+  QModelIndex ci = listView->currentIndex();
+  profile_model->removeRows(ci.row(), 1);
 
   profile_model->commit();
 
-  if (rs>=profile_model->rowCount()) rs = profile_model->rowCount()-1;
-  if (profile_model->rowCount()>0)
-    listView->setCurrentIndex(profile_model->index(rs, 0));
+  if (ci.isValid()) listView->setCurrentIndex(ci);
 
-  update();
+  _update();
 
 }
 
@@ -102,7 +100,7 @@ void profileWidget::mod_profile(const QModelIndex& index) {
 
   delete dialog;
 
-  update();
+  _update();
 
 }
 
@@ -113,10 +111,10 @@ void profileWidget::mod_profile() {
 }
 
 void profileWidget::copy_profile() {
-  int rs = profile_model->copy(listView->currentIndex().row());
+  profile_model->copy(listView->currentIndex().row());
   profile_model->commit();
-  listView->setCurrentIndex(profile_model->index(rs, 0));
-  update();
+  profile_model->sortItems();
+  _update();
 }
 
 void profileWidget::save_profiles() {

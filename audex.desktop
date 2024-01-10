@@ -1,7 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Audex
 GenericName=CDDA Extraction
+GenericName[de]=Audio-CDs auslesen
 Exec=audex
 Icon=audex
 Type=Application
@@ -10,5 +10,5 @@ Categories=Qt;KDE;AudioVideo;
 Terminal=false
 X-DCOP-ServiceType=Unique
 X-DCOP-ServiceName=audex
-X-KDE-StartupNotify=true
 Comment=Rip audio data from your audio cd's
+Comment[de]=Rippt Audio-CDs

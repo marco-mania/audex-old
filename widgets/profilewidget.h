@@ -46,7 +46,7 @@ public:
   explicit profileWidget(ProfileModel *profileModel, QWidget *parent = 0);
   ~profileWidget();
 private slots:
-  void update();
+  void _update();
   void add_profile();
   void rem_profile();
   void mod_profile(const QModelIndex& index);

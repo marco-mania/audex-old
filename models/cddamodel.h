@@ -135,6 +135,9 @@ public:
   inline const QSet<int>& selectedTracks() const { return sel_tracks; }
   void toggle(int row);
   bool isTrackInSelection(int n) const;
+  void invertSelection();
+  void selectAll();
+  void selectNone();
 
   bool isModified() const;
   void confirm();
@@ -209,6 +212,7 @@ signals:
   void cddbDataSubmited(const bool successful);
 
   void hasSelection(bool has_selection);
+  void selectionChanged(const int num_selected);
 
 private slots:
   void slot_disc_changed(unsigned int tracks);
@@ -232,6 +236,7 @@ private:
   Error error;
 
   QSet<int> sel_tracks;
+  void _toggle(const unsigned int track);
 
   const QString capitalize(const QString &s);
 

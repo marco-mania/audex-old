@@ -166,6 +166,19 @@
        </widget>
       </item>
       <item row="2" column="0">
+       <widget class="QCheckBox" name="checkBox_underscore">
+        <property name="font">
+         <font>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Replace spaces with underscores</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>

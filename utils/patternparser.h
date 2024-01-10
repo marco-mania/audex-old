@@ -90,6 +90,7 @@ public:
   void setSuffix(const QString& suffix) { this->suffix = suffix; }
   void setCover(const QImage& cover) { this->cover = cover; }
   void setFAT32Compatible(const bool fat32compatible) { this->fat32compatible = fat32compatible; }
+  void setReplaceSpacesWithUnderscores(const bool replacespaceswithunderscores) { this->replacespaceswithunderscores = replacespaceswithunderscores; }
   void setTMPPath(const QString& tmppath) { this->tmppath = tmppath; }
   void setDiscid(const quint32 discid) { this->discid = discid; }
   void setSize(const qreal size) { this->size = size; }
@@ -115,6 +116,7 @@ private:
   QString suffix;
   QImage cover;
   bool fat32compatible;
+  bool replacespaceswithunderscores;
   QString tmppath;
   quint32 discid;
   qreal size;
@@ -133,6 +135,7 @@ private:
   const QString make_compatible(const QString& string);
   const QString make_compatible_2(const QString& string);
   const QString make_fat32_compatible(const QString& string);
+  const QString replace_spaces_with_underscores(const QString& string);
 
 };
 
@@ -147,7 +150,7 @@ public:
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix,
-	bool fat32compatible);
+	bool fat32compatible, bool replacespaceswithunderscores);
 
   const QString parseCommandPattern(const QString& pattern,
 	const QString& input, const QString& output,

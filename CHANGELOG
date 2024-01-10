@@ -1,3 +1,16 @@
+Version 0.71
+- Czech translation (Pavel Fric)
+- German translation (Thomas Kamps)
+- New feature: Replace spaces with underscores in path- und filenames
+- New feature: Context menu for track listview
+- Bugfix: "Copy profile" function does not update listview
+- Bugfix: Corrected FLAC command line preset
+- Bugfix: Taking over changes in CD data for tags
+- Changed FAAC filename suffix from AAC to M4A
+- Optimized FAAC command line preset
+- Does not overwrite discid file on multi cd any more
+- Many small bugfixes... (thx to all reporters!)
+
 Version 0.70
 - Many GUI changes
 - More user-friendly common encoder quality selection (ogg vorbis,mp3,flac,faac,wav,custom)
@@ -14,6 +27,6 @@ Version 0.62
 - Profile combobox now works as expected (I hope... :-) )
 - Perform auto cddb/amazon cover lookup
 - Resized coverfetch dialog (640x480 minimum size)
-- New variable $cover for sending a temporary cover file 
+- New variable $cover for sending a temporary cover file
   to a command line endcoder
 - Small bugfixes... (thx to all reporters!)

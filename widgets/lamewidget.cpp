@@ -41,6 +41,7 @@ lameWidget::lameWidget(Parameters *parameters, QWidget *parent) : lameWidgetUI(p
     case ENCODER_LAME_PRESET_INSANE : radioButton_insane->setChecked(TRUE); enable_custom(FALSE); break;
     case ENCODER_LAME_PRESET_CUSTOM : radioButton_custom->setChecked(TRUE); enable_custom(TRUE); break;
   }
+  checkBox_cbr->setChecked(p_cbr_flag);
   checkBox_embedcover->setChecked(parameters->valueToBool(ENCODER_LAME_EMBED_COVER_KEY));
   klineedit_suffix->setText(parameters->value(ENCODER_LAME_SUFFIX_KEY, ENCODER_LAME_SUFFIX));
 

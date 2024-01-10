@@ -125,19 +125,19 @@
 
 
 
-#define ENCODER_FAAC_NAME		i18n("AAC")
+#define ENCODER_FAAC_NAME		i18n("M4A/MP4 (AAC)")
 #define ENCODER_FAAC_BIN		"faac"
 #define ENCODER_FAAC_VERSION_PARA	"--help"
-#define ENCODER_FAAC_SUFFIX		"aac"
+#define ENCODER_FAAC_SUFFIX		"m4a"
 
 /* preset normal quality */
-#define ENCODER_FAAC_QUALITY		130
+#define ENCODER_FAAC_QUALITY		150
 
 /* preset mobile quality */
-#define ENCODER_FAAC_QUALITY_M		100
+#define ENCODER_FAAC_QUALITY_M		110
 
 /* preset extreme quality */
-#define ENCODER_FAAC_QUALITY_X		200
+#define ENCODER_FAAC_QUALITY_X		300
 
 
 

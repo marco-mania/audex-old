@@ -149,13 +149,13 @@ void PatternWizardDialog::update_example() {
   QString filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
 	2, 1, 1,
 	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-	"2006", "Rock", "ogg", FALSE);
+	"2006", "Rock", "ogg", FALSE, FALSE);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
 	4, 2, 1,
 	"Bravo Hits", "Volume 41", "Wolfsheim", "Kein Zurueck",
-	"2003", "Darkwave", "ogg", FALSE);
+	"2003", "Darkwave", "ogg", FALSE, FALSE);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }

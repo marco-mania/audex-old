@@ -43,7 +43,7 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder) {
     case EncoderAssistant::LAME : return (KProcess::execute(ENCODER_LAME_BIN, QStringList() << ENCODER_LAME_VERSION_PARA)==0);
     case EncoderAssistant::OGGENC : return (KProcess::execute(ENCODER_OGGENC_BIN, QStringList() << ENCODER_OGGENC_VERSION_PARA)==0);
     case EncoderAssistant::FLAC : return (KProcess::execute(ENCODER_FLAC_BIN, QStringList() << ENCODER_FLAC_VERSION_PARA)==0);
-    case EncoderAssistant::FAAC : return (KProcess::execute(ENCODER_FAAC_BIN, QStringList() << ENCODER_FAAC_VERSION_PARA)<=1);
+    case EncoderAssistant::FAAC : return (KProcess::execute(ENCODER_FAAC_BIN, QStringList() << ENCODER_FAAC_VERSION_PARA)==1);
     case EncoderAssistant::WAVE : return (KProcess::execute(ENCODER_WAVE_BIN, QStringList() << ENCODER_WAVE_VERSION_PARA)==0);
     case EncoderAssistant::CUSTOM : return TRUE;
     default : return FALSE;
@@ -168,8 +168,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       int compression = parameters.valueToInt(ENCODER_FLAC_COMPRESSION_KEY, ENCODER_FLAC_COMPRESSION);
       QString cmd = ENCODER_FLAC_BIN;
       cmd += QString(" -%1").arg(compression);
-      cmd += QString::fromUtf8(" -T=Artist=\"$"VAR_TRACK_ARTIST"\" -T=Title=\"$"VAR_TRACK_TITLE"\" -T=Album=\"$"VAR_ALBUM_TITLE\
-                               "\" -T=Date=\"$"VAR_DATE"\" -T=Tracknumber=\"$"VAR_TRACK_NO"\" -T=Genre=\"$"VAR_GENRE\
+      cmd += QString::fromUtf8(" -T Artist=\"$"VAR_TRACK_ARTIST"\" -T Title=\"$"VAR_TRACK_TITLE"\" -T Album=\"$"VAR_ALBUM_TITLE\
+                               "\" -T Date=\"$"VAR_DATE"\" -T Tracknumber=\"$"VAR_TRACK_NO"\" -T Genre=\"$"VAR_GENRE\
                                "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
       return cmd;
     }
@@ -178,7 +178,7 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       int quality = parameters.valueToInt(ENCODER_FAAC_QUALITY_KEY, ENCODER_FAAC_QUALITY);
       QString cmd = ENCODER_FAAC_BIN;
       cmd += QString(" -q %1").arg(quality);
-      cmd += QString::fromUtf8(" -w --title \"$"VAR_TRACK_TITLE"\" --artist \"$"VAR_TRACK_ARTIST"\" --album \"$"VAR_ALBUM_TITLE\
+      cmd += QString::fromUtf8(" -w -s --title \"$"VAR_TRACK_TITLE"\" --artist \"$"VAR_TRACK_ARTIST"\" --album \"$"VAR_ALBUM_TITLE\
                                "\" --year \"$"VAR_DATE"\" --track $"VAR_TRACK_NO" --disc $cdno --genre \"$"VAR_GENRE\
                                "\" -o $"VAR_OUTPUT_FILE" $"VAR_INPUT_FILE);
 

@@ -207,7 +207,7 @@ private:
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre,
 	const QString& ext, const QString& basepath,
-	bool fat_compatible,
+	bool fat_compatible, bool replacespaceswithunderscores,
 	bool overwrite_existing_files, bool is_first_track);
 
   bool check();

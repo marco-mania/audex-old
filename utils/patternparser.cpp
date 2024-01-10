@@ -50,7 +50,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
 
   if (qName == VAR_ALBUM_ARTIST) {
     if ((is_filename_pattern) || (is_simple_pattern)) {
-      if (fat32compatible) _text += make_fat32_compatible(artist); else _text += make_compatible(artist);
+      QString s;
+      if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(artist); else s = make_compatible(artist);
+      if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(artist);
     } else {
@@ -59,7 +62,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   }
   if (qName == VAR_ALBUM_TITLE) {
     if ((is_filename_pattern) || (is_simple_pattern)) {
-      if (fat32compatible) _text += make_fat32_compatible(title); else _text += make_compatible(title);
+      QString s;
+      if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(title); else s = make_compatible(title);
+      if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(title);
     } else {
@@ -68,7 +74,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   }
   if (qName == VAR_DATE) {
     if ((is_filename_pattern) || (is_simple_pattern)) {
-      if (fat32compatible) _text += make_fat32_compatible(date); else _text += make_compatible(date);
+      QString s;
+      if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(date); else s = make_compatible(date);
+      if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(date);
     } else {
@@ -77,7 +86,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   }
   if (qName == VAR_GENRE) {
     if ((is_filename_pattern) || (is_simple_pattern)) {
-      if (fat32compatible) _text += make_fat32_compatible(genre); else _text += make_compatible(genre);
+      QString s;
+      if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(genre); else s = make_compatible(genre);
+      if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      _text += s;
     } else if (is_command_pattern) {
       _text += make_compatible_2(genre);
     } else {
@@ -102,7 +114,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
   if ((is_filename_pattern) || (is_command_pattern)) {
     if (qName == VAR_TRACK_ARTIST) {
       if (is_filename_pattern) {
-        if (fat32compatible) _text += make_fat32_compatible(tartist); else _text += make_compatible(tartist);
+        QString s;
+        if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(tartist); else s = make_compatible(tartist);
+        if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+        _text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(tartist);
       } else {
@@ -111,7 +126,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
     }
     if (qName == VAR_TRACK_TITLE) {
       if (is_filename_pattern) {
-        if (fat32compatible) _text += make_fat32_compatible(ttitle); else _text += make_compatible(ttitle);
+        QString s;
+        if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(ttitle); else s = make_compatible(ttitle);
+	if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+	_text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(ttitle);
       } else {
@@ -318,6 +336,12 @@ const QString SaxHandler::make_fat32_compatible(const QString& string) {
   return s;
 }
 
+const QString SaxHandler::replace_spaces_with_underscores(const QString& string) {
+  QString s = string;
+  s.replace(" ", "_");
+  return s;
+}
+
 PatternParser::PatternParser(QObject *parent) : QObject(parent) {
   Q_UNUSED(parent);
 }
@@ -331,7 +355,7 @@ const QString PatternParser::parseFilenamePattern(const QString& pattern,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix,
-	bool fat32compatible) {
+	bool fat32compatible, bool replacespaceswithunderscores) {
 
   SaxHandler handler;
   handler.setTrackNo(trackno);
@@ -345,6 +369,7 @@ const QString PatternParser::parseFilenamePattern(const QString& pattern,
   handler.setGenre(genre);
   handler.setSuffix(suffix);
   handler.setFAT32Compatible(fat32compatible);
+  handler.setReplaceSpacesWithUnderscores(replacespaceswithunderscores);
 
   QXmlInputSource inputSource;
   inputSource.setData("<filenamepattern>"+p_xmlize_pattern(pattern)+"</filenamepattern>");
@@ -407,6 +432,7 @@ const QString PatternParser::parseSimplePattern(const QString& pattern,
   handler.setGenre(genre);
   handler.setSuffix(suffix);
   handler.setFAT32Compatible(fat32compatible);
+  handler.setReplaceSpacesWithUnderscores(FALSE);
 
   QXmlInputSource inputSource;
   inputSource.setData("<simplepattern>"+p_xmlize_pattern(pattern)+"</simplepattern>");

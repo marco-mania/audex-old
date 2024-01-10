@@ -198,7 +198,7 @@ QVariant CDDAModel::headerData(int section, Qt::Orientation orientation, int rol
           case CDDA_MODEL_COLUMN_TITLE_INDEX : return CDDA_MODEL_COLUMN_TITLE_LABEL;
           default : ;
         }
-	break;
+        break;
       case Qt::TextAlignmentRole :
         return Qt::AlignLeft;
       default : ;
@@ -571,18 +571,34 @@ void CDDAModel::clear() {
 
 void CDDAModel::toggle(int row) {
 
-  if (sel_tracks.contains(row+1)) {
-    sel_tracks.remove(row+1);
-  } else {
-    sel_tracks.insert(row+1);
-  }
+  _toggle(row+1);
 
-  emit hasSelection(0 != sel_tracks.size());
+  emit hasSelection(0 != sel_tracks.count());
+  emit selectionChanged(sel_tracks.count());
 
 }
 
 bool CDDAModel::isTrackInSelection(int n) const {
   return sel_tracks.contains(n);
+}
+
+void CDDAModel::invertSelection() {
+  for (int i = 1; i <= numOfTracks(); ++i) {
+    if (isAudioTrack(i)) _toggle(i);
+  }
+  emit hasSelection(0 != sel_tracks.count());
+  emit selectionChanged(sel_tracks.count());
+}
+
+void CDDAModel::selectAll() {
+  sel_tracks.clear();
+  invertSelection();
+}
+
+void CDDAModel::selectNone() {
+  sel_tracks.clear();
+  emit hasSelection(FALSE);
+  emit selectionChanged(0);
 }
 
 bool CDDAModel::isModified() const {
@@ -843,6 +859,14 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
 
   emit discInfoChanged(disc_info);
 
+}
+
+void CDDAModel::_toggle(const unsigned int track) {
+  if (sel_tracks.contains(track)) {
+    sel_tracks.remove(track);
+  } else {
+    sel_tracks.insert(track);
+  }
 }
 
 const QString CDDAModel::capitalize(const QString &s) {

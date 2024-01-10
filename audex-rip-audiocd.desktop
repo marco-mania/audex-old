@@ -1,0 +1,12 @@
+[Desktop Entry]
+X-KDE-Solid-Predicate=[ StorageVolume.ignored == false AND OpticalDisc.availableContent == 'Audio' ]
+Type=Service
+Actions=ripaudiocd;
+
+[Desktop Action ripaudiocd]
+Exec=audex
+Icon=audex
+Name=Extract Digital Audio with Audex 
+Name[de]=Digital-Audio mit Audex auslesen
+
+#/usr/share/kde4/apps/solid/actions/audex-rip-audiocd.desktop

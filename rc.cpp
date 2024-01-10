@@ -354,34 +354,37 @@ i18n("Pattern:");
 // i18n: file: dialogs/profiledatawidgetUI.ui:164
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 i18n("Create FAT32 compatible filenames");
-// i18n: file: dialogs/profiledatawidgetUI.ui:193
+// i18n: file: dialogs/profiledatawidgetUI.ui:177
+// i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
+i18n("Replace spaces with underscores");
+// i18n: file: dialogs/profiledatawidgetUI.ui:206
 // i18n: ectx: property (title), widget (QGroupBox, groupBox)
 i18n("Extra Files");
-// i18n: file: dialogs/profiledatawidgetUI.ui:205
+// i18n: file: dialogs/profiledatawidgetUI.ui:218
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 i18n("Store cover file in target folder");
-// i18n: file: dialogs/profiledatawidgetUI.ui:218
+// i18n: file: dialogs/profiledatawidgetUI.ui:231
 // i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
 i18n("Settings..");
-// i18n: file: dialogs/profiledatawidgetUI.ui:231
+// i18n: file: dialogs/profiledatawidgetUI.ui:244
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 i18n("Create playlist in target folder");
-// i18n: file: dialogs/profiledatawidgetUI.ui:244
+// i18n: file: dialogs/profiledatawidgetUI.ui:257
 // i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
 i18n("Settings..");
-// i18n: file: dialogs/profiledatawidgetUI.ui:270
+// i18n: file: dialogs/profiledatawidgetUI.ui:283
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 i18n("Store info file in target folder");
-// i18n: file: dialogs/profiledatawidgetUI.ui:283
+// i18n: file: dialogs/profiledatawidgetUI.ui:296
 // i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
 i18n("Settings..");
-// i18n: file: dialogs/profiledatawidgetUI.ui:296
+// i18n: file: dialogs/profiledatawidgetUI.ui:309
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 i18n("Store hashlist in target folder");
-// i18n: file: dialogs/profiledatawidgetUI.ui:309
+// i18n: file: dialogs/profiledatawidgetUI.ui:322
 // i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
 i18n("Settings..");
-// i18n: file: dialogs/profiledatawidgetUI.ui:322
+// i18n: file: dialogs/profiledatawidgetUI.ui:335
 // i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
 i18n("Store discid in target folder");
 // i18n: file: dialogs/protocolwidgetUI.ui:19
@@ -657,5 +660,3 @@ i18n("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/
 // i18n: file: widgets/wavewidgetUI.ui:50
 // i18n: ectx: property (text), widget (QLabel, label_suffix)
 i18n("Suffix:");
-i18nc("NAME OF TRANSLATORS","Your names");
-i18nc("EMAIL OF TRANSLATORS","Your emails");

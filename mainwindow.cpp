@@ -162,6 +162,7 @@ void MainWindow::configure() {
   connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(configuration_updated(const QString&)));
 
   dialog->exec();
+
 }
 
 void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
@@ -247,9 +248,12 @@ void MainWindow::update_layout() {
   } else {
     cdda_tree_view->showColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
   }
+  actionCollection()->action("selectall")->setEnabled(cdda_model->selectedTracks().count()<cdda_model->numOfAudioTracks());
+  actionCollection()->action("selectnone")->setEnabled(cdda_model->selectedTracks().count()>0);
 }
 
 void MainWindow::enable_layout(bool enabled) {
+
   layout_enabled = enabled;
   cdda_tree_view->setEnabled(enabled);
   cdda_header_dock->setEnabled(enabled);
@@ -267,6 +271,10 @@ void MainWindow::enable_layout(bool enabled) {
   actionCollection()->action("swapartistsandtitles")->setEnabled(enabled);
   actionCollection()->action("capitalize")->setEnabled(enabled);
   actionCollection()->action("autofillartists")->setEnabled(enabled);
+  actionCollection()->action("selectall")->setEnabled(enabled);
+  actionCollection()->action("selectnone")->setEnabled(enabled);
+  actionCollection()->action("invertselection")->setEnabled(enabled);
+
 }
 
 void MainWindow::enable_submit(bool enabled) {
@@ -359,8 +367,9 @@ void MainWindow::auto_fill_artists() {
 }
 
 void MainWindow::toggle(const QModelIndex &idx) {
-  if (idx.isValid() && idx.column() == CDDA_MODEL_COLUMN_RIP_INDEX) {
+  if (idx.isValid() && (idx.column() == CDDA_MODEL_COLUMN_RIP_INDEX)) {
     cdda_model->toggle(idx.row());
+    cdda_tree_view->update(idx);
   }
 }
 
@@ -448,6 +457,21 @@ void MainWindow::setup_actions() {
   actionCollection()->addAction("autofillartists", autoFillArtistsAction);
   connect(autoFillArtistsAction, SIGNAL(triggered(bool)), this, SLOT(auto_fill_artists()));
 
+  KAction* selectAllAction = new KAction(this);
+  selectAllAction->setText(i18n("Select all tracks"));
+  actionCollection()->addAction("selectall", selectAllAction);
+  connect(selectAllAction, SIGNAL(triggered(bool)), this, SLOT(select_all()));
+
+  KAction* selectNoneAction = new KAction(this);
+  selectNoneAction->setText(i18n("Select no tracks"));
+  actionCollection()->addAction("selectnone", selectNoneAction);
+  connect(selectNoneAction, SIGNAL(triggered(bool)), this, SLOT(select_none()));
+
+  KAction* invertSelectionAction = new KAction(this);
+  invertSelectionAction->setText(i18n("Invert Selection"));
+  actionCollection()->addAction("invertselection", invertSelectionAction);
+  connect(invertSelectionAction, SIGNAL(triggered(bool)), this, SLOT(invert_selection()));
+
   KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
 
 }
@@ -462,9 +486,11 @@ void MainWindow::setup_layout() {
   cdda_tree_view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
   cdda_tree_view->setIndentation(0);
   cdda_tree_view->setAllColumnsShowFocus(TRUE);
+  cdda_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
+  connect(cdda_tree_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(cdda_context_menu(const QPoint&)));
   connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex&)), SLOT(toggle(const QModelIndex&)));
   connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), SLOT(resizeColumns()));
-  connect(cdda_model, SIGNAL(hasSelection(bool)), actionCollection()->action("rip"), SLOT(setEnabled(bool)));
+  connect(cdda_model, SIGNAL(selectionChanged(const int)), this, SLOT(selection_changed(const int)));
 
   cdda_header_dock = new QDockWidget(this);
   cdda_header_dock->setObjectName("cdda_header_dock");
@@ -485,6 +511,34 @@ void MainWindow::setup_layout() {
   cddb_label->setAlignment(Qt::AlignHCenter);
   cddb_label->setMinimumSize(QSize(100, 10));
 
+}
+
+void MainWindow::select_all() {
+  cdda_model->selectAll();
+}
+
+void MainWindow::select_none() {
+  cdda_model->selectNone();
+}
+
+void MainWindow::invert_selection() {
+  cdda_model->invertSelection();
+}
+
+void MainWindow::cdda_context_menu(const QPoint& pos) {
+  Q_UNUSED(pos);
+  KMenu menu(this);
+  menu.addAction(actionCollection()->action("selectall"));
+  menu.addAction(actionCollection()->action("selectnone"));
+  menu.addSeparator();
+  menu.addAction(actionCollection()->action("invertselection"));
+  menu.exec(QCursor::pos());
+}
+
+void MainWindow::selection_changed(const int num_selected) {
+  actionCollection()->action("rip")->setEnabled(num_selected>0);
+  actionCollection()->action("selectall")->setEnabled(num_selected<cdda_model->numOfAudioTracks());
+  actionCollection()->action("selectnone")->setEnabled(num_selected>0);
 }
 
 void MainWindow::set_profile(int profile_index) {
