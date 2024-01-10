@@ -1,0 +1,32 @@
+AUDEX v0.46 BETA
+
+Audex is a cdda audio grabber tool for CD-ROM drives based on the 
+application development framework Qt 4.3.x with focus on database 
+capabilities (MySQL/PostgreSQL/Firebird). The program is stil under
+development.
+Audex makes use of cdparanoia.
+For more information please check my homepage. Thank you.
+(www.anyaudio.de/audex)
+
+COMPILE AND INSTALL
+
+You need Qt 4.3.x (with SQL, Network, XML) and CDDA Paranoia libs III 9.8.
+
+Audex is not platform independent, as it is linked against cdda paranoia. 
+It has been tested only with linux by now, but should also work with all 
+unix-platforms coming up with Qt 4 and CDDA Paranoia. I'm decided to make 
+use of trolltechs really great make-generator-tool qmake.
+
+To compile the sources you need to type in the source directory: 
+ qmake -project
+
+Now open a file called like the directory with the extension ".pro" with a 
+texteditor and add the following lines at the end:
+ QT += sql
+ QT += xml
+ QT += network
+ LIBS += -lcdda_paranoia -lcdda_interface
+
+Now you are ready to initiate the compiling process: 
+ qmake
+ make
