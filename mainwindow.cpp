@@ -50,8 +50,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), this, SLOT(disc_info_changed(const CDDAModel::DiscInfo)));
   connect(cdda_model, SIGNAL(cddbLookupStarted()), this, SLOT(cddb_lookup_start()));
   connect(cdda_model, SIGNAL(cddbLookupDone(const bool)), this, SLOT(cddb_lookup_done(const bool)));
-  //DISABLED BY NOW
-  //connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
+  connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(enable_submit()));
   connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(update_layout()));
   connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_submit(bool)));
 
@@ -101,11 +100,12 @@ void MainWindow::cddb_lookup() {
 }
 
 void MainWindow::cddb_submit() {
-  //DISABLED BY NOW
-  //cdda_model->submitCDDB();
+  if (!cdda_model->submitCDDB()) {
+    KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+  }
 }
 
-void MainWindow::extract() {
+void MainWindow::rip() {
 
   if (cdda_model->discInfo()==CDDAModel::DiscNoInfo) {
 
@@ -219,8 +219,8 @@ void MainWindow::disc_info_changed(const CDDAModel::DiscInfo info) {
       break;
     case CDDAModel::DiscCDTEXTInfo :
     case CDDAModel::DiscCDDBInfo :
-    case CDDAModel::DiscPhonenMetadataInfo :
-      cdda_header_widget->amazonAuto();
+    case CDDAModel::DiscPhononMetadataInfo :
+      if (Preferences::coverLookupAuto()) cdda_header_widget->googleAuto();
       break;
     default :
       break;
@@ -248,6 +248,7 @@ void MainWindow::update_layout() {
   } else {
     cdda_tree_view->showColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
   }
+  resizeColumns();
   actionCollection()->action("selectall")->setEnabled(cdda_model->selectedTracks().count()<cdda_model->numOfAudioTracks());
   actionCollection()->action("selectnone")->setEnabled(cdda_model->selectedTracks().count()>0);
 }
@@ -429,61 +430,59 @@ void MainWindow::setup_actions() {
   actionCollection()->addAction("profile", profileAction);
   update_profile_action();
 
-  KAction* cddbLookupAction = new KAction(this);
+  KAction *cddbLookupAction = new KAction(this);
   cddbLookupAction->setText(i18n("Fetch Info"));
   cddbLookupAction->setIcon(KIcon("view-list-text"));
   cddbLookupAction->setShortcut(Qt::CTRL + Qt::Key_F);
   actionCollection()->addAction("fetch", cddbLookupAction);
   connect(cddbLookupAction, SIGNAL(triggered(bool)), this, SLOT(cddb_lookup()));
 
-  KAction* cddbSubmitAction = new KAction(this);
+  KAction *cddbSubmitAction = new KAction(this);
   cddbSubmitAction->setText(i18n("Submit Info"));
   cddbSubmitAction->setShortcut(Qt::CTRL + Qt::Key_S);
   actionCollection()->addAction("submit", cddbSubmitAction);
   connect(cddbSubmitAction, SIGNAL(triggered(bool)), this, SLOT(cddb_submit()));
-  //BY NOW IT IS DISABLED
-  cddbSubmitAction->setEnabled(FALSE);
 
   KAction* extractAction = new KAction(this);
   extractAction->setText(i18n("Rip..."));
   extractAction->setIcon(KIcon("media-optical-audio"));
   extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
   actionCollection()->addAction("rip", extractAction);
-  connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(extract()));
+  connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(rip()));
 
   actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
 
-  KAction* splitTitlesAction = new KAction(this);
+  KAction *splitTitlesAction = new KAction(this);
   splitTitlesAction->setText(i18n("Split titles..."));
   actionCollection()->addAction("splittitles", splitTitlesAction);
   connect(splitTitlesAction, SIGNAL(triggered(bool)), this, SLOT(split_titles()));
 
-  KAction* swapArtistsAndTitlesAction = new KAction(this);
+  KAction *swapArtistsAndTitlesAction = new KAction(this);
   swapArtistsAndTitlesAction->setText(i18n("Swap artists and titles"));
   actionCollection()->addAction("swapartistsandtitles", swapArtistsAndTitlesAction);
   connect(swapArtistsAndTitlesAction, SIGNAL(triggered(bool)), this, SLOT(swap_artists_and_titles()));
 
-  KAction* capitalizeAction = new KAction(this);
+  KAction *capitalizeAction = new KAction(this);
   capitalizeAction->setText(i18n("Capitalize"));
   actionCollection()->addAction("capitalize", capitalizeAction);
   connect(capitalizeAction, SIGNAL(triggered(bool)), this, SLOT(capitalize()));
 
-  KAction* autoFillArtistsAction = new KAction(this);
+  KAction *autoFillArtistsAction = new KAction(this);
   autoFillArtistsAction->setText(i18n("Auto fill artists"));
   actionCollection()->addAction("autofillartists", autoFillArtistsAction);
   connect(autoFillArtistsAction, SIGNAL(triggered(bool)), this, SLOT(auto_fill_artists()));
 
-  KAction* selectAllAction = new KAction(this);
+  KAction *selectAllAction = new KAction(this);
   selectAllAction->setText(i18n("Select all tracks"));
   actionCollection()->addAction("selectall", selectAllAction);
   connect(selectAllAction, SIGNAL(triggered(bool)), this, SLOT(select_all()));
 
-  KAction* selectNoneAction = new KAction(this);
+  KAction *selectNoneAction = new KAction(this);
   selectNoneAction->setText(i18n("Select no tracks"));
   actionCollection()->addAction("selectnone", selectNoneAction);
   connect(selectNoneAction, SIGNAL(triggered(bool)), this, SLOT(select_none()));
 
-  KAction* invertSelectionAction = new KAction(this);
+  KAction *invertSelectionAction = new KAction(this);
   invertSelectionAction->setText(i18n("Invert Selection"));
   actionCollection()->addAction("invertselection", invertSelectionAction);
   connect(invertSelectionAction, SIGNAL(triggered(bool)), this, SLOT(invert_selection()));
@@ -505,7 +504,7 @@ void MainWindow::setup_layout() {
   cdda_tree_view->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(cdda_tree_view, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(cdda_context_menu(const QPoint&)));
   connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex&)), SLOT(toggle(const QModelIndex&)));
-  connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), SLOT(resizeColumns()));
+  //connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), SLOT(resizeColumns()));
   connect(cdda_model, SIGNAL(selectionChanged(const int)), this, SLOT(selection_changed(const int)));
 
   cdda_header_dock = new QDockWidget(this);
@@ -521,7 +520,7 @@ void MainWindow::setup_layout() {
 
   status_label = new QLabel();
   status_label->setAlignment(Qt::AlignHCenter);
-  status_label->setMinimumSize(QSize(120, 10));
+  status_label->setMinimumSize(QSize(250, 10));
   statusBar()->addWidget(status_label);
   cddb_label = new QLabel();
   cddb_label->setAlignment(Qt::AlignHCenter);

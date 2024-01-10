@@ -67,6 +67,7 @@
 #define ENCODER_LAME_BIN		"lame"
 #define ENCODER_LAME_VERSION_PARA	"--version"
 #define ENCODER_LAME_SUFFIX		"mp3"
+#define ENCODER_LAME_MAX_EMBED_COVER_SIZE	128*1024
 
 /* preset normal quality */
 #define ENCODER_LAME_PRESET		1
@@ -174,6 +175,7 @@ namespace EncoderAssistant {
   const QString name(const Encoder encoder);
 
   bool available(const Encoder encoder);
+  bool canEmbedCover(const Encoder encoder, int *maxCoverSize = NULL);
   const QString version(const Encoder encoder);
   const QString pattern(const Encoder encoder, const Parameters& parameters);
 

@@ -286,7 +286,7 @@ void Audex::start_encode() {
   QString year = cdda_model->year();
   QString genre = cdda_model->genre();
   QString suffix = p_suffix;
-  QImage cover = cdda_model->cover();
+  CachedImage *cover = cdda_model->cover();
   bool fat32_compatible = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool();
 
   QString targetFilename = job->targetFilename();
@@ -558,8 +558,8 @@ void Audex::execute_finish() {
   if ((_finished_successful) && (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_INDEX)).toBool())) {
 
     //store the cover
-    if (!cdda_model->cover().isNull()) {
-      QImage image(cdda_model->cover());
+    if (!cdda_model->isCoverEmpty()) {
+      QImage image(cdda_model->coverImage());
       if (profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SCALE_INDEX)).toBool()) {
         QSize size = profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SC_SIZE_INDEX)).toSize();
         image = image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);

@@ -19,8 +19,9 @@
 #ifndef COVERFETCHER_HEADER
 #define COVERFETCHER_HEADER
 
-#include <QtXml>
 #include <QObject>
+#include <QByteArray>
+#include <QRegExp>
 
 #include <KDebug>
 #include <KLocale>
@@ -35,25 +36,25 @@ public:
   CoverFetcher(QObject *parent = 0);
   ~CoverFetcher();
 
-  void startFetch(const QString& searchstring, const int fetchNo = -1);
-
-  QImage cover(int index);
-  QString caption(int index);
-  int count() { return cover_names.count(); }
-
-  //us = International; fr = France; de = Germany; jp = Japan; uk = United Kingdom; ca = Canada
-  void setLocale(const QString &locale);
-  void setLocale(const int locale);
+  void startFetchThumbnails(const QString& searchstring, const int fetchNo = 8);
+  void startFetchCover(const int no);
+  
+  const QByteArray thumbnail(int index);
+  const QString caption(int index);
+  const QString tbnid(int index);
+  inline int count() { return cover_names.count(); }
 
   enum Status {
     NOS,
     SEARCHING,
-    FETCHING
+    FETCHING_THUMBNAIL,
+    FETCHING_COVER
   };
 
 signals:
-  void fetched(const QImage& cover, const QString& caption, int no);
-  void allFetched();
+  void fetchedThumbnail(const QByteArray& thumbnail, const QString& caption, int no);
+  void allCoverThumbnailsFetched();
+  void fetchedCover(const QByteArray& cover);
   void nothingFetched();
 
   void statusChanged(Status status);
@@ -64,28 +65,26 @@ signals:
   void info(const QString& description);
 
 private slots:
-  void fetched_xml_data(KJob* job);
+  void fetched_html_data(KJob* job);
 
 private:
   int fetch_no;
-  QStringList cover_asins;
-  QStringList amazon_urls;
+  QStringList cover_urls_thumbnails;
   QStringList cover_urls;
   QStringList cover_names;
-  QList<QImage*> covers;
-  void clear_covers() { for (int i = 0; i < covers.count(); i++) delete covers[i]; covers.clear(); }
+  QStringList cover_tbnids;
+  QList<QByteArray> cover_thumbnails;
+  void clear() { cover_thumbnails.clear(); }
 
   KIO::TransferJob* job;
-
-  QString locale;
 
   Status _status;
 
   int f_i;
 
-  void parse_xml_respone(const QString& xml);
-  void parse_item_node(const QDomNode& node);
-  bool fetch_covers();
+  void parse_html_response(const QString& html);
+  bool fetch_cover_thumbnail();
+  bool fetch_cover(const int no);
 
 };
 

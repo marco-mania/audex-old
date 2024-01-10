@@ -291,7 +291,10 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
 
   setup_actions();
 
+  kDebug() << "coverSize:" << coverSize;
   this->cover_size = coverSize;
+  
+  this->i_cover_checksum = 1;
 
   this->padding = padding;
 
@@ -312,8 +315,9 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
   connect(this, SIGNAL(coverDown()), this, SLOT(cover_is_down()));
   connect(this, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(context_menu(const QPoint&)));
 
-  connect(&cover_fetcher, SIGNAL(fetched(const QImage&, const QString&, int)), this, SLOT(set_cover(const QImage&, const QString&, int)));
-
+  cover_browser_dialog = NULL;
+  fetching_cover_in_progress = FALSE;
+  
   setContextMenuPolicy(Qt::CustomContextMenu);
 
   timer.setInterval(40);
@@ -333,16 +337,32 @@ QSize CDDAHeaderWidget::sizeHint() const {
   return QSize((cover_size*1.5)+(padding*2), (int)(cover_size*1.4)+(padding*2));
 }
 
-void CDDAHeaderWidget::setCover(const QImage& cover) {
-
-  if (this->cover.isNull()) {
-    this->cover = cover.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+void CDDAHeaderWidget::setCover(CachedImage *cover) {
+  
+  if (cover) {
+    i_cover_checksum = cover->checksum();
+  } else {
+    i_cover_checksum = 0;
+  }
+  
+  if (this->i_cover.isNull()) {
+    if (cover) {
+      this->i_cover = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    } else {
+      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      this->i_cover = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    }
     animation_up = TRUE;
     fade_in = TRUE;
     scale_factor = 0.7;
     opacity_factor = 0.0;
   } else {
-    this->cover_holding = cover.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    if (cover) {
+      this->i_cover_holding = cover->coverImage().convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    } else {
+      QImage image = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+      this->i_cover_holding = image.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    }
     animation_down = TRUE;
     scale_down = TRUE;
     scale_factor = 1.0;
@@ -362,10 +382,27 @@ void CDDAHeaderWidget::setEnabled(bool enabled) {
   repaint();
 }
 
-void CDDAHeaderWidget::amazonAuto() {
-  if (cdda_model->discInfo()==CDDAModel::DiscNoInfo) return;
-  cover_fetcher.setLocale(Preferences::amazonLocale());
-  cover_fetcher.startFetch(QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title()), 1);
+void CDDAHeaderWidget::googleAuto() {
+
+  if ((cdda_model->discInfo()==CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
+
+  QApplication::restoreOverrideCursor();
+  cursor_on_cover = FALSE;
+  fetching_cover_in_progress = TRUE;
+  action_collection->action("fetch")->setEnabled(FALSE);
+
+  cover_browser_dialog = new CoverBrowserDialog(this);
+  
+  connect(cover_browser_dialog, SIGNAL(allCoverThumbnailsFetched()), this, SLOT(fetch_first_cover()));
+  QString artist = cdda_model->artist();
+  QString title = cdda_model->title();
+  int lastColonPos = title.lastIndexOf(':');
+  while (lastColonPos > 0) {
+    title = title.left(lastColonPos);
+    lastColonPos = title.lastIndexOf(':');
+  }
+  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist).arg(title), 1);
+
 }
 
 void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
@@ -382,7 +419,7 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     int  xOffset=vertical ? padding : (padding*2)+cover_size,
          yOffset=vertical ? (padding*2)+cover_size+24 : padding;
 
-    QImage scaled_cover = cover.scaled((int)(scale_factor*cover_size), (int)(scale_factor*cover_size), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QImage scaled_cover = i_cover.scaled((int)(scale_factor*cover_size), (int)(scale_factor*cover_size), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     QImage faded_cover = fadeImage(scaled_cover, 1-opacity_factor, palette().background().color());
 
     p.drawImage((cover_size/2-(scaled_cover.width()/2))+padding, (cover_size/2-(scaled_cover.height()/2))+padding, faded_cover);
@@ -398,22 +435,19 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     p.setBrush(palette().text());
 
     QFont font(QApplication::font());
-    int   pixelSize(font.pixelSize()==-1 ? (font.pointSize()*QX11Info::appDpiX()+36)/72 : font.pixelSize()),
-          width=rect().width()-(xOffset+1);
+    int pixelSize(font.pixelSize()==-1 ? (font.pointSize()*QX11Info::appDpiX()+36)/72 : font.pixelSize()), width=rect().width()-(xOffset+1);
     font.setPixelSize((int)((((double)pixelSize)*1.5)+0.5));
     font.setBold(TRUE);
     p.setFont(font);
     yOffset+=p.fontMetrics().lineSpacing()*1.2;
-    p.drawText(xOffset, yOffset,
-               p.fontMetrics().elidedText(cdda_model->artist(), Qt::ElideRight, width));
+    p.drawText(xOffset, yOffset, p.fontMetrics().elidedText(cdda_model->artist(), Qt::ElideRight, width));
 
     font.setPixelSize(pixelSize);
     font.setBold(TRUE);
     font.setItalic(TRUE);
     p.setFont(font);
     yOffset+=pixelSize;
-    p.drawText(xOffset, yOffset,
-               p.fontMetrics().elidedText(cdda_model->title(), Qt::ElideRight, width));
+    p.drawText(xOffset, yOffset, p.fontMetrics().elidedText(cdda_model->title(), Qt::ElideRight, width));
 
     yOffset+=p.fontMetrics().lineSpacing()*1.5;
     font.setBold(FALSE);
@@ -426,23 +460,19 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
                  cdNoLabel(i18n("CD Number: "));
     int          maxWidth(fm.width(yearLabel));
 
-    if((width=fm.width(genreLabel))>maxWidth)
-        maxWidth=width;
-    if (cdda_model->isMultiCD() && (width=fm.width(cdNoLabel)))
-        maxWidth=width;
+    if ((width=fm.width(genreLabel))>maxWidth) maxWidth = width;
+    if (cdda_model->isMultiCD() && (width=fm.width(cdNoLabel))) maxWidth = width;
 
-    width=rect().width()-(xOffset+1);
+    width = rect().width()-(xOffset+1);
 
     if (!cdda_model->year().isEmpty()) {
       p.drawText(xOffset, yOffset, yearLabel);
-      p.drawText(xOffset+maxWidth, yOffset,
-                 fm.elidedText(cdda_model->year(), Qt::ElideRight, width-maxWidth));
+      p.drawText(xOffset+maxWidth, yOffset, fm.elidedText(cdda_model->year(), Qt::ElideRight, width-maxWidth));
       yOffset += fm.lineSpacing();
     }
     if (!cdda_model->genre().isEmpty()) {
       p.drawText(xOffset, yOffset, genreLabel);
-      p.drawText(xOffset+maxWidth, yOffset,
-                 fm.elidedText(cdda_model->genre(), Qt::ElideRight, width-maxWidth));
+      p.drawText(xOffset+maxWidth, yOffset, fm.elidedText(cdda_model->genre(), Qt::ElideRight, width-maxWidth));
       yOffset += fm.lineSpacing();
     }
     if (cdda_model->isMultiCD()) {
@@ -465,17 +495,16 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
     link1_rect = fm.boundingRect(link1);
     link2_rect = fm.boundingRect(link2);
 
-    yOffset=vertical ? yOffset+fm.lineSpacing() : (yOffset>(padding+cover_size) ? yOffset : (padding+cover_size));
+    yOffset = vertical ? yOffset+fm.lineSpacing() : (yOffset>(padding+cover_size) ? yOffset : (padding+cover_size));
     p.drawText(xOffset, yOffset, link1);
     p.drawText(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset, link2);
-    link1_rect=QRect(xOffset, yOffset+link1_rect.y(),
-                     link1_rect.width(), link1_rect.height());
-    link2_rect=QRect(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset+link2_rect.y(),
-                     link2_rect.width(), link2_rect.height());
+    link1_rect = QRect(xOffset, yOffset+link1_rect.y(), link1_rect.width(), link1_rect.height());
+    link2_rect = QRect(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset+link2_rect.y(), link2_rect.width(), link2_rect.height());
+    
   } else { //disabled
 
     QFont font(QApplication::font());
-    if(-1==font.pixelSize()) {
+    if (-1==font.pixelSize()) {
       font.setPointSizeF(font.pointSizeF()*1.5);
     } else {
       font.setPixelSize(font.pixelSize()*1.5);
@@ -523,9 +552,17 @@ void CDDAHeaderWidget::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event) {
-  if (event->button()==Qt::LeftButton) {
-    if (cursor_on_cover) {
-      if (cdda_model->cover().isNull()) amazon(); else view_cover();
+  if (event->button() == Qt::LeftButton) {
+    if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
+      if (cdda_model->isCoverEmpty()) {
+	if (cdda_model->discInfo() == CDDAModel::DiscNoInfo) {
+	  load();
+	} else {
+	  google();
+	}
+      } else {
+	view_cover();
+      }
     }
     if (cursor_on_link1) edit_data();
     if (cursor_on_link2) wikipedia();
@@ -534,25 +571,22 @@ void CDDAHeaderWidget::mousePressEvent(QMouseEvent *event) {
 
 void CDDAHeaderWidget::update() {
 
-  action_collection->action("fetch")->setEnabled(cdda_model->discInfo()!=CDDAModel::DiscNoInfo);
+  action_collection->action("fetch")->setEnabled(cdda_model->discInfo() != CDDAModel::DiscNoInfo);
 
-  QImage tmp;
-  if (cdda_model->cover().isNull()) {
-    tmp = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
-    tmp.setText("", "nocover");
-    action_collection->action("save")->setEnabled(FALSE);
-    action_collection->action("view")->setEnabled(FALSE);
-    action_collection->action("remove")->setEnabled(FALSE);
+  bool activate = FALSE;
+  if (cdda_model->isCoverEmpty()) {
+    if (i_cover_checksum) setCover(NULL);
   } else {
-    tmp = cdda_model->cover();
-    tmp.setText("", QString("%1").arg(tmp.cacheKey()));
-    action_collection->action("save")->setEnabled(TRUE);
-    action_collection->action("view")->setEnabled(TRUE);
-    action_collection->action("remove")->setEnabled(TRUE);
+    kDebug() << "current cover checksum:" << i_cover_checksum;
+    kDebug() << "new cover checksum:" << cdda_model->coverChecksum();
+    if (i_cover_checksum != cdda_model->coverChecksum()) setCover(cdda_model->cover());
+    activate = TRUE;
   }
 
-  if (tmp.text() != cover.text()) setCover(tmp);
-
+  action_collection->action("save")->setEnabled(activate);
+  action_collection->action("view")->setEnabled(activate);
+  action_collection->action("remove")->setEnabled(activate);
+  
   repaint();
 
 }
@@ -604,7 +638,7 @@ void CDDAHeaderWidget::trigger_repaint() {
 }
 
 void CDDAHeaderWidget::cover_is_down() {
-  this->cover = cover_holding;
+  this->i_cover = i_cover_holding;
   animation_up = TRUE;
   fade_in = TRUE;
   scale_factor = .7;
@@ -612,40 +646,52 @@ void CDDAHeaderWidget::cover_is_down() {
   timer.start();
 }
 
-void CDDAHeaderWidget::amazon() {
+void CDDAHeaderWidget::google() {
 
-  if (cdda_model->discInfo()==CDDAModel::DiscNoInfo) return;
+  if ((cdda_model->discInfo()==CDDAModel::DiscNoInfo) || (fetching_cover_in_progress)) return;
 
   QApplication::restoreOverrideCursor();
   cursor_on_cover = FALSE;
+  fetching_cover_in_progress = TRUE;
+  action_collection->action("fetch")->setEnabled(FALSE);
 
-  QImage cover;
-  CoverBrowserDialog *dialog = new CoverBrowserDialog(&cover, Preferences::amazonLocale(), this);
+  cover_browser_dialog = new CoverBrowserDialog(this);
+  
+  connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
+  QString artist = cdda_model->artist();
+  QString title = cdda_model->title();
+  int lastColonPos = title.lastIndexOf(':');
+  while (lastColonPos > 0) {
+    title = title.left(lastColonPos);
+    lastColonPos = title.lastIndexOf(':');
+  }
+  cover_browser_dialog->fetchThumbnails(QString("%1 %2").arg(artist).arg(title));
 
-  dialog->fetch(QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title()));
-
-  if (dialog->exec()==QDialog::Accepted) {
-    cdda_model->setCover(cover);
-    delete dialog;
-    update();
-  } else {
-    delete dialog;
+  if (cover_browser_dialog->exec() != QDialog::Accepted) {
+    fetching_cover_in_progress = FALSE;
+    delete cover_browser_dialog;
+    cover_browser_dialog = NULL;
+    action_collection->action("fetch")->setEnabled(TRUE);
   }
 
 }
 
 void CDDAHeaderWidget::load() {
-  QString cover = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), "image/png image/jpeg image/jpg image/gif image/bmp", this, i18n("Load cover"));
-  if (!cover.isEmpty()) {
-    cdda_model->setCover(QImage(cover));
-    update();
+  kDebug() << "Supported cover image file MIME types:" << cdda_model->coverSupportedMimeTypeList();
+  QString filename = KFileDialog::getOpenFileName(KUrl(QDir::homePath()), cdda_model->coverSupportedMimeTypeList(), this, i18n("Load cover"));
+  if (!filename.isEmpty()) {
+    if (!cdda_model->setCover(filename)) {
+      KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+    }
   }
 }
 
 void CDDAHeaderWidget::save() {
-  QString cover = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "image/png image/jpeg image/jpg image/gif image/bmp", this, i18n("Save Cover"));
-  if (!cover.isEmpty()) {
-    cdda_model->cover().save(cover);
+  QString filename = KFileDialog::getSaveFileName(KUrl(QDir::homePath()+"/"+cdda_model->title()+".jpg"), cdda_model->coverSupportedMimeTypeList(), this, i18n("Save Cover"));
+  if (!filename.isEmpty()) {
+    if (!cdda_model->saveCoverToFile(filename)) {
+      KMessageBox::detailedError(this, cdda_model->lastError().message(), cdda_model->lastError().details());
+    }
   }
 }
 
@@ -655,7 +701,7 @@ void CDDAHeaderWidget::view_cover() {
   dialog->setButtons(KDialog::Ok);
   QLabel *label = new QLabel();
   label->setScaledContents(TRUE);
-  label->setPixmap(QPixmap::fromImage(cdda_model->cover()));
+  label->setPixmap(QPixmap::fromImage(cdda_model->coverImage()));
   dialog->setMainWidget(label);
   dialog->exec();
   delete label;
@@ -702,16 +748,32 @@ void CDDAHeaderWidget::wikipedia() {
 
 }
 
-void CDDAHeaderWidget::set_cover(const QImage& cover, const QString& caption, int no) {
-  Q_UNUSED(caption);
-  Q_UNUSED(no);
-  cdda_model->setCover(cover);
-  update();
+void CDDAHeaderWidget::set_cover(const QByteArray& cover) {
+  if (!cover.isEmpty()) cdda_model->setCover(cover);
+  fetching_cover_in_progress = FALSE;
+  action_collection->action("fetch")->setEnabled(TRUE);
+  if (cover_browser_dialog) {
+    delete cover_browser_dialog;
+    cover_browser_dialog = NULL;
+  }
+  if (!cover.isEmpty()) update();
+}
+
+void CDDAHeaderWidget::fetch_first_cover() {
+  if (cover_browser_dialog) {
+    if (cover_browser_dialog->count()==0) {
+      kDebug() << "no cover found";
+      KMessageBox::detailedError(this, i18n("No cover found."), i18n("Check your artist name and title. Otherwise you can load your own cover."));
+    } else {
+      connect(cover_browser_dialog, SIGNAL(coverFetched(const QByteArray&)), this, SLOT(set_cover(const QByteArray&)));
+      cover_browser_dialog->startFetchCover(0);
+    }
+  }
 }
 
 void CDDAHeaderWidget::context_menu(const QPoint& point) {
   kDebug() << "context menu requested at point" << point;
-  if (cursor_on_cover) {
+  if ((cursor_on_cover) && (!fetching_cover_in_progress)) {
     QApplication::restoreOverrideCursor();
     cursor_on_cover = FALSE;
     KMenu contextMenu(this);
@@ -733,9 +795,9 @@ void CDDAHeaderWidget::setup_actions() {
   action_collection = new KActionCollection(this);
 
   KAction* fetchCoverAction = new KAction(this);
-  fetchCoverAction->setText(i18n("Fetch Cover From Amazon..."));
+  fetchCoverAction->setText(i18n("Fetch cover from Google..."));
   action_collection->addAction("fetch", fetchCoverAction);
-  connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(amazon()));
+  connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(google()));
 
   KAction* loadCoverAction = new KAction(this);
   loadCoverAction->setText(i18n("Set Custom Cover..."));

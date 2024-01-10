@@ -26,13 +26,17 @@
       <label>Perform CDDB lookup automatically</label>
       <default>true</default>
     </entry>
-    <entry name="amazonLocale" type="Int">
-      <label>Amazon localization</label>
-      <default>0</default>
+    <entry name="coverLookupAuto" type="Bool">
+      <label>Perform cover lookup (amazon) automatically</label>
+      <default>true</default>
     </entry>
     <entry name="wikipediaLocale" type="Int">
       <label>Wikipedia localization</label>
       <default>0</default>
+    </entry>
+    <entry name="fetchCount" type="Int">
+      <label>Number of covers to fetch</label>
+      <default>8</default>
     </entry>
     <entry name="cdDevice" type="String">
       <label>CD Device</label>

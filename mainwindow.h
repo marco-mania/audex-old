@@ -60,6 +60,8 @@
 
 #include "dialogs/extractingprogressdialog.h"
 
+#include "utils/encoderassistant.h"
+
 class MainWindow : public KXmlGuiWindow {
 
   Q_OBJECT
@@ -75,7 +77,7 @@ private Q_SLOTS:
   void eject();
   void cddb_lookup();
   void cddb_submit();
-  void extract();
+  void rip();
   void configure();
 
   void drive_status_changed(const CDDAModel::DriveStatus status);

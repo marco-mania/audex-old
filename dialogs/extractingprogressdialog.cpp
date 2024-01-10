@@ -34,7 +34,11 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
 
-  ui.label_header->setText(QString("<h2>%1 - %2</h2>").arg(cdda_model->artist()).arg(cdda_model->title()));
+  QString title = QString("<h2>%1 - %2</h2>").arg(cdda_model->artist()).arg(cdda_model->title());
+  if (title.length() > 32) {
+    title = title.left(32)+"...";
+  }
+  ui.label_header->setText(title);
 
   ui.label_extracting->setText(i18n("Ripping Track  0 / %1", cdda_model->numOfAudioTracks()));
   ui.label_encoding->setText(i18n("Encoding Track  0 / %1", cdda_model->numOfAudioTracks()));

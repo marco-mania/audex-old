@@ -12,7 +12,7 @@
     </Menu>
     <Menu name="cddb"><text>&amp;CDDB</text>
       <Action name="fetch" />
-      <!-- <Action name="submit" /> -->
+      <Action name="submit" />
       <Separator/>
       <Menu name="titlecorrectiontools">
         <text context="@title:menu">Title correction tools</text>

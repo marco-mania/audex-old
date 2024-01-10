@@ -40,6 +40,8 @@ CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableMod
   }
   connect(cddb, SIGNAL(finished(KCDDB::Result)), this, SLOT(lookup_cddb_done(KCDDB::Result)));
 
+  _cover = new CachedImage();
+
   cd_info.clear();
   modified = FALSE;
 
@@ -52,6 +54,7 @@ CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableMod
 
 CDDAModel::~CDDAModel() {
 
+  delete _cover;
   delete cddb;
   delete compact_disc;
 
@@ -128,7 +131,10 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
       case CDDA_MODEL_COLUMN_TITLE_INDEX :
 			if (isAudioTrack(index.row()+1)) {
                           QString t = cd_info.track(index.row()).get(KCDDB::Title).toString();
-                          if (t.isEmpty()) return compact_disc->trackTitle(index.row()+1);
+                          if (t.isEmpty()) {
+			    if (disc_info == DiscNoInfo) return i18n("Track %1").arg(index.row()+1);
+			    return compact_disc->trackTitle(index.row()+1);
+			  }
 			  return t;
                         }
 			break;
@@ -270,12 +276,21 @@ const QString CDDAModel::title() const {
 }
 
 void CDDAModel::setCategory(const QString& c) {
+  
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  
+  QStringList validCategories;
+  validCategories << "blues" << "classical" << "country" 
+      << "data" << "folk" << "jazz" << "misc" << "newage" << "reggae"
+      << "rock" << "soundtrack";
+  if (!validCategories.contains(c)) return;
+  
   if (c != cd_info.get(KCDDB::Category).toString()) {
     cd_info.set(KCDDB::Category, c);
     modify();
     reset();
   }
+  
 }
 
 const QString CDDAModel::category() const {
@@ -418,18 +433,59 @@ const QVariant CDDAModel::getCustomDataPerTrack(const int n, const QString& type
   return cd_info.track(n).get(type);
 }
 
-const QImage CDDAModel::cover() const {
+CachedImage* CDDAModel::cover() const {
   return _cover;
 }
 
-void CDDAModel::setCover(const QImage& image) {
-  _cover = image;
-  reset();
+const QImage CDDAModel::coverImage() const {
+  return _cover->coverImage();
+}
+
+quint16 CDDAModel::coverChecksum() const {
+  return _cover->checksum();
+}
+
+bool CDDAModel::setCover(const QByteArray& data) {
+  if (_cover->load(data)) {
+    reset();
+    return TRUE;
+  } else {
+    error = _cover->lastError();
+  }
+  return FALSE;
+}
+
+bool CDDAModel::setCover(const QString& filename) {
+  if (_cover->load(filename)) {
+    reset();
+    return TRUE;
+  } else {
+    error = _cover->lastError();
+  }
+  return FALSE;
+}
+
+bool CDDAModel::saveCoverToFile(const QString& filename) {
+  if (_cover->save(filename)) {
+    return TRUE;
+  } else {
+    error = _cover->lastError();
+  }
+  return FALSE;
+}
+
+bool CDDAModel::isCoverEmpty() const {
+  return _cover->isEmpty();
 }
 
 void CDDAModel::clearCover() {
-  _cover = QImage();
+  if (_cover->isEmpty()) return;
+  _cover->clear();
   reset();
+}
+
+const QString CDDAModel::coverSupportedMimeTypeList() const {
+  return _cover->supportedMimeTypeList();
 }
 
 bool CDDAModel::guessVarious() const {
@@ -664,7 +720,7 @@ const QString CDDAModel::discInfoString() const {
   switch (disc_info) {
     case DiscCDTEXTInfo : return i18n("CD-Text");
     case DiscCDDBInfo : return i18n("CDDB");
-    case DiscPhonenMetadataInfo : return i18n("Phonon Metadata");
+    case DiscPhononMetadataInfo : return i18n("Phonon Metadata");
     default : ;
   }
   return i18n("No disc information available");
@@ -684,19 +740,42 @@ void CDDAModel::lookupCDDB() {
 
 }
 
-void CDDAModel::submitCDDB() {
+bool CDDAModel::submitCDDB() {
 
-  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
+  if (compact_disc->isNoDisc() || (compact_disc->discId()==0)) return TRUE;
 
   kDebug() << "submitCDDB called";
 
   cddb->config().reparse();
   cddb->setBlockingMode(TRUE);
-  cddb->submit(cd_info, compact_disc->discSignature());
+  if (category().isEmpty()) {
+    setCategory("rock");
+  }
+  KCDDB::Result result = cddb->submit(cd_info, compact_disc->discSignature());
+
+  if (result != KCDDB::Success) {
+    switch (result) {
+      case KCDDB::ServerError : error = Error(KCDDB::resultToString(result), i18n("There is an error with the cddb server. Please wait or contact the administrator of the cddb server."), Error::ERROR, this); break;
+      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Can't find the cddb server. Check your network. Maybe the cddb server is offline."), Error::ERROR, this); break;
+      case KCDDB::NoResponse : error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the cddb server administrator."), Error::ERROR, this); break;
+      case KCDDB::CannotSave : error = Error(KCDDB::resultToString(result), i18n("Please contact the cddb server administrator."), Error::ERROR, this); break;
+      case KCDDB::InvalidCategory : error = Error(KCDDB::resultToString(result), i18n("This should not happen. Please make a bug report."), Error::ERROR, this); break;
+      case KCDDB::UnknownError : ;
+      case KCDDB::NoRecordFound : ;
+      case KCDDB::MultipleRecordFound : ;
+      case KCDDB::Success : ;
+      default : error = Error(KCDDB::resultToString(result), i18n("Please make a bug report and contact the cddb server administrator."), Error::ERROR, this); break;
+    }
+    return FALSE;
+  }
+
+  error = Error();
 
   confirm();
 
   emit cddbDataSubmited(TRUE);
+  
+  return TRUE;
 
 }
 
@@ -744,7 +823,7 @@ void CDDAModel::slot_disc_changed(unsigned int tracks) {
     if (isAudioTrack(i)) sel_tracks.insert(i);
   }
 
-  emit hasSelection(0!=sel_tracks.size());
+  emit hasSelection(0 != sel_tracks.size());
 
   if (tracks > 0) disc_type = DiscContainsAudioTracks; else disc_type = DiscContainsNoAudioTracks;
   emit discChanged(disc_type);
@@ -758,7 +837,7 @@ void CDDAModel::slot_disc_information(KCompactDisc::DiscInfo info) {
   switch (info) {
     case KCompactDisc::Cdtext : disc_info = DiscCDTEXTInfo; break;
     case KCompactDisc::Cddb : disc_info = DiscCDDBInfo; break;
-    case KCompactDisc::PhononMetadata : disc_info = DiscPhonenMetadataInfo; break;
+    case KCompactDisc::PhononMetadata : disc_info = DiscPhononMetadataInfo; break;
   }
 
   set_default_values();
@@ -805,7 +884,20 @@ void CDDAModel::slot_disc_status_changed(KCompactDisc::DiscStatus status) {
 void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
 
   if ((result != KCDDB::Success) && (result != KCDDB::MultipleRecordFound)) {
-    error = Error(i18n("No entry found in CDDB."), i18n("This means no data found in the CDDB database. Please enter the data manually. Maybe try another CDDB server."), Error::ERROR, this);
+    switch (result) {
+      case KCDDB::ServerError : error = Error(KCDDB::resultToString(result), i18n("There is an error with the cddb server. Please wait or contact the administrator of the cddb server."), Error::ERROR, this); break;
+      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Can't find the cddb server. Check your network. Maybe the cddb server is offline."), Error::ERROR, this); break;
+      case KCDDB::NoResponse : error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the cddb server administrator."), Error::ERROR, this); break;
+      case KCDDB::InvalidCategory : error = Error(KCDDB::resultToString(result), i18n("This should not happen. Please make a bug report."), Error::ERROR, this); break;
+      case KCDDB::UnknownError : error = Error(KCDDB::resultToString(result), i18n("Please make a bug report and contact the cddb server administrator."), Error::ERROR, this); break;
+      case KCDDB::NoRecordFound : ;
+      case KCDDB::MultipleRecordFound : ;
+      case KCDDB::Success : ;
+      default : if (disc_info == DiscNoInfo) 
+	          error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database. Please enter the data manually. Maybe try another CDDB server."), Error::ERROR, this);
+		else
+		  error = Error(KCDDB::resultToString(result), i18n("This means no data found in the CDDB database."), Error::ERROR, this);
+    }
     emit cddbLookupDone(FALSE);
     return;
   }

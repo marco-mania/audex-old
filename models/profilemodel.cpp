@@ -783,6 +783,7 @@ void ProfileModel::save(KConfig *config) {
     subGroup.writeEntry(PROFILE_MODEL_ENCODER_SELECTED_KEY, cache[i][PROFILE_MODEL_ENCODER_SELECTED_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_PATTERN_KEY, cache[i][PROFILE_MODEL_PATTERN_KEY]);
+    subGroup.writeEntry(PROFILE_MODEL_FAT32COMPATIBLE_KEY, cache[i][PROFILE_MODEL_FAT32COMPATIBLE_KEY]);
     subGroup.writeEntry(PROFILE_MODEL_UNDERSCORE_KEY, cache[i][PROFILE_MODEL_UNDERSCORE_KEY]);
 
     subGroup.writeEntry(PROFILE_MODEL_SC_KEY, cache[i][PROFILE_MODEL_SC_KEY]);

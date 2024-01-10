@@ -31,6 +31,7 @@ SaxHandler::SaxHandler() : QXmlDefaultHandler() {
   is_command_pattern = FALSE;
   is_simple_pattern = FALSE;
   is_text_pattern = FALSE;
+  cover = NULL;
 }
 
 SaxHandler::~SaxHandler() {
@@ -53,6 +54,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(artist); else s = make_compatible(artist);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
@@ -67,6 +69,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(title); else s = make_compatible(title);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
@@ -81,6 +84,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(date); else s = make_compatible(date);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
@@ -95,6 +99,7 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       QString s;
       if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(genre); else s = make_compatible(genre);
       if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+      if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
       if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
         else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
       _text += s;
@@ -125,8 +130,9 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
         QString s;
         if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(tartist); else s = make_compatible(tartist);
         if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
-	if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
-	  else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
+        if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+          else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
+        if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
         _text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(tartist);
@@ -138,10 +144,11 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       if (is_filename_pattern) {
         QString s;
         if ((fat32compatible) || (IS_TRUE(atts.value("fat32compatible")))) s = make_fat32_compatible(ttitle); else s = make_compatible(ttitle);
-	if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
-	if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
-	  else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
-	_text += s;
+        if ((replacespaceswithunderscores) || (IS_TRUE(atts.value("underscores")))) s = replace_spaces_with_underscores(s);
+        if (IS_TRUE(atts.value("replace_char_list"))) s = replace_char_list(atts, s);
+        if (IS_TRUE(atts.value("lowercase"))) s = s.toLower();
+          else if (IS_TRUE(atts.value("uppercase"))) s = s.toUpper();
+        _text += s;
       } else if (is_command_pattern) {
         _text += make_compatible_2(ttitle);
       } else {
@@ -167,13 +174,10 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
     if (qName == VAR_OUTPUT_FILE) _text += "\""+output+"\"";
     if (qName == VAR_COVER_FILE) {
 
-      QString format = "JPEG";
+      QString format = STANDARD_EMBED_COVER_FORMAT;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
 
-      if ((format.toLower() != "jpg") &&
-          (format.toLower() != "jpeg") &&
-	  (format.toLower() != "png") &&
-	  (format.toLower() != "gif")) format = "JPG";
+      if ((cover) && (!cover->supportedFormats().contains(format.toAscii().toLower()))) format = STANDARD_EMBED_COVER_FORMAT;
 
       QString filename;
       bool stop = FALSE;
@@ -209,26 +213,27 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
 
         if (!stop) filename = tmp_dir+"/cover."+QString("%1").arg(mda5)+"."+format.toLower();
 
-        if ((!QFile::exists(filename)) && (!stop)) {
+        QFileInfo finfo(filename);
+        if ((!finfo.exists()) && (!stop)) {
 
-          QImage c;
-          if (cover.isNull()) {
+          bool success;
+          if ((!cover) || ((cover) && (cover->isEmpty()))) {
 	    if (IS_TRUE(atts.value("usenocover"))) {
-	      c = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+	      QImage c = QImage(KStandardDirs::locate("data", QString("audex/images/nocover.png")));
+	      if ((x != -1) && (y != -1)) {
+                c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+              }
+              success = c.save(filename, format.toAscii());
 	    } else {
               stop = TRUE;
 	    }
 	  } else {
-            c = cover;
+            success = cover->save(filename, QSize(x, y));
 	  }
 
 	  if (!stop) {
 
-            if ((x != -1) && (y != -1)) {
-              c = c.scaled(x, y, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-            }
-
-	    if (!c.save(filename)) {
+	    if (!success) {
               kDebug() << "WARNING! Could not create temporary cover file" << filename;
 	    } else {
               kDebug() << "Successfully created temporary cover file" << filename << "(" << QFile(filename).size() / 1024 << "KiB)";
@@ -354,6 +359,32 @@ const QString SaxHandler::replace_spaces_with_underscores(const QString& string)
   return s;
 }
 
+const QString SaxHandler::replace_char_list(const QXmlAttributes& atts, const QString& string) {
+
+  int i;
+  QString from, to, result;
+
+  kDebug() << "starting replacement for: " << string;
+
+  from = atts.value("replace_char_list_from");
+  to = atts.value("replace_char_list_to");
+
+  if (from.count() != to.count()) {
+    kDebug() << "Could not replace if list lenght are not equal";
+    return string;
+  }
+
+  result = string;
+  for (i=0; i < from.count(); i++) {
+    result.replace(from.at(i), to.at(i));
+  }
+
+  kDebug() << "finished: " << result;
+
+  return result;
+
+}
+
 PatternParser::PatternParser(QObject *parent) : QObject(parent) {
   Q_UNUSED(parent);
 }
@@ -399,7 +430,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
 	int trackno, int cdno, int trackoffset,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
-	const QString& date, const QString& genre, const QString& suffix, const QImage& cover,
+	const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
 	bool fatcompatible, const QString& tmppath, const bool demomode) {
 
   SaxHandler handler;

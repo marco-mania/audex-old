@@ -54,6 +54,26 @@ bool EncoderAssistant::available(const EncoderAssistant::Encoder encoder) {
 
 }
 
+bool EncoderAssistant::canEmbedCover(const Encoder encoder, int *maxCoverSize) {
+
+  switch (encoder) {
+
+    case EncoderAssistant::LAME : if (maxCoverSize) *maxCoverSize = ENCODER_LAME_MAX_EMBED_COVER_SIZE; return TRUE;
+    case EncoderAssistant::OGGENC :
+    case EncoderAssistant::FLAC :
+    case EncoderAssistant::FAAC :
+    case EncoderAssistant::WAVE :
+    case EncoderAssistant::CUSTOM :
+    default : break;
+
+  }
+
+  if (maxCoverSize) *maxCoverSize = 0;
+
+  return FALSE;
+
+}
+
 const QString EncoderAssistant::version(const EncoderAssistant::Encoder encoder) {
 
   KProcess process;

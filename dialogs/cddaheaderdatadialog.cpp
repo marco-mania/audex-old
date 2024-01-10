@@ -63,6 +63,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   QStringList genres; for (int i = 0; i < GENRE_MAX; ++i) genres.append(QString().fromAscii(ID3_GENRES[i]));
+  genres.sort();
   KCompletion *comp = ui.kcombobox_genre->completionObject();
   comp->insertItems(genres);
   ui.kcombobox_genre->addItems(genres);

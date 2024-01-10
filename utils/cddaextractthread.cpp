@@ -43,6 +43,7 @@ CDDAExtractThread::CDDAExtractThread(QObject* parent, const QString& device) : Q
   b_interrupt = FALSE;
   b_error = FALSE;
   read_error = FALSE;
+  scratch_detected = FALSE;
 
 }
 
@@ -174,43 +175,45 @@ void CDDAExtractThread::createStatus(long sector, int status) {
     break;
   case PARANOIA_CB_READ:
     //no problem
-    //does only this mean that the sector has been read?
     last_read_sector = sector;  //this seems to be rather useless
     read_sectors++;
     read_error = FALSE;
+    scratch_detected = FALSE;
     break;
   case PARANOIA_CB_VERIFY:
-    //kDebug() << "verify.";
+    //kDebug() << "Verifying jitter";
     break;
   case PARANOIA_CB_FIXUP_EDGE:
-    kDebug() << "fixup edge.";
-    extract_protocol.append(i18n("fixup edge (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Fixed edge jitter";
+    extract_protocol.append(i18n("Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_FIXUP_ATOM:
-    kDebug() << "fixup atom.";
-    extract_protocol.append(i18n("fixup atom (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Fixed atom jitter";
+    extract_protocol.append(i18n("Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_SCRATCH:
     //scratch detected
-    kDebug() << "scratch detected.";
-    extract_protocol.append(i18n("scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Scratch detected";
+    if (!scratch_detected) { scratch_detected = TRUE; warning(i18n("Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
+    extract_protocol.append(i18n("SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_REPAIR:
-    kDebug() << "repair.";
-    extract_protocol.append(i18n("repair (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Repair";
+    extract_protocol.append(i18n("Repair (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_SKIP:
     //skipped sector
-    kDebug() << "skip.";
-    extract_protocol.append(i18n("skip (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Skip";
+    warning(i18n("Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); 
+    extract_protocol.append(i18n("SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_DRIFT:
-    kDebug() << "drift.";
-    extract_protocol.append(i18n("drift (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Drift";
+    extract_protocol.append(i18n("Drift (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_BACKOFF:
-    kDebug() << "backoff.";
-    extract_protocol.append(i18n("backoff (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Backoff";
+    extract_protocol.append(i18n("Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_OVERLAP:
     //sector does not seem to contain the current
@@ -219,15 +222,15 @@ void CDDAExtractThread::createStatus(long sector, int status) {
     overlap = sector;
     break;
   case PARANOIA_CB_FIXUP_DROPPED:
-    kDebug() << "fixup dropped.";
-    extract_protocol.append(i18n("fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Fixup dropped";
+    extract_protocol.append(i18n("Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_FIXUP_DUPED:
-    kDebug() << "fixup duped.";
-    extract_protocol.append(i18n("fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
+    kDebug() << "Fixup duped";
+    extract_protocol.append(i18n("Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;
   case PARANOIA_CB_READERR:
-    kDebug() << "readerr.";
+    kDebug() << "Read error";
     if (!read_error) { read_error = TRUE; warning(i18n("Read error detected (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec)); }
     extract_protocol.append(i18n("READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)", sector, current_sector, tp_min, tp_sec));
     break;

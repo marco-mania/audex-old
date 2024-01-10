@@ -20,14 +20,6 @@
 
 generalSettingsWidget::generalSettingsWidget(QWidget* parent) : generalSettingsWidgetUI(parent) {
 
-  kcfg_amazonLocale->clear();
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/usa.png")), i18n("International/USA"), "us");
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/germany.png")), i18n("Germany"), "de");
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/france.png")), i18n("France"), "fr");
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/canada.png")), i18n("Canada"), "ca");
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/japan.png")), i18n("Japan"), "jp");
-  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/uk.png")), i18n("UK"), "en_GB");
-
   kcfg_wikipediaLocale->clear();
   kcfg_wikipediaLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/usa.png")), i18n("English"), "en");
   kcfg_wikipediaLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/germany.png")), i18n("Deutsch"), "de");

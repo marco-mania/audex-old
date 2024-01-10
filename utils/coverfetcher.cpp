@@ -31,83 +31,66 @@ CoverFetcher::CoverFetcher(QObject *parent) : QObject(parent) {
 }
 
 CoverFetcher::~CoverFetcher() {
-  clear_covers();
+  clear();
 }
 
-void CoverFetcher::startFetch(const QString& searchstring, const int fetchNo) {
+void CoverFetcher::startFetchThumbnails(const QString& searchstring, const int fetchNo) {
 
-  if (_status!=NOS) return;
+  if (_status != NOS) return;
 
   if (fetchNo == 0) return;
 
   fetch_no = fetchNo;
 
-  // Static license Key. Thanks hydrogen ;-)
-  const QString LICENSE("11ZKJS8X1ETSTJ6MT802");
-
   QString ss = searchstring;
   ss.replace("&", "");
 
-  QString tld;
-  if (locale == "us")
-    tld = "com";
-  else if( locale =="uk" )
-    tld = "co.uk";
-  else
-    tld = locale;
-
   QString url;
-  url = "http://ecs.amazonaws." + tld
-        + "/onca/xml?Service=AWSECommerceService&Version=2007-10-29&Operation=ItemSearch&AssociateTag=webservices-20&AWSAccessKeyId=" + LICENSE
-        + "&Keywords=" + KUrl::toPercentEncoding(ss, "/")
-        + "&SearchIndex=Music&ResponseGroup=Small,Images";
+  url = "http://images.google.com/images?gbv=1&q=" + KUrl::toPercentEncoding(ss, "/");
 
   kDebug() << "searching covers (" << url << ")...";
 
   _status = SEARCHING; emit statusChanged(SEARCHING);
 
   job = KIO::storedGet(url);
-  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_xml_data(KJob*)));
+  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
 }
 
-QImage CoverFetcher::cover(int index) {
-  if ((index < 0) || (index >= covers.count())) return QImage();
-  return *covers[index];
+void CoverFetcher::startFetchCover(const int no) {
+  
+  if (_status != NOS) return;
+  
+  if ((cover_urls.count()==0) || (no >= cover_urls.count()) || (no < 0)) {
+    emit nothingFetched();
+    return;
+  }
+
+  kDebug() << "fetching cover...";
+  _status = FETCHING_COVER; emit statusChanged(FETCHING_COVER);
+
+  job = KIO::storedGet(KUrl(cover_urls[no]));
+  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
+  
 }
 
-QString CoverFetcher::caption(int index) {
-  if ((index < 0) || (index >= covers.count())) return QString();
+const QByteArray CoverFetcher::thumbnail(int index) {
+  if ((index < 0) || (index >= cover_thumbnails.count())) return QByteArray();
+  return cover_thumbnails[index];
+}
+
+const QString CoverFetcher::caption(int index) {
+  if ((index < 0) || (index >= cover_names.count())) return QString();
   return cover_names[index];
 }
 
-void CoverFetcher::setLocale(const QString &locale) {
-
-  QString l = locale;
-  if (locale=="0") l = "us";
-  if (locale=="1") l = "de";
-  if (locale=="2") l = "fr";
-  if (locale=="3") l = "jp";
-  if (locale=="4") l = "ca";
-
-  if ((l != "fr") && (l != "de") && (l != "jp") && (l != "uk") && (l != "ca"))
-    this->locale = "us";
-  else
-    this->locale = l;
-
-}
-
-void CoverFetcher::setLocale(const int locale) {
-  setLocale(QString("%1").arg(locale));
-}
-
-void CoverFetcher::fetched_xml_data(KJob* job) {
+void CoverFetcher::fetched_html_data(KJob* job) {
 
   QByteArray buffer;
 
   if (job && job->error()) {
-    kDebug() << "There was an error communicating with Amazon.";
-    emit error(i18n("There was an error communicating with Amazon."), i18n("Try again later. Otherwise make a bug report."));
+    kDebug() << "There was an error communicating with Google.";
+    emit error(i18n("There was an error communicating with Google."), i18n("Try again later. Otherwise make a bug report."));
     _status = NOS; emit statusChanged(NOS);
     return;
   }
@@ -117,8 +100,8 @@ void CoverFetcher::fetched_xml_data(KJob* job) {
   }
 
   if (buffer.count()==0) {
-    kDebug() << "amazon server: empty response";
-    emit error(i18n("amazon server: Empty response."),
+    kDebug() << "Google server: empty response";
+    emit error(i18n("Google server: Empty response."),
 	i18n("Try again later. Make a bug report."));
     _status = NOS;  emit statusChanged(NOS);
     return;
@@ -129,26 +112,29 @@ void CoverFetcher::fetched_xml_data(KJob* job) {
       case SEARCHING : {
         kDebug() << "searching finished.";
 	//kDebug() << QString::fromUtf8(buffer.data());
-        parse_xml_respone(QString::fromUtf8(buffer.data()));
+        parse_html_response(QString::fromUtf8(buffer.data()));
         _status = NOS; emit statusChanged(NOS);
-        fetch_covers();
+        fetch_cover_thumbnail();
       } break;
 
-      case FETCHING : {
-        kDebug() << "cover fetched.";
-        QImage *image = new QImage();
-        image->loadFromData(buffer);
-        if ((image->height()>1) || (image->width()>1)) {
-          covers.append(image); int f_i_p = f_i+1;
-          emit fetched(*image, cover_names[f_i], f_i_p);
-        }
-	if (((fetch_no > -1) && (++f_i==fetch_no)) || (cover_urls.count()==0)) {
+      case FETCHING_THUMBNAIL : {
+        kDebug() << "cover thumbnail fetched.";
+        cover_thumbnails.append(buffer);
+        emit fetchedThumbnail(buffer, cover_names[f_i], f_i+1);
+        ++f_i;
+        if (((fetch_no > -1) && (f_i == fetch_no)) || (cover_urls_thumbnails.count() == 0)) {
           _status = NOS; emit statusChanged(NOS);
           f_i = 0;
-          emit allFetched();
-	} else {
-          fetch_covers();
+          emit allCoverThumbnailsFetched();
+        } else {
+          fetch_cover_thumbnail();
         }
+      } break;
+      
+      case FETCHING_COVER : {
+        kDebug() << "cover fetched.";
+	_status = NOS; emit statusChanged(NOS);
+        emit fetchedCover(buffer);
       } break;
 
       case NOS : break;
@@ -158,101 +144,53 @@ void CoverFetcher::fetched_xml_data(KJob* job) {
 
 }
 
-void CoverFetcher::parse_xml_respone(const QString& xml) {
+void CoverFetcher::parse_html_response(const QString& xml) {
 
-  cover_asins.clear();
-  amazon_urls.clear();
+  cover_urls_thumbnails.clear();
   cover_urls.clear();
   cover_names.clear();
+  cover_tbnids.clear();
+  cover_thumbnails.clear();
 
-  QDomDocument doc;
-  if (!doc.setContent(xml)) {
-    kDebug() << "amazon server: xml response failed";
-    emit error(i18n("The XML obtained from Amazon is invalid."),
-	i18n("Try again later. Make a bug report."));
-    return;
-  }
+  QRegExp rx("<a\\shref=(\\/imgres\\?imgurl=[a-zA-Z0-9\\&\\_\\%\\/\\=\\.\\:\\-\\?]+)>[\\s\\n]*<img\\ssrc=([a-zA-Z0-9\\&\\_\\%\\/\\=\\.\\:\\-\\?]+).*>[\\s\\n]*</a>");
+  rx.setMinimal(TRUE);
+  
+  int pos = 0; int i = 0;
+  while (((pos = rx.indexIn(xml, pos)) != -1) && (i < fetch_no)) {
 
-  // the url for the Amazon product info page
-  const QDomNodeList list = doc.documentElement().namedItem("Items").childNodes();
-
-  for (int i = 0; i < list.count(); ++i) {
-    QDomNode n = list.item( i );
-    if (n.isElement() && n.nodeName() == "IsValid") {
-      if (n.toElement().text() == "False") {
-        kDebug() << "amazon server: xml response failed";
-        emit error(i18n("The XML obtained from Amazon is invalid."),
-		i18n("Try again later. Make a bug report."));
-        return;
-      }
-    } else if (list.item(i).nodeName() == "Item") {
-      const QDomNode node = list.item(i);
-      parse_item_node(node);
+    KUrl url("http://www.google.com"+rx.cap(1));
+    cover_urls << url.queryItemValue("imgurl");
+    QString w = url.queryItemValue("w");
+    QString h = url.queryItemValue("h");
+    QString sz = url.queryItemValue("sz");
+    cover_names << i18n("%1x%2, %3 KiB").arg(w).arg(h).arg(sz);
+    cover_tbnids << url.queryItemValue("tbnid");
+    
+    if (!rx.cap(2).isEmpty()) {
+      cover_urls_thumbnails << rx.cap(2);
+    } else {
+      cover_urls_thumbnails << cover_urls.last();
     }
+    
+    pos += rx.matchedLength();
+    
+    ++i;
+    
   }
 
 }
 
-void CoverFetcher::parse_item_node(const QDomNode& node) {
+bool CoverFetcher::fetch_cover_thumbnail() {
 
-  QDomNode it = node.firstChild();
-
-  QString size = "LargeImage";
-
-  while (!it.isNull()) {
-    if (it.isElement()) {
-      QDomElement e = it.toElement();
-      if (e.tagName() == "ASIN") {
-	cover_asins.append(e.text());
-      } else if (e.tagName() == "DetailPageURL") {
-        amazon_urls.append(e.text());
-      } else if (e.tagName() == size) {
-        QDomNode subIt = e.firstChild();
-        while (!subIt.isNull()) {
-          if (subIt.isElement()) {
-            QDomElement subE = subIt.toElement();
-            if (subE.tagName() == "URL") {
-              cover_urls.append(subE.text());
-              break;
-            }
-          }
-          subIt = subIt.nextSibling();
-        }
-      } else if (e.tagName() == "ItemAttributes") {
-        QDomNodeList nodes = e.childNodes();
-        QDomNode iter;
-        QString artist;
-        QString album;
-        for (int i = 0; i < nodes.count(); ++i) {
-          iter = nodes.item(i);
-          if (iter.isElement()) {
-            if (iter.nodeName() == "Artist") {
-              artist = iter.toElement().text();
-            } else if (iter.nodeName() == "Title") {
-              album = iter.toElement().text();
-            }
-          }
-        }
-        cover_names.append(QString(artist + " - " + album));
-      }
-    }
-    it = it.nextSibling();
-  }
-
-}
-
-bool CoverFetcher::fetch_covers() {
-
-  if (cover_urls.count()==0) {
+  if (cover_urls_thumbnails.count()==0) {
     emit nothingFetched();
     return FALSE;
   }
 
-  kDebug() << "fetching cover...";
-  _status = FETCHING; emit statusChanged(FETCHING);
+  _status = FETCHING_THUMBNAIL; emit statusChanged(FETCHING_THUMBNAIL);
 
-  job = KIO::storedGet(KUrl(cover_urls.takeFirst()));
-  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_xml_data(KJob*)));
+  job = KIO::storedGet(KUrl(cover_urls_thumbnails.takeFirst()));
+  connect(job, SIGNAL(result(KJob*)), SLOT(fetched_html_data(KJob*)));
 
   return TRUE;
 

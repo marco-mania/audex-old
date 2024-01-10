@@ -32,6 +32,7 @@
 #include <KLocale>
 #include <KStandardDirs>
 
+#include "utils/cachedimage.h"
 #include "utils/pid.h"
 
 #define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
@@ -63,6 +64,8 @@
 #define VAR_NOW						"now"
 #define VAR_LINEBREAK					"br"
 
+#define STANDARD_EMBED_COVER_FORMAT			"jpg"
+
 
 class SaxHandler : public QXmlDefaultHandler {
 
@@ -88,7 +91,7 @@ public:
   void setDate(const QString& date) { this->date = date; }
   void setGenre(const QString& genre) { this->genre = genre; }
   void setSuffix(const QString& suffix) { this->suffix = suffix; }
-  void setCover(const QImage& cover) { this->cover = cover; }
+  void setCover(CachedImage *cover) { this->cover = cover; }
   void setFAT32Compatible(const bool fat32compatible) { this->fat32compatible = fat32compatible; }
   void setReplaceSpacesWithUnderscores(const bool replacespaceswithunderscores) { this->replacespaceswithunderscores = replacespaceswithunderscores; }
   void setTMPPath(const QString& tmppath) { this->tmppath = tmppath; }
@@ -114,7 +117,7 @@ private:
   QString date;
   QString genre;
   QString suffix;
-  QImage cover;
+  CachedImage *cover;
   bool fat32compatible;
   bool replacespaceswithunderscores;
   QString tmppath;
@@ -136,6 +139,7 @@ private:
   const QString make_compatible_2(const QString& string);
   const QString make_fat32_compatible(const QString& string);
   const QString replace_spaces_with_underscores(const QString& string);
+  const QString replace_char_list(const QXmlAttributes& atts, const QString& string);
 
 };
 
@@ -157,7 +161,7 @@ public:
 	int trackno, int cdno, int trackoffset,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
-	const QString& date, const QString& genre, const QString& suffix, const QImage& cover,
+	const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
 	bool fat32compatible, const QString& tmppath,
 	const bool demomode = FALSE);
 

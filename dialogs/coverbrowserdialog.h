@@ -20,9 +20,13 @@
 #define COVERBROWSERWIDGET_H
 
 #include <QPixmap>
-#include <QImage>
+#include <QIcon>
+#include <QByteArray>
 
 #include <KDialog>
+#include <KMessageBox>
+
+#include "preferences.h"
 
 #include "utils/coverfetcher.h"
 
@@ -33,13 +37,19 @@ class CoverBrowserDialog : public KDialog {
   Q_OBJECT
 
 public:
-  CoverBrowserDialog(QImage *cover, const QString& locale = "us", QWidget *parent = 0);
-  CoverBrowserDialog(QImage *cover, const int locale = 0, QWidget *parent = 0);
+  CoverBrowserDialog(QWidget *parent = 0);
   ~CoverBrowserDialog();
 
+  inline int count() { return cover_fetcher.count(); }
+  
 public slots:
-  void fetch(const QString& searchstring);
-
+  void fetchThumbnails(const QString& searchstring, const int fetchCount = 0);
+  void startFetchCover(const int no);
+  
+signals:
+  void coverFetched(const QByteArray& cover);
+  void allCoverThumbnailsFetched();
+  
 protected slots:
   virtual void slotButtonClicked(int button);
 
@@ -48,16 +58,19 @@ private slots:
 
   void enable_select_button();
 
-  void add_item(const QImage& cover, const QString& caption, int no);
+  void add_item(const QByteArray& cover, const QString& caption, int no);
   void all_fetched();
   void nothing_fetched();
+  
+  void cover_fetched(const QByteArray& cover);
+  
+  void error(const QString& description, const QString& solution);
 
 private:
   Ui::CoverBrowserWidgetUI ui;
   CoverFetcher cover_fetcher;
-  QImage *cover;
 
-  void setup(QImage *cover, const QString& locale);
+  void setup();
 
 };
 

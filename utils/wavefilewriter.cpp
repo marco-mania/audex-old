@@ -37,9 +37,9 @@ bool WaveFileWriter::open(const QString& filename) {
   if (output_file.open(QIODevice::WriteOnly)) {
     _filename = filename;
     write_empty_header();
-    return true;
+    return TRUE;
   } else {
-    return false;
+    return FALSE;
   }
 
 }
@@ -132,17 +132,17 @@ void WaveFileWriter::update_header() {
     // jump to the wavSize position in the header
 
     output_file.seek(4);
-    c[0] = (wavSize   >> 0 ) & 0xff;
-    c[1] = (wavSize   >> 8 ) & 0xff;
-    c[2] = (wavSize   >> 16) & 0xff;
-    c[3] = (wavSize   >> 24) & 0xff;
+    c[0] = (wavSize >> 0 ) & 0xff;
+    c[1] = (wavSize >> 8 ) & 0xff;
+    c[2] = (wavSize >> 16) & 0xff;
+    c[3] = (wavSize >> 24) & 0xff;
     output_file.write(c, 4);
 
     output_file.seek(40);
-    c[0] = (data_written   >> 0 ) & 0xff;
-    c[1] = (data_written   >> 8 ) & 0xff;
-    c[2] = (data_written   >> 16) & 0xff;
-    c[3] = (data_written   >> 24) & 0xff;
+    c[0] = (data_written >> 0 ) & 0xff;
+    c[1] = (data_written >> 8 ) & 0xff;
+    c[2] = (data_written >> 16) & 0xff;
+    c[3] = (data_written >> 24) & 0xff;
     output_file.write(c, 4);
 
     // jump back to the end

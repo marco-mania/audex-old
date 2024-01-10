@@ -94,6 +94,7 @@ private:
   long read_sectors;
 
   bool read_error;
+  bool scratch_detected;
 
   //this friend function will call createStatus(long, int)
   friend void paranoiaCallback(long, int);

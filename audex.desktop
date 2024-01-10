@@ -2,6 +2,7 @@
 Name=Audex
 GenericName=CDDA Extraction
 GenericName[de]=Audio-CDs auslesen
+GenericName[it]=Estrazione e codifica CDDA
 Exec=audex
 Icon=audex
 Type=Application
@@ -12,3 +13,4 @@ X-DCOP-ServiceType=Unique
 X-DCOP-ServiceName=audex
 Comment=Rip audio data from your audio cd's
 Comment[de]=Rippt Audio-CDs
+Comment[it]=Estrae e codifica le canzoni dai tuoi CD audio

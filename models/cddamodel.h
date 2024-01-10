@@ -20,7 +20,9 @@
 #define CDDAMODEL_H
 
 #include <QAbstractTableModel>
+#include <QBuffer>
 #include <QImage>
+#include <QImageReader>
 #include <QString>
 #include <QVariant>
 #include <QModelIndexList>
@@ -30,11 +32,14 @@
 #include <KDebug>
 #include <KLocale>
 #include <KInputDialog>
+#include <KMimeType>
 #include <libkcompactdisc/kcompactdisc.h>
 
 #include <libkcddb/kcddb.h>
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
+
+#include "utils/cachedimage.h"
 
 #include "utils/error.h"
 
@@ -81,8 +86,14 @@ public:
   const QString artist() const;
   void setTitle(const QString& t);
   const QString title() const;
+
+  //category must be cddb compatible
+  //(blues, classical, country, data,
+  //folk, jazz, misc, newage, reggae,
+  //rock, soundtrack)
   void setCategory(const QString& c);
   const QString category() const;
+
   void setGenre(const QString& g);
   const QString genre() const;
   void setYear(const QString& year);
@@ -104,9 +115,15 @@ public:
   void setCustomDataPerTrack(const int n, const QString& type, const QVariant& data);
   const QVariant getCustomDataPerTrack(const int n, const QString& type);
 
-  const QImage cover() const;
-  void setCover(const QImage& image);
+  CachedImage* cover() const;
+  const QImage coverImage() const;
+  quint16 coverChecksum() const;
+  bool setCover(const QByteArray& data);
+  bool setCover(const QString& filename);
+  bool saveCoverToFile(const QString& filename);
+  bool isCoverEmpty() const;
   void clearCover();
+  const QString coverSupportedMimeTypeList() const;
 
   bool guessVarious() const;
   void setVarious(bool various);
@@ -171,7 +188,7 @@ public:
     DiscManualInfo, /*user input*/
     DiscCDTEXTInfo,
     DiscCDDBInfo,
-    DiscPhonenMetadataInfo
+    DiscPhononMetadataInfo
   };
 
   DriveStatus driveStatus() const;
@@ -188,7 +205,7 @@ public:
 
 public slots:
   void lookupCDDB();
-  void submitCDDB();
+  bool submitCDDB();
   void eject();
 
   void play(const unsigned int track = 1);
@@ -207,7 +224,7 @@ signals:
 
   void cddbLookupStarted();
   void cddbLookupDone(const bool successful);
-
+  
   void cddbDataModified();
   void cddbDataSubmited(const bool successful);
 
@@ -219,15 +236,14 @@ private slots:
   void slot_disc_information(KCompactDisc::DiscInfo info);
   void slot_disc_status_changed(KCompactDisc::DiscStatus status);
 
-  void lookup_cddb_done(KCDDB::Result);
-  //void submit_cddb_done(KCDDB::Result);
+  void lookup_cddb_done(KCDDB::Result result);
 
 private:
   QString _device;
   KCompactDisc::KCompactDisc *compact_disc;
   KCDDB::Client *cddb;
   KCDDB::CDInfo cd_info;
-  QImage _cover;
+  CachedImage *_cover;
   bool modified;
   DriveStatus drive_status;
   DiscStatus disc_status;
@@ -239,8 +255,6 @@ private:
   void _toggle(const unsigned int track);
 
   const QString capitalize(const QString &s);
-
-  void check_artist_and_title_are_valid();
 
   void set_default_values();
 

@@ -6,8 +6,8 @@ set(DEBIAN_PACKAGE_DESCRIPTION "Audex")
 set(DEBIAN_PACKAGE_SECTION "Multimedia")
 set(CPACK_SOURCE_GENERATOR "TBZ2")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
-set(CPACK_PACKAGE_VERSION_MINOR "71")
-set(CPACK_PACKAGE_VERSION_BETA " beta 5")
+set(CPACK_PACKAGE_VERSION_MINOR "72")
+set(CPACK_PACKAGE_VERSION_BETA " beta 1")
 set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.de>")
 set(AUDEX_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}${CPACK_PACKAGE_VERSION_BETA}")
 set(CPACK_SOURCE_PACKAGE_FILE_NAME "${CMAKE_PROJECT_NAME}-${AUDEX_VERSION}")
@@ -51,6 +51,7 @@ set(audex_SRCS
   utils/hashlist.cpp
   utils/3rdparty/crc32.cpp
   utils/parameters.cpp
+  utils/cachedimage.cpp
   widgets/cddaheaderwidget.cpp
   widgets/generalsettingswidget.cpp
   widgets/profilewidget.cpp

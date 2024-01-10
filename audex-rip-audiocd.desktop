@@ -8,5 +8,6 @@ Exec=audex
 Icon=audex
 Name=Extract Digital Audio with Audex 
 Name[de]=Digital-Audio mit Audex auslesen
+Name[it]=Estrai e codifica CD-Audio con Audex
 
 #/usr/share/kde4/apps/solid/actions/audex-rip-audiocd.desktop

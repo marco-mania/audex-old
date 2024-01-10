@@ -42,6 +42,7 @@
 #include <KStandardDirs>
 #include <KUrl>
 #include <KColorScheme>
+#include <KMessageBox>
 
 #include "preferences.h"
 
@@ -49,6 +50,7 @@
 #include "dialogs/coverbrowserdialog.h"
 #include "dialogs/cddaheaderdatadialog.h"
 #include "utils/coverfetcher.h"
+#include "utils/cachedimage.h"
 
 // fixed point defines
 #define FP_BITS 10
@@ -77,14 +79,14 @@ public:
   explicit CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent = 0, const int coverSize = 128, const int padding = 20);
   ~CDDAHeaderWidget();
   QSize sizeHint() const;
-  void setCover(const QImage& cover);
+  void setCover(CachedImage *cover);
 
   bool isEnabled() const;
 
 public slots:
   void setEnabled(bool enabled);
 
-  void amazonAuto();
+  void googleAuto();
 
 signals:
   void headerDataChanged();
@@ -104,7 +106,7 @@ private slots:
   void trigger_repaint();
   void cover_is_down();
 
-  void amazon();
+  void google();
   void load();
   void save();
   void view_cover();
@@ -113,8 +115,9 @@ private slots:
   void edit_data();
   void wikipedia();
 
-  void set_cover(const QImage& cover, const QString& caption, int no);
-
+  void set_cover(const QByteArray& cover);
+  void fetch_first_cover();
+  
   void context_menu(const QPoint& point);
 
 private:
@@ -124,8 +127,9 @@ private:
   int cover_size;
   int padding;
 
-  QImage cover;
-  QImage cover_holding;
+  quint16 i_cover_checksum;
+  QImage i_cover;
+  QImage i_cover_holding;
 
   QTimer timer;
   bool animation_up;
@@ -150,7 +154,8 @@ private:
 
   bool enabled;
 
-  CoverFetcher cover_fetcher;
+  bool fetching_cover_in_progress;
+  CoverBrowserDialog *cover_browser_dialog;
 
 };
 
