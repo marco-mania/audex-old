@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-03-30 18:07+0200\n"
+"POT-Creation-Date: 2009-04-11 16:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,8 +16,254 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: core/audex.cpp:115
+msgid "No profile selected. Operation abort."
+msgstr ""
+
+#: core/audex.cpp:127
+msgid ""
+"Unable to create temporary directory \"%1\". Please check. Abort operation."
+msgstr ""
+
+#: core/audex.cpp:139
+msgid "Start ripping and encoding with profile \"%1\"..."
+msgstr ""
+
+#: core/audex.cpp:430
+msgid "Cant find path \"%1\"."
+msgstr ""
+
+#: core/audex.cpp:430 core/audex.cpp:439
+msgid "Please check your path (write access?)"
+msgstr ""
+
+#: core/audex.cpp:439
+msgid "Unable to create directory \"%1\"."
+msgstr ""
+
+#: core/audex.cpp:442
+msgid "Directory \"%1\" successfully created."
+msgstr ""
+
+#: core/audex.cpp:445
+msgid "Directory \"%1\" already exists."
+msgstr ""
+
+#: core/audex.cpp:452
+msgid ""
+"Free space on \"%1\" is less than 200 MB. Problems with low space possible."
+msgstr ""
+
+#: core/audex.cpp:458
+msgid "Warning! File \"%1\" already exists. Overwriting."
+msgstr ""
+
+#: core/audex.cpp:460 core/audex.cpp:562 core/audex.cpp:594 core/audex.cpp:642
+#: core/audex.cpp:681 core/audex.cpp:718
+msgid "Warning! File \"%1\" already exists. Skipping."
+msgstr ""
+
+#: core/audex.cpp:481
+msgid "Temporary directory name \"%1\" must not be empty."
+msgstr ""
+
+#: core/audex.cpp:481
+msgid "Please set one."
+msgstr ""
+
+#: core/audex.cpp:487
+msgid "Temporary directory \"%1\" does not exists."
+msgstr ""
+
+#: core/audex.cpp:487
+msgid "Please check."
+msgstr ""
+
+#: core/audex.cpp:495
+msgid ""
+"Free space on temporary directory \"%1\" is less than 800 MiB. Problems with "
+"low space possible."
+msgstr ""
+
+#: core/audex.cpp:497
+msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
+msgstr ""
+
+#: core/audex.cpp:497
+msgid "Please free space or set another path."
+msgstr ""
+
+#: core/audex.cpp:530
+msgid "Eject CD tray"
+msgstr ""
+
+#: core/audex.cpp:567
+msgid "Cover \"%1\" successfully saved."
+msgstr ""
+
+#: core/audex.cpp:620
+msgid "Playlist \"%1\" successfully created."
+msgstr ""
+
+#: core/audex.cpp:655
+msgid "Infofile \"%1\" successfully stored."
+msgstr ""
+
+#: core/audex.cpp:700
+msgid "Hashlist \"%1\" successfully stored."
+msgstr ""
+
+#: core/audex.cpp:727
+msgid "Discid successfully stored."
+msgstr ""
+
+#: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:459
+msgid "Edit Data"
+msgstr ""
+
+#: dialogs/commandwizarddialog.cpp:30
+msgid "Command Pattern Wizard"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:51
+msgid "Searching for covers..."
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:74
+msgid ""
+"%1\n"
+"Cover Size: %2x%3"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:78
+msgid "Fetching Cover %1 / %2..."
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:82
+msgid "Found %1 Covers"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:86
+msgid "No Covers Found"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:99
+msgid "Fetch Cover From Amazon"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:30
+msgid "Rip And Encode"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:39
+msgid "Ripping Track  0 / %1"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:40
+msgid "Encoding Track  0 / %1"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:113
+msgid "Do you really want to cancel?"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:114
+msgid "Cancel"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:127
+msgid "Ripping Track"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:127
+msgid "Ripping Track %1 / %2"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:135
+msgid "Waiting for an encoding job..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:139
+msgid "Encoding Track"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:139
+msgid "Encoding Track %1 / %2"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:188
+#, c-format
+msgid "Speed: %1x"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:200
+msgid "All jobs successfully done."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:204
+#: dialogs/extractingprogressdialog.cpp:205
+msgid "Finished!"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:209
+msgid "At least one job failed."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:213
+#: dialogs/extractingprogressdialog.cpp:214
+msgid "Failed!"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:222
+msgid "Show encoding log..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:226
+msgid "Show rip log..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:263
+msgid ""
+"Ripping speed is extremly slow for the last 5 minutes by now.\n"
+"Due to extraction quality, audex is so configured, never skip any detected "
+"error. So if your disc is really broken extracting maybe never ends.\n"
+"In some cases only this drive can't rip audio data from this disc. Maybe try "
+"another one.\n"
+"\n"
+"However, do you want to continue extraction?"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:266
+msgid "Cancel extraction"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:275
+msgid "Encoding protocol"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:281
+msgid "Ripping protocol"
+msgstr ""
+
 #: dialogs/patternwizarddialog.cpp:30
 msgid "Filename Pattern Wizard"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:37
+msgid "Cover Settings"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:54
+msgid "JPEG (Joint Photographic Experts Group)"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:55
+msgid "PNG (Portable Network Graphics)"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:56
+msgid "BMP (Windows Bitmap)"
 msgstr ""
 
 #: dialogs/profiledatadialog.cpp:91
@@ -30,6 +276,11 @@ msgstr ""
 
 #: dialogs/profiledatadialog.cpp:151
 msgid "New Profile"
+msgstr ""
+
+#: dialogs/profiledatahashlistdialog.cpp:33
+#: dialogs/profiledataplaylistdialog.cpp:33
+msgid "Playlist Settings"
 msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:34
@@ -124,144 +375,6 @@ msgstr ""
 msgid "Save text template"
 msgstr ""
 
-#: dialogs/extractingprogressdialog.cpp:30
-msgid "Rip And Encode"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:39
-msgid "Ripping Track  0 / %1"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:40
-msgid "Encoding Track  0 / %1"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:113
-msgid "Do you really want to cancel?"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:114
-msgid "Cancel"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:127
-msgid "Ripping Track"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:127
-msgid "Ripping Track %1 / %2"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:135
-msgid "Waiting for an encoding job..."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:139
-msgid "Encoding Track"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:139
-msgid "Encoding Track %1 / %2"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:181
-#: dialogs/extractingprogressdialog.cpp:188
-#, c-format
-msgid "Speed: %1x"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:199
-msgid "All jobs successfully done."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:203
-#: dialogs/extractingprogressdialog.cpp:204
-msgid "Finished!"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:208
-msgid "At least one job failed."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:212
-#: dialogs/extractingprogressdialog.cpp:213
-msgid "Failed!"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:221
-msgid "Show encoding log..."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:225
-msgid "Show rip log..."
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:261
-msgid ""
-"Ripping speed is extremly slow for the last 5 minutes by now.\n"
-"Due to extraction quality, audex is so configured, never skip any detected "
-"error. So if your disc is really broken extracting maybe never ends.\n"
-"In some cases only this drive can't rip audio data from this disc. Maybe try "
-"another one.\n"
-"\n"
-"However, do you want to continue extraction?"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:264
-msgid "Cancel extraction"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:273
-msgid "Encoding protocol"
-msgstr ""
-
-#: dialogs/extractingprogressdialog.cpp:279
-msgid "Ripping protocol"
-msgstr ""
-
-#: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:459
-msgid "Edit Data"
-msgstr ""
-
-#: dialogs/profiledataplaylistdialog.cpp:33
-#: dialogs/profiledatahashlistdialog.cpp:33
-msgid "Playlist Settings"
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:51
-msgid "Searching for covers..."
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:74
-msgid ""
-"%1\n"
-"Cover Size: %2x%3"
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:78
-msgid "Fetching Cover %1 / %2..."
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:82
-msgid "Found %1 Covers"
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:86
-msgid "No Covers Found"
-msgstr ""
-
-#: dialogs/coverbrowserdialog.cpp:99
-msgid "Fetch Cover From Amazon"
-msgstr ""
-
-#: dialogs/commandwizarddialog.cpp:30
-msgid "Command Pattern Wizard"
-msgstr ""
-
-#: dialogs/simplepatternwizarddialog.cpp:30
-msgid "Pattern Wizard"
-msgstr ""
-
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
 msgstr ""
@@ -270,428 +383,206 @@ msgstr ""
 msgid "Save "
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:37
-msgid "Cover Settings"
+#: dialogs/simplepatternwizarddialog.cpp:30
+msgid "Pattern Wizard"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:54
-msgid "JPEG (Joint Photographic Experts Group)"
+#: main.cpp:28
+msgid "Audex"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:55
-msgid "PNG (Portable Network Graphics)"
+#: main.cpp:29
+msgid "CDDA Extractor for KDE"
 msgstr ""
 
-#: dialogs/profiledatacoverdialog.cpp:56
-msgid "BMP (Windows Bitmap)"
+#: main.cpp:31
+msgid "(c) 2007-2009 by Marco Nelles"
 msgstr ""
 
-#: utils/encoderassistant.h:66
-msgid "MP3"
+#: main.cpp:35
+msgid "Marco Nelles"
 msgstr ""
 
-#: utils/encoderassistant.h:91
-msgid "Ogg Vorbis"
+#: main.cpp:35
+msgid "Current maintainer"
 msgstr ""
 
-#: utils/encoderassistant.h:119
-msgid "FLAC (Uncompressed)"
+#: main.cpp:36
+msgid "freedb.org"
 msgstr ""
 
-#: utils/encoderassistant.h:128
-msgid "AAC"
+#: main.cpp:36
+msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
 
-#: utils/encoderassistant.h:144
-msgid "WAVE (Raw Uncompressed)"
+#: main.cpp:37
+msgid "Craig Drummond"
 msgstr ""
 
-#: utils/encoderassistant.h:151 rc.cpp:487
-msgid "Custom"
+#: main.cpp:37
+msgid "GUI improvements"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
-msgid "Internal device error."
+#: main.cpp:38 rc.cpp:660
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:32
-msgid "Check your device and make a bug report."
+#: main.cpp:38 rc.cpp:661
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:70
-msgid "Extracting finished."
+#: mainwindow.cpp:26
+msgid "Unable to create ProfileModel object."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:95
-msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:97
-msgid "Start reading track %1 with %2 sectors"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:136
-msgid "User canceled extracting."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:139
-msgid "An error occured while ripping track %1."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:141
-msgid "Ripping OK (Track %1)."
-msgstr ""
-
-#: utils/cddaextractthread.cpp:144
-msgid "Reading finished"
-msgstr ""
-
-#: utils/cddaextractthread.cpp:187
+#: mainwindow.cpp:26 mainwindow.cpp:39
 msgid ""
-"fixup edge (absolute sector %1, relative sector %2, track time pos %3:%4)"
+"Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
 
-#: utils/cddaextractthread.cpp:191
+#: mainwindow.cpp:39
+msgid "Unable to create CDDAModel object."
+msgstr ""
+
+#: mainwindow.cpp:112
+msgid "No disc information set. Do you really want to continue?"
+msgstr ""
+
+#: mainwindow.cpp:113
+msgid "Disc information not found"
+msgstr ""
+
+#: mainwindow.cpp:116
+msgid "no_disc_info_warn"
+msgstr ""
+
+#: mainwindow.cpp:136
+msgid "General settings"
+msgstr ""
+
+#: mainwindow.cpp:139
+msgid "Profiles"
+msgstr ""
+
+#: mainwindow.cpp:159
+msgid "Remote Server"
+msgstr ""
+
+#: mainwindow.cpp:170
+msgid "No Status information available"
+msgstr ""
+
+#: mainwindow.cpp:174 models/cddamodel.cpp:606
+msgid "No disc in drive"
+msgstr ""
+
+#: mainwindow.cpp:178
+msgid "Audio disc in drive"
+msgstr ""
+
+#: mainwindow.cpp:187 models/cddamodel.cpp:608
+msgid "Drive tray open"
+msgstr ""
+
+#: mainwindow.cpp:191 models/cddamodel.cpp:609
+msgid "Drive not ready"
+msgstr ""
+
+#: mainwindow.cpp:195 models/cddamodel.cpp:610
+msgid "Drive error"
+msgstr ""
+
+#: mainwindow.cpp:232
+msgid "Fetching CDDB information..."
+msgstr ""
+
+#: mainwindow.cpp:314
+msgid "Split titles"
+msgstr ""
+
+#: mainwindow.cpp:315
 msgid ""
-"fixup atom (absolute sector %1, relative sector %2, track time pos %3:%4)"
+"Please set a divider string. Be aware of empty spaces.\n"
+"\n"
+"Divider:"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:196
-msgid ""
-"scratch detected (absolute sector %1, relative sector %2, track time pos %3:%"
-"4)"
+#: mainwindow.cpp:325
+msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:200
-msgid "repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:326 mainwindow.cpp:437
+msgid "Swap artists and titles"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:205
-msgid "skip (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:329
+msgid "no_swap_artists_and_titles_warn"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:209
-msgid "drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:338
+msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:213
-msgid "backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:339
+msgid "Capitalize artists and titles"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:223
-msgid ""
-"fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:342
+msgid "no_capitalize_warn"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:227
-msgid ""
-"fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:351
+msgid "Do you really want to autofill track artists?"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:231
-msgid ""
-"Read error detected (absolute sector %1, relative sector %2, track time pos %"
-"3:%4)"
+#: mainwindow.cpp:352
+msgid "Autofill artists"
 msgstr ""
 
-#: utils/cddaextractthread.cpp:232
-msgid ""
-"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+#: mainwindow.cpp:355
+msgid "no_autofill_warn"
 msgstr ""
 
-#: utils/upload.cpp:61
-msgid "Uploading file %1 to server. Please wait..."
+#: mainwindow.cpp:375
+msgid "Eject"
 msgstr ""
 
-#: utils/upload.cpp:68
-msgid "Finished uploading file %1 to server."
+#: mainwindow.cpp:382
+msgid "Profile: "
 msgstr ""
 
-#: utils/encoderwrapper.cpp:56
-msgid "Command pattern is empty."
+#: mainwindow.cpp:394
+msgid "&Profile: "
 msgstr ""
 
-#: utils/encoderwrapper.cpp:68
-msgid "Encoding track %1..."
+#: mainwindow.cpp:400
+msgid "Profile"
 msgstr ""
 
-#: utils/encoderwrapper.cpp:86
-msgid "Deleted partial file \"%1\"."
+#: mainwindow.cpp:408
+msgid "Fetch Info"
 msgstr ""
 
-#: utils/encoderwrapper.cpp:91
-msgid "User canceled encoding."
+#: mainwindow.cpp:415
+msgid "Submit Info"
 msgstr ""
 
-#: utils/encoderwrapper.cpp:139
-msgid "Encoding OK (\"%1\")."
+#: mainwindow.cpp:423
+msgid "Rip..."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:141
-msgid "An error occured while encoding file \"%1\"."
+#: mainwindow.cpp:432
+msgid "Split titles..."
 msgstr ""
 
-#: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
-#: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
-msgid "Please check your profile."
+#: mainwindow.cpp:442
+msgid "Capitalize"
 msgstr ""
 
-#: utils/encoderwrapper.cpp:152
-msgid "%1 failed to start."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:152
-msgid ""
-"Either it is missing, or you may have insufficient permissions to invoke the "
-"program."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:154
-msgid "%1 crashed some time after starting successfully."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:156
-msgid "%1 timed out. This should not happen."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:158
-msgid "An error occurred when attempting to write to %1."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:158
-msgid ""
-"For example, the proc may not be running, or it may have closed its input "
-"channel."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:160
-msgid "An error occurred when attempting to read from %1."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:160
-msgid "For example, the proc may not be running."
-msgstr ""
-
-#: utils/encoderwrapper.cpp:162
-msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
-
-#: utils/cddaparanoia.cpp:41
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-
-#: utils/coverfetcher.cpp:110
-msgid "There was an error communicating with Amazon."
-msgstr ""
-
-#: utils/coverfetcher.cpp:110
-msgid "Try again later. Otherwise make a bug report."
-msgstr ""
-
-#: utils/coverfetcher.cpp:121
-msgid "amazon server: Empty response."
-msgstr ""
-
-#: utils/coverfetcher.cpp:122 utils/coverfetcher.cpp:172
-#: utils/coverfetcher.cpp:185
-msgid "Try again later. Make a bug report."
-msgstr ""
-
-#: utils/coverfetcher.cpp:171 utils/coverfetcher.cpp:184
-msgid "The XML obtained from Amazon is invalid."
-msgstr ""
-
-#: widgets/profilewidget.cpp:79
-msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
-
-#: widgets/profilewidget.cpp:80
-msgid "Delete profile"
-msgstr ""
-
-#: widgets/profilewidget.cpp:123
-msgid "Save cover"
-msgstr ""
-
-#: widgets/profilewidget.cpp:130
-msgid "Load profiles"
-msgstr ""
-
-#: widgets/profilewidget.cpp:139
-msgid ""
-"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
-"some sample profiles based upon any found codecs.</font></p>"
-msgstr ""
-
-#: widgets/profilewidget.cpp:141 widgets/profilewidget.cpp:151 rc.cpp:607
-msgid "Codec Scan"
-msgstr ""
-
-#: widgets/profilewidget.cpp:147
-msgid "No new codecs found"
-msgstr ""
-
-#: widgets/profilewidget.cpp:149
-msgid "1 new profile added"
-msgstr ""
-
-#: widgets/profilewidget.cpp:150
-msgid "%1 new profiles added"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:24
-msgid "International/USA"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:25
-msgid "Germany"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:26
-msgid "France"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:27
-msgid "Canada"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:28
-msgid "Japan"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:29
-msgid "UK"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:32
-msgid "English"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:33
-msgid "Deutsch"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:34
-msgid "Français"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:35
-msgid "Polski"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:36
-msgid "日本語"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:37
-msgid "Italiano"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:38
-msgid "Nederlands"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:39
-msgid "Español"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:40
-msgid "Português"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:41
-msgid "Svenska"
-msgstr ""
-
-#: widgets/generalsettingswidget.cpp:50
-msgid "None detected"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:423
-msgid "Released: "
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:424
-msgid "Genre: "
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:425
-msgid "CD Number: "
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:460
-msgid "Wikipedia"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:485
-msgid "No CD in drive"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:637
-msgid "Load cover"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:645
-msgid "Save Cover"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:653
-msgid "View Cover"
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:735
-msgid "Fetch Cover From Amazon..."
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:740
-msgid "Set Custom Cover..."
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:745
-msgid "Save Cover To File..."
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:750
-msgid "Show Full Size Cover..."
-msgstr ""
-
-#: widgets/cddaheaderwidget.cpp:755
-msgid "Remove Cover"
-msgstr ""
-
-#: models/cddamodel.h:41
-msgid "Rip"
-msgstr ""
-
-#: models/cddamodel.h:42
-msgid "Track"
-msgstr ""
-
-#: models/cddamodel.h:43
-msgid "Artist"
-msgstr ""
-
-#: models/cddamodel.h:44
-msgid "Title"
-msgstr ""
-
-#: models/cddamodel.h:45
-msgid "Length"
-msgstr ""
-
-#: models/profilemodel.h:150
-msgid " (Mobile Quality)"
-msgstr ""
-
-#: models/profilemodel.h:151
-msgid " (Normal Quality)"
-msgstr ""
-
-#: models/profilemodel.h:152
-msgid " (Extreme Quality)"
+#: mainwindow.cpp:447
+msgid "Auto fill artists"
 msgstr ""
 
 #: models/cddamodel.cpp:26
@@ -708,24 +599,8 @@ msgstr ""
 msgid "Unable to create KCDDB object."
 msgstr ""
 
-#: models/cddamodel.cpp:606 mainwindow.cpp:174
-msgid "No disc in drive"
-msgstr ""
-
 #: models/cddamodel.cpp:607
 msgid "Disc in drive"
-msgstr ""
-
-#: models/cddamodel.cpp:608 mainwindow.cpp:187
-msgid "Drive tray open"
-msgstr ""
-
-#: models/cddamodel.cpp:609 mainwindow.cpp:191
-msgid "Drive not ready"
-msgstr ""
-
-#: models/cddamodel.cpp:610 mainwindow.cpp:195
-msgid "Drive error"
 msgstr ""
 
 #: models/cddamodel.cpp:613
@@ -792,6 +667,26 @@ msgstr ""
 
 #: models/cddamodel.cpp:810
 msgid "Select a CDDB entry:"
+msgstr ""
+
+#: models/cddamodel.h:41
+msgid "Rip"
+msgstr ""
+
+#: models/cddamodel.h:42
+msgid "Track"
+msgstr ""
+
+#: models/cddamodel.h:43
+msgid "Artist"
+msgstr ""
+
+#: models/cddamodel.h:44
+msgid "Title"
+msgstr ""
+
+#: models/cddamodel.h:45
+msgid "Length"
 msgstr ""
 
 #: models/profilemodel.cpp:117
@@ -916,202 +811,265 @@ msgstr ""
 msgid "This is an internal error. Please report."
 msgstr ""
 
-#: mainwindow.cpp:26
-msgid "Unable to create ProfileModel object."
+#: models/profilemodel.h:150
+msgid " (Mobile Quality)"
 msgstr ""
 
-#: mainwindow.cpp:26 mainwindow.cpp:39
-msgid ""
-"Internal error. Check your hardware. If all okay please make bug report."
+#: models/profilemodel.h:151
+msgid " (Normal Quality)"
 msgstr ""
 
-#: mainwindow.cpp:39
-msgid "Unable to create CDDAModel object."
+#: models/profilemodel.h:152
+msgid " (Extreme Quality)"
 msgstr ""
 
-#: mainwindow.cpp:112
-msgid "No disc information set. Do you really want to continue?"
-msgstr ""
-
-#: mainwindow.cpp:113
-msgid "Disc information not found"
-msgstr ""
-
-#: mainwindow.cpp:116
-msgid "no_disc_info_warn"
-msgstr ""
-
-#: mainwindow.cpp:136
-msgid "General settings"
-msgstr ""
-
-#: mainwindow.cpp:139
-msgid "Profiles"
-msgstr ""
-
-#: mainwindow.cpp:159
-msgid "Remote Server"
-msgstr ""
-
-#: mainwindow.cpp:170
-msgid "No Status information available"
-msgstr ""
-
-#: mainwindow.cpp:178
-msgid "Audio disc in drive"
-msgstr ""
-
-#: mainwindow.cpp:232
-msgid "Fetching CDDB information..."
-msgstr ""
-
-#: mainwindow.cpp:314
-msgid "Split titles"
-msgstr ""
-
-#: mainwindow.cpp:315
-msgid ""
-"Please set a divider string. Be aware of empty spaces.\n"
-"\n"
-"Divider:"
-msgstr ""
-
-#: mainwindow.cpp:325
-msgid "Do you really want to swap all artists and titles?"
-msgstr ""
-
-#: mainwindow.cpp:326 mainwindow.cpp:437
-msgid "Swap artists and titles"
-msgstr ""
-
-#: mainwindow.cpp:329
-msgid "no_swap_artists_and_titles_warn"
-msgstr ""
-
-#: mainwindow.cpp:338
-msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
-
-#: mainwindow.cpp:339
-msgid "Capitalize artists and titles"
-msgstr ""
-
-#: mainwindow.cpp:342
-msgid "no_capitalize_warn"
-msgstr ""
-
-#: mainwindow.cpp:351
-msgid "Do you really want to autofill track artists?"
-msgstr ""
-
-#: mainwindow.cpp:352
-msgid "Autofill artists"
-msgstr ""
-
-#: mainwindow.cpp:355
-msgid "no_autofill_warn"
-msgstr ""
-
-#: mainwindow.cpp:375
-msgid "Eject"
-msgstr ""
-
-#: mainwindow.cpp:382
-msgid "Profile: "
-msgstr ""
-
-#: mainwindow.cpp:394
-msgid "&Profile: "
-msgstr ""
-
-#: mainwindow.cpp:400
-msgid "Profile"
-msgstr ""
-
-#: mainwindow.cpp:408
-msgid "Fetch Info"
-msgstr ""
-
-#: mainwindow.cpp:415
-msgid "Submit Info"
-msgstr ""
-
-#: mainwindow.cpp:423
-msgid "Rip..."
-msgstr ""
-
-#: mainwindow.cpp:432
-msgid "Split titles..."
-msgstr ""
-
-#: mainwindow.cpp:442
-msgid "Capitalize"
-msgstr ""
-
-#: mainwindow.cpp:447
-msgid "Auto fill artists"
-msgstr ""
-
-#: rc.cpp:3 rc.cpp:524
+#. i18n: file: audex.kcfg:14
+#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
+#. i18n: file: widgets/generalsettingswidgetUI.ui:19
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
+#: rc.cpp:3 rc.cpp:488
 msgid "Overwrite existing files"
 msgstr ""
 
-#: rc.cpp:6 rc.cpp:527
+#. i18n: file: audex.kcfg:18
+#. i18n: ectx: label, entry (deletePartialFiles), group (general)
+#. i18n: file: widgets/generalsettingswidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
+#: rc.cpp:6 rc.cpp:491
 msgid "Delete partial files after cancel"
 msgstr ""
 
+#. i18n: file: audex.kcfg:22
+#. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: rc.cpp:9
 msgid "Eject CD tray after extraction finished"
 msgstr ""
 
+#. i18n: file: audex.kcfg:26
+#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: rc.cpp:12
 msgid "Perform CDDB lookup automatically"
 msgstr ""
 
+#. i18n: file: audex.kcfg:30
+#. i18n: ectx: label, entry (amazonLocale), group (general)
 #: rc.cpp:15
 msgid "Amazon localization"
 msgstr ""
 
+#. i18n: file: audex.kcfg:34
+#. i18n: ectx: label, entry (wikipediaLocale), group (general)
 #: rc.cpp:18
 msgid "Wikipedia localization"
 msgstr ""
 
+#. i18n: file: audex.kcfg:38
+#. i18n: ectx: label, entry (cdDevice), group (general)
 #: rc.cpp:21
 msgid "CD Device"
 msgstr ""
 
-#: rc.cpp:24 rc.cpp:548
+#. i18n: file: audex.kcfg:42
+#. i18n: ectx: label, entry (paranoiaMode), group (general)
+#. i18n: file: widgets/generalsettingswidgetUI.ui:96
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
+#: rc.cpp:24 rc.cpp:512
 msgid "Full paranoia mode (best quality)"
 msgstr ""
 
-#: rc.cpp:27 rc.cpp:551
+#. i18n: file: audex.kcfg:46
+#. i18n: ectx: label, entry (neverSkip), group (general)
+#. i18n: file: widgets/generalsettingswidgetUI.ui:103
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
+#: rc.cpp:27 rc.cpp:515
 msgid "Never skip on read error"
 msgstr ""
 
+#. i18n: file: audex.kcfg:50
+#. i18n: ectx: label, entry (basePath), group (general)
 #: rc.cpp:30
 msgid "Base path to store music files"
 msgstr ""
 
-#: rc.cpp:33 rc.cpp:619
+#. i18n: file: audex.kcfg:54
+#. i18n: ectx: label, entry (upload), group (general)
+#. i18n: file: widgets/remoteserversettingswidgetUI.ui:19
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
+#: rc.cpp:33 rc.cpp:643
 msgid "Upload files to server"
 msgstr ""
 
+#. i18n: file: audex.kcfg:58
+#. i18n: ectx: label, entry (url), group (general)
 #: rc.cpp:36
 msgid "URL of server"
 msgstr ""
 
-#: rc.cpp:39 rc.cpp:85 rc.cpp:133 rc.cpp:139 rc.cpp:216 rc.cpp:231 rc.cpp:240
-#: rc.cpp:249 rc.cpp:273 rc.cpp:374 rc.cpp:386 rc.cpp:389 rc.cpp:438
-#: rc.cpp:457 rc.cpp:512 rc.cpp:521 rc.cpp:560 rc.cpp:573 rc.cpp:592
-#: rc.cpp:616 rc.cpp:625
+#. i18n: file: audexui.rc:6
+#. i18n: ectx: Menu (file)
+#: rc.cpp:39
+msgid "&Audex"
+msgstr ""
+
+#. i18n: file: audexui.rc:13
+#. i18n: ectx: Menu (cddb)
+#: rc.cpp:42
+msgid "&CDDB"
+msgstr ""
+
+#. i18n: file: audexui.rc:18
+#. i18n: ectx: Menu (titlecorrectiontools)
+#: rc.cpp:45
+msgctxt "@title:menu"
+msgid "Title correction tools"
+msgstr ""
+
+#. i18n: file: audexui.rc:25
+#. i18n: ectx: Menu (settings)
+#: rc.cpp:48
+msgid "&Settings"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, CDDAHeaderDataWidgetUI)
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, CommandWizardWidgetUI)
+#. i18n: file: dialogs/coverbrowserwidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, CoverBrowserWidgetUI)
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, ExtractingProgressWidgetUI)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, PatternWizardWidgetUI)
+#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileDataCoverWidgetUI)
+#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileDataHashlistWidgetUI)
+#. i18n: file: dialogs/profiledatainfowidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileDataInfoWidgetUI)
+#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileDataPlaylistWidgetUI)
+#. i18n: file: dialogs/profiledatawidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileDataWidgetUI)
+#. i18n: file: dialogs/protocolwidgetUI.ui:19
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProtocolWidgetUI)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:14
+#. i18n: ectx: property (windowTitle), widget (QWidget, SimplePatternWizardWidgetUI)
+#. i18n: file: widgets/customwidgetUI.ui:20
+#. i18n: ectx: property (windowTitle), widget (QWidget, CustomWidgetUI)
+#. i18n: file: widgets/faacwidgetUI.ui:20
+#. i18n: ectx: property (windowTitle), widget (QWidget, FAACWidgetUI)
+#. i18n: file: widgets/flacwidgetUI.ui:20
+#. i18n: ectx: property (windowTitle), widget (QWidget, FLACWidgetUI)
+#. i18n: file: widgets/generalsettingswidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, GeneralSettingsWidgetUI)
+#. i18n: file: widgets/lamewidgetUI.ui:26
+#. i18n: ectx: property (windowTitle), widget (QWidget, LAMEWidgetUI)
+#. i18n: file: widgets/oggencwidgetUI.ui:20
+#. i18n: ectx: property (windowTitle), widget (QWidget, OggEncWidgetUI)
+#. i18n: file: widgets/profilewidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, ProfileWidgetUI)
+#. i18n: file: widgets/remoteserversettingswidgetUI.ui:13
+#. i18n: ectx: property (windowTitle), widget (QWidget, RemoteServerSettingsWidgetUI)
+#. i18n: file: widgets/wavewidgetUI.ui:20
+#. i18n: ectx: property (windowTitle), widget (QWidget, WAVEWidgetUI)
+#: rc.cpp:51 rc.cpp:88 rc.cpp:189 rc.cpp:195 rc.cpp:219 rc.cpp:296 rc.cpp:311
+#: rc.cpp:320 rc.cpp:332 rc.cpp:341 rc.cpp:389 rc.cpp:392 rc.cpp:438
+#: rc.cpp:447 rc.cpp:466 rc.cpp:485 rc.cpp:524 rc.cpp:579 rc.cpp:616
+#: rc.cpp:640 rc.cpp:649
 msgid "Form"
 msgstr ""
 
-#: rc.cpp:42
-msgid "Example:"
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:19
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
+#: rc.cpp:54
+msgid "Various Artists"
 msgstr ""
 
-#: rc.cpp:45 rc.cpp:148 rc.cpp:282
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
+#: rc.cpp:57
+msgid "Multi CD"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:52
+#. i18n: ectx: property (text), widget (QLabel, label_artist)
+#: rc.cpp:60
+msgid "Artist:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:68
+#. i18n: ectx: property (text), widget (QLabel, label_title)
+#: rc.cpp:63
+msgid "Title:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:78
+#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
+#: rc.cpp:66
+msgid "CD Number:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:92
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:69
+msgid "Track Offset:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:108
+#. i18n: ectx: property (text), widget (QLabel, label_genre)
+#: rc.cpp:72
+msgid "Genre:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:131
+#. i18n: ectx: property (text), widget (QLabel, label_year)
+#: rc.cpp:75
+msgid "Year:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:158
+#. i18n: ectx: property (text), widget (QLabel, label_extdata)
+#: rc.cpp:78
+msgid ""
+"Additional\n"
+"Information:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:174
+#. i18n: ectx: property (text), widget (QLabel, label_discid)
+#: rc.cpp:82
+msgid "Disc ID:"
+msgstr ""
+
+#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:181
+#. i18n: ectx: property (text), widget (QLabel, label_discid_2)
+#: rc.cpp:85
+msgid "0x00000000"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:29
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:29
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: rc.cpp:91 rc.cpp:222
+msgid "Album Example:"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:92
+#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:89
+#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
+#: rc.cpp:94 rc.cpp:225
+msgid "Sampler Example:"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:163
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:157
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:100
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
+#: rc.cpp:97 rc.cpp:228 rc.cpp:398
 msgid ""
 "<p>This tag will be replaced with artist of the whole CD.</p>\n"
 "<hr />\n"
@@ -1119,11 +1077,23 @@ msgid ""
 "cases.</p>"
 msgstr ""
 
-#: rc.cpp:50 rc.cpp:153 rc.cpp:287
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:166
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:160
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:103
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
+#: rc.cpp:102 rc.cpp:233 rc.cpp:403
 msgid "Album Artist"
 msgstr ""
 
-#: rc.cpp:53 rc.cpp:156 rc.cpp:290
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:187
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:181
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:124
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
+#: rc.cpp:105 rc.cpp:236 rc.cpp:406
 msgid ""
 "<p>This tag will be replaced with the title of the whole CD.</p>\n"
 "<hr />\n"
@@ -1131,11 +1101,83 @@ msgid ""
 "most cases.</p>"
 msgstr ""
 
-#: rc.cpp:58 rc.cpp:161 rc.cpp:295
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:190
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:184
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:127
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
+#: rc.cpp:110 rc.cpp:241 rc.cpp:411
 msgid "Album Title"
 msgstr ""
 
-#: rc.cpp:61 rc.cpp:185 rc.cpp:319
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:209
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackartist)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:203
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackartist)
+#: rc.cpp:113 rc.cpp:244
+msgid ""
+"<p>This tag will be replaced with the artist of the individual track.<p></"
+"p>It is especially useful on compilation CDs.</p>"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:212
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:206
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
+#: rc.cpp:116 rc.cpp:247
+msgid "Track Artist"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:231
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_tracktitle)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:225
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_tracktitle)
+#: rc.cpp:119 rc.cpp:250
+msgid ""
+"<p>This tag will be replaced with the track title. Normally each track on a "
+"CD has its own title.</p>"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:234
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:228
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
+#: rc.cpp:122 rc.cpp:253
+msgid "Track Title"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:244
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackno)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:238
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_trackno)
+#: rc.cpp:125 rc.cpp:256
+msgid ""
+"<p>This tag will be replaced with the track number of the individual track.</"
+"p>\n"
+"<hr />\n"
+"<p>This tag has two properties:\n"
+"<ul><li><i>length</i> defines how many digits the number should consist of "
+"at least (Default: 2).</li><li><i>fillchar</i> sets the character usedto "
+"fill the free spaces in front of the number, if it has less digits than "
+"defined by <i>length</i>. (Default: 0).</li></ul></p>"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:247
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:241
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
+#: rc.cpp:131 rc.cpp:262
+msgid "Track #"
+msgstr ""
+
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:260
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cdno)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:254
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cdno)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:140
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cdno)
+#: rc.cpp:134 rc.cpp:265 rc.cpp:414
 msgid ""
 "<p>This tag will be replaced with the CD number of a multi-CD album. Often "
 "compilations consist of several CDs.</p>\n"
@@ -1151,180 +1193,61 @@ msgid ""
 "the CD.</p>"
 msgstr ""
 
-#: rc.cpp:70 rc.cpp:194 rc.cpp:328
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:263
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:257
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:143
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
+#: rc.cpp:143 rc.cpp:274 rc.cpp:423
 msgid "CD #"
 msgstr ""
 
-#: rc.cpp:73 rc.cpp:197 rc.cpp:331
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:270
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_date)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:264
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_date)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:150
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_date)
+#: rc.cpp:146 rc.cpp:277 rc.cpp:426
 msgid ""
 "This tag will be replaced with the release date of the CD. In almost all "
 "cases this is the year."
 msgstr ""
 
-#: rc.cpp:76 rc.cpp:200 rc.cpp:334
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:273
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:267
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:153
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
+#: rc.cpp:149 rc.cpp:280 rc.cpp:429
 msgid "Date"
 msgstr ""
 
-#: rc.cpp:79 rc.cpp:203 rc.cpp:337
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:280
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:274
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:160
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
+#: rc.cpp:152 rc.cpp:283 rc.cpp:432
 msgid "This tag will be replaced with the genre."
 msgstr ""
 
-#: rc.cpp:82 rc.cpp:206 rc.cpp:340
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:283
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:277
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:163
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
+#: rc.cpp:155 rc.cpp:286 rc.cpp:435
 msgid "Genre"
 msgstr ""
 
-#: rc.cpp:88
-msgid "Profile Name:"
-msgstr ""
-
-#: rc.cpp:91
-msgid "Encoder"
-msgstr ""
-
-#: rc.cpp:94
-msgid "Filenames"
-msgstr ""
-
-#: rc.cpp:97 rc.cpp:383
-msgid "Pattern:"
-msgstr ""
-
-#: rc.cpp:100
-msgid "Create FAT32 compatible filenames"
-msgstr ""
-
-#: rc.cpp:103
-msgid "Extra Files"
-msgstr ""
-
-#: rc.cpp:106
-msgid "Store cover file in target folder"
-msgstr ""
-
-#: rc.cpp:109 rc.cpp:115 rc.cpp:121 rc.cpp:127
-msgid "Settings.."
-msgstr ""
-
-#: rc.cpp:112
-msgid "Create playlist in target folder"
-msgstr ""
-
-#: rc.cpp:118
-msgid "Store info file in target folder"
-msgstr ""
-
-#: rc.cpp:124
-msgid "Store hashlist in target folder"
-msgstr ""
-
-#: rc.cpp:130
-msgid "Store discid in target folder"
-msgstr ""
-
-#: rc.cpp:136
-msgid "TextLabel"
-msgstr ""
-
-#: rc.cpp:142 rc.cpp:276
-msgid "Album Example:"
-msgstr ""
-
-#: rc.cpp:145 rc.cpp:279
-msgid "Sampler Example:"
-msgstr ""
-
-#: rc.cpp:164 rc.cpp:298
-msgid ""
-"<p>This tag will be replaced with the artist of the individual track.<p></"
-"p>It is especially useful on compilation CDs.</p>"
-msgstr ""
-
-#: rc.cpp:167 rc.cpp:301
-msgid "Track Artist"
-msgstr ""
-
-#: rc.cpp:170 rc.cpp:304
-msgid ""
-"<p>This tag will be replaced with the track title. Normally each track on a "
-"CD has its own title.</p>"
-msgstr ""
-
-#: rc.cpp:173 rc.cpp:307
-msgid "Track Title"
-msgstr ""
-
-#: rc.cpp:176 rc.cpp:310
-msgid ""
-"<p>This tag will be replaced with the track number of the individual track.</"
-"p>\n"
-"<hr />\n"
-"<p>This tag has two properties:\n"
-"<ul><li><i>length</i> defines how many digits the number should consist of "
-"at least (Default: 2).</li><li><i>fillchar</i> sets the character usedto "
-"fill the free spaces in front of the number, if it has less digits than "
-"defined by <i>length</i>. (Default: 0).</li></ul></p>"
-msgstr ""
-
-#: rc.cpp:182 rc.cpp:316
-msgid "Track #"
-msgstr ""
-
-#: rc.cpp:209
-msgid ""
-"<p>This tag will be replaced with the file suffix.</p>\n"
-"<p>It is defined by the profile. In most cases it will be either \"mp3\" or "
-"\"ogg\".</p>"
-msgstr ""
-
-#: rc.cpp:213
-msgid "Suffix"
-msgstr ""
-
-#: rc.cpp:219
-msgid "Scale before store:"
-msgstr ""
-
-#: rc.cpp:222
-msgid "x"
-msgstr ""
-
-#: rc.cpp:225 rc.cpp:234 rc.cpp:243
-msgid "Format:"
-msgstr ""
-
-#: rc.cpp:228
-msgid "Cover pattern:"
-msgstr ""
-
-#: rc.cpp:237 rc.cpp:246
-msgid "Name/Pattern:"
-msgstr ""
-
-#: rc.cpp:252
-msgid "<h2>Artist - Album</h2>"
-msgstr ""
-
-#: rc.cpp:255
-msgid "Ripping Track 8 / 12"
-msgstr ""
-
-#: rc.cpp:258 rc.cpp:270
-msgid "Speed: 0x"
-msgstr ""
-
-#: rc.cpp:261
-msgid "Overall Ripping Progress"
-msgstr ""
-
-#: rc.cpp:264
-msgid "Encoding Track 8 / 12"
-msgstr ""
-
-#: rc.cpp:267
-msgid "KSqueezedTextLabel"
-msgstr ""
-
-#: rc.cpp:343
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:303
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cover_file)
+#: rc.cpp:158
 msgid ""
 "<p>This tag will be replaced with the temporary filename of the cover, e.g. "
 "to insert the cover in the id3 v2.3 tag with LAME. The cover file will be "
@@ -1355,107 +1278,282 @@ msgid ""
 "bear this in mind, if you set the format and size.</i></p>"
 msgstr ""
 
-#: rc.cpp:359
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:306
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
+#: rc.cpp:174
 msgid "Cover File"
 msgstr ""
 
-#: rc.cpp:362
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:313
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_input_file)
+#: rc.cpp:177
 msgid ""
 "This will be replaced with a temporary WAV file created by Audex from CD "
 "audio track. You can use it as a normal input file for your command line "
 "encoder."
 msgstr ""
 
-#: rc.cpp:365
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:316
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
+#: rc.cpp:180
 msgid "Input File"
 msgstr ""
 
-#: rc.cpp:368
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:323
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_output_file)
+#: rc.cpp:183
 msgid ""
 "This tag will be replaced with the full output filename and path. Use it as "
 "the output for your command line encoder."
 msgstr ""
 
-#: rc.cpp:371
+#. i18n: file: dialogs/commandwizardwidgetUI.ui:326
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
+#: rc.cpp:186
 msgid "Output File"
 msgstr ""
 
-#: rc.cpp:377
+#. i18n: file: dialogs/coverbrowserwidgetUI.ui:22
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:192
+msgid "TextLabel"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:24
+#. i18n: ectx: property (text), widget (QLabel, label_header)
+#: rc.cpp:198
+msgid "<h2>Artist - Album</h2>"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:43
+#. i18n: ectx: property (text), widget (QLabel, label_extracting)
+#: rc.cpp:201
+msgid "Ripping Track 8 / 12"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:74
+#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:149
+#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
+#: rc.cpp:204 rc.cpp:216
+msgid "Speed: 0x"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:96
+#. i18n: ectx: property (text), widget (QLabel, label_overall)
+#: rc.cpp:207
+msgid "Overall Ripping Progress"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:115
+#. i18n: ectx: property (text), widget (QLabel, label_encoding)
+#: rc.cpp:210
+msgid "Encoding Track 8 / 12"
+msgstr ""
+
+#. i18n: file: dialogs/extractingprogresswidgetUI.ui:133
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, filename)
+#: rc.cpp:213
+msgid "KSqueezedTextLabel"
+msgstr ""
+
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:285
+#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_suffix)
+#: rc.cpp:289
+msgid ""
+"<p>This tag will be replaced with the file suffix.</p>\n"
+"<p>It is defined by the profile. In most cases it will be either \"mp3\" or "
+"\"ogg\".</p>"
+msgstr ""
+
+#. i18n: file: dialogs/patternwizardwidgetUI.ui:288
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
+#: rc.cpp:293
+msgid "Suffix"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
+#: rc.cpp:299
+msgid "Scale before store:"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:52
+#. i18n: ectx: property (text), widget (QLabel, label_x)
+#: rc.cpp:302
+msgid "x"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:78
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#: rc.cpp:305 rc.cpp:314 rc.cpp:335
+msgid "Format:"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:94
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: rc.cpp:308
+msgid "Cover pattern:"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:42
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:42
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: rc.cpp:317 rc.cpp:338
+msgid "Name/Pattern:"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatainfowidgetUI.ui:26
+#. i18n: ectx: property (text), widget (QLabel, label_text)
+#: rc.cpp:323
 msgid "Information text:"
 msgstr ""
 
-#: rc.cpp:380 rc.cpp:454 rc.cpp:509 rc.cpp:518 rc.cpp:570 rc.cpp:589
+#. i18n: file: dialogs/profiledatainfowidgetUI.ui:45
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/customwidgetUI.ui:53
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/faacwidgetUI.ui:120
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/flacwidgetUI.ui:117
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/lamewidgetUI.ui:257
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/oggencwidgetUI.ui:278
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#. i18n: file: widgets/wavewidgetUI.ui:50
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#: rc.cpp:326 rc.cpp:444 rc.cpp:463 rc.cpp:482 rc.cpp:576 rc.cpp:613
 #: rc.cpp:659
 msgid "Suffix:"
 msgstr ""
 
-#: rc.cpp:392
-msgid "Various Artists"
+#. i18n: file: dialogs/profiledatainfowidgetUI.ui:68
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#. i18n: file: dialogs/profiledatawidgetUI.ui:129
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: rc.cpp:329 rc.cpp:353
+msgid "Pattern:"
 msgstr ""
 
+#. i18n: file: dialogs/profiledatawidgetUI.ui:22
+#. i18n: ectx: property (text), widget (QLabel, label_name)
+#: rc.cpp:344
+msgid "Profile Name:"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:66
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_encoder)
+#: rc.cpp:347
+msgid "Encoder"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:115
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_filenames)
+#: rc.cpp:350
+msgid "Filenames"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:164
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
+#: rc.cpp:356
+msgid "Create FAT32 compatible filenames"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:193
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: rc.cpp:359
+msgid "Extra Files"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:205
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: rc.cpp:362
+msgid "Store cover file in target folder"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:218
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
+#. i18n: file: dialogs/profiledatawidgetUI.ui:244
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
+#. i18n: file: dialogs/profiledatawidgetUI.ui:283
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
+#. i18n: file: dialogs/profiledatawidgetUI.ui:309
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
+#: rc.cpp:365 rc.cpp:371 rc.cpp:377 rc.cpp:383
+msgid "Settings.."
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:231
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
+#: rc.cpp:368
+msgid "Create playlist in target folder"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:270
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: rc.cpp:374
+msgid "Store info file in target folder"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:296
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
+#: rc.cpp:380
+msgid "Store hashlist in target folder"
+msgstr ""
+
+#. i18n: file: dialogs/profiledatawidgetUI.ui:322
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
+#: rc.cpp:386
+msgid "Store discid in target folder"
+msgstr ""
+
+#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:29
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: rc.cpp:395
-msgid "Multi CD"
+msgid "Example:"
 msgstr ""
 
-#: rc.cpp:398
-msgid "Artist:"
+#. i18n: file: widgets/customwidgetUI.ui:32
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:441
+msgid "Command Pattern:"
 msgstr ""
 
-#: rc.cpp:401
-msgid "Title:"
-msgstr ""
-
-#: rc.cpp:404
-msgid "CD Number:"
-msgstr ""
-
-#: rc.cpp:407
-msgid "Track Offset:"
-msgstr ""
-
-#: rc.cpp:410
-msgid "Genre:"
-msgstr ""
-
-#: rc.cpp:413
-msgid "Year:"
-msgstr ""
-
-#: rc.cpp:416
-msgid ""
-"Additional\n"
-"Information:"
-msgstr ""
-
-#: rc.cpp:420
-msgid "Disc ID:"
-msgstr ""
-
-#: rc.cpp:423
-msgid "0x00000000"
-msgstr ""
-
-#: rc.cpp:426
-msgid "&Audex"
-msgstr ""
-
-#: rc.cpp:429
-msgid "&CDDB"
-msgstr ""
-
-#: rc.cpp:435
-msgid "&Settings"
-msgstr ""
-
-#: rc.cpp:441 rc.cpp:628
+#. i18n: file: widgets/faacwidgetUI.ui:32
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#. i18n: file: widgets/oggencwidgetUI.ui:32
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: rc.cpp:450 rc.cpp:582
 msgid "Quality"
 msgstr ""
 
-#: rc.cpp:444 rc.cpp:496 rc.cpp:579 rc.cpp:631
+#. i18n: file: widgets/faacwidgetUI.ui:85
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#. i18n: file: widgets/flacwidgetUI.ui:82
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#. i18n: file: widgets/lamewidgetUI.ui:188
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#. i18n: file: widgets/oggencwidgetUI.ui:85
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#: rc.cpp:453 rc.cpp:472 rc.cpp:563 rc.cpp:585
 msgid "Lowest"
 msgstr ""
 
-#: rc.cpp:447 rc.cpp:499 rc.cpp:582 rc.cpp:634
+#. i18n: file: widgets/faacwidgetUI.ui:102
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#. i18n: file: widgets/flacwidgetUI.ui:99
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#. i18n: file: widgets/lamewidgetUI.ui:199
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#. i18n: file: widgets/oggencwidgetUI.ui:102
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#: rc.cpp:456 rc.cpp:475 rc.cpp:566 rc.cpp:588
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -1469,99 +1567,225 @@ msgid ""
 "p></body></html>"
 msgstr ""
 
-#: rc.cpp:460
+#. i18n: file: widgets/flacwidgetUI.ui:32
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: rc.cpp:469
+msgid "Compression"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:33
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: rc.cpp:494
+msgid "Eject CD tray after finished extraction"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:40
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
+#: rc.cpp:497
+msgid "Automatically lookup CDDB information"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:47
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_1)
+#: rc.cpp:500
+msgid "Localizations"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:53
+#. i18n: ectx: property (text), widget (QLabel, label_amazonLocale)
+#: rc.cpp:503
+msgid "Amazon:"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:70
+#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
+#: rc.cpp:506
+msgid "Wikipedia:"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:83
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: rc.cpp:509
+msgid "Device"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:113
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: rc.cpp:518
+msgid "Paths"
+msgstr ""
+
+#. i18n: file: widgets/generalsettingswidgetUI.ui:124
+#. i18n: ectx: property (text), widget (QLabel, label_basePath)
+#: rc.cpp:521
+msgid "Base path to store music files:"
+msgstr ""
+
+#. i18n: file: widgets/lamewidgetUI.ui:44
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: rc.cpp:527
 msgid "Quality/Bitrate"
 msgstr ""
 
-#: rc.cpp:463
+#. i18n: file: widgets/lamewidgetUI.ui:56
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
+#: rc.cpp:530
 msgid ""
 "This preset should provide near transparency to most people on most music."
 msgstr ""
 
-#: rc.cpp:466
+#. i18n: file: widgets/lamewidgetUI.ui:59
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
+#: rc.cpp:533
 msgid "Medium (140...185 kbit/s)"
 msgstr ""
 
-#: rc.cpp:469
+#. i18n: file: widgets/lamewidgetUI.ui:72
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
+#: rc.cpp:536
 msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
 
-#: rc.cpp:472
+#. i18n: file: widgets/lamewidgetUI.ui:75
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
+#: rc.cpp:539
 msgid "Extreme (220...260 kbits/s)"
 msgstr ""
 
-#: rc.cpp:475
+#. i18n: file: widgets/lamewidgetUI.ui:101
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
+#: rc.cpp:542
 msgid ""
 "This preset should generally be transparent to most people on most music and "
 "is already quite high in quality."
 msgstr ""
 
-#: rc.cpp:478
+#. i18n: file: widgets/lamewidgetUI.ui:104
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
+#: rc.cpp:545
 msgid "Standard (170...210 kbit/s)"
 msgstr ""
 
-#: rc.cpp:481
+#. i18n: file: widgets/lamewidgetUI.ui:117
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
+#: rc.cpp:548
 msgid ""
 "This preset will usually be overkill for most people and most situations, "
 "but if you must have the absolute highest quality with no regard to "
 "filesize, this is the way to go."
 msgstr ""
 
-#: rc.cpp:484
+#. i18n: file: widgets/lamewidgetUI.ui:120
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
+#: rc.cpp:551
 msgid "Insane (320 kbit/s)"
 msgstr ""
 
-#: rc.cpp:490
+#. i18n: file: widgets/lamewidgetUI.ui:133
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
+#: rc.cpp:554 utils/encoderassistant.h:151
+msgid "Custom"
+msgstr ""
+
+#. i18n: file: widgets/lamewidgetUI.ui:143
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
+#: rc.cpp:557
 msgid "Constant Bitrate"
 msgstr ""
 
-#: rc.cpp:493
+#. i18n: file: widgets/lamewidgetUI.ui:156
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: rc.cpp:560
 msgid "Target Bitrate (kbit/s)"
 msgstr ""
 
-#: rc.cpp:506
+#. i18n: file: widgets/lamewidgetUI.ui:242
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: rc.cpp:573
 msgid "Embed cover in music file"
 msgstr ""
 
-#: rc.cpp:515
-msgid "Command Pattern:"
+#. i18n: file: widgets/oggencwidgetUI.ui:133
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: rc.cpp:595
+msgid "Target Bitrate ~"
 msgstr ""
 
-#: rc.cpp:530
-msgid "Eject CD tray after finished extraction"
+#. i18n: file: widgets/oggencwidgetUI.ui:180
+#. i18n: ectx: property (text), widget (QLabel, label_kbits)
+#. i18n: file: widgets/oggencwidgetUI.ui:210
+#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
+#. i18n: file: widgets/oggencwidgetUI.ui:250
+#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
+#: rc.cpp:598 rc.cpp:604 rc.cpp:610
+msgid "kbit/s"
 msgstr ""
 
-#: rc.cpp:533
-msgid "Automatically lookup CDDB information"
+#. i18n: file: widgets/oggencwidgetUI.ui:190
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
+#: rc.cpp:601
+msgid "Set minimum bitrate"
 msgstr ""
 
-#: rc.cpp:536
-msgid "Localizations"
+#. i18n: file: widgets/oggencwidgetUI.ui:230
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
+#: rc.cpp:607
+msgid "Set maximum bitrate"
 msgstr ""
 
-#: rc.cpp:539
-msgid "Amazon:"
+#. i18n: file: widgets/profilewidgetUI.ui:24
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
+#: rc.cpp:619
+msgid "Add..."
 msgstr ""
 
-#: rc.cpp:542
-msgid "Wikipedia:"
+#. i18n: file: widgets/profilewidgetUI.ui:31
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
+#: rc.cpp:622
+msgid "Remove"
 msgstr ""
 
-#: rc.cpp:545
-msgid "Device"
+#. i18n: file: widgets/profilewidgetUI.ui:38
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
+#: rc.cpp:625
+msgid "Modify..."
 msgstr ""
 
-#: rc.cpp:554
-msgid "Paths"
+#. i18n: file: widgets/profilewidgetUI.ui:45
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
+#: rc.cpp:628
+msgid "Copy"
 msgstr ""
 
-#: rc.cpp:557
-msgid "Base path to store music files:"
+#. i18n: file: widgets/profilewidgetUI.ui:68
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
+#: rc.cpp:631 widgets/profilewidget.cpp:141 widgets/profilewidget.cpp:151
+msgid "Codec Scan"
 msgstr ""
 
-#: rc.cpp:563
+#. i18n: file: widgets/profilewidgetUI.ui:88
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
+#: rc.cpp:634
+msgid "Load..."
+msgstr ""
+
+#. i18n: file: widgets/profilewidgetUI.ui:95
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
+#: rc.cpp:637
+msgid "Save..."
+msgstr ""
+
+#. i18n: file: widgets/remoteserversettingswidgetUI.ui:45
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:646
+msgid "URL:"
+msgstr ""
+
+#. i18n: file: widgets/wavewidgetUI.ui:35
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: rc.cpp:652
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\">\n"
@@ -1575,151 +1799,370 @@ msgid ""
 "settings are needed for wave files.</p></body></html>"
 msgstr ""
 
-#: rc.cpp:576
-msgid "Compression"
+#: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
+msgid "Internal device error."
 msgstr ""
 
-#: rc.cpp:595
-msgid "Add..."
+#: utils/cddaextractthread.cpp:32
+msgid "Check your device and make a bug report."
 msgstr ""
 
-#: rc.cpp:598
-msgid "Remove"
+#: utils/cddaextractthread.cpp:70
+msgid "Extracting finished."
 msgstr ""
 
-#: rc.cpp:601
-msgid "Modify..."
+#: utils/cddaextractthread.cpp:95
+msgid "Ripping track %1 (%2:%3)..."
 msgstr ""
 
-#: rc.cpp:604
-msgid "Copy"
+#: utils/cddaextractthread.cpp:97
+msgid "Start reading track %1 with %2 sectors"
 msgstr ""
 
-#: rc.cpp:610
-msgid "Load..."
+#: utils/cddaextractthread.cpp:136
+msgid "User canceled extracting."
 msgstr ""
 
-#: rc.cpp:613
-msgid "Save..."
+#: utils/cddaextractthread.cpp:139
+msgid "An error occured while ripping track %1."
 msgstr ""
 
-#: rc.cpp:622
-msgid "URL:"
+#: utils/cddaextractthread.cpp:141
+msgid "Ripping OK (Track %1)."
 msgstr ""
 
-#: rc.cpp:641
-msgid "Target Bitrate ~"
+#: utils/cddaextractthread.cpp:144
+msgid "Reading finished"
 msgstr ""
 
-#: rc.cpp:644 rc.cpp:650 rc.cpp:656
-msgid "kbit/s"
-msgstr ""
-
-#: rc.cpp:647
-msgid "Set minimum bitrate"
-msgstr ""
-
-#: rc.cpp:653
-msgid "Set maximum bitrate"
-msgstr ""
-
-#: core/audex.cpp:113
-msgid "No profile selected. Operation abort."
-msgstr ""
-
-#: core/audex.cpp:125
+#: utils/cddaextractthread.cpp:187
 msgid ""
-"Unable to create temporary directory \"%1\". Please check. Abort operation."
+"fixup edge (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:137
-msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
-
-#: core/audex.cpp:430
-msgid "Cant find path \"%1\"."
-msgstr ""
-
-#: core/audex.cpp:430 core/audex.cpp:439
-msgid "Please check your path (write access?)"
-msgstr ""
-
-#: core/audex.cpp:439
-msgid "Unable to create directory \"%1\"."
-msgstr ""
-
-#: core/audex.cpp:442
-msgid "Directory \"%1\" successfully created."
-msgstr ""
-
-#: core/audex.cpp:445
-msgid "Directory \"%1\" already exists."
-msgstr ""
-
-#: core/audex.cpp:452
+#: utils/cddaextractthread.cpp:191
 msgid ""
-"Free space on \"%1\" is less than 200 MB. Problems with low space possible."
+"fixup atom (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:458
-msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
-
-#: core/audex.cpp:460 core/audex.cpp:562 core/audex.cpp:594 core/audex.cpp:642
-#: core/audex.cpp:681 core/audex.cpp:718
-msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
-
-#: core/audex.cpp:481
-msgid "Temporary directory name \"%1\" must not be empty."
-msgstr ""
-
-#: core/audex.cpp:481
-msgid "Please set one."
-msgstr ""
-
-#: core/audex.cpp:487
-msgid "Temporary directory \"%1\" does not exists."
-msgstr ""
-
-#: core/audex.cpp:487
-msgid "Please check."
-msgstr ""
-
-#: core/audex.cpp:495
+#: utils/cddaextractthread.cpp:196
 msgid ""
-"Free space on temporary directory \"%1\" is less than 800 MiB. Problems with "
-"low space possible."
+"scratch detected (absolute sector %1, relative sector %2, track time pos %3:%"
+"4)"
 msgstr ""
 
-#: core/audex.cpp:497
-msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
+#: utils/cddaextractthread.cpp:200
+msgid "repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:497
-msgid "Please free space or set another path."
+#: utils/cddaextractthread.cpp:205
+msgid "skip (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:530
-msgid "Eject CD tray"
+#: utils/cddaextractthread.cpp:209
+msgid "drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:567
-msgid "Cover \"%1\" successfully saved."
+#: utils/cddaextractthread.cpp:213
+msgid "backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:620
-msgid "Playlist \"%1\" successfully created."
+#: utils/cddaextractthread.cpp:223
+msgid ""
+"fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:655
-msgid "Infofile \"%1\" successfully stored."
+#: utils/cddaextractthread.cpp:227
+msgid ""
+"fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 
-#: core/audex.cpp:700
-msgid "Hashlist \"%1\" successfully stored."
+#: utils/cddaextractthread.cpp:231
+msgid ""
+"Read error detected (absolute sector %1, relative sector %2, track time pos %"
+"3:%4)"
 msgstr ""
 
-#: core/audex.cpp:727
-msgid "Discid successfully stored."
+#: utils/cddaextractthread.cpp:232
+msgid ""
+"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaparanoia.cpp:41
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+
+#: utils/coverfetcher.cpp:110
+msgid "There was an error communicating with Amazon."
+msgstr ""
+
+#: utils/coverfetcher.cpp:110
+msgid "Try again later. Otherwise make a bug report."
+msgstr ""
+
+#: utils/coverfetcher.cpp:121
+msgid "amazon server: Empty response."
+msgstr ""
+
+#: utils/coverfetcher.cpp:122 utils/coverfetcher.cpp:172
+#: utils/coverfetcher.cpp:185
+msgid "Try again later. Make a bug report."
+msgstr ""
+
+#: utils/coverfetcher.cpp:171 utils/coverfetcher.cpp:184
+msgid "The XML obtained from Amazon is invalid."
+msgstr ""
+
+#: utils/encoderassistant.h:66
+msgid "MP3"
+msgstr ""
+
+#: utils/encoderassistant.h:91
+msgid "Ogg Vorbis"
+msgstr ""
+
+#: utils/encoderassistant.h:119
+msgid "FLAC (Uncompressed)"
+msgstr ""
+
+#: utils/encoderassistant.h:128
+msgid "AAC"
+msgstr ""
+
+#: utils/encoderassistant.h:144
+msgid "WAVE (Raw Uncompressed)"
+msgstr ""
+
+#: utils/encoderwrapper.cpp:56
+msgid "Command pattern is empty."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:68
+msgid "Encoding track %1..."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:86
+msgid "Deleted partial file \"%1\"."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:91
+msgid "User canceled encoding."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:139
+msgid "Encoding OK (\"%1\")."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:141
+msgid "An error occured while encoding file \"%1\"."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
+#: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
+msgid "Please check your profile."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:152
+msgid "%1 failed to start."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:152
+msgid ""
+"Either it is missing, or you may have insufficient permissions to invoke the "
+"program."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:154
+msgid "%1 crashed some time after starting successfully."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:156
+msgid "%1 timed out. This should not happen."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:158
+msgid "An error occurred when attempting to write to %1."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:158
+msgid ""
+"For example, the proc may not be running, or it may have closed its input "
+"channel."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:160
+msgid "An error occurred when attempting to read from %1."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:160
+msgid "For example, the proc may not be running."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:162
+msgid "An unknown error occurred to %1. This should not happen."
+msgstr ""
+
+#: utils/upload.cpp:61
+msgid "Uploading file %1 to server. Please wait..."
+msgstr ""
+
+#: utils/upload.cpp:68
+msgid "Finished uploading file %1 to server."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:423
+msgid "Released: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:424
+msgid "Genre: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:425
+msgid "CD Number: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:460
+msgid "Wikipedia"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:485
+msgid "No CD in drive"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:637
+msgid "Load cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:645
+msgid "Save Cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:653
+msgid "View Cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:735
+msgid "Fetch Cover From Amazon..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:740
+msgid "Set Custom Cover..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:745
+msgid "Save Cover To File..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:750
+msgid "Show Full Size Cover..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:755
+msgid "Remove Cover"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:24
+msgid "International/USA"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:25
+msgid "Germany"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:26
+msgid "France"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:27
+msgid "Canada"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:28
+msgid "Japan"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:29
+msgid "UK"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:32
+msgid "English"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:33
+msgid "Deutsch"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:34
+msgid "Français"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:35
+msgid "Polski"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:36
+msgid "日本語"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:37
+msgid "Italiano"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:38
+msgid "Nederlands"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:39
+msgid "Español"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:40
+msgid "Português"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:41
+msgid "Svenska"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:50
+msgid "None detected"
+msgstr ""
+
+#: widgets/profilewidget.cpp:79
+msgid "Do you really want to delete profile \"%1\"?"
+msgstr ""
+
+#: widgets/profilewidget.cpp:80
+msgid "Delete profile"
+msgstr ""
+
+#: widgets/profilewidget.cpp:123
+msgid "Save cover"
+msgstr ""
+
+#: widgets/profilewidget.cpp:130
+msgid "Load profiles"
+msgstr ""
+
+#: widgets/profilewidget.cpp:139
+msgid ""
+"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
+"some sample profiles based upon any found codecs.</font></p>"
+msgstr ""
+
+#: widgets/profilewidget.cpp:147
+msgid "No new codecs found"
+msgstr ""
+
+#: widgets/profilewidget.cpp:149
+msgid "1 new profile added"
+msgstr ""
+
+#: widgets/profilewidget.cpp:150
+msgid "%1 new profiles added"
 msgstr ""

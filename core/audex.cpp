@@ -90,6 +90,8 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
   current_sector = 0;
   current_encoder_percent = 0;
 
+  overall_frames = 0;
+
 }
 
 Audex::~Audex() {
@@ -345,22 +347,20 @@ void Audex::calculate_speed_encode() {
 
 void Audex::progress_extract(int percent_of_track, int sector, int overall_sectors_read) {
 
-  int frames = 0;
-  QSet<int> sel = cdda_model->selectedTracks();
-  if (sel.count()==0) {
-    frames = cdda_extract_thread->cddaParanoia()->numOfFramesOfAudioTracks();
-  } else {
+  if (overall_frames==0) {
+    QSet<int> sel = cdda_model->selectedTracks();
     QSet<int>::ConstIterator it(sel.begin()), end(sel.end());
     for (; it!=end; ++it) {
-      if ((*it < 0) || (*it >= cdda_extract_thread->cddaParanoia()->numOfTracks()) ||
-           (!cdda_extract_thread->cddaParanoia()->isAudioTrack((*it))))
+      if ((*it < 0) || (*it > cdda_extract_thread->cddaParanoia()->numOfTracks()) ||
+           (!cdda_extract_thread->cddaParanoia()->isAudioTrack((*it)))) {
         continue;
-      frames += cdda_extract_thread->cddaParanoia()->numOfFramesOfTrack((*it));
+      }
+      overall_frames += cdda_extract_thread->cddaParanoia()->numOfFramesOfTrack((*it));
     }
   }
 
   float fraction = 0.0f;
-  if (frames>0) fraction = (float)overall_sectors_read / (float)frames;
+  if (overall_frames>0) fraction = (float)overall_sectors_read / (float)overall_frames;
 
   emit progressExtractTrack(percent_of_track);
   emit progressExtractOverall((int)(fraction*100.0f));

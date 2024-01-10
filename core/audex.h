@@ -232,6 +232,7 @@ private:
   QTimer *timer_extract;
   int current_sector;
   int last_measuring_point_sector;
+  int overall_frames;
 
   /*PROCESS 2: ENCODING*/
   QString en_track_filename;

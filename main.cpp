@@ -35,6 +35,7 @@ int main (int argc, char *argv[]) {
   aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer"), "marco@maniatek.de");
   aboutData.addCredit(ki18n("freedb.org"), ki18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
   aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements"), 0, "");
+  aboutData.setTranslator(ki18nc("NAME OF TRANSLATORS", "Your names"), ki18nc("EMAIL OF TRANSLATORS", "Your emails"));
 
   KCmdLineArgs::init(argc, argv, &aboutData);
   KApplication app;
