@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,47 +16,47 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef SIMPLEMASKWIZARDDIALOG_HEADER
-#define SIMPLEMASKWIZARDDIALOG_HEADER
+#ifndef SIMPLEMASKWIZARDDIALOG_H
+#define SIMPLEMASKWIZARDDIALOG_H
 
-#include <QtCore>
-#include <QtGui>
-#include "ui_simplemaskwizarddialog.h"
+#include <QWidget>
 
-#include "../base/qprofilemodel.h"
-#include "../base/qmaskparser.h"
+#include <KDebug>
+#include <KDialog>
 
-class simplemaskwizarddialog : public QDialog, private Ui::SimpleMaskWizardDialog {
+#include "../utils/maskparser.h"
+
+#include "ui_simplemaskwizardwidgetUI.h"
+
+class SimpleMaskWizardDialog : public KDialog {
+
   Q_OBJECT
+
 public:
-  simplemaskwizarddialog(QWidget *parent, QSettings *settings, QProfileModel *profile_model, QString *mask, const QString& extension);
-  ~simplemaskwizarddialog();
+  SimpleMaskWizardDialog(const QString& mask, const QString& suffix, QWidget *parent = 0);
+  ~SimpleMaskWizardDialog();
+
+  QString mask;
+
+protected slots:
+  virtual void slotButtonClicked(int button);
 
 private slots:
+  void trigger_changed();
+
   void insAlbumArtist();
   void insAlbumTitle();
   void insCDNo();
   void insDate();
   void insGenre();
 
-  void ok();
-  void cancel();
-
   void update_example();
 
-  void enable_help(bool enabled);
-
-protected:
-  bool eventFilter(QObject *target, QEvent *event);
-
-  void closeEvent(QCloseEvent *event);
-
 private:
-  QSettings *settings;
-  QProfileModel *profile_model;
+  Ui::SimpleMaskWizardWidgetUI ui;
+  QString suffix;
 
-  QString *mask;
-  QString extension;
+  bool save();
 
 };
 

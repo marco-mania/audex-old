@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,26 +16,35 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef PROTOCOLDIALOG_HEADER
-#define PROTOCOLDIALOG_HEADER
+#ifndef PROTOCOLDIALOG_H
+#define PROTOCOLDIALOG_H
 
-#include <QtCore>
-#include <QtGui>
-#include "ui_protocoldialog.h"
+#include <QWidget>
+#include <QDateTime>
 
-class protocoldialog : public QDialog, private Ui::ProtocolDialog {
+#include <KDebug>
+#include <KDialog>
+#include <KFileDialog>
+
+#include "ui_protocolwidgetUI.h"
+
+class ProtocolDialog : public KDialog {
+
   Q_OBJECT
+
 public:
-  protocoldialog(QWidget *parent, QSettings *settings, const QString& title, const QStringList& protocol);
-  ~protocoldialog();
+  ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent = 0);
+  ~ProtocolDialog();
+
 private slots:
-  void saveToFile();
-protected:
-  void closeEvent(QCloseEvent *event);
+  void save();
+
 private:
-  QSettings *settings;
-  QString title;
+  Ui::ProtocolWidgetUI ui;
+
   QStringList protocol;
+  QString title;
+
 };
 
 #endif

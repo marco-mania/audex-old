@@ -1,5 +1,5 @@
-/* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+/* ADEX CDDA EXTRACTOR
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -18,261 +18,159 @@
 
 #include "maskwizarddialog.h"
 
-maskwizarddialog::maskwizarddialog(QWidget *parent, QSettings *settings, QProfileModel *profile_model, QString *mask) {
+MaskWizardDialog::MaskWizardDialog(const QString& mask, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
-  setupUi(this);
+  QWidget *widget = new QWidget(this);
+  ui.setupUi(widget);
 
-  this->settings = settings;
-  this->profile_model = profile_model;
+  setMainWidget(widget);
+
+  setCaption(i18n("Filename Mask Wizard"));
+
+  setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
+
+  ui.klineedit_mask->setText(mask);
+  connect(ui.klineedit_mask, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  connect(ui.klineedit_mask, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
+  ui.klineedit_mask->setCursorPosition(0);
+
+  connect(ui.kpushbutton_albumartist, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
+  connect(ui.kpushbutton_albumtitle, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
+  connect(ui.kpushbutton_trackartist, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
+  connect(ui.kpushbutton_tracktitle, SIGNAL(clicked()), this, SLOT(insTrackTitle()));
+  connect(ui.kpushbutton_trackno, SIGNAL(clicked()), this, SLOT(insTrackNo()));
+  connect(ui.kpushbutton_cdno, SIGNAL(clicked()), this, SLOT(insCDNo()));
+  connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
+  connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
+  connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
+  connect(ui.kpushbutton_basepath, SIGNAL(clicked()), this, SLOT(insBasePath()));
+  connect(ui.kpushbutton_homepath, SIGNAL(clicked()), this, SLOT(insHomePath()));
+
   this->mask = mask;
 
-  connect(buttonBox, SIGNAL(accepted()), this, SLOT(ok()));
-  connect(buttonBox, SIGNAL(rejected()), this, SLOT(cancel()));
+  enableButtonApply(FALSE);
 
-  connect(pushButton, SIGNAL(clicked()), this, SLOT(insAlbumArtist()));
-  pushButton->installEventFilter(this);
-  connect(pushButton_3, SIGNAL(clicked()), this, SLOT(insAlbumTitle()));
-  pushButton_3->installEventFilter(this);
-  connect(pushButton_11, SIGNAL(clicked()), this, SLOT(insTrackArtist()));
-  pushButton_11->installEventFilter(this);
-  connect(pushButton_2, SIGNAL(clicked()), this, SLOT(insTrackTitle()));
-  pushButton_2->installEventFilter(this);
-  connect(pushButton_4, SIGNAL(clicked()), this, SLOT(insTrackNo()));
-  pushButton_4->installEventFilter(this);
-  connect(pushButton_5, SIGNAL(clicked()), this, SLOT(insCDNo()));
-  pushButton_5->installEventFilter(this);
-  connect(pushButton_7, SIGNAL(clicked()), this, SLOT(insDate()));
-  pushButton_7->installEventFilter(this);
-  connect(pushButton_8, SIGNAL(clicked()), this, SLOT(insGenre()));
-  pushButton_8->installEventFilter(this);
-  connect(pushButton_9, SIGNAL(clicked()), this, SLOT(insExtension()));
-  pushButton_9->installEventFilter(this);
-  connect(pushButton_10, SIGNAL(clicked()), this, SLOT(insBasePath()));
-  pushButton_10->installEventFilter(this);
-  connect(pushButton_6, SIGNAL(clicked()), this, SLOT(insHomePath()));
-  pushButton_6->installEventFilter(this);
+  update_example();
 
-  connect(lineEdit, SIGNAL(textChanged(const QString&)), this, SLOT(update_example()));
+}
 
-  if (!mask->isEmpty()) {
-    lineEdit->setText(*mask);
-    update_example();
+MaskWizardDialog::~MaskWizardDialog() {
+
+}
+
+void MaskWizardDialog::slotButtonClicked(int button) {
+  if (button == KDialog::Ok) {
+    save();
+    accept();
+  } else if (button == KDialog::Apply) {
+    save();
+  } else {
+    KDialog::slotButtonClicked(button);
   }
-
-  label_3->clear();
-
-  checkBox->setChecked(settings->value("maskwizarddialog/show_help", TRUE).toBool());
-  connect(checkBox, SIGNAL(toggled(bool)), this, SLOT(enable_help(bool)));
-  enable_help(settings->value("maskwizarddialog/show_help", TRUE).toBool());
-
-  resize(settings->value("maskwizarddialog/size", QSize(440, 550)).toSize());
-  move(settings->value("maskwizarddialog/pos", QPoint(100, 100)).toPoint());
-
 }
 
-maskwizarddialog::~maskwizarddialog() {
+void MaskWizardDialog::trigger_changed() {
+  if (ui.klineedit_mask->text() != mask) { enableButtonApply(TRUE); return; }
+  enableButtonApply(FALSE);
 }
 
-void maskwizarddialog::insHomePath() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_HOME_PATH);
-  lineEdit->setText(text);
+void MaskWizardDialog::insHomePath() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_HOME_PATH)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insBasePath() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_BASE_PATH);
-  lineEdit->setText(text);
+void MaskWizardDialog::insBasePath() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_BASE_PATH)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insAlbumArtist() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_ALBUM_ARTIST);
-  lineEdit->setText(text);
+void MaskWizardDialog::insAlbumArtist() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_ARTIST)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insAlbumTitle() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_ALBUM_TITLE);
-  lineEdit->setText(text);
+void MaskWizardDialog::insAlbumTitle() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_ALBUM_TITLE)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insTrackArtist() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_TRACK_ARTIST);
-  lineEdit->setText(text);
+void MaskWizardDialog::insTrackArtist() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_ARTIST)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insTrackTitle() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_TRACK_TITLE);
-  lineEdit->setText(text);
+void MaskWizardDialog::insTrackTitle() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_TITLE)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insTrackNo() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_TRACK_NO);
-  lineEdit->setText(text);
+void MaskWizardDialog::insTrackNo() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_TRACK_NO)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insCDNo() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_CDNO);
-  lineEdit->setText(text);
+void MaskWizardDialog::insCDNo() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_CDNO)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insDate() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_DATE);
-  lineEdit->setText(text);
+void MaskWizardDialog::insDate() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_DATE)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insGenre() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_GENRE);
-  lineEdit->setText(text);
+void MaskWizardDialog::insGenre() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_GENRE)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::insExtension() {
-  QString text = lineEdit->text();
-  text.insert(lineEdit->cursorPosition(), VAR_EXTENSION);
-  lineEdit->setText(text);
+void MaskWizardDialog::insSuffix() {
+  QString text = ui.klineedit_mask->text();
+  text.insert(ui.klineedit_mask->cursorPosition(), "<"+QString(TAG_SUFFIX)+" />");
+  ui.klineedit_mask->setText(text);
   update_example();
 }
 
-void maskwizarddialog::ok() {
-  *mask = lineEdit->text();
-  setResult(QDialog::Accepted);
-  close();
+bool MaskWizardDialog::save() {
+  mask = ui.klineedit_mask->text();
+  enableButtonApply(FALSE);
+  return TRUE;
 }
 
-void maskwizarddialog::cancel() {
-  setResult(QDialog::Rejected);
-  close();
-}
-
-void maskwizarddialog::update_example() {
-  QMaskParser maskparser;
-  QString filename = maskparser.parseFilenameMask(lineEdit->text(),
+void MaskWizardDialog::update_example() {
+  MaskParser maskparser;
+  QString filename = maskparser.parseFilenameMask(ui.klineedit_mask->text(),
 	2, 1, 1,
 	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
 	"2006", "Rock", "ogg", "~", FALSE);
-  lineEdit_2->setText(filename);
-  filename = maskparser.parseFilenameMask(lineEdit->text(),
+  ui.klineedit_album_example->setText(filename);
+  ui.klineedit_album_example->setCursorPosition(0);
+  filename = maskparser.parseFilenameMask(ui.klineedit_mask->text(),
 	4, 2, 1,
 	"Bravo Hits", "Volume 41", "Wolfsheim", "Kein Zurueck",
 	"2003", "Darkwave", "ogg", "~", FALSE);
-  lineEdit_3->setText(filename);
-}
-
-void maskwizarddialog::enable_help(bool enabled) {
-  if (enabled) {
-    frame_3->setVisible(TRUE);
-    this->setMinimumSize(QSize(440, 550));
-  } else {
-    frame_3->setVisible(FALSE);
-    this->setMinimumSize(QSize(440, 410));
-    this->resize(QSize(this->width(), this->height()-140));
-  }
-}
-
-bool maskwizarddialog::eventFilter(QObject *target, QEvent *event) {
-  if (target == pushButton) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the artist or title of the <b>whole</b> album or compilation.\nDepending on the definition in your profile it could be anything else."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_3) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the title or subtitle of the <b>whole</b> album or compilation.\nDepending on the definition in your profile it could be anything else."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_11) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the artist of a single track. It makes sense especially on compilations with different artists each track."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_2) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the title of a single track. Normally each track on a cd holds an own title."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_4) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the track number of a single track.\nNote: Append \".0\" to the variable means that a track number smaller than 10 will be filled with zeros. E.g. 01, 02, 03, 04... etc. Accordingly you can append \".00\", \".000\"."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_5) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the cd number of an album or compilation (Multi-CD).\nNote 1: Only works for multi-cds.\nNote 2: Append \".0\" to the variable means that a track number smaller than 10 will be filled with zeros. E.g. 01, 02, 03, 04... etc. Accordingly you can append \".00\", \".000\"."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_7) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents just the release date of the cd. In almost all cases this is the year."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_8) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the genre."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_9) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the file extension. It is defined by the profile. In most cases it will be \"mp3\" or \"ogg\"."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_10) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents the base path. It is defined by the general settings."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  } else if (target == pushButton_6) {
-    if (event->type() == QEvent::Enter) {
-      label_3->setText(trUtf8("This variable represents your home path."));
-    }
-    if (event->type() == QEvent::Leave) {
-      label_3->clear();
-    }
-  }
-  return QWidget::eventFilter(target, event);
-}
-
-void maskwizarddialog::closeEvent(QCloseEvent *event) {
-  settings->setValue("maskwizarddialog/pos", pos());
-  settings->setValue("maskwizarddialog/size", size());
-  settings->setValue("maskwizarddialog/show_help", checkBox->isChecked());
-  event->accept();
+  ui.klineedit_sampler_example->setText(filename);
+  ui.klineedit_sampler_example->setCursorPosition(0);
 }

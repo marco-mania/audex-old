@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,136 +16,107 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef MAINWINDOW_HEADER
-#define MAINWINDOW_HEADER
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QtCore>
-#include <QtGui>
-#include <QtSql>
-#include "ui_mainwindow.h"
+#include <QObject>
+#include <QLabel>
+#include <QComboBox>
+#include <QTableView>
+#include <QDockWidget>
+#include <QInputDialog>
 
-#include "base/qprofilemodel.h"
-#include "metadata/qcddametadatamodel.h"
-#include "base/qencoderwrapper.h"
-#include "metadata/qcddb.h"
-#include "sql/qaudexsql.h"
+#include <KXmlGuiWindow>
+#include <KApplication>
+#include <KAction>
+#include <KLocale>
+#include <KStandardDirs>
+#include <KActionCollection>
+#include <KStandardAction>
+#include <KStatusBar>
+#include <KConfigDialog>
+#include <KCModuleLoader>
+#include <KLineEdit>
+#include <KComboBox>
+#include <KTextEdit>
+#include <KPushButton>
+#include <KMessageBox>
+#include <libkcompactdisc/kcompactdisc.h>
+#include <libkcddb/kcddb.h>
+#include <libkcddb/client.h>
+#include <libkcddb/cdinfo.h>
 
-#include "dialogs/extractdialog.h"
-#include "dialogs/settingsdialog.h"
-#include "dialogs/reportdialog.h"
-#include "dialogs/cddbmatchingdialog.h"
-#include "dialogs/sqlmatchingdialog.h"
-#include "dialogs/aboutdialog.h"
-#include "dialogs/errordialog.h"
-#include "dialogs/multicddialog.h"
-#include "dialogs/coverfromamazondialog.h"
-#include "dialogs/fullcoverdialog.h"
-#include "dialogs/categorydialog.h"
-#include "dialogs/proxyauthdialog.h"
+#include "../utils/error.h"
 
-#define		LABEL		"Audex"
-#define		MARK		"audex"
-#define		NAME		"Little Linz^2"
-#define		VERSION		"0.46"
-#define		VERSION_MARK	"beta"
+#include "models/cddamodel.h"
+#include "models/profilemodel.h"
 
-class mainwindow : public QMainWindow, private Ui::MainWindow {
+#include "preferences.h"
+#include "widgets/generalsettingswidget.h"
+#include "widgets/profilewidget.h"
+#include "widgets/ftpsettingswidget.h"
+#include "widgets/cddaheaderwidget.h"
+
+#include "dialogs/extractingprogressdialog.h"
+#include "dialogs/assistantdialog.h"
+
+class MainWindow : public KXmlGuiWindow {
 
   Q_OBJECT
 
 public:
-  mainwindow(QWidget *parent = 0);
-  ~mainwindow();
+  MainWindow(QWidget *parent = 0);
+  ~MainWindow();
+
+  void startAssistant();
 
 private slots:
-
-  void fetch_cddb_data();
-  void submit_cddb_data();
   void eject();
+  void cddb_lookup();
+  void cddb_submit();
+  void extract();
+  void configure();
 
-  void open_extract_dialog();
-  void open_settings_dialog();
-  void open_about_qt_dialog();
-  void open_about_dialog();
-  void open_amazon_cover_dialog();
-  void load_cover();
-  void save_cover();
-  void open_cover_dialog();
-  void remove_cover();
+  void drive_status_changed(const CDDAModel::DriveStatus status);
+  void disc_status_changed(const CDDAModel::DiscStatus status);
+  void disc_changed(const CDDAModel::DiscType type);
+  void disc_info_changed(const CDDAModel::DiscInfo info);
 
-  void cover_context_menu(const QPoint& point);
+  void cddb_lookup_start();
+  void cddb_lookup_done(const bool successful);
 
-  void enable_main_overview(bool enabled);
-  void enable_fetch_cddb_data(bool enabled);
-  void enable_submit_cddb_data(bool enabled);
-  void enable_extract(bool enabled);
-  void enable_fetch_cover_from_amazon(bool enabled);
-  void enable_load_cover(bool enabled);
-  void enable_save_cover(bool enabled);
-  void enable_show_cover_dialog(bool enabled);
-  void enable_delete_cover(bool enabled);
+  void update_layout();
 
-  void show_error(const QString& description, const QString& solution);
-  void show_warn(const QString& description);
-  void show_log(const QString& message);
+  void enable_layout(bool enabled);
+  void enable_submit(bool enabled = TRUE);
+  void disable_submit();
 
-  void update_drive_status(QCDDADrive::DriveStatus drivestatus);
-  void update_header_metadata();
-  void update_labels(int profile_row);
-  void update_various(bool various);
-  void update_title_correction_tools(bool enable);
-  void update_artist();
-  void update_title();
-  void update_genre();
-  void update_year();
-  void update_extended_data();
-  void update_mode(bool enabled);
-  void update_cdda_model_columns();
-  void update_cddb_actions();
-  void update_fetch_cover_from_amazon_action();
-  void update_cover(const QImage& image);
+  void configuration_updated(const QString& dialog_name);
 
-  void editNextTableItem(const QModelIndex&);
+  void profile_updated();
 
-  void swap_metadata_artist_and_titles();
-  void capitalize_metadata();
-  void split_metadata_titles();
-  void autofill_artists();
-
-  void slot_cddb_query_done(int matchcount);
-  void slot_cddb_read_done();
-  void slot_cddb_submit_done();
-  void slot_cddb_busy(bool indicator, int kind);
-
-  void slot_cddb_proxy_auth_req(const QNetworkProxy& proxy, QAuthenticator *authenticator);
-
-protected:
-  void closeEvent(QCloseEvent *event);
+  void split_titles();
+  void swap_artists_and_titles();
+  void capitalize();
+  void auto_fill_artists();
 
 private:
-  QSettings *settings;
-  QProfileModel *profile_model;
-  QCDDADevice *device;
-  QCDDB *cddb;
-  QCDDAMetaDataModel *cdda_metadata_model;
+  CDDAModel *cdda_model;
+  ProfileModel *profile_model;
 
-  void create_toolbar();
-  QLabel *profileLabel;
-  QComboBox *profileComboBox;
-  QLabel *nullLabel;
+  QLabel *profile_label;
+  QComboBox *profile_combobox;
+  QLabel *status_label;
+  QLabel *mode_label;
+  QLabel *cddb_label;
 
-  void create_statusbar();
-  QLabel *statusLabel;
-  QLabel *modeLabel;
-  QLabel *cddbLabel;
+  void setup_actions();
+  void setup_layout();
 
-  QAction *actionFetchCover;
-  QAction *actionLoadCover;
-  QAction *actionSaveCover;
-  QAction *actionShowFullSizeCover;
-  QAction *actionRemoveCover;
+  QTableView *cdda_table_view;
 
-  QStringList check_metadata() const;
+  QDockWidget *cdda_header_dock;
+  CDDAHeaderWidget *cdda_header_widget;
 
 };
 

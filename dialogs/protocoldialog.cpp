@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -18,39 +18,35 @@
 
 #include "protocoldialog.h"
 
-protocoldialog::protocoldialog(QWidget *parent, QSettings *settings, const QString& title, const QStringList& protocol) {
+ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
-  this->title = title;
+  QWidget *widget = new QWidget(this);
+  ui.setupUi(widget);
+
+  setMainWidget(widget);
+
+  setCaption(title);
+
+  setButtons(None);
+
+  ui.ktextedit->setPlainText(protocol.join("\n"));
+
+  connect(ui.kpushbutton_close, SIGNAL(clicked()), this, SLOT(close()));
+  connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save()));
+
   this->protocol = protocol;
+  this->title = title;
 
-  setupUi(this);
-  this->settings = settings;
-  connect(pushButton, SIGNAL(clicked()), this, SLOT(close()));
-  connect(pushButton_2, SIGNAL(clicked()), this, SLOT(saveToFile()));
-  textEdit->setPlainText(protocol.join("\n"));
-
-  setWindowTitle(title);
-
-  resize(settings->value("protocoldialog/size", QSize(529, 379)).toSize());
-  move(settings->value("protocoldialog/pos", QPoint(100, 100)).toPoint());
 }
 
-protocoldialog::~protocoldialog() {
+ProtocolDialog::~ProtocolDialog() {
+
 }
 
-void protocoldialog::saveToFile() {
-
-  QFileDialog fileDialog;
-  fileDialog.setAcceptMode(QFileDialog::AcceptSave);
-  fileDialog.setWindowTitle(trUtf8("Save %1").arg(title));
-  fileDialog.setDirectory(QDir::homePath());
-  fileDialog.setFilter(trUtf8("Audex Protocol (*.pro)"));
-  fileDialog.setDefaultSuffix("pro");
-  fileDialog.exec();
-  QString fileName = fileDialog.selectedFiles().at(0);
-
+void ProtocolDialog::save() {
+  QString fileName = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "*.pro", this, i18n("Save ")+title);
   if (!fileName.isEmpty()) {
     QFile data(fileName);
     if (data.open(QFile::WriteOnly | QFile::Truncate)) {
@@ -63,11 +59,4 @@ void protocoldialog::saveToFile() {
       }
     }
   }
-
-}
-
-void protocoldialog::closeEvent(QCloseEvent *event) {
-  settings->setValue("protocoldialog/pos", pos());
-  settings->setValue("protocoldialog/size", size());
-  event->accept();
 }

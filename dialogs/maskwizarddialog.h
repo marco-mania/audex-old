@@ -1,5 +1,5 @@
 /* AUDEX CDDA EXTRACTOR
- * Copyright (C) 2007 by Marco Nelles (marcomaniac@gmx.de)
+ * Copyright (C) 2007-2008 by Marco Nelles (marcomaniac@gmx.de)
  * http://www.anyaudio.de/audex
  *
  * This program is free software; you can redistribute it and/or modify
@@ -16,23 +16,34 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef MASKWIZARDDIALOG_HEADER
-#define MASKWIZARDDIALOG_HEADER
+#ifndef MASKWIZARDDIALOG_H
+#define MASKWIZARDDIALOG_H
 
-#include <QtCore>
-#include <QtGui>
-#include "ui_maskwizarddialog.h"
+#include <QWidget>
 
-#include "../base/qprofilemodel.h"
-#include "../base/qmaskparser.h"
+#include <KDebug>
+#include <KDialog>
 
-class maskwizarddialog : public QDialog, private Ui::MaskWizardDialog {
+#include "../utils/maskparser.h"
+
+#include "ui_maskwizardwidgetUI.h"
+
+class MaskWizardDialog : public KDialog {
+
   Q_OBJECT
+
 public:
-  maskwizarddialog(QWidget *parent, QSettings *settings, QProfileModel *profile_model, QString *mask);
-  ~maskwizarddialog();
+  MaskWizardDialog(const QString& mask, QWidget *parent = 0);
+  ~MaskWizardDialog();
+
+  QString mask;
+
+protected slots:
+  virtual void slotButtonClicked(int button);
 
 private slots:
+  void trigger_changed();
+
   void insHomePath();
   void insBasePath();
   void insAlbumArtist();
@@ -43,25 +54,14 @@ private slots:
   void insCDNo();
   void insDate();
   void insGenre();
-  void insExtension();
-
-  void ok();
-  void cancel();
+  void insSuffix();
 
   void update_example();
 
-  void enable_help(bool enabled);
-
-protected:
-  bool eventFilter(QObject *target, QEvent *event);
-
-  void closeEvent(QCloseEvent *event);
-
 private:
-  QSettings *settings;
-  QProfileModel *profile_model;
+  Ui::MaskWizardWidgetUI ui;
 
-  QString *mask;
+  bool save();
 
 };
 
