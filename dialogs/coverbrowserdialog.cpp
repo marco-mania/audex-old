@@ -76,7 +76,7 @@ void CoverBrowserDialog::add_item(const QByteArray& cover, const QString& captio
 }
 
 void CoverBrowserDialog::all_fetched() {
-  ui.label->setText(i18n("Found %1 Covers", cover_fetcher.count()));
+  ui.label->setText(i18np("Found 1 Cover", "Found %1 Covers", cover_fetcher.count()));
   emit allCoverThumbnailsFetched();
 }
 

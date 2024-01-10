@@ -196,7 +196,7 @@ private:
   bool p_single_file;
 
   bool construct_target_filename(QString& targetFilename,
-	int trackno, int cdno, int gindex,
+	int trackno, int cdno, int nooftracks, int gindex,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre,
@@ -206,7 +206,7 @@ private:
 	bool overwrite_existing_files, bool is_first_track);
 	
   bool construct_target_filename_for_singlefile(QString& targetFilename,
-	int cdno,
+	int cdno, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& date, const QString& genre,
 	const QString& ext, const QString& basepath,

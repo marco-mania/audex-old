@@ -132,7 +132,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Profile name must not be empty."),
-		i18n("You've given no name for the profile. Please set one."),
+		i18n("You have given no name for the profile. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -142,7 +142,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toInt()==-1) {
 	    error = Error(
 		i18n("Profile encoder is not defined."),
-		i18n("You've given no encoder for the profile. Please set one."),
+		i18n("You have given no encoder for the profile. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -152,7 +152,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
             error = Error(
 		i18n("Profile filename pattern is not defined."),
-		i18n("You've given no filename pattern for the profile. Please set one."),
+		i18n("You have given no filename pattern for the profile. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -178,7 +178,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Cover name must not be empty."),
-		i18n("You've given no name for the cover. Please set one."),
+		i18n("You have given no name for the cover. Please set one."),
 		Error::ERROR,
 		this);
             return FALSE;
@@ -199,7 +199,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Playlist name must not be empty."),
-		i18n("You've given no name for the playlist. Please set one."),
+		i18n("You have given no name for the playlist. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -212,7 +212,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
           if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Info text name must not be empty."),
-		i18n("You've given no name for the info text file. Please set one."),
+		i18n("You have given no name for the info text file. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -222,7 +222,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Info text file name suffix must not be empty."),
-		i18n("You've given no suffix for the info text file. Please set one."),
+		i18n("You have given no suffix for the info text file. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -243,7 +243,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Hashlist name must not be empty."),
-		i18n("You've given no name for the hashlist. Please set one."),
+		i18n("You have given no name for the hashlist. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -254,7 +254,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Cue filename name must not be empty."),
-		i18n("You've given no name for the cue sheet. Please set one."),
+		i18n("You have given no name for the cue sheet. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -265,7 +265,7 @@ bool ProfileModel::setData(const QModelIndex &index, const QVariant &value, int 
 	  if (value.toString().isEmpty()) {
 	    error = Error(
 		i18n("Filename name must not be empty."),
-		i18n("You've given no name for the single audio file. Please set one."),
+		i18n("You have given no name for the single audio file. Please set one."),
 		Error::ERROR,
 		this);
 	    return FALSE;
@@ -719,6 +719,14 @@ const QString ProfileModel::getSelectedEncoderSuffixFromCurrentIndex() {
 
   return "";
 
+}
+
+const QString ProfileModel::getSelectedEncoderNameAndVersion() {
+ 
+  EncoderAssistant::Encoder encoder = getSelectedEncoderFromCurrentIndex();
+  
+  return QString("%1 %2").arg(EncoderAssistant::encoderName(encoder)).arg(EncoderAssistant::version(encoder));
+  
 }
 
 Error ProfileModel::lastError() const {

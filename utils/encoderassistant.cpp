@@ -36,6 +36,24 @@ const QString EncoderAssistant::name(const EncoderAssistant::Encoder encoder) {
 
 }
 
+const QString EncoderAssistant::encoderName(const Encoder encoder) {
+  
+  switch (encoder) {
+
+    case EncoderAssistant::LAME : return ENCODER_LAME_ENCODER_NAME;
+    case EncoderAssistant::OGGENC : return ENCODER_OGGENC_ENCODER_NAME;
+    case EncoderAssistant::FLAC : return ENCODER_FLAC_ENCODER_NAME;
+    case EncoderAssistant::FAAC : return ENCODER_FAAC_ENCODER_NAME;
+    case EncoderAssistant::WAVE : return ENCODER_WAVE_ENCODER_NAME;
+    case EncoderAssistant::CUSTOM : return ENCODER_CUSTOM_ENCODER_NAME;
+    default : return "";
+
+  }
+
+  return "";
+  
+}
+
 const QString EncoderAssistant::icon(const EncoderAssistant::Encoder encoder) {
 
   switch (encoder) {
@@ -174,8 +192,9 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
       if (KProcess::execute(ENCODER_LAME_HELPER_TAG, QStringList() << ENCODER_LAME_HELPER_TAG_VERSION_PARA) == 0) {
        
 	cmd += QString::fromUtf8(" $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
-	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\""VAR_ALBUM_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
-	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" --set-text-frame=\"TCON:$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--set-text-frame=TPOS:\"}");
+	cmd += QString::fromUtf8(" && eyeD3 -t \"$"VAR_TRACK_TITLE"\" -a \"$"VAR_TRACK_ARTIST"\" --set-text-frame=TPE2:\"$"VAR_ALBUM_ARTIST"\" -A \"$"VAR_ALBUM_TITLE \
+	                         "\" -Y \"$"VAR_DATE"\" -n $"VAR_TRACK_NO" -N $"VAR_NO_OF_TRACKS" --set-text-frame=\"TCON:$"VAR_GENRE"\" "\
+	                         "--set-text-frame=TSSE:\"$"VAR_AUDEX" / Encoder $"VAR_ENCODER"\" ${"VAR_CDNO" pre=\"--set-text-frame=TPOS:\"}");
         if (embed_cover) {
           cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--add-image=\" post=\":FRONT_COVER\"}");
         }
@@ -187,7 +206,8 @@ const QString EncoderAssistant::pattern(const EncoderAssistant::Encoder encoder,
           cmd += QString::fromUtf8(" ${"VAR_COVER_FILE" pre=\"--ti \"}");
         }
         cmd += QString::fromUtf8(" --add-id3v2 --id3v2-only --ignore-tag-errors --tt \"$"VAR_TRACK_TITLE"\" --ta \"$"VAR_TRACK_ARTIST \
-                             "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn $"VAR_TRACK_NO" --tg \"$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--tv TPOS=\"}"\
+                             "\" --tl \"$"VAR_ALBUM_TITLE"\" --ty \"$"VAR_DATE"\" --tn \"$"VAR_TRACK_NO"/$"VAR_NO_OF_TRACKS"\" --tc \"$"VAR_AUDEX" / Encoder $"VAR_ENCODER"\" "\
+                             "--tg \"$"VAR_GENRE"\" ${"VAR_CDNO" pre=\"--tv TPOS=\"}"\
                              " $"VAR_INPUT_FILE" $"VAR_OUTPUT_FILE);
         
       }

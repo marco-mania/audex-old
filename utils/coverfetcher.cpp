@@ -162,7 +162,9 @@ void CoverFetcher::parse_html_response(const QString& xml) {
   cover_tbnids.clear();
   cover_thumbnails.clear();
 
-  QRegExp rx("<a\\shref=(\\/imgres\\?imgurl=[a-zA-Z0-9\\&\\_\\%\\/\\=\\.\\:\\-\\?]+)>[\\s\\n]*<img\\ssrc=([a-zA-Z0-9\\&\\_\\%\\/\\=\\.\\:\\-\\?]+).*>[\\s\\n]*</a>");
+  QRegExp rx("<a\\shref=\"(\\/imgres\\?imgurl=[^\"]+)\">[\\s\\n]*<img[^>]+src=\"([^>]+)\"></a>");
+  QString html = xml;
+  html.replace(QLatin1String("&amp;"), QLatin1String("&"));
   rx.setMinimal(TRUE);
   
   int pos = 0; int i = 0;
@@ -173,7 +175,7 @@ void CoverFetcher::parse_html_response(const QString& xml) {
     QString w = url.queryItemValue("w");
     QString h = url.queryItemValue("h");
     QString sz = url.queryItemValue("sz");
-    cover_names << i18n("%1x%2, %3 KiB").arg(w).arg(h).arg(sz);
+    cover_names << i18n("%1x%2, %3 KiB", w, h, sz);
     cover_tbnids << url.queryItemValue("tbnid");
     
     if (!rx.cap(2).isEmpty()) {

@@ -1,28 +1,30 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Marce Villarino <mvillarino@kde-espana.es>, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-01-01 23:26+0100\n"
+"Last-Translator: Marce Villarino <mvillarino@kde-espana.es>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Sobrescribir os ficheiros xa existente"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
@@ -38,8 +40,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+#, fuzzy
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "&Procurar automaticamente na CDDB"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:30
@@ -91,13 +94,15 @@ msgstr ""
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
+#, fuzzy
 msgid "&Audex"
-msgstr ""
+msgstr "Audex"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:13
+#, fuzzy
 msgid "&CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:18
@@ -107,8 +112,9 @@ msgstr ""
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
+#, fuzzy
 msgid "&Settings"
-msgstr ""
+msgstr "&Configuración"
 
 #: core/audex.cpp:112
 msgid "No profile selected. Operation abort."
@@ -129,9 +135,9 @@ msgid "Please check your path (write access?)"
 msgstr ""
 
 #: core/audex.cpp:554 core/audex.cpp:614
-#, kde-format
+#, fuzzy, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "Foi imposíbel crear o cartafol %1"
 
 #: core/audex.cpp:557 core/audex.cpp:617
 #, kde-format
@@ -139,9 +145,9 @@ msgid "Folder \"%1\" successfully created."
 msgstr ""
 
 #: core/audex.cpp:560 core/audex.cpp:620
-#, kde-format
+#, fuzzy, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "O cartafol xa existe"
 
 #: core/audex.cpp:567
 #, kde-format
@@ -225,13 +231,15 @@ msgid "Cue sheet \"%1\" successfully created."
 msgstr ""
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
+#, fuzzy
 msgid "Edit Data"
-msgstr ""
+msgstr "Editar datos..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
+#, fuzzy
 msgid "Various Artists"
-msgstr ""
+msgstr "Varios artistas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:23
@@ -240,13 +248,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
+#, fuzzy
 msgid "Artist:"
-msgstr ""
+msgstr "Artista:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
+#, fuzzy
 msgid "Title:"
-msgstr ""
+msgstr "Título:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:75
@@ -260,13 +270,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
+#, fuzzy
 msgid "Genre:"
-msgstr ""
+msgstr "Xénero:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
+#, fuzzy
 msgid "Year:"
-msgstr ""
+msgstr "Ano:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
@@ -277,13 +289,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:171
+#, fuzzy
 msgid "Disc ID:"
-msgstr ""
+msgstr "Id do disco:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid_2)
 #: dialogs/cddaheaderdatawidgetUI.ui:178
+#, fuzzy
 msgid "0x00000000"
-msgstr ""
+msgstr "x"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
@@ -357,35 +371,41 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
+#, fuzzy
 msgid "Album Artist"
-msgstr ""
+msgstr "Artista do álbum"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
+#, fuzzy
 msgid "Album Title"
-msgstr ""
+msgstr "Título do álbum"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+#, fuzzy
 msgid "Track Artist"
-msgstr ""
+msgstr "Artista da pista"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+#, fuzzy
 msgid "Track Title"
-msgstr ""
+msgstr "Título da pista"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+#, fuzzy
 msgid "Track #"
-msgstr ""
+msgstr "Pista num."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
 #: dialogs/simplepatternwizardwidgetUI.ui:231
+#, fuzzy
 msgid "CD #"
-msgstr ""
+msgstr "CD"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
@@ -396,14 +416,16 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
 #: dialogs/simplepatternwizardwidgetUI.ui:241
+#, fuzzy
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
+#, fuzzy
 msgid "Genre"
-msgstr ""
+msgstr "Xénero"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
@@ -412,13 +434,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:433
+#, fuzzy
 msgid "Input File"
-msgstr ""
+msgstr "Ficheiro de entrada"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:443
+#, fuzzy
 msgid "Output File"
-msgstr ""
+msgstr "Ficheiro de saída"
 
 #: dialogs/coverbrowserdialog.cpp:40
 msgid "Searching for covers..."
@@ -454,8 +478,9 @@ msgid "Ripping whole CD as single track"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:44
+#, fuzzy
 msgid "Encoding"
-msgstr ""
+msgstr "Codificación"
 
 #: dialogs/extractingprogressdialog.cpp:48
 #, kde-format
@@ -468,16 +493,19 @@ msgid "Encoding Track 0 of %1"
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:168
+#, fuzzy
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Desexa realmente cancelar?"
 
 #: dialogs/extractingprogressdialog.cpp:169
+#, fuzzy
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: dialogs/extractingprogressdialog.cpp:187
+#, fuzzy
 msgid "Ripping Track"
-msgstr ""
+msgstr "A extraer a pista %1"
 
 #: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
@@ -488,8 +516,9 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogressdialog.cpp:195
 #: dialogs/extractingprogresswidgetUI.ui:165
+#, fuzzy
 msgid "Overall Progress"
-msgstr ""
+msgstr "Evolución total"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
@@ -522,8 +551,9 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:282
 #: dialogs/extractingprogressdialog.cpp:283
 #: dialogs/extractingprogressdialog.cpp:284
+#, fuzzy
 msgid "Finished!"
-msgstr ""
+msgstr "Rematado"
 
 #: dialogs/extractingprogressdialog.cpp:289
 msgid "At least one job failed."
@@ -532,8 +562,9 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:293
 #: dialogs/extractingprogressdialog.cpp:294
 #: dialogs/extractingprogressdialog.cpp:295
+#, fuzzy
 msgid "Failed!"
-msgstr ""
+msgstr "Fallou"
 
 #: dialogs/extractingprogressdialog.cpp:311
 msgid "Show encoding log..."
@@ -642,9 +673,11 @@ msgid "About filename schemes"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416 dialogs/simplepatternwizardwidgetUI.ui:248
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
+#, fuzzy
 msgid "Suffix"
-msgstr ""
+msgstr "Sufixo"
 
 #: dialogs/profiledatacoverdialog.cpp:37
 msgid "Cover Settings"
@@ -655,8 +688,9 @@ msgid "JPEG (Joint Photographic Experts Group)"
 msgstr ""
 
 #: dialogs/profiledatacoverdialog.cpp:55
+#, fuzzy
 msgid "PNG (Portable Network Graphics)"
-msgstr ""
+msgstr "*.png|Portable Network Graphics"
 
 #: dialogs/profiledatacoverdialog.cpp:56
 msgid "BMP (Windows Bitmap)"
@@ -669,15 +703,17 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
+#, fuzzy
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
 #: dialogs/profiledatahashlistwidgetUI.ui:23
 #: dialogs/profiledataplaylistwidgetUI.ui:23
+#, fuzzy
 msgid "Format:"
-msgstr ""
+msgstr "Formato:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
@@ -705,8 +741,9 @@ msgid "Create Profile"
 msgstr ""
 
 #: dialogs/profiledatadialog.cpp:184
+#, fuzzy
 msgid "New Profile"
-msgstr ""
+msgstr "Novo perfil"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
@@ -829,13 +866,15 @@ msgstr ""
 #: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
 #: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
 #: widgets/wavewidgetUI.ui:31
+#, fuzzy
 msgid "Suffix:"
-msgstr ""
+msgstr "Sufixo:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
+#, fuzzy
 msgid "Pattern:"
-msgstr ""
+msgstr "Padrón:"
 
 #: dialogs/profiledatasinglefiledialog.cpp:32
 msgid "Single File Settings"
@@ -843,8 +882,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
+#, fuzzy
 msgid "Encoder"
-msgstr ""
+msgstr "Codificador"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
@@ -858,8 +898,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:143
+#, fuzzy
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "Substituír os espazos con signos de s&ubliñado"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
@@ -874,8 +915,9 @@ msgstr ""
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
+#, fuzzy
 msgid "Extra"
-msgstr ""
+msgstr "Extra"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
@@ -891,8 +933,9 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:208 dialogs/profiledatawidgetUI.ui:234
 #: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
 #: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
+#, fuzzy
 msgid "Settings.."
-msgstr ""
+msgstr "&Configuración"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:221
@@ -925,13 +968,14 @@ msgid "Write single file"
 msgstr ""
 
 #: dialogs/protocoldialog.cpp:33
+#, fuzzy
 msgid "Save"
-msgstr ""
+msgstr "Gardar"
 
 #: dialogs/protocoldialog.cpp:62
-#, kde-format
+#, fuzzy, kde-format
 msgid "Save %1"
-msgstr ""
+msgstr "Gardar"
 
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
@@ -971,8 +1015,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
+#, fuzzy
 msgid "Example:"
-msgstr ""
+msgstr "Exemplo:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
 #: dialogs/simplepatternwizardwidgetUI.ui:152
@@ -980,8 +1025,9 @@ msgid "About schemes"
 msgstr ""
 
 #: main.cpp:28
+#, fuzzy
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:29
 msgid "KDE CDDA Extractor"
@@ -992,36 +1038,43 @@ msgid "Copyright © 2007–2011 by Marco Nelles"
 msgstr ""
 
 #: main.cpp:35
+#, fuzzy
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:35
 msgid "Current maintainer, main developer"
 msgstr ""
 
 #: main.cpp:36
+#, fuzzy
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:36
 msgid "GUI improvements, development"
 msgstr ""
 
 #: main.cpp:37
+#, fuzzy
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:37
 msgid "Special thanks to credativ GmbH (Germany) for support"
 msgstr ""
 
 #: main.cpp:38
+#, fuzzy
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
+#, fuzzy
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
+"Moitísimas gracias a freedb.org por proporcionar unha base datos de CDs "
+"semellante a CDDB"
 
 #: main.cpp:39
 msgid "Xiph.Org Foundation"
@@ -1032,14 +1085,16 @@ msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
 
 #: main.cpp:40
+#, fuzzy
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Marce Villarino"
 
 #: main.cpp:40
+#, fuzzy
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "mvillarino@users.sourceforge.net"
 
 #: mainwindow.cpp:27
 msgid "Unable to create ProfileModel object."
@@ -1073,20 +1128,24 @@ msgid "Not all audio tracks selected for single file rip"
 msgstr ""
 
 #: mainwindow.cpp:148
+#, fuzzy
 msgid "General settings"
-msgstr ""
+msgstr "Configuración xeral"
 
 #: mainwindow.cpp:151
+#, fuzzy
 msgid "Profiles"
-msgstr ""
+msgstr "Perfís"
 
 #: mainwindow.cpp:171
+#, fuzzy
 msgid "Remote Server"
-msgstr ""
+msgstr "Servidor remoto"
 
 #: mainwindow.cpp:183
+#, fuzzy
 msgid "No status information available"
-msgstr ""
+msgstr "Non hai información dispoñíbel de estado."
 
 #: mainwindow.cpp:187 models/cddamodel.cpp:683
 msgid "No disc in drive"
@@ -1159,20 +1218,24 @@ msgid "Autofill artists"
 msgstr ""
 
 #: mainwindow.cpp:416
+#, fuzzy
 msgid "Eject"
-msgstr ""
+msgstr "Expulsar"
 
 #: mainwindow.cpp:423
+#, fuzzy
 msgid "Profile:"
-msgstr ""
+msgstr "Perfil:"
 
 #: mainwindow.cpp:435
+#, fuzzy
 msgid "&Profile:"
-msgstr ""
+msgstr "Perfil"
 
 #: mainwindow.cpp:441
+#, fuzzy
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 #: mainwindow.cpp:449
 msgid "Fetch Info"
@@ -1183,8 +1246,9 @@ msgid "Submit Info"
 msgstr ""
 
 #: mainwindow.cpp:462
+#, fuzzy
 msgid "Rip..."
-msgstr ""
+msgstr "Extraer"
 
 #: mainwindow.cpp:471
 msgid "Split Titles..."
@@ -1195,24 +1259,28 @@ msgid "Swap Artists And Titles"
 msgstr ""
 
 #: mainwindow.cpp:481
+#, fuzzy
 msgid "Capitalize"
-msgstr ""
+msgstr "Pór en Maiúsculas"
 
 #: mainwindow.cpp:486
 msgid "Auto Fill Artists"
 msgstr ""
 
 #: mainwindow.cpp:491
+#, fuzzy
 msgid "Select All Tracks"
-msgstr ""
+msgstr "Escoller &todas as pistas"
 
 #: mainwindow.cpp:496
+#, fuzzy
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "&Anular a selección de todas as pistas"
 
 #: mainwindow.cpp:501
+#, fuzzy
 msgid "Invert Selection"
-msgstr ""
+msgstr "Inverter a selección"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
@@ -1229,9 +1297,9 @@ msgid "Unable to create KCDDB object."
 msgstr ""
 
 #: models/cddamodel.cpp:135
-#, kde-format
+#, fuzzy, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "Pista %1"
 
 #: models/cddamodel.cpp:684
 msgid "Disc in drive"
@@ -1270,12 +1338,14 @@ msgid "No disc type information available"
 msgstr ""
 
 #: models/cddamodel.cpp:726
+#, fuzzy
 msgid "CD-Text"
-msgstr ""
+msgstr "CD-Text"
 
 #: models/cddamodel.cpp:727
+#, fuzzy
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
 msgid "Phonon Metadata"
@@ -1326,32 +1396,39 @@ msgid "This means no data found in the CDDB database."
 msgstr ""
 
 #: models/cddamodel.cpp:922
+#, fuzzy
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "Escoller unha entrada en CDDB"
 
 #: models/cddamodel.cpp:923
+#, fuzzy
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "Escolla unha entrada en CDDB:"
 
 #: models/cddamodel.h:46
+#, fuzzy
 msgid "Rip"
-msgstr ""
+msgstr "Extraer"
 
 #: models/cddamodel.h:47
+#, fuzzy
 msgid "Track"
-msgstr ""
+msgstr "Pista"
 
 #: models/cddamodel.h:48
+#, fuzzy
 msgid "Artist"
-msgstr ""
+msgstr "Artista"
 
 #: models/cddamodel.h:49
+#, fuzzy
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: models/cddamodel.h:50
+#, fuzzy
 msgid "Length"
-msgstr ""
+msgstr "Lonxitude"
 
 #: models/profilemodel.cpp:134
 msgid "Profile name must not be empty."
@@ -1498,8 +1575,9 @@ msgid " (Mobile Quality)"
 msgstr ""
 
 #: models/profilemodel.h:179
+#, fuzzy
 msgid " (Normal Quality)"
-msgstr ""
+msgstr "Normal"
 
 #: models/profilemodel.h:180
 msgid " (Extreme Quality)"
@@ -1510,16 +1588,18 @@ msgid "Common image formats"
 msgstr ""
 
 #: utils/cachedimage.cpp:142
+#, fuzzy
 msgid "File does not exist."
-msgstr ""
+msgstr "O ficheiro %1 non existe."
 
 #: utils/cachedimage.cpp:142
 msgid "Please check if the file really exists."
 msgstr ""
 
 #: utils/cachedimage.cpp:151
+#, fuzzy
 msgid "Cannot open file."
-msgstr ""
+msgstr "Non é posíbel abrir o ficheiro"
 
 #: utils/cachedimage.cpp:151
 msgid "Please check your file. Maybe you do not have proper permissions."
@@ -1536,16 +1616,18 @@ msgid ""
 msgstr ""
 
 #: utils/cachedimage.cpp:174
+#, fuzzy
 msgid "Cannot open file"
-msgstr ""
+msgstr "Non é posíbel abrir o ficheiro"
 
 #: utils/cachedimage.cpp:174
 msgid "Please check your permissions."
 msgstr ""
 
 #: utils/cachedimage.cpp:181
+#, fuzzy
 msgid "Cannot save file"
-msgstr ""
+msgstr "Non se pode gardar o ficheiro."
 
 #: utils/cachedimage.cpp:181
 msgid "Please check your permissions. Do you have enough space?"
@@ -1578,9 +1660,9 @@ msgid "Extracting finished."
 msgstr ""
 
 #: utils/cddaextractthread.cpp:103
-#, kde-format
+#, fuzzy, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
+msgstr "A extraer a pista %1"
 
 #: utils/cddaextractthread.cpp:105
 msgid "Ripping whole CD as single track."
@@ -1721,12 +1803,14 @@ msgid "%1x%2, %3 KiB"
 msgstr ""
 
 #: utils/encoderassistant.h:66
+#, fuzzy
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:98
+#, fuzzy
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:128
 msgid "FLAC (Lossless)"
@@ -1743,8 +1827,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:166 utils/encoderassistant.h:167
 #: widgets/lamewidgetUI.ui:130
+#, fuzzy
 msgid "Custom"
-msgstr ""
+msgstr "Personalizado"
 
 #: utils/encoderwrapper.cpp:57
 msgid "Command pattern is empty."
@@ -1836,12 +1921,14 @@ msgid "Finished uploading file %1 to server."
 msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:461
+#, fuzzy
 msgid "Released: "
-msgstr ""
+msgstr "Publicada"
 
 #: widgets/cddaheaderwidget.cpp:462
+#, fuzzy
 msgid "Genre: "
-msgstr ""
+msgstr "Estilo: "
 
 #: widgets/cddaheaderwidget.cpp:463
 msgid "CD Number: "
@@ -1849,8 +1936,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
+#, fuzzy
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
@@ -1879,8 +1967,9 @@ msgid "Fetch cover from Google..."
 msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:814
+#, fuzzy
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Escoller unha portada personalizada"
 
 #: widgets/cddaheaderwidget.cpp:819
 msgid "Save Cover To File..."
@@ -1891,8 +1980,9 @@ msgid "Show Full Size Cover..."
 msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:829
+#, fuzzy
 msgid "Remove Cover"
-msgstr ""
+msgstr "Borrar a portada"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
@@ -1901,29 +1991,34 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
+#, fuzzy
 msgid "Quality"
-msgstr ""
+msgstr "Calidade"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+#, fuzzy
 msgid "Lowest"
-msgstr ""
+msgstr "A máis baixa"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+#, fuzzy
 msgid "Highest"
-msgstr ""
+msgstr "A máis alta"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
+#, fuzzy
 msgid "Compression"
-msgstr ""
+msgstr "Compresión"
 
 #: widgets/generalsettingswidget.cpp:24
+#, fuzzy
 msgid "English"
-msgstr ""
+msgstr "Inglés"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Deutsch"
@@ -1962,8 +2057,9 @@ msgid "Svenska"
 msgstr ""
 
 #: widgets/generalsettingswidget.cpp:42
+#, fuzzy
 msgid "None detected"
-msgstr ""
+msgstr "non se detectou ningún"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:37
@@ -1982,18 +2078,21 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
 #: widgets/generalsettingswidgetUI.ui:106
+#, fuzzy
 msgid "Localization:"
-msgstr ""
+msgstr "Localización"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/generalsettingswidgetUI.ui:126
+#, fuzzy
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:156
+#, fuzzy
 msgid "Paths"
-msgstr ""
+msgstr "Rotas"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:164
@@ -2055,8 +2154,9 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
+#, fuzzy
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Taxa de bits constante"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153
@@ -2070,16 +2170,18 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
+#, fuzzy
 msgid "Target Bitrate ~"
-msgstr ""
+msgstr "Razón de bits do obxectivo"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
 #. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
 #: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
 #: widgets/oggencwidgetUI.ui:347
+#, fuzzy
 msgid "kbit/s"
-msgstr ""
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
@@ -2092,13 +2194,14 @@ msgid "Set maximum bitrate"
 msgstr ""
 
 #: widgets/profilewidget.cpp:80
-#, kde-format
+#, fuzzy, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Desexa realmente borrar o perfil «%1»?"
 
 #: widgets/profilewidget.cpp:81
+#, fuzzy
 msgid "Delete profile"
-msgstr ""
+msgstr "Eliminar o perfil"
 
 #: widgets/profilewidget.cpp:129
 msgid "Load Profiles"
@@ -2130,35 +2233,42 @@ msgstr[1] ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
+#, fuzzy
 msgid "Add..."
-msgstr ""
+msgstr "Engadir..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
+#, fuzzy
 msgid "Remove"
-msgstr ""
+msgstr "Eliminar"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
+#, fuzzy
 msgid "Modify..."
-msgstr ""
+msgstr "Modificar..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
+#, fuzzy
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
+#, fuzzy
 msgid "Load..."
-msgstr ""
+msgstr "Cargar..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
+#, fuzzy
 msgid "Save..."
-msgstr ""
+msgstr "Gravar..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
+#, fuzzy
 msgid "URL:"
-msgstr ""
+msgstr "URL:"

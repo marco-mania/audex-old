@@ -18,9 +18,10 @@
 
 #include "encoderwrapper.h"
 
-EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandPattern, const bool deleteFractionFiles) : QObject(parent) {
+EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandPattern, const QString& encoderName, const bool deleteFractionFiles) : QObject(parent) {
 
   command_pattern = commandPattern;
+  encoder_name = encoderName;
   delete_fraction_files = deleteFractionFiles;
 
   connect(&proc, SIGNAL(readyReadStandardError()), this, SLOT(parseOutput()));
@@ -43,7 +44,7 @@ EncoderWrapper::~EncoderWrapper() {
 }
 
 bool EncoderWrapper::encode(int n,
-	int cdno, int trackoffset,
+	int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
 	const QString& genre, const QString& date, const QString& suffix, CachedImage *cover,
@@ -56,7 +57,7 @@ bool EncoderWrapper::encode(int n,
   if (command_pattern.isEmpty()) { emit error(i18n("Command pattern is empty.")); return FALSE; }
 
   PatternParser patternparser;
-  QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath);
+  QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, nooftracks, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath, encoder_name);
  
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);

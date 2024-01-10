@@ -213,6 +213,7 @@ public:
   const Parameters getSelectedEncoderParametersFromCurrentIndex();
   const QString getSelectedEncoderPatternFromCurrentIndex();
   const QString getSelectedEncoderSuffixFromCurrentIndex();
+  const QString getSelectedEncoderNameAndVersion();
   /**END: EncoderAssistant related */
 
 

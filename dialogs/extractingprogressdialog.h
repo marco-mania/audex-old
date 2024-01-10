@@ -20,6 +20,7 @@
 #define EXTRACTINGPROGRESSDIALOG_H
 
 #include <QWidget>
+#include <QDBusMessage>
 
 #include <KDebug>
 #include <KDialog>
@@ -75,6 +76,7 @@ private:
   void calc_overall_progress();
   void open_encoder_protocol_dialog();
   void open_extract_protocol_dialog();
+  void update_unity();
 
 private:
   Ui::ExtractingProgressWidgetUI ui;
@@ -88,9 +90,11 @@ private:
   bool progressbar_np_flag;
   int current_encode_overall;
   int current_extract_overall;
+  unsigned int current_track;
   
   bool p_single_file;
-
+  
+  QDBusMessage unity_message;
 };
 
 #endif

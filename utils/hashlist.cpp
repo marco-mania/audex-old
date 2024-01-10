@@ -18,6 +18,8 @@
  
 #include "hashlist.h"
 
+#include <unistd.h>
+
 Hashlist::Hashlist() {
 
 }

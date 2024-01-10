@@ -1,22 +1,21 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Feng Chao <rainofchaos@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2011-06-06 16:04+0800\n"
+"Last-Translator: Feng Chao <rainofchaos@gmail.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -39,7 +38,7 @@ msgstr ""
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "自动执行 CDDB 查找"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:30
@@ -97,7 +96,7 @@ msgstr ""
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:13
 msgid "&CDDB"
-msgstr ""
+msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:18
@@ -108,7 +107,7 @@ msgstr ""
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
 msgid "&Settings"
-msgstr ""
+msgstr "设置(&S)"
 
 #: core/audex.cpp:112
 msgid "No profile selected. Operation abort."
@@ -131,7 +130,7 @@ msgstr ""
 #: core/audex.cpp:554 core/audex.cpp:614
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "无法创建文件夹 \"%1\"."
 
 #: core/audex.cpp:557 core/audex.cpp:617
 #, kde-format
@@ -141,7 +140,7 @@ msgstr ""
 #: core/audex.cpp:560 core/audex.cpp:620
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "文件夹 \"%1\" 已存在."
 
 #: core/audex.cpp:567
 #, kde-format
@@ -226,12 +225,12 @@ msgstr ""
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
 msgid "Edit Data"
-msgstr ""
+msgstr "编辑数据"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
 msgid "Various Artists"
-msgstr ""
+msgstr "多位艺人"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:23
@@ -241,12 +240,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
 msgid "Artist:"
-msgstr ""
+msgstr "艺人："
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
 msgid "Title:"
-msgstr ""
+msgstr "标题："
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:75
@@ -261,12 +260,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
 msgid "Genre:"
-msgstr ""
+msgstr "流派："
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
 msgid "Year:"
-msgstr ""
+msgstr "年份："
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
@@ -278,12 +277,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:171
 msgid "Disc ID:"
-msgstr ""
+msgstr "碟片 ID："
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid_2)
 #: dialogs/cddaheaderdatawidgetUI.ui:178
 msgid "0x00000000"
-msgstr ""
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
@@ -358,34 +357,34 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
 msgid "Album Artist"
-msgstr ""
+msgstr "专辑艺人"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
 msgid "Album Title"
-msgstr ""
+msgstr "专辑标题"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
 msgid "Track Artist"
-msgstr ""
+msgstr "曲目艺人"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
 msgid "Track Title"
-msgstr ""
+msgstr "曲目标题"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
 msgid "Track #"
-msgstr ""
+msgstr "音轨 #"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
 #: dialogs/simplepatternwizardwidgetUI.ui:231
 msgid "CD #"
-msgstr ""
+msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
@@ -397,13 +396,13 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
 #: dialogs/simplepatternwizardwidgetUI.ui:241
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
 msgid "Genre"
-msgstr ""
+msgstr "流派"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
@@ -413,12 +412,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:433
 msgid "Input File"
-msgstr ""
+msgstr "输入文件"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:443
 msgid "Output File"
-msgstr ""
+msgstr "输出文件"
 
 #: dialogs/coverbrowserdialog.cpp:40
 msgid "Searching for covers..."
@@ -434,7 +433,6 @@ msgstr ""
 msgid "Found 1 Cover"
 msgid_plural "Found %1 Covers"
 msgstr[0] ""
-msgstr[1] ""
 
 #: dialogs/coverbrowserdialog.cpp:84
 msgid "No Covers Found"
@@ -455,7 +453,7 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:44
 msgid "Encoding"
-msgstr ""
+msgstr "编码"
 
 #: dialogs/extractingprogressdialog.cpp:48
 #, kde-format
@@ -469,15 +467,15 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:168
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "您真的想要取消吗？"
 
 #: dialogs/extractingprogressdialog.cpp:169
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #: dialogs/extractingprogressdialog.cpp:187
 msgid "Ripping Track"
-msgstr ""
+msgstr "抓取轨道"
 
 #: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
@@ -489,7 +487,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:195
 #: dialogs/extractingprogresswidgetUI.ui:165
 msgid "Overall Progress"
-msgstr ""
+msgstr "整体进度"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
@@ -523,7 +521,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:283
 #: dialogs/extractingprogressdialog.cpp:284
 msgid "Finished!"
-msgstr ""
+msgstr "已完成!"
 
 #: dialogs/extractingprogressdialog.cpp:289
 msgid "At least one job failed."
@@ -533,7 +531,7 @@ msgstr ""
 #: dialogs/extractingprogressdialog.cpp:294
 #: dialogs/extractingprogressdialog.cpp:295
 msgid "Failed!"
-msgstr ""
+msgstr "失败!"
 
 #: dialogs/extractingprogressdialog.cpp:311
 msgid "Show encoding log..."
@@ -642,9 +640,10 @@ msgid "About filename schemes"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416 dialogs/simplepatternwizardwidgetUI.ui:248
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
 msgid "Suffix"
-msgstr ""
+msgstr "后缀"
 
 #: dialogs/profiledatacoverdialog.cpp:37
 msgid "Cover Settings"
@@ -670,14 +669,14 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 msgid "x"
-msgstr ""
+msgstr "X"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
 #: dialogs/profiledatahashlistwidgetUI.ui:23
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 msgid "Format:"
-msgstr ""
+msgstr "格式："
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
@@ -706,7 +705,7 @@ msgstr ""
 
 #: dialogs/profiledatadialog.cpp:184
 msgid "New Profile"
-msgstr ""
+msgstr "新建配置方案"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
@@ -830,12 +829,12 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
 #: widgets/wavewidgetUI.ui:31
 msgid "Suffix:"
-msgstr ""
+msgstr "后缀："
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 msgid "Pattern:"
-msgstr ""
+msgstr "模式："
 
 #: dialogs/profiledatasinglefiledialog.cpp:32
 msgid "Single File Settings"
@@ -844,7 +843,7 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
 msgid "Encoder"
-msgstr ""
+msgstr "编码器"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
@@ -859,7 +858,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:143
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "将空格替换为下划线"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
@@ -875,7 +874,7 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
 msgid "Extra"
-msgstr ""
+msgstr "附加"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
@@ -892,7 +891,7 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
 #: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
 msgid "Settings.."
-msgstr ""
+msgstr "设置.."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:221
@@ -926,12 +925,13 @@ msgstr ""
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: dialogs/protocoldialog.cpp:62
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Save "
 msgid "Save %1"
-msgstr ""
+msgstr "保存"
 
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
@@ -972,7 +972,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
 msgid "Example:"
-msgstr ""
+msgstr "示例："
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
 #: dialogs/simplepatternwizardwidgetUI.ui:152
@@ -1001,7 +1001,7 @@ msgstr ""
 
 #: main.cpp:36
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:36
 msgid "GUI improvements, development"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: main.cpp:37
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:37
 msgid "Special thanks to credativ GmbH (Germany) for support"
@@ -1017,11 +1017,11 @@ msgstr ""
 
 #: main.cpp:38
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr ""
+msgstr "特别致谢 freedb.org 组织提供了类似 CDDB 的自由 CD 数据库"
 
 #: main.cpp:39
 msgid "Xiph.Org Foundation"
@@ -1034,12 +1034,12 @@ msgstr ""
 #: main.cpp:40
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "KDE 中国"
 
 #: main.cpp:40
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "kde-china@kde.org"
 
 #: mainwindow.cpp:27
 msgid "Unable to create ProfileModel object."
@@ -1074,19 +1074,19 @@ msgstr ""
 
 #: mainwindow.cpp:148
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 #: mainwindow.cpp:151
 msgid "Profiles"
-msgstr ""
+msgstr "配置"
 
 #: mainwindow.cpp:171
 msgid "Remote Server"
-msgstr ""
+msgstr "远程服务器"
 
 #: mainwindow.cpp:183
 msgid "No status information available"
-msgstr ""
+msgstr "没有可用的状态信息。"
 
 #: mainwindow.cpp:187 models/cddamodel.cpp:683
 msgid "No disc in drive"
@@ -1160,19 +1160,23 @@ msgstr ""
 
 #: mainwindow.cpp:416
 msgid "Eject"
-msgstr ""
+msgstr "弹出"
 
 #: mainwindow.cpp:423
+#, fuzzy
+#| msgid "Profile: "
 msgid "Profile:"
-msgstr ""
+msgstr "配置： "
 
 #: mainwindow.cpp:435
+#, fuzzy
+#| msgid "&Profile: "
 msgid "&Profile:"
-msgstr ""
+msgstr "配置(&P)："
 
 #: mainwindow.cpp:441
 msgid "Profile"
-msgstr ""
+msgstr "配置"
 
 #: mainwindow.cpp:449
 msgid "Fetch Info"
@@ -1184,7 +1188,7 @@ msgstr ""
 
 #: mainwindow.cpp:462
 msgid "Rip..."
-msgstr ""
+msgstr "抓取..."
 
 #: mainwindow.cpp:471
 msgid "Split Titles..."
@@ -1196,7 +1200,7 @@ msgstr ""
 
 #: mainwindow.cpp:481
 msgid "Capitalize"
-msgstr ""
+msgstr "大写"
 
 #: mainwindow.cpp:486
 msgid "Auto Fill Artists"
@@ -1204,15 +1208,15 @@ msgstr ""
 
 #: mainwindow.cpp:491
 msgid "Select All Tracks"
-msgstr ""
+msgstr "选择全部音轨"
 
 #: mainwindow.cpp:496
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "不选任何音轨"
 
 #: mainwindow.cpp:501
 msgid "Invert Selection"
-msgstr ""
+msgstr "反转选择"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
@@ -1231,7 +1235,7 @@ msgstr ""
 #: models/cddamodel.cpp:135
 #, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "音轨 %1"
 
 #: models/cddamodel.cpp:684
 msgid "Disc in drive"
@@ -1271,11 +1275,11 @@ msgstr ""
 
 #: models/cddamodel.cpp:726
 msgid "CD-Text"
-msgstr ""
+msgstr "CD-文本"
 
 #: models/cddamodel.cpp:727
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
 msgid "Phonon Metadata"
@@ -1327,31 +1331,31 @@ msgstr ""
 
 #: models/cddamodel.cpp:922
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "选择 CDDB 条目"
 
 #: models/cddamodel.cpp:923
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "选择 CDDB 条目："
 
 #: models/cddamodel.h:46
 msgid "Rip"
-msgstr ""
+msgstr "抓取"
 
 #: models/cddamodel.h:47
 msgid "Track"
-msgstr ""
+msgstr "音轨"
 
 #: models/cddamodel.h:48
 msgid "Artist"
-msgstr ""
+msgstr "艺人"
 
 #: models/cddamodel.h:49
 msgid "Title"
-msgstr ""
+msgstr "标题"
 
 #: models/cddamodel.h:50
 msgid "Length"
-msgstr ""
+msgstr "长度"
 
 #: models/profilemodel.cpp:134
 msgid "Profile name must not be empty."
@@ -1499,7 +1503,7 @@ msgstr ""
 
 #: models/profilemodel.h:179
 msgid " (Normal Quality)"
-msgstr ""
+msgstr " (正常品质)"
 
 #: models/profilemodel.h:180
 msgid " (Extreme Quality)"
@@ -1511,7 +1515,7 @@ msgstr ""
 
 #: utils/cachedimage.cpp:142
 msgid "File does not exist."
-msgstr ""
+msgstr "文件不存在。"
 
 #: utils/cachedimage.cpp:142
 msgid "Please check if the file really exists."
@@ -1580,7 +1584,7 @@ msgstr ""
 #: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
+msgstr "抓取轨道 %1 (%2:%3)..."
 
 #: utils/cddaextractthread.cpp:105
 msgid "Ripping whole CD as single track."
@@ -1722,11 +1726,11 @@ msgstr ""
 
 #: utils/encoderassistant.h:66
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:98
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:128
 msgid "FLAC (Lossless)"
@@ -1744,7 +1748,7 @@ msgstr ""
 #: utils/encoderassistant.h:166 utils/encoderassistant.h:167
 #: widgets/lamewidgetUI.ui:130
 msgid "Custom"
-msgstr ""
+msgstr "自定义"
 
 #: utils/encoderwrapper.cpp:57
 msgid "Command pattern is empty."
@@ -1841,7 +1845,7 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:462
 msgid "Genre: "
-msgstr ""
+msgstr "流派： "
 
 #: widgets/cddaheaderwidget.cpp:463
 msgid "CD Number: "
@@ -1850,7 +1854,7 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
 msgid "Wikipedia"
-msgstr ""
+msgstr "维基百科"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
@@ -1880,7 +1884,7 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:814
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "设定自定义封面"
 
 #: widgets/cddaheaderwidget.cpp:819
 msgid "Save Cover To File..."
@@ -1892,7 +1896,7 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:829
 msgid "Remove Cover"
-msgstr ""
+msgstr "删除封面"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
@@ -1902,28 +1906,28 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 msgid "Quality"
-msgstr ""
+msgstr "质量"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
 msgid "Lowest"
-msgstr ""
+msgstr "最低"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
 msgid "Highest"
-msgstr ""
+msgstr "最高"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 msgid "Compression"
-msgstr ""
+msgstr "压缩"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "English"
-msgstr ""
+msgstr "英语"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Deutsch"
@@ -1963,7 +1967,7 @@ msgstr ""
 
 #: widgets/generalsettingswidget.cpp:42
 msgid "None detected"
-msgstr ""
+msgstr "没有探测到"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:37
@@ -1983,17 +1987,17 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
 #: widgets/generalsettingswidgetUI.ui:106
 msgid "Localization:"
-msgstr ""
+msgstr "本地化："
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/generalsettingswidgetUI.ui:126
 msgid "Device"
-msgstr ""
+msgstr "设备"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:156
 msgid "Paths"
-msgstr ""
+msgstr "路径"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:164
@@ -2056,7 +2060,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "恒定比特率"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153
@@ -2071,7 +2075,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 msgid "Target Bitrate ~"
-msgstr ""
+msgstr "目标比特率 ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2079,7 +2083,7 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
 #: widgets/oggencwidgetUI.ui:347
 msgid "kbit/s"
-msgstr ""
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
@@ -2094,11 +2098,11 @@ msgstr ""
 #: widgets/profilewidget.cpp:80
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "您真的想删除配置“%1”吗？"
 
 #: widgets/profilewidget.cpp:81
 msgid "Delete profile"
-msgstr ""
+msgstr "删除方案"
 
 #: widgets/profilewidget.cpp:129
 msgid "Load Profiles"
@@ -2126,39 +2130,41 @@ msgstr ""
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
 msgstr[0] ""
-msgstr[1] ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 msgid "Add..."
-msgstr ""
+msgstr "添加..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 msgid "Remove"
-msgstr ""
+msgstr "删除"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
-msgstr ""
+msgstr "修改..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
 msgid "Copy"
-msgstr ""
+msgstr "复制"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 msgid "Load..."
-msgstr ""
+msgstr "装入..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 msgid "Save..."
-msgstr ""
+msgstr "保存..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 msgid "URL:"
-msgstr ""
+msgstr "URL："
+
+#~ msgid "TextLabel"
+#~ msgstr "文字标签"

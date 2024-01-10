@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>287</width>
+    <width>323</width>
     <height>177</height>
    </rect>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0" colspan="4">
+   <item row="0" column="0" colspan="5">
     <widget class="KLineEdit" name="klineedit_pattern"/>
    </item>
    <item row="1" column="0">
@@ -30,7 +30,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0" colspan="4">
+   <item row="2" column="0" colspan="5">
     <widget class="KLineEdit" name="klineedit_example">
      <property name="enabled">
       <bool>true</bool>
@@ -50,9 +50,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -79,9 +79,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -108,9 +108,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -212,6 +212,16 @@
      </property>
     </widget>
    </item>
+   <item row="4" column="4">
+    <widget class="KPushButton" name="kpushbutton_genre">
+     <property name="toolTip">
+      <string/>
+     </property>
+     <property name="text">
+      <string>Genre</string>
+     </property>
+    </widget>
+   </item>
    <item row="5" column="0">
     <widget class="KPushButton" name="kpushbutton_cdno">
      <property name="toolTip">
@@ -233,23 +243,20 @@
     </widget>
    </item>
    <item row="5" column="2">
-    <widget class="KPushButton" name="kpushbutton_genre">
-     <property name="toolTip">
-      <string/>
-     </property>
-     <property name="text">
-      <string>Genre</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="3">
     <widget class="KPushButton" name="kpushbutton_suffix">
      <property name="text">
       <string>Suffix</string>
      </property>
     </widget>
    </item>
-   <item row="6" column="2">
+   <item row="5" column="3" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_nooftracks">
+     <property name="text">
+      <string># of Tracks</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>

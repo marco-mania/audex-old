@@ -1,22 +1,22 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Bosnian translations for kde package.
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kde package.
+# Samir Ribic <megaribi@epn.ba>, 2012.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
+"PO-Revision-Date: 2012-12-28 10:38+0100\n"
+"Last-Translator: Samir Ribic <megaribi@epn.ba>\n"
+"Language-Team: Bosnian\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
@@ -108,7 +108,7 @@ msgstr ""
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
 msgid "&Settings"
-msgstr ""
+msgstr "&Postavke"
 
 #: core/audex.cpp:112
 msgid "No profile selected. Operation abort."
@@ -241,12 +241,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
 msgid "Artist:"
-msgstr ""
+msgstr "Izvođač:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
 msgid "Title:"
-msgstr ""
+msgstr "Naslov:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:75
@@ -261,12 +261,12 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
 msgid "Genre:"
-msgstr ""
+msgstr "Žanr:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
 msgid "Year:"
-msgstr ""
+msgstr "Godina:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
@@ -358,23 +358,23 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
 msgid "Album Artist"
-msgstr ""
+msgstr "Album Umjetnik"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
 msgid "Album Title"
-msgstr ""
+msgstr "Naslov albuma"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
 msgid "Track Artist"
-msgstr ""
+msgstr "Izvođač numere"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
 msgid "Track Title"
-msgstr ""
+msgstr "Naslov pjesme"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
@@ -397,13 +397,13 @@ msgstr ""
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
 #: dialogs/simplepatternwizardwidgetUI.ui:241
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
 msgid "Genre"
-msgstr ""
+msgstr "Žanr"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
@@ -455,7 +455,7 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:44
 msgid "Encoding"
-msgstr ""
+msgstr "Kodiranje"
 
 #: dialogs/extractingprogressdialog.cpp:48
 #, kde-format
@@ -469,11 +469,11 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:168
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Zaista želite da otkažete?"
 
 #: dialogs/extractingprogressdialog.cpp:169
 msgid "Cancel"
-msgstr ""
+msgstr "Odustani"
 
 #: dialogs/extractingprogressdialog.cpp:187
 msgid "Ripping Track"
@@ -574,7 +574,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
@@ -642,9 +642,10 @@ msgid "About filename schemes"
 msgstr ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416 dialogs/simplepatternwizardwidgetUI.ui:248
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
 msgid "Suffix"
-msgstr ""
+msgstr "Sufiks"
 
 #: dialogs/profiledatacoverdialog.cpp:37
 msgid "Cover Settings"
@@ -670,14 +671,14 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
 #: dialogs/profiledatahashlistwidgetUI.ui:23
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 msgid "Format:"
-msgstr ""
+msgstr "Format:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
@@ -706,7 +707,7 @@ msgstr ""
 
 #: dialogs/profiledatadialog.cpp:184
 msgid "New Profile"
-msgstr ""
+msgstr "Novi profil"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
@@ -830,12 +831,12 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
 #: widgets/wavewidgetUI.ui:31
 msgid "Suffix:"
-msgstr ""
+msgstr "Sufiks:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 msgid "Pattern:"
-msgstr ""
+msgstr "Uzorak:"
 
 #: dialogs/profiledatasinglefiledialog.cpp:32
 msgid "Single File Settings"
@@ -875,7 +876,7 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
 msgid "Extra"
-msgstr ""
+msgstr "Dodatno"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
@@ -926,7 +927,7 @@ msgstr ""
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "Snimi"
 
 #: dialogs/protocoldialog.cpp:62
 #, kde-format
@@ -1001,7 +1002,7 @@ msgstr ""
 
 #: main.cpp:36
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Krejg Dramond"
 
 #: main.cpp:36
 msgid "GUI improvements, development"
@@ -1009,7 +1010,7 @@ msgstr ""
 
 #: main.cpp:37
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:37
 msgid "Special thanks to credativ GmbH (Germany) for support"
@@ -1017,11 +1018,13 @@ msgstr ""
 
 #: main.cpp:38
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
+"Specijalne zahvalnice freedb.org-u za pružanje besplatne baze podataka o "
+"CDovima nalik na CDDB"
 
 #: main.cpp:39
 msgid "Xiph.Org Foundation"
@@ -1034,12 +1037,12 @@ msgstr ""
 #: main.cpp:40
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Samir Ribić"
 
 #: main.cpp:40
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "samir.ribic@etf.unsa.ba"
 
 #: mainwindow.cpp:27
 msgid "Unable to create ProfileModel object."
@@ -1074,7 +1077,7 @@ msgstr ""
 
 #: mainwindow.cpp:148
 msgid "General settings"
-msgstr ""
+msgstr "Opšte postavke"
 
 #: mainwindow.cpp:151
 msgid "Profiles"
@@ -1160,11 +1163,11 @@ msgstr ""
 
 #: mainwindow.cpp:416
 msgid "Eject"
-msgstr ""
+msgstr "Izbaci"
 
 #: mainwindow.cpp:423
 msgid "Profile:"
-msgstr ""
+msgstr "Profil:"
 
 #: mainwindow.cpp:435
 msgid "&Profile:"
@@ -1172,7 +1175,7 @@ msgstr ""
 
 #: mainwindow.cpp:441
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: mainwindow.cpp:449
 msgid "Fetch Info"
@@ -1196,7 +1199,7 @@ msgstr ""
 
 #: mainwindow.cpp:481
 msgid "Capitalize"
-msgstr ""
+msgstr "Veliko prvo slovo"
 
 #: mainwindow.cpp:486
 msgid "Auto Fill Artists"
@@ -1212,7 +1215,7 @@ msgstr ""
 
 #: mainwindow.cpp:501
 msgid "Invert Selection"
-msgstr ""
+msgstr "Obrni izbor"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
@@ -1231,7 +1234,7 @@ msgstr ""
 #: models/cddamodel.cpp:135
 #, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "Pjesma %1"
 
 #: models/cddamodel.cpp:684
 msgid "Disc in drive"
@@ -1271,11 +1274,11 @@ msgstr ""
 
 #: models/cddamodel.cpp:726
 msgid "CD-Text"
-msgstr ""
+msgstr "CD-Tekst"
 
 #: models/cddamodel.cpp:727
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
 msgid "Phonon Metadata"
@@ -1327,11 +1330,11 @@ msgstr ""
 
 #: models/cddamodel.cpp:922
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "Izaberite CDDB Unos"
 
 #: models/cddamodel.cpp:923
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "Izaberite CDDB unos:"
 
 #: models/cddamodel.h:46
 msgid "Rip"
@@ -1339,19 +1342,19 @@ msgstr ""
 
 #: models/cddamodel.h:47
 msgid "Track"
-msgstr ""
+msgstr "Numera"
 
 #: models/cddamodel.h:48
 msgid "Artist"
-msgstr ""
+msgstr "Izvođač"
 
 #: models/cddamodel.h:49
 msgid "Title"
-msgstr ""
+msgstr "Naslov"
 
 #: models/cddamodel.h:50
 msgid "Length"
-msgstr ""
+msgstr "Dužina"
 
 #: models/profilemodel.cpp:134
 msgid "Profile name must not be empty."
@@ -1537,7 +1540,7 @@ msgstr ""
 
 #: utils/cachedimage.cpp:174
 msgid "Cannot open file"
-msgstr ""
+msgstr "Ne mogu da otvorim datoteku"
 
 #: utils/cachedimage.cpp:174
 msgid "Please check your permissions."
@@ -1744,7 +1747,7 @@ msgstr ""
 #: utils/encoderassistant.h:166 utils/encoderassistant.h:167
 #: widgets/lamewidgetUI.ui:130
 msgid "Custom"
-msgstr ""
+msgstr "Proizvoljno"
 
 #: utils/encoderwrapper.cpp:57
 msgid "Command pattern is empty."
@@ -1850,7 +1853,7 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
@@ -1892,7 +1895,7 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:829
 msgid "Remove Cover"
-msgstr ""
+msgstr "Ukloni omot"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
@@ -1902,28 +1905,28 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 msgid "Quality"
-msgstr ""
+msgstr "Kvalitet"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
 msgid "Lowest"
-msgstr ""
+msgstr "Najniži"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
 msgid "Highest"
-msgstr ""
+msgstr "Najviši"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 msgid "Compression"
-msgstr ""
+msgstr "Kompresija"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "English"
-msgstr ""
+msgstr "Engleski"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Deutsch"
@@ -1988,12 +1991,12 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/generalsettingswidgetUI.ui:126
 msgid "Device"
-msgstr ""
+msgstr "Uređaj"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:156
 msgid "Paths"
-msgstr ""
+msgstr "Putanje"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:164
@@ -2056,7 +2059,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Konstantni bitni protok"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153
@@ -2131,22 +2134,22 @@ msgstr[1] ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 msgid "Add..."
-msgstr ""
+msgstr "Dodaj..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
-msgstr ""
+msgstr "Prilagodi"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
 msgid "Copy"
-msgstr ""
+msgstr "Kopiraj"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
@@ -2156,9 +2159,9 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 msgid "Save..."
-msgstr ""
+msgstr "Snimi..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 msgid "URL:"
-msgstr ""
+msgstr "URL:"

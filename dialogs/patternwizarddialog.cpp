@@ -48,6 +48,7 @@ PatternWizardDialog::PatternWizardDialog(const QString& pattern, QWidget *parent
   connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
   connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
   connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
+  connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
 
   this->pattern = pattern;
 
@@ -91,7 +92,9 @@ void PatternWizardDialog::about_filename_schemes() {
                                "<tr><td>$tartist</td><td>This is the artist of every individual track. It is especially useful on compilation CDs.</td></tr>"
                                "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
                                "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
+                               "<tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</td></tr>"
                                "<tr><td>$suffix</td><td>The filename extension.</td></tr>"
+                               "<tr><td>$audex</td><td>Audex name and version.</td></tr>"
                                "</table></p>"),
                           ui.kurllabel_aboutfilenameschemes);
 }
@@ -175,6 +178,13 @@ void PatternWizardDialog::insSuffix() {
   update_example();
 }
 
+void PatternWizardDialog::insNoOfTracks() {
+  QString text = ui.klineedit_pattern->text();
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  ui.klineedit_pattern->setText(text);
+  update_example();
+}
+
 bool PatternWizardDialog::save() {
   pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
@@ -184,14 +194,14 @@ bool PatternWizardDialog::save() {
 void PatternWizardDialog::update_example() {
   PatternParser patternparser;
   QString filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
-	2, 1, 1,
+	2, 1, 12, 1,
 	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
 	"2006", "Rock", "ogg", FALSE, FALSE, FALSE);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = patternparser.parseFilenamePattern(ui.klineedit_pattern->text(),
-	4, 2, 1,
-	"Bravo Hits", "Volume 41", "Wolfsheim", "Kein Zurueck",
+	4, 2, 18, 1,
+	"Alternative Hits", "Volume 4", "Wolfsheim", "Kein Zurueck",
 	"2003", "Darkwave", "ogg", FALSE, FALSE, FALSE);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);

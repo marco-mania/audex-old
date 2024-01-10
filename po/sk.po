@@ -1,45 +1,42 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
+# translation of audex.po to Slovak
+# Roman Paholik <wizzardsk@gmail.com>, 2012, 2013.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2013-01-10 10:32+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Prepísať existujúce súbory"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
 msgid "Delete partial files after cancel"
-msgstr ""
+msgstr "Vymazať čiastkové súbory po zrušení"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: audex.kcfg:22
 msgid "Eject CD tray after extraction finished"
-msgstr ""
+msgstr "Vysunúť CD po ukončení extrakcie"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "Vykonať CDDB vyhľadávanie &automaticky"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:30
@@ -48,18 +45,20 @@ msgstr ""
 
 #. i18n: ectx: label, entry (wikipediaLocale), group (general)
 #: audex.kcfg:34
+#, fuzzy
 msgid "Wikipedia localization"
-msgstr ""
+msgstr "Lokalizácia popisov v mape."
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:38
+#, fuzzy
 msgid "Number of covers to fetch"
-msgstr ""
+msgstr "&Maximálny počet sťahovaných príspevkov:"
 
 #. i18n: ectx: label, entry (cdDevice), group (general)
 #: audex.kcfg:42
 msgid "CD Device"
-msgstr ""
+msgstr "CD zariadenie"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
@@ -71,48 +70,52 @@ msgstr ""
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #: audex.kcfg:50 widgets/generalsettingswidgetUI.ui:146
 msgid "Never skip on read error"
-msgstr ""
+msgstr "Nikdy nepreskočiť pri chybe čítania"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:54
 msgid "Base path to store music files"
-msgstr ""
+msgstr "Základná cesta na uloženie hudobných súborov"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
 #. i18n: ectx: label, entry (upload), group (general)
 #: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 msgid "Upload files to server"
-msgstr ""
+msgstr "Nahrá súbory na server"
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:62
 msgid "URL of server"
-msgstr ""
+msgstr "URL servera"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
 msgid "&Audex"
-msgstr ""
+msgstr "&Audex"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:13
 msgid "&CDDB"
-msgstr ""
+msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:18
+#, fuzzy
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr ""
+msgstr "Definícia vločkových nástrojov"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
 msgid "&Settings"
-msgstr ""
+msgstr "&Nastavenia"
 
 #: core/audex.cpp:112
+#, fuzzy
 msgid "No profile selected. Operation abort."
 msgstr ""
+"Expander: nie je špecifikovaný žiadny profil pre %_Profile(profile)%; "
+"končím..."
 
 #: core/audex.cpp:129
 #, kde-format
@@ -120,28 +123,30 @@ msgid "Start ripping and encoding with profile \"%1\"..."
 msgstr ""
 
 #: core/audex.cpp:545 core/audex.cpp:605
-#, kde-format
+#, fuzzy, kde-format
 msgid "Can't find path \"%1\"."
-msgstr ""
+msgstr "Cesta k programu"
 
 #: core/audex.cpp:545 core/audex.cpp:554 core/audex.cpp:605 core/audex.cpp:614
+#, fuzzy
 msgid "Please check your path (write access?)"
 msgstr ""
+"Nedá sa pristúpiť k súboru %1. Prosím, skontrolujte či je cesta správna."
 
 #: core/audex.cpp:554 core/audex.cpp:614
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť priečinok \"%1\"."
 
 #: core/audex.cpp:557 core/audex.cpp:617
-#, kde-format
+#, fuzzy, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr ""
+msgstr "Projekt \"%1\" úspešne vytvorený."
 
 #: core/audex.cpp:560 core/audex.cpp:620
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "Priečinok \"%1\" už existuje."
 
 #: core/audex.cpp:567
 #, kde-format
@@ -150,15 +155,15 @@ msgid ""
 msgstr ""
 
 #: core/audex.cpp:573 core/audex.cpp:633
-#, kde-format
+#, fuzzy, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
+msgstr "Starší súbor s menom '%1' už existuje.\n"
 
 #: core/audex.cpp:575 core/audex.cpp:635 core/audex.cpp:729 core/audex.cpp:762
 #: core/audex.cpp:811 core/audex.cpp:851 core/audex.cpp:890 core/audex.cpp:929
-#, kde-format
+#, fuzzy, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
+msgstr "Starší súbor s menom '%1' už existuje.\n"
 
 #: core/audex.cpp:627
 #, kde-format
@@ -167,13 +172,13 @@ msgid ""
 msgstr ""
 
 #: core/audex.cpp:654
-#, kde-format
+#, fuzzy, kde-format
 msgid "Temporary folder \"%1\" error."
-msgstr ""
+msgstr "Chyba pri odstraňovaní priečinku."
 
 #: core/audex.cpp:654
 msgid "Please check."
-msgstr ""
+msgstr "Prosím skontrolujte."
 
 #: core/audex.cpp:660
 #, kde-format
@@ -193,101 +198,104 @@ msgstr ""
 
 #: core/audex.cpp:696
 msgid "Eject CD tray"
-msgstr ""
+msgstr "Vysunúť CD"
 
 #: core/audex.cpp:734
-#, kde-format
+#, fuzzy, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr ""
+msgstr "Obal bol úspešne stiahnutý"
 
 #: core/audex.cpp:788
-#, kde-format
+#, fuzzy, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr ""
+msgstr "Projekt \"%1\" úspešne vytvorený."
 
 #: core/audex.cpp:824
-#, kde-format
+#, fuzzy, kde-format
 msgid "Infofile \"%1\" successfully created."
-msgstr ""
+msgstr "Projekt \"%1\" úspešne vytvorený."
 
 #: core/audex.cpp:872
-#, kde-format
+#, fuzzy, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr ""
+msgstr "Projekt \"%1\" úspešne vytvorený."
 
 #: core/audex.cpp:903
+#, fuzzy
 msgid "Discid successfully stored."
-msgstr ""
+msgstr "Upraviť uložené vyhľadávanie"
 
 #: core/audex.cpp:943
-#, kde-format
+#, fuzzy, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr ""
+msgstr "Cue/Bin súbory boli úspešne vytvorené."
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
 msgid "Edit Data"
-msgstr ""
+msgstr "Upraviť dáta"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
 msgid "Various Artists"
-msgstr ""
+msgstr "Rôzni interpreti"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:23
 msgid "Multi CD"
-msgstr ""
+msgstr "Multi CD"
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
 msgid "Artist:"
-msgstr ""
+msgstr "Interpret:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
 msgid "Title:"
-msgstr ""
+msgstr "Názov:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:75
 msgid "CD Number:"
-msgstr ""
+msgstr "Číslo CD:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:89
 msgid "Track Offset:"
-msgstr ""
+msgstr "Posun stopy:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
 msgid "Genre:"
-msgstr ""
+msgstr "Žáner:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
 msgid "Year:"
-msgstr ""
+msgstr "Rok:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
+#, fuzzy
 msgid ""
 "Additional\n"
 "Information:"
-msgstr ""
+msgstr "Ďalšie informácie"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:171
 msgid "Disc ID:"
-msgstr ""
+msgstr "ID disku:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid_2)
 #: dialogs/cddaheaderdatawidgetUI.ui:178
 msgid "0x00000000"
-msgstr ""
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:30
+#, fuzzy
 msgid "Command Pattern Wizard"
-msgstr ""
+msgstr "Sprievodca KDE Groupware"
 
 #: dialogs/commandwizarddialog.cpp:86
 msgid ""
@@ -335,118 +343,128 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+#, fuzzy
 msgid "Album Example:"
-msgstr ""
+msgstr "Poznámkový blok (príklad)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+#, fuzzy
 msgid "Sampler Example:"
-msgstr ""
+msgstr "Poznámkový blok (príklad)"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
 #: dialogs/commandwizardwidgetUI.ui:269
+#, fuzzy
 msgid "About commandline schemes"
-msgstr ""
+msgstr "Získať &nové schémy..."
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
 #: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
 #: dialogs/simplepatternwizardwidgetUI.ui:162
+#, fuzzy
 msgid "About parameters"
-msgstr ""
+msgstr "Užívateľské parametre"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
 msgid "Album Artist"
-msgstr ""
+msgstr "Interpret albumu"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
 msgid "Album Title"
-msgstr ""
+msgstr "Názov albumu"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
 msgid "Track Artist"
-msgstr ""
+msgstr "Interpret stopy"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
 msgid "Track Title"
-msgstr ""
+msgstr "Názov stopy"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
 msgid "Track #"
-msgstr ""
+msgstr "Stopa #"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
 #: dialogs/simplepatternwizardwidgetUI.ui:231
 msgid "CD #"
-msgstr ""
+msgstr "CD #"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
 #: dialogs/simplepatternwizardwidgetUI.ui:255
 msgid "# of Tracks"
-msgstr ""
+msgstr "# stôp"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
 #: dialogs/simplepatternwizardwidgetUI.ui:241
 msgid "Date"
-msgstr ""
+msgstr "Dátum"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
 msgid "Genre"
-msgstr ""
+msgstr "Žáner"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
+#, fuzzy
 msgid "Cover File"
-msgstr ""
+msgstr "Získať obal zo &súboru..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:433
 msgid "Input File"
-msgstr ""
+msgstr "Vstupný súbor"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:443
 msgid "Output File"
-msgstr ""
+msgstr "Výstupný súbor"
 
 #: dialogs/coverbrowserdialog.cpp:40
+#, fuzzy
 msgid "Searching for covers..."
-msgstr ""
+msgstr "Hľadám súbory..."
 
 #: dialogs/coverbrowserdialog.cpp:75
-#, kde-format
+#, fuzzy, kde-format
 msgid "Fetching Thumbnail %1 / %2..."
-msgstr ""
+msgstr "Podpora náhľadu obrázkov"
 
 #: dialogs/coverbrowserdialog.cpp:79
 #, kde-format
 msgid "Found 1 Cover"
 msgid_plural "Found %1 Covers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Nájdený 1 obal"
+msgstr[1] "Nájdené %1 obaly"
+msgstr[2] "Nájdených %1 obalov"
 
 #: dialogs/coverbrowserdialog.cpp:84
+#, fuzzy
 msgid "No Covers Found"
-msgstr ""
+msgstr "Neboli nájdené žiadne položky."
 
 #: dialogs/coverbrowserdialog.cpp:104
+#, fuzzy
 msgid "Fetch Cover From Google"
-msgstr ""
+msgstr "Získať obal zo &súboru..."
 
 #: dialogs/extractingprogressdialog.cpp:29
+#, fuzzy
 msgid "Rip And Encode"
-msgstr ""
+msgstr "Čierna a červená"
 
 #: dialogs/extractingprogressdialog.cpp:43
 #: dialogs/extractingprogressdialog.cpp:194
@@ -455,93 +473,99 @@ msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:44
 msgid "Encoding"
-msgstr ""
+msgstr "Kódovanie"
 
 #: dialogs/extractingprogressdialog.cpp:48
-#, kde-format
+#, fuzzy, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr ""
+msgstr "Ripuje sa stopa %1 (%2 - %3)"
 
 #: dialogs/extractingprogressdialog.cpp:49
-#, kde-format
+#, fuzzy, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr ""
+msgstr "1 stopa (kódovanie do %2)"
 
 #: dialogs/extractingprogressdialog.cpp:168
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Naozaj chcete zrušiť?"
 
 #: dialogs/extractingprogressdialog.cpp:169
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušiť"
 
 #: dialogs/extractingprogressdialog.cpp:187
 msgid "Ripping Track"
-msgstr ""
+msgstr "Ripuje sa stopa"
 
 #: dialogs/extractingprogressdialog.cpp:187
-#, kde-format
+#, fuzzy, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr ""
+msgstr "Ripuje sa stopa %1 (%2 - %3)"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogressdialog.cpp:195
 #: dialogs/extractingprogresswidgetUI.ui:165
 msgid "Overall Progress"
-msgstr ""
+msgstr "Celkový priebeh"
 
 #: dialogs/extractingprogressdialog.cpp:188
-#, kde-format
+#, fuzzy, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr ""
+msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
 #: dialogs/extractingprogressdialog.cpp:206
+#, fuzzy
 msgid "Waiting for an encoding job..."
-msgstr ""
+msgstr "PIN (pre súkromnú úlohu)"
 
 #: dialogs/extractingprogressdialog.cpp:209
+#, fuzzy
 msgid "Encoding Track"
-msgstr ""
+msgstr "1 stopa (kódovanie do %2)"
 
 #: dialogs/extractingprogressdialog.cpp:209
-#, kde-format
+#, fuzzy, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr ""
+msgstr "1 stopa (kódovanie do %2)"
 
 #: dialogs/extractingprogressdialog.cpp:256
 #: dialogs/extractingprogressdialog.cpp:263
 #, c-format, kde-format
 msgid "Speed: %1x"
-msgstr ""
+msgstr "Rýchlosť: %1x"
 
 #: dialogs/extractingprogressdialog.cpp:278
+#, fuzzy
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Operácia vrátenia poslednej činnosti úspešná."
 
 #: dialogs/extractingprogressdialog.cpp:282
 #: dialogs/extractingprogressdialog.cpp:283
 #: dialogs/extractingprogressdialog.cpp:284
 msgid "Finished!"
-msgstr ""
+msgstr "Ukončené!"
 
 #: dialogs/extractingprogressdialog.cpp:289
+#, fuzzy
 msgid "At least one job failed."
-msgstr ""
+msgstr "Zadajte aspoň jednu URL adresu."
 
 #: dialogs/extractingprogressdialog.cpp:293
 #: dialogs/extractingprogressdialog.cpp:294
 #: dialogs/extractingprogressdialog.cpp:295
 msgid "Failed!"
-msgstr ""
+msgstr "Zlyhalo!"
 
 #: dialogs/extractingprogressdialog.cpp:311
+#, fuzzy
 msgid "Show encoding log..."
-msgstr ""
+msgstr "Zobraziť záznam správ"
 
 #: dialogs/extractingprogressdialog.cpp:315
+#, fuzzy
 msgid "Show rip log..."
-msgstr ""
+msgstr "Zobraziť záznam správ"
 
 #: dialogs/extractingprogressdialog.cpp:351
 msgid ""
@@ -555,49 +579,56 @@ msgid ""
 msgstr ""
 
 #: dialogs/extractingprogressdialog.cpp:354
+#, fuzzy
 msgid "Cancel extraction"
-msgstr ""
+msgstr "Dialóg rozbaľovania"
 
 #: dialogs/extractingprogressdialog.cpp:363
+#, fuzzy
 msgid "Encoding protocol"
-msgstr ""
+msgstr "Neplatný protokol"
 
 #: dialogs/extractingprogressdialog.cpp:369
+#, fuzzy
 msgid "Ripping protocol"
-msgstr ""
+msgstr "Neplatný protokol"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
+#, fuzzy
 msgid "Show/hide details"
-msgstr ""
+msgstr "Zobraziť detaily backendu"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
 #: dialogs/extractingprogresswidgetUI.ui:73
 #: dialogs/extractingprogresswidgetUI.ui:183
+#, fuzzy
 msgid "Ripping Track 8 of 12"
-msgstr ""
+msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:86
 #: dialogs/extractingprogresswidgetUI.ui:132
 msgid "Speed: 0x"
-msgstr ""
+msgstr "Rýchlosť: 0x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:119
+#, fuzzy
 msgid "Encoding Track 8 of 12"
-msgstr ""
+msgstr "1 stopa (kódovanie do %2)"
 
 #: dialogs/patternwizarddialog.cpp:30
+#, fuzzy
 msgid "Filename Pattern Wizard"
-msgstr ""
+msgstr "Odstrániť zvolenú vzorku názvu súboru."
 
 #: dialogs/patternwizarddialog.cpp:84
 msgid ""
@@ -638,92 +669,103 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
 #: dialogs/patternwizardwidgetUI.ui:263
+#, fuzzy
 msgid "About filename schemes"
-msgstr ""
+msgstr "Získať &nové schémy..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416 dialogs/simplepatternwizardwidgetUI.ui:248
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
 msgid "Suffix"
-msgstr ""
+msgstr "Prípona"
 
 #: dialogs/profiledatacoverdialog.cpp:37
+#, fuzzy
 msgid "Cover Settings"
-msgstr ""
+msgstr "Nastavenie panela"
 
 #: dialogs/profiledatacoverdialog.cpp:54
 msgid "JPEG (Joint Photographic Experts Group)"
-msgstr ""
+msgstr "JPEG (Joint Photographic Experts Group)"
 
 #: dialogs/profiledatacoverdialog.cpp:55
 msgid "PNG (Portable Network Graphics)"
-msgstr ""
+msgstr "PNG (Portable Network Graphics)"
 
 #: dialogs/profiledatacoverdialog.cpp:56
 msgid "BMP (Windows Bitmap)"
-msgstr ""
+msgstr "BMP (Windows Bitmap)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
+#, fuzzy
 msgid "Scale before store:"
-msgstr ""
+msgstr "Vyčistiť uložené dáta"
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
 #: dialogs/profiledatahashlistwidgetUI.ui:23
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 msgid "Format:"
-msgstr ""
+msgstr "Formát:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
+#, fuzzy
 msgid "Cover pattern:"
-msgstr ""
+msgstr "Vzorka nájdená"
 
 #: dialogs/profiledatacuesheetdialog.cpp:32
+#, fuzzy
 msgid "Cue Sheet Settings"
-msgstr ""
+msgstr "Posiela sa CUE súbor"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
 #: dialogs/profiledatahashlistwidgetUI.ui:39
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
+#, fuzzy
 msgid "Name/Pattern:"
-msgstr ""
+msgstr "Prípona súborov:"
 
 #: dialogs/profiledatadialog.cpp:97
+#, fuzzy
 msgid "Modify Profile"
-msgstr ""
+msgstr "Profil zmenený"
 
 #: dialogs/profiledatadialog.cpp:180
+#, fuzzy
 msgid "Create Profile"
-msgstr ""
+msgstr "Vytvoriť nový profil"
 
 #: dialogs/profiledatadialog.cpp:184
 msgid "New Profile"
-msgstr ""
+msgstr "Nový profil"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
+#, fuzzy
 msgid "Playlist Settings"
-msgstr ""
+msgstr "Nastavenie panela"
 
 #: dialogs/profiledatahashlistdialog.cpp:40
 msgid "SFV (Simple File Verification)"
-msgstr ""
+msgstr "SFV (Simple File Verification)"
 
 #: dialogs/profiledatahashlistdialog.cpp:41
 msgid "MD5 (Message-Digest algorithm 5)"
-msgstr ""
+msgstr "MD5 (Message-Digest algorithm 5)"
 
 #: dialogs/profiledatainfodialog.cpp:34
+#, fuzzy
 msgid "Info Settings"
-msgstr ""
+msgstr "Nastavenie panela"
 
 #: dialogs/profiledatainfodialog.cpp:102
 msgid "Usable Variables For Text Template"
@@ -807,22 +849,26 @@ msgid ""
 msgstr ""
 
 #: dialogs/profiledatainfodialog.cpp:216
+#, fuzzy
 msgid "Load Text Template"
-msgstr ""
+msgstr "Šablónu %1 sa nepodarilo načítať."
 
 #: dialogs/profiledatainfodialog.cpp:228
+#, fuzzy
 msgid "Save Text Template"
-msgstr ""
+msgstr "Uložiť ako ša&blónu"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
+#, fuzzy
 msgid "Information text:"
-msgstr ""
+msgstr "Nájsť textové informácie"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
 #: dialogs/profiledatainfowidgetUI.ui:58
+#, fuzzy
 msgid "About variables"
-msgstr ""
+msgstr "Premenné prezentácie"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -830,36 +876,38 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
 #: widgets/wavewidgetUI.ui:31
 msgid "Suffix:"
-msgstr ""
+msgstr "Prípona:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 msgid "Pattern:"
-msgstr ""
+msgstr "Vzor:"
 
 #: dialogs/profiledatasinglefiledialog.cpp:32
+#, fuzzy
 msgid "Single File Settings"
-msgstr ""
+msgstr "Nastavenia súborového systému"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
 msgid "Encoder"
-msgstr ""
+msgstr "Kódovač"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
 msgid "Filenames"
-msgstr ""
+msgstr "Názvy súborov"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:130
+#, fuzzy
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "Vytvoriť index kompatibilný s ht://dig"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:143
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "Nahradiť medzery podčiarkovníkmi"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
@@ -875,7 +923,7 @@ msgstr ""
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
 msgid "Extra"
-msgstr ""
+msgstr "Navyše"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
@@ -892,12 +940,13 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
 #: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
 msgid "Settings.."
-msgstr ""
+msgstr "Nastavenia..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:221
+#, fuzzy
 msgid "Create playlist in target folder"
-msgstr ""
+msgstr "Vytvoriť nový priečinok záložiek v %1"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:260
@@ -921,21 +970,23 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:345
+#, fuzzy
 msgid "Write single file"
-msgstr ""
+msgstr "Inštalátor jednotlivých súborov"
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "Uložiť"
 
 #: dialogs/protocoldialog.cpp:62
 #, kde-format
 msgid "Save %1"
-msgstr ""
+msgstr "Uložiť %1"
 
 #: dialogs/simplepatternwizarddialog.cpp:30
+#, fuzzy
 msgid "Pattern Wizard"
-msgstr ""
+msgstr "Sprievodca pripojením"
 
 #: dialogs/simplepatternwizarddialog.cpp:81
 msgid ""
@@ -972,44 +1023,47 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
 msgid "Example:"
-msgstr ""
+msgstr "Príklad:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
 #: dialogs/simplepatternwizardwidgetUI.ui:152
+#, fuzzy
 msgid "About schemes"
-msgstr ""
+msgstr "Schémy skratiek"
 
 #: main.cpp:28
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:29
 msgid "KDE CDDA Extractor"
-msgstr ""
+msgstr "KDE CDDA Extractor"
 
 #: main.cpp:31
 msgid "Copyright © 2007–2011 by Marco Nelles"
-msgstr ""
+msgstr "Copyright © 2007–2011 Marco Nelles"
 
 #: main.cpp:35
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:35
+#, fuzzy
 msgid "Current maintainer, main developer"
-msgstr ""
+msgstr "Správca a aktuálny hlavný vývojár"
 
 #: main.cpp:36
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:36
+#, fuzzy
 msgid "GUI improvements, development"
-msgstr ""
+msgstr "Vývoj tlaku: %1<br>"
 
 #: main.cpp:37
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:37
 msgid "Special thanks to credativ GmbH (Germany) for support"
@@ -1017,15 +1071,18 @@ msgstr ""
 
 #: main.cpp:38
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
+"Špeciálne poďakovanie patrí freedb.org pre poskytovanie voľne prístupnej CD "
+"databáze podobnej CDDB"
 
 #: main.cpp:39
+#, fuzzy
 msgid "Xiph.Org Foundation"
-msgstr ""
+msgstr "img.susepaste.org"
 
 #: main.cpp:39
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
@@ -1034,16 +1091,17 @@ msgstr ""
 #: main.cpp:40
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Roman Paholík"
 
 #: main.cpp:40
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "wizzardsk@gmail.com"
 
 #: mainwindow.cpp:27
+#, fuzzy
 msgid "Unable to create ProfileModel object."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť komponent prvkov."
 
 #: mainwindow.cpp:27 mainwindow.cpp:40
 msgid ""
@@ -1051,16 +1109,18 @@ msgid ""
 msgstr ""
 
 #: mainwindow.cpp:40
+#, fuzzy
 msgid "Unable to create CDDAModel object."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť komponent prvkov."
 
 #: mainwindow.cpp:113
 msgid "No disc information set. Do you really want to continue?"
 msgstr ""
 
 #: mainwindow.cpp:114
+#, fuzzy
 msgid "Disc information not found"
-msgstr ""
+msgstr "Kanál nebol nájdený na %1."
 
 #: mainwindow.cpp:124
 msgid ""
@@ -1074,58 +1134,65 @@ msgstr ""
 
 #: mainwindow.cpp:148
 msgid "General settings"
-msgstr ""
+msgstr "Všeobecné nastavenie"
 
 #: mainwindow.cpp:151
 msgid "Profiles"
-msgstr ""
+msgstr "Profily"
 
 #: mainwindow.cpp:171
 msgid "Remote Server"
-msgstr ""
+msgstr "Vzdialený server"
 
 #: mainwindow.cpp:183
 msgid "No status information available"
-msgstr ""
+msgstr "Nie sú k dispozícii informácie o stave"
 
 #: mainwindow.cpp:187 models/cddamodel.cpp:683
+#, fuzzy
 msgid "No disc in drive"
-msgstr ""
+msgstr "Nenájdená žiadna optická mechanika."
 
 #: mainwindow.cpp:191
+#, fuzzy
 msgid "Audio disc in drive"
-msgstr ""
+msgstr "Vytvárajú sa súbory zvukového obrazu v %1"
 
 #: mainwindow.cpp:200 models/cddamodel.cpp:685
+#, fuzzy
 msgid "Drive tray open"
-msgstr ""
+msgstr "Otvoriť v karte"
 
 #: mainwindow.cpp:204 models/cddamodel.cpp:686
+#, fuzzy
 msgid "Drive not ready"
-msgstr ""
+msgstr "Debugger nie je pripravený"
 
 #: mainwindow.cpp:208 models/cddamodel.cpp:687
 msgid "Drive error"
-msgstr ""
+msgstr "Chyba mechaniky"
 
 #: mainwindow.cpp:245
+#, fuzzy
 msgid "Fetching CDDB information..."
-msgstr ""
+msgstr "Nepodarilo sa získať informácie z CDDB."
 
 #: mainwindow.cpp:250
-#, kde-format
+#, fuzzy, kde-format
 msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
-msgstr ""
+msgstr "Čítanie archívu zlyhalo s nasledujúcou chybou: <message>%1</message>"
 
 #: mainwindow.cpp:251
+#, fuzzy
 msgid "CDD Lookup Failure"
-msgstr ""
+msgstr "Nepodarilo sa nájsť informáciu"
 
 #: mainwindow.cpp:354
+#, fuzzy
 msgid "Split titles"
-msgstr ""
+msgstr "Titulky kariet"
 
 #: mainwindow.cpp:355
 msgid ""
@@ -1139,84 +1206,93 @@ msgid "Do you really want to swap all artists and titles?"
 msgstr ""
 
 #: mainwindow.cpp:366
+#, fuzzy
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "História pamäti a swapu"
 
 #: mainwindow.cpp:378
 msgid "Do you really want to capitalize all artists and titles?"
 msgstr ""
 
 #: mainwindow.cpp:379
+#, fuzzy
 msgid "Capitalize artists and titles"
-msgstr ""
+msgstr "Nastavenie vzhľadu titulkov okien"
 
 #: mainwindow.cpp:391
 msgid "Do you really want to autofill track artists?"
 msgstr ""
 
 #: mainwindow.cpp:392
+#, fuzzy
 msgid "Autofill artists"
-msgstr ""
+msgstr "Viacerý u&melci"
 
 #: mainwindow.cpp:416
 msgid "Eject"
-msgstr ""
+msgstr "Vysunúť"
 
 #: mainwindow.cpp:423
 msgid "Profile:"
-msgstr ""
+msgstr "Profil:"
 
 #: mainwindow.cpp:435
 msgid "&Profile:"
-msgstr ""
+msgstr "Profil:"
 
 #: mainwindow.cpp:441
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 #: mainwindow.cpp:449
+#, fuzzy
 msgid "Fetch Info"
-msgstr ""
+msgstr "Kig Info"
 
 #: mainwindow.cpp:456
+#, fuzzy
 msgid "Submit Info"
-msgstr ""
+msgstr "Kig Info"
 
 #: mainwindow.cpp:462
 msgid "Rip..."
-msgstr ""
+msgstr "Ripovať..."
 
 #: mainwindow.cpp:471
+#, fuzzy
 msgid "Split Titles..."
-msgstr ""
+msgstr "Titulky kariet"
 
 #: mainwindow.cpp:476
+#, fuzzy
 msgid "Swap Artists And Titles"
-msgstr ""
+msgstr "História pamäti a swapu"
 
 #: mainwindow.cpp:481
 msgid "Capitalize"
-msgstr ""
+msgstr "Veľké prvé písmená"
 
 #: mainwindow.cpp:486
+#, fuzzy
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "Interpreti podobní  %1"
 
 #: mainwindow.cpp:491
 msgid "Select All Tracks"
-msgstr ""
+msgstr "Vybrať všetky stopy"
 
 #: mainwindow.cpp:496
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "Zrušiť výber všetkých stôp"
 
 #: mainwindow.cpp:501
 msgid "Invert Selection"
-msgstr ""
+msgstr "Invertovať výber"
 
 #: models/cddamodel.cpp:26
+#, fuzzy
 msgid "Unable to create KCompactDisc object."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť komponent prvkov."
 
 #: models/cddamodel.cpp:26 models/cddamodel.cpp:38
 msgid ""
@@ -1225,65 +1301,71 @@ msgid ""
 msgstr ""
 
 #: models/cddamodel.cpp:38
+#, fuzzy
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "Nepodarilo sa vytvoriť komponent prvkov."
 
 #: models/cddamodel.cpp:135
 #, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "Stopa %1"
 
 #: models/cddamodel.cpp:684
+#, fuzzy
 msgid "Disc in drive"
-msgstr ""
+msgstr "Pevný disk"
 
 #: models/cddamodel.cpp:690
+#, fuzzy
 msgid "No drive status available"
-msgstr ""
+msgstr "Nie sú k dispozícii informácie o stave."
 
 #: models/cddamodel.cpp:699
 msgid "Disc playing"
-msgstr ""
+msgstr "Prehrávanie disku"
 
 #: models/cddamodel.cpp:700
 msgid "Disc paused"
-msgstr ""
+msgstr "Disk pozastavený"
 
 #: models/cddamodel.cpp:701
 msgid "Disc stopped"
-msgstr ""
+msgstr "Disk zastavený"
 
 #: models/cddamodel.cpp:704
 msgid "No disc status available"
-msgstr ""
+msgstr "Stav disku nedostupný"
 
 #: models/cddamodel.cpp:713
 msgid "Audio disc"
-msgstr ""
+msgstr "Zvukový disk"
 
 #: models/cddamodel.cpp:714
 msgid "No audio disc"
-msgstr ""
+msgstr "Žiadne audio disk"
 
 #: models/cddamodel.cpp:717
+#, fuzzy
 msgid "No disc type information available"
-msgstr ""
+msgstr "Nie je k dispozícii žiadny súhrn informácií o fotoaparáte.\n"
 
 #: models/cddamodel.cpp:726
 msgid "CD-Text"
-msgstr ""
+msgstr "CD-Text"
 
 #: models/cddamodel.cpp:727
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
+#, fuzzy
 msgid "Phonon Metadata"
-msgstr ""
+msgstr "Popisok metadát"
 
 #: models/cddamodel.cpp:731
+#, fuzzy
 msgid "No disc information available"
-msgstr ""
+msgstr "Žiadna ladiaca informácia nie je k dispozícii"
 
 #: models/cddamodel.cpp:763 models/cddamodel.cpp:893
 msgid ""
@@ -1304,12 +1386,14 @@ msgid ""
 msgstr ""
 
 #: models/cddamodel.cpp:766
+#, fuzzy
 msgid "Please contact the CDDB server administrator."
-msgstr ""
+msgstr "Prosím, kontaktujte administrátora systému."
 
 #: models/cddamodel.cpp:767 models/cddamodel.cpp:896
+#, fuzzy
 msgid "This should not happen. Please make a bug report."
-msgstr ""
+msgstr "Súbor \"%1\" je adresár. Toto by nemalo nastať. Prosím zadajte bug."
 
 #: models/cddamodel.cpp:772 models/cddamodel.cpp:897
 msgid "Please make a bug report and contact the CDDB server administrator."
@@ -1327,43 +1411,45 @@ msgstr ""
 
 #: models/cddamodel.cpp:922
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "Vybrať položku CDDB"
 
 #: models/cddamodel.cpp:923
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "Vyberte položku CDDB:"
 
 #: models/cddamodel.h:46
 msgid "Rip"
-msgstr ""
+msgstr "Ripovať"
 
 #: models/cddamodel.h:47
 msgid "Track"
-msgstr ""
+msgstr "Stopa"
 
 #: models/cddamodel.h:48
 msgid "Artist"
-msgstr ""
+msgstr "Interpret"
 
 #: models/cddamodel.h:49
 msgid "Title"
-msgstr ""
+msgstr "Titul"
 
 #: models/cddamodel.h:50
 msgid "Length"
-msgstr ""
+msgstr "Dĺžka"
 
 #: models/profilemodel.cpp:134
+#, fuzzy
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Meno makra nemôže byť prázdne."
 
 #: models/profilemodel.cpp:135
 msgid "You have given no name for the profile. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:144
+#, fuzzy
 msgid "Profile encoder is not defined."
-msgstr ""
+msgstr "Ovládač APS nie je definovaný."
 
 #: models/profilemodel.cpp:145
 msgid "You have given no encoder for the profile. Please set one."
@@ -1378,8 +1464,9 @@ msgid "You have given no filename pattern for the profile. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:170
+#, fuzzy
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "Formát súboru \"%1\" cieľového obrázku nie je podporovaný."
 
 #: models/profilemodel.cpp:171
 msgid ""
@@ -1388,16 +1475,18 @@ msgid ""
 msgstr ""
 
 #: models/profilemodel.cpp:180
+#, fuzzy
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "Meno makra nemôže byť prázdne."
 
 #: models/profilemodel.cpp:181
 msgid "You have given no name for the cover. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:191
+#, fuzzy
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "Súbor '%1' nie je v binárnom formáte."
 
 #: models/profilemodel.cpp:192
 msgid ""
@@ -1406,8 +1495,9 @@ msgid ""
 msgstr ""
 
 #: models/profilemodel.cpp:201
+#, fuzzy
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "Meno makra nemôže byť prázdne."
 
 #: models/profilemodel.cpp:202
 msgid "You have given no name for the playlist. Please set one."
@@ -1430,8 +1520,9 @@ msgid "You have given no suffix for the info text file. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:235
+#, fuzzy
 msgid "The hashlist file format is unknown."
-msgstr ""
+msgstr "Súbor '%1' nie je v binárnom formáte."
 
 #: models/profilemodel.cpp:236
 msgid ""
@@ -1440,8 +1531,9 @@ msgid ""
 msgstr ""
 
 #: models/profilemodel.cpp:245
+#, fuzzy
 msgid "Hashlist name must not be empty."
-msgstr ""
+msgstr "Meno makra nemôže byť prázdne."
 
 #: models/profilemodel.cpp:246
 msgid "You have given no name for the hashlist. Please set one."
@@ -1456,16 +1548,18 @@ msgid "You have given no name for the cue sheet. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:267
+#, fuzzy
 msgid "Filename name must not be empty."
-msgstr ""
+msgstr "Meno makra nemôže byť prázdne."
 
 #: models/profilemodel.cpp:268
 msgid "You have given no name for the single audio file. Please set one."
 msgstr ""
 
 #: models/profilemodel.cpp:292
+#, fuzzy
 msgid "Profile name already exists."
-msgstr ""
+msgstr "Meno <em>%1</em> je už použité."
 
 #: models/profilemodel.cpp:293
 #, kde-format
@@ -1475,8 +1569,11 @@ msgid ""
 msgstr ""
 
 #: models/profilemodel.cpp:309
+#, fuzzy
 msgid "Profile index already exists."
 msgstr ""
+"Súbor %1 už existuje.\n"
+"Chcete ho prepísať?"
 
 #: models/profilemodel.cpp:310
 #, kde-format
@@ -1490,28 +1587,30 @@ msgid "Unknown error. No index found in profile model."
 msgstr ""
 
 #: models/profilemodel.cpp:367
+#, fuzzy
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "Nastala neznáma chyba (%1), prosím oznáte to"
 
 #: models/profilemodel.h:178
 msgid " (Mobile Quality)"
-msgstr ""
+msgstr " (Mobilná kvalita)"
 
 #: models/profilemodel.h:179
 msgid " (Normal Quality)"
-msgstr ""
+msgstr "(Normálna kvalita)"
 
 #: models/profilemodel.h:180
 msgid " (Extreme Quality)"
-msgstr ""
+msgstr " (Extrémna kvalita)"
 
 #: utils/cachedimage.cpp:103
+#, fuzzy
 msgid "Common image formats"
-msgstr ""
+msgstr "Formáty obrázkov raw v KDE"
 
 #: utils/cachedimage.cpp:142
 msgid "File does not exist."
-msgstr ""
+msgstr "Súbor neexistuje."
 
 #: utils/cachedimage.cpp:142
 msgid "Please check if the file really exists."
@@ -1519,15 +1618,16 @@ msgstr ""
 
 #: utils/cachedimage.cpp:151
 msgid "Cannot open file."
-msgstr ""
+msgstr "Nie je možné otvoriť súbor."
 
 #: utils/cachedimage.cpp:151
 msgid "Please check your file. Maybe you do not have proper permissions."
 msgstr ""
 
 #: utils/cachedimage.cpp:157 utils/cachedimage.cpp:204
+#, fuzzy
 msgid "Unsupported image format"
-msgstr ""
+msgstr "Nový formát obrázka"
 
 #: utils/cachedimage.cpp:157
 msgid ""
@@ -1537,15 +1637,16 @@ msgstr ""
 
 #: utils/cachedimage.cpp:174
 msgid "Cannot open file"
-msgstr ""
+msgstr "Nie je možné otvoriť súbor"
 
 #: utils/cachedimage.cpp:174
+#, fuzzy
 msgid "Please check your permissions."
-msgstr ""
+msgstr "Nie je možné vytvoriť adresár. Skontrolujte svoje práva."
 
 #: utils/cachedimage.cpp:181
 msgid "Cannot save file"
-msgstr ""
+msgstr "Nedá sa uložiť súbor"
 
 #: utils/cachedimage.cpp:181
 msgid "Please check your permissions. Do you have enough space?"
@@ -1558,29 +1659,32 @@ msgid ""
 msgstr ""
 
 #: utils/cachedimage.cpp:212
+#, fuzzy
 msgid "Cannot write on device"
-msgstr ""
+msgstr "DMA vypnuté na zariadení %1 - %2"
 
 #: utils/cachedimage.cpp:212
 msgid "Please check your permissions. Do you have enough space on your device?"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
+#, fuzzy
 msgid "Internal device error."
-msgstr ""
+msgstr "Interná chyba: nenastavené zariadenie."
 
 #: utils/cddaextractthread.cpp:32
 msgid "Check your device and make a bug report."
 msgstr ""
 
 #: utils/cddaextractthread.cpp:78
+#, fuzzy
 msgid "Extracting finished."
-msgstr ""
+msgstr "Sťahovanie bolo dokončené"
 
 #: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
+msgstr "Ripuje sa stopa %1 (%2:%3)..."
 
 #: utils/cddaextractthread.cpp:105
 msgid "Ripping whole CD as single track."
@@ -1592,26 +1696,31 @@ msgid "Start reading track %1 with %2 sectors"
 msgstr ""
 
 #: utils/cddaextractthread.cpp:146
+#, fuzzy
 msgid "User canceled extracting."
 msgstr ""
+"Užívateľ zrušil akciu\n"
+"%1"
 
 #: utils/cddaextractthread.cpp:149
-#, kde-format
+#, fuzzy, kde-format
 msgid "An error occured while ripping track %1."
-msgstr ""
+msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
 #: utils/cddaextractthread.cpp:153
-#, kde-format
+#, fuzzy, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr ""
+msgstr "Neopraviteľná chyba pri ripovaní stopy %1."
 
 #: utils/cddaextractthread.cpp:155
+#, fuzzy
 msgid "Ripping OK."
-msgstr ""
+msgstr "Prihlásenie v poriadku"
 
 #: utils/cddaextractthread.cpp:160
+#, fuzzy
 msgid "Reading finished"
-msgstr ""
+msgstr "Sťahovanie bolo dokončené"
 
 #: utils/cddaextractthread.cpp:203
 #, kde-format
@@ -1700,16 +1809,18 @@ msgid ""
 msgstr ""
 
 #: utils/coverfetcher.cpp:103
+#, fuzzy
 msgid "There was an error communicating with Google."
-msgstr ""
+msgstr "Nastala chyba pri prihlásení k serveru: %1"
 
 #: utils/coverfetcher.cpp:103
 msgid "Try again later. Otherwise make a bug report."
 msgstr ""
 
 #: utils/coverfetcher.cpp:114
+#, fuzzy
 msgid "Google server: Empty response."
-msgstr ""
+msgstr "Neznáma odpoveď zo servera"
 
 #: utils/coverfetcher.cpp:115
 msgid "Try again later. Make a bug report."
@@ -1718,71 +1829,77 @@ msgstr ""
 #: utils/coverfetcher.cpp:176
 #, kde-format
 msgid "%1x%2, %3 KiB"
-msgstr ""
+msgstr "%1x%2, %3 KiB"
 
 #: utils/encoderassistant.h:66
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:98
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:128
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (bezstratový)"
 
 #: utils/encoderassistant.h:139
 msgid "MP4 (AAC)"
-msgstr ""
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:157
+#, fuzzy
 msgid "WAVE (Raw Uncompressed)"
-msgstr ""
+msgstr "Nekomprimovaný archív (.tar)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:166 utils/encoderassistant.h:167
 #: widgets/lamewidgetUI.ui:130
 msgid "Custom"
-msgstr ""
+msgstr "Vlastné"
 
 #: utils/encoderwrapper.cpp:57
+#, fuzzy
 msgid "Command pattern is empty."
-msgstr ""
+msgstr "Neplatný príkaz: príkaz je prázdny."
 
 #: utils/encoderwrapper.cpp:69
-#, kde-format
+#, fuzzy, kde-format
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "1 stopa (kódovanie do %2)"
 
 #: utils/encoderwrapper.cpp:87
-#, kde-format
+#, fuzzy, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr ""
+msgstr "Bol odstránený čiastočný súbor '%1'."
 
 #: utils/encoderwrapper.cpp:92
+#, fuzzy
 msgid "User canceled encoding."
 msgstr ""
+"Užívateľ zrušil akciu\n"
+"%1"
 
 #: utils/encoderwrapper.cpp:140
-#, kde-format
+#, fuzzy, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr ""
+msgstr "Prihlásenie v poriadku"
 
 #: utils/encoderwrapper.cpp:142
-#, kde-format
+#, fuzzy, kde-format
 msgid "An error occured while encoding file \"%1\"."
-msgstr ""
+msgstr "Chyba pri nahrávaní zvukov."
 
 #: utils/encoderwrapper.cpp:143 utils/encoderwrapper.cpp:155
 #: utils/encoderwrapper.cpp:157 utils/encoderwrapper.cpp:163
+#, fuzzy
 msgid "Please check your profile."
-msgstr ""
+msgstr "Prosím popíšte svoj upload."
 
 #: utils/encoderwrapper.cpp:153
-#, kde-format
+#, fuzzy, kde-format
 msgid "%1 failed to start."
-msgstr ""
+msgstr "Nepodarilo sa spustiť Nepomuk"
 
 #: utils/encoderwrapper.cpp:153
 msgid ""
@@ -1801,9 +1918,9 @@ msgid "%1 timed out. This should not happen."
 msgstr ""
 
 #: utils/encoderwrapper.cpp:159
-#, kde-format
+#, fuzzy, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr ""
+msgstr "Nastala neočakávaná chyba (%1) pri pokuse o %2."
 
 #: utils/encoderwrapper.cpp:159
 msgid ""
@@ -1837,36 +1954,39 @@ msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:461
 msgid "Released: "
-msgstr ""
+msgstr "Vydané:"
 
 #: widgets/cddaheaderwidget.cpp:462
 msgid "Genre: "
-msgstr ""
+msgstr "Žáner:"
 
 #: widgets/cddaheaderwidget.cpp:463
 msgid "CD Number: "
-msgstr ""
+msgstr "Číslo CD:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipédia"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
-msgstr ""
+msgstr "Žiadne CD v mechanike"
 
 #: widgets/cddaheaderwidget.cpp:684
+#, fuzzy
 msgid "Load Cover"
-msgstr ""
+msgstr "Prepínať s gáleriou"
 
 #: widgets/cddaheaderwidget.cpp:693 widgets/profilewidget.cpp:122
+#, fuzzy
 msgid "Save Cover"
-msgstr ""
+msgstr "Prepínať s gáleriou"
 
 #: widgets/cddaheaderwidget.cpp:773
+#, fuzzy
 msgid "No cover found."
-msgstr ""
+msgstr " Obal nenájdený"
 
 #: widgets/cddaheaderwidget.cpp:773
 msgid ""
@@ -1875,95 +1995,99 @@ msgid ""
 msgstr ""
 
 #: widgets/cddaheaderwidget.cpp:809
+#, fuzzy
 msgid "Fetch cover from Google..."
-msgstr ""
+msgstr "Získať obal zo &súboru..."
 
 #: widgets/cddaheaderwidget.cpp:814
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Nastaviť vlastný obal..."
 
 #: widgets/cddaheaderwidget.cpp:819
+#, fuzzy
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "&Uložiť ako HTML súbor:"
 
 #: widgets/cddaheaderwidget.cpp:824
+#, fuzzy
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Zobraziť &veľkosť súboru obrázku"
 
 #: widgets/cddaheaderwidget.cpp:829
 msgid "Remove Cover"
-msgstr ""
+msgstr "Odstrániť obal"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
+#, fuzzy
 msgid "Command Pattern:"
-msgstr ""
+msgstr "Vzorka nájdená"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 msgid "Quality"
-msgstr ""
+msgstr "Kvalita"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
 msgid "Lowest"
-msgstr ""
+msgstr "Najnižšia"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
 msgid "Highest"
-msgstr ""
+msgstr "Najvyššia"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 msgid "Compression"
-msgstr ""
+msgstr "Kompresia"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "English"
-msgstr ""
+msgstr "English"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Deutsch"
-msgstr ""
+msgstr "Deutsch"
 
 #: widgets/generalsettingswidget.cpp:26
 msgid "Français"
-msgstr ""
+msgstr "Français"
 
 #: widgets/generalsettingswidget.cpp:27
 msgid "Polski"
-msgstr ""
+msgstr "Polski"
 
 #: widgets/generalsettingswidget.cpp:28
 msgid "日本語"
-msgstr ""
+msgstr "日本語"
 
 #: widgets/generalsettingswidget.cpp:29
 msgid "Italiano"
-msgstr ""
+msgstr "Italiano"
 
 #: widgets/generalsettingswidget.cpp:30
 msgid "Nederlands"
-msgstr ""
+msgstr "Nederlands"
 
 #: widgets/generalsettingswidget.cpp:31
 msgid "Español"
-msgstr ""
+msgstr "Español"
 
 #: widgets/generalsettingswidget.cpp:32
 msgid "Português"
-msgstr ""
+msgstr "Português"
 
 #: widgets/generalsettingswidget.cpp:33
 msgid "Svenska"
-msgstr ""
+msgstr "Svenska"
 
 #: widgets/generalsettingswidget.cpp:42
 msgid "None detected"
-msgstr ""
+msgstr "Nič nezistené"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:37
@@ -1972,28 +2096,30 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:51
+#, fuzzy
 msgid "Perform cover lookup automatically"
-msgstr ""
+msgstr "Vykonať CDDB vyhľadávanie &automaticky"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/generalsettingswidgetUI.ui:66
+#, fuzzy
 msgid "Number of covers to fetch:"
-msgstr ""
+msgstr "&Maximálny počet sťahovaných príspevkov:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
 #: widgets/generalsettingswidgetUI.ui:106
 msgid "Localization:"
-msgstr ""
+msgstr "Lokalizácia:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/generalsettingswidgetUI.ui:126
 msgid "Device"
-msgstr ""
+msgstr "Zariadenie"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:156
 msgid "Paths"
-msgstr ""
+msgstr "Cesty"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:164
@@ -2002,8 +2128,9 @@ msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
+#, fuzzy
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "Konštantný dátový tok"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
@@ -2014,7 +2141,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
 msgid "Medium (140...185 kbit/s)"
-msgstr ""
+msgstr "Stredné (140...185 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2026,7 +2153,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
 msgid "Extreme (220...260 kbits/s)"
-msgstr ""
+msgstr "Extrémne (220...260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2038,7 +2165,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
 msgid "Standard (170...210 kbit/s)"
-msgstr ""
+msgstr "Štandardné (170...210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2050,18 +2177,20 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
+#, fuzzy
 msgid "Insane (320 kbit/s)"
-msgstr ""
+msgstr "Archivácia (320 kbps)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Konštantný dátový tok"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153
+#, fuzzy
 msgid "Target Bitrate (kbit/s)"
-msgstr ""
+msgstr "Nastavenie premenlivého dátového toku"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: widgets/lamewidgetUI.ui:248
@@ -2071,7 +2200,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 msgid "Target Bitrate ~"
-msgstr ""
+msgstr "Cieľový dátový tok ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2079,30 +2208,35 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
 #: widgets/oggencwidgetUI.ui:347
 msgid "kbit/s"
-msgstr ""
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
+#, fuzzy
 msgid "Set minimum bitrate"
-msgstr ""
+msgstr "Nastavenie premenlivého dátového toku"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: widgets/oggencwidgetUI.ui:245
+#, fuzzy
 msgid "Set maximum bitrate"
-msgstr ""
+msgstr "Nastaviť maximálny počet návrhov"
 
 #: widgets/profilewidget.cpp:80
-#, kde-format
+#, fuzzy, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
 msgstr ""
+"<qt>Naozaj chcete odstrániť\n"
+" <b>'%1'</b>?</qt>"
 
 #: widgets/profilewidget.cpp:81
 msgid "Delete profile"
-msgstr ""
+msgstr "Odstrániť profil"
 
 #: widgets/profilewidget.cpp:129
+#, fuzzy
 msgid "Load Profiles"
-msgstr ""
+msgstr "Profily Konquerora"
 
 #: widgets/profilewidget.cpp:138
 msgid ""
@@ -2114,51 +2248,54 @@ msgstr ""
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:148
 #: widgets/profilewidgetUI.ui:65
+#, fuzzy
 msgid "Codec Scan"
-msgstr ""
+msgstr "Prehľadať priečinok"
 
 #: widgets/profilewidget.cpp:146
+#, fuzzy
 msgid "No new codecs found"
-msgstr ""
+msgstr "Nebol nájdený žiadny bežiaci proces aRtsd"
 
 #: widgets/profilewidget.cpp:147
-#, kde-format
+#, fuzzy, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] ""
+msgstr[0] "Spustiť nový profil"
 msgstr[1] ""
+msgstr[2] ""
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 msgid "Add..."
-msgstr ""
+msgstr "Pridať..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 msgid "Remove"
-msgstr ""
+msgstr "Odstrániť"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
-msgstr ""
+msgstr "Upraviť..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
 msgid "Copy"
-msgstr ""
+msgstr "Kopírovať"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 msgid "Load..."
-msgstr ""
+msgstr "Načítať..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 msgid "Save..."
-msgstr ""
+msgstr "Uložiť..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 msgid "URL:"
-msgstr ""
+msgstr "URL:"

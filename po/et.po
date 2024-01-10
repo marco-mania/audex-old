@@ -1,179 +1,182 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
+# Marek Laane <bald@smail.ee>, 2011, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-10-16 08:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-10-17 03:46+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
 #. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
 #: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
 msgid "Overwrite existing files"
-msgstr ""
+msgstr "Olemasolevate failide ülekirjutamine"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
 #. i18n: ectx: label, entry (deletePartialFiles), group (general)
 #: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
 msgid "Delete partial files after cancel"
-msgstr ""
+msgstr "Osaliste failide kustutamine loobumise järel"
 
 #. i18n: ectx: label, entry (ejectCDTray), group (general)
 #: audex.kcfg:22
 msgid "Eject CD tray after extraction finished"
-msgstr ""
+msgstr "CD väljastamine pärast ekstraktimise lõpetamist"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
 #. i18n: ectx: label, entry (cddbLookupAuto), group (general)
 #: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
 msgid "Perform CDDB lookup automatically"
-msgstr ""
+msgstr "Automaatne CDDB otsing"
 
 #. i18n: ectx: label, entry (coverLookupAuto), group (general)
 #: audex.kcfg:30
 msgid "Perform cover lookup (amazon) automatically"
-msgstr ""
+msgstr "Automaatne kaanepildi otsing (Amazon)"
 
 #. i18n: ectx: label, entry (wikipediaLocale), group (general)
 #: audex.kcfg:34
 msgid "Wikipedia localization"
-msgstr ""
+msgstr "Wikipedia keel"
 
 #. i18n: ectx: label, entry (fetchCount), group (general)
 #: audex.kcfg:38
 msgid "Number of covers to fetch"
-msgstr ""
+msgstr "Tõmmatavate kaanepiltide arv"
 
 #. i18n: ectx: label, entry (cdDevice), group (general)
 #: audex.kcfg:42
 msgid "CD Device"
-msgstr ""
+msgstr "CD-seade"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
 #. i18n: ectx: label, entry (paranoiaMode), group (general)
 #: audex.kcfg:46 widgets/generalsettingswidgetUI.ui:139
 msgid "Full paranoia mode (best quality)"
-msgstr ""
+msgstr "Täielik paranoiarežiim (parim kvaliteet)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
 #. i18n: ectx: label, entry (neverSkip), group (general)
 #: audex.kcfg:50 widgets/generalsettingswidgetUI.ui:146
 msgid "Never skip on read error"
-msgstr ""
+msgstr "Lugemistõrkel ei jäeta kunagi vahele"
 
 #. i18n: ectx: label, entry (basePath), group (general)
 #: audex.kcfg:54
 msgid "Base path to store music files"
-msgstr ""
+msgstr "Muusikafailide salvestamise baasasukoht"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
 #. i18n: ectx: label, entry (upload), group (general)
 #: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
 msgid "Upload files to server"
-msgstr ""
+msgstr "Failide üleslaadimine serverisse"
 
 #. i18n: ectx: label, entry (url), group (general)
 #: audex.kcfg:62
 msgid "URL of server"
-msgstr ""
+msgstr "Serveri URL"
 
 #. i18n: ectx: Menu (file)
 #: audexui.rc:6
 msgid "&Audex"
-msgstr ""
+msgstr "A&udex"
 
 #. i18n: ectx: Menu (cddb)
 #: audexui.rc:13
 msgid "&CDDB"
-msgstr ""
+msgstr "&CDDB"
 
 #. i18n: ectx: Menu (titlecorrectiontools)
 #: audexui.rc:18
 msgctxt "@title:menu"
 msgid "Title Correction Tools"
-msgstr ""
+msgstr "Pealkirja korrigeerimise tööriistad"
 
 #. i18n: ectx: Menu (settings)
 #: audexui.rc:25
 msgid "&Settings"
-msgstr ""
+msgstr "&Seadistused"
 
 #: core/audex.cpp:112
 msgid "No profile selected. Operation abort."
-msgstr ""
+msgstr "Profiili pole valitud. Toiming katkestatakse."
 
 #: core/audex.cpp:129
 #, kde-format
 msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr ""
+msgstr "Rippimise ja kodeerimise alustamine profiiliga \"%1\"..."
 
 #: core/audex.cpp:545 core/audex.cpp:605
 #, kde-format
 msgid "Can't find path \"%1\"."
-msgstr ""
+msgstr "Asukohta \"%1\" ei leitud."
 
 #: core/audex.cpp:545 core/audex.cpp:554 core/audex.cpp:605 core/audex.cpp:614
 msgid "Please check your path (write access?)"
-msgstr ""
+msgstr "Palun kontrolli asukohta (kirjutamisõigus puudub?)"
 
 #: core/audex.cpp:554 core/audex.cpp:614
 #, kde-format
 msgid "Unable to create folder \"%1\"."
-msgstr ""
+msgstr "Kataloogi \"%1\" loomine nurjus."
 
 #: core/audex.cpp:557 core/audex.cpp:617
 #, kde-format
 msgid "Folder \"%1\" successfully created."
-msgstr ""
+msgstr "Kataloog \"%1\" loodi edukalt."
 
 #: core/audex.cpp:560 core/audex.cpp:620
 #, kde-format
 msgid "Folder \"%1\" already exists."
-msgstr ""
+msgstr "Kataloog \"%1\" on juba olemas."
 
 #: core/audex.cpp:567
 #, kde-format
 msgid ""
 "Free space on \"%1\" is less than 200 MiB. Problems with low space possible."
 msgstr ""
+"\"%1\" sisaldab vaba ruumi alla 200 MiB. Võivad tekkida ruuminappuse "
+"probleemid."
 
 #: core/audex.cpp:573 core/audex.cpp:633
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr ""
+msgstr "Hoiatus! Fail \"%1\" on juba olemas. See kirjutatakse üle."
 
 #: core/audex.cpp:575 core/audex.cpp:635 core/audex.cpp:729 core/audex.cpp:762
 #: core/audex.cpp:811 core/audex.cpp:851 core/audex.cpp:890 core/audex.cpp:929
 #, kde-format
 msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr ""
+msgstr "Hoiatus! Fail \"%1\" on juba olemas. Jäetakse vahele."
 
 #: core/audex.cpp:627
 #, kde-format
 msgid ""
 "Free space on \"%1\" is less than 800 MiB. Problems with low space possible."
 msgstr ""
+"\"%1\" sisaldab vaba ruumi alla 800 MiB. Võivad tekkida ruuminappuse "
+"probleemid."
 
 #: core/audex.cpp:654
 #, kde-format
 msgid "Temporary folder \"%1\" error."
-msgstr ""
+msgstr "Ajutise kataloogi \"%1\" viga."
 
 #: core/audex.cpp:654
 msgid "Please check."
-msgstr ""
+msgstr "Palun kontrolli."
 
 #: core/audex.cpp:660
 #, kde-format
@@ -181,113 +184,115 @@ msgid ""
 "Free space on temporary folder \"%1\" is less than 800 MiB. Problems with "
 "low space possible."
 msgstr ""
+"Ajutine kataloog \"%1\" sisaldab vaba ruumi alla 800 MiB. Võivad tekkida "
+"ruuminappuse probleemid."
 
 #: core/audex.cpp:662
 #, kde-format
 msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr ""
+msgstr "Ajutine kataloog \"%1\" vajab vähemalt 200 MiB vaba ruumi."
 
 #: core/audex.cpp:662
 msgid "Please free space or set another path."
-msgstr ""
+msgstr "Palun vabasta ruumi või määra mõni muu asukoht."
 
 #: core/audex.cpp:696
 msgid "Eject CD tray"
-msgstr ""
+msgstr "CD väljastamine"
 
 #: core/audex.cpp:734
 #, kde-format
 msgid "Cover \"%1\" successfully saved."
-msgstr ""
+msgstr "Kaanepilt \"%1\" on edukalt salvestatud."
 
 #: core/audex.cpp:788
 #, kde-format
 msgid "Playlist \"%1\" successfully created."
-msgstr ""
+msgstr "Esitusnimekiri \"%1\" on edukalt loodud."
 
 #: core/audex.cpp:824
 #, kde-format
 msgid "Infofile \"%1\" successfully created."
-msgstr ""
+msgstr "Teabefail \"%1\" on edukalt loodud."
 
 #: core/audex.cpp:872
 #, kde-format
 msgid "Hashlist \"%1\" successfully created."
-msgstr ""
+msgstr "Räsiloend \"%1\" on edukalt loodud."
 
 #: core/audex.cpp:903
 msgid "Discid successfully stored."
-msgstr ""
+msgstr "Plaadi ID on edukalt salvestatud."
 
 #: core/audex.cpp:943
 #, kde-format
 msgid "Cue sheet \"%1\" successfully created."
-msgstr ""
+msgstr "Cue sheet \"%1\" on edukalt loodud."
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
 msgid "Edit Data"
-msgstr ""
+msgstr "Andmete muutmine"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
 #: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
 msgid "Various Artists"
-msgstr ""
+msgstr "Mitu esitajat"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
 #: dialogs/cddaheaderdatawidgetUI.ui:23
 msgid "Multi CD"
-msgstr ""
+msgstr "Mitmik-CD"
 
 #. i18n: ectx: property (text), widget (QLabel, label_artist)
 #: dialogs/cddaheaderdatawidgetUI.ui:49
 msgid "Artist:"
-msgstr ""
+msgstr "Esitaja:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_title)
 #: dialogs/cddaheaderdatawidgetUI.ui:65
 msgid "Title:"
-msgstr ""
+msgstr "Pealkiri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_cdnum)
 #: dialogs/cddaheaderdatawidgetUI.ui:75
 msgid "CD Number:"
-msgstr ""
+msgstr "CD number:"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: dialogs/cddaheaderdatawidgetUI.ui:89
 msgid "Track Offset:"
-msgstr ""
+msgstr "Rajanumbrite algus:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_genre)
 #: dialogs/cddaheaderdatawidgetUI.ui:105
 msgid "Genre:"
-msgstr ""
+msgstr "Žanr:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_year)
 #: dialogs/cddaheaderdatawidgetUI.ui:128
 msgid "Year:"
-msgstr ""
+msgstr "Aasta:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_extdata)
 #: dialogs/cddaheaderdatawidgetUI.ui:155
 msgid ""
 "Additional\n"
 "Information:"
-msgstr ""
+msgstr "Lisateave:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid)
 #: dialogs/cddaheaderdatawidgetUI.ui:171
 msgid "Disc ID:"
-msgstr ""
+msgstr "Plaadi ID:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_discid_2)
 #: dialogs/cddaheaderdatawidgetUI.ui:178
 msgid "0x00000000"
-msgstr ""
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
-msgstr ""
+msgstr "Käsu mustri nõustaja"
 
 #: dialogs/commandwizarddialog.cpp:86
 msgid ""
@@ -315,6 +320,28 @@ msgid ""
 "td></tr><tr><td>$audex</td><td>Audex name and version.</td></tr><tr><td>"
 "$encoder</td><td>Encoder name and version.</td></tr></table></p>"
 msgstr ""
+"<p>Järgmised muutujad asendatakse nende konkreetse tähendusega iga raja "
+"nimes.</p><p><table border=\"1\"><tr><th><em>Muutuja</em></"
+"th><th><em>Kirjeldus</em></th></tr><tr><td>$artist</td><td>CD esitaja. Kui "
+"tegemist on kogumikuga, siis esindab see silt enamikul juhtudel pealkirja.</"
+"td></tr><tr><td>$title</td><td>CD pealkiri. Kui tegemist on kogumikuga, siis "
+"esindab see silt enamikul juhtudel alapealkirja.</td></tr><tr><td>$date</"
+"td><td>CD väljalaskeaeg. Enamikul juhtudel on see aasta.</td></tr><tr><td>"
+"$genre</td><td>CD žanr.</td></tr><tr><td>$cdno</td><td>Mitmest CD-st "
+"koosneva albumi konkreetse CD number. Sageli on kogumikes mitu CD-d. "
+"<i>Märkus:</i> kui aktiivse CD puhul on mitme CD lipu väärtuseks <b>not</b>, "
+"siis on see lihtsalt tühi.</td></tr><tr><td>$tartist</td><td>Iga konkreetse "
+"raja esitaja. See on eriti tulus kogumike puhul.</td></tr><tr><td>$ttitle</"
+"td><td>Raja pealkiri. Tavaliselt on igal CD rajal pealkiri, milleks on laulu "
+"nimi.</td></tr><tr><td>$trackno</td><td>Raja number. Esimene rada on 1.</"
+"td></tr><tr><td>$cover</td><td>Kaanepildifail.</td></tr><tr><td>$nooftracks</"
+"td><td>CD heliradade koguarv.</td></tr><tr><td>$i</td><td>Ajutine WAV-fail "
+"(sisendfail), mille Audex loob CD heliraja põhjal. Seda võib kasutada "
+"tavalise sisendfailina käsureakooderi jaoks.</td></tr><tr><td>$o</"
+"td><td>Väljundfaili täielik failinimi ja asukoht. Seda saab kasutada "
+"käsureakooderi väljundina.</td></tr><tr><td>$audex</td><td>Audexi nimi ja "
+"versioon.</td></tr><tr><td>$encoder</td><td>Kooderi nimi ja versioon.</td></"
+"tr></table></p>"
 
 #: dialogs/commandwizarddialog.cpp:109
 msgid ""
@@ -332,216 +359,230 @@ msgid ""
 "Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
 "overview of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
+"<p>Muutujatel võivad Audexis olla parameetrid. Näiteks</p><pre>${cover "
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Lisatakse JPG-"
+"pildi (mõõtmetega 300x300) failinimi. Kui suurust pole määratud, kasutatakse "
+"originaalkaanepildi suurust. Kui kaanepilti pole määratud, ei asendata seda "
+"muutuja millegagi, vastasel juhul lisatakse midagi sellist nagu <i>/tmp/"
+"cover.123.jpg</i>. Võimalikud vormingud on \"JPG\", \"PNG\" ja \"GIF"
+"\" (vaikimisi: \"JPG\").</p>\n"
+"<p><i><b>Märkus:</b> LAME ei luba kaanepildifaile suurusega üle 128 KiB. "
+"Palun arvesta sellega vormingut ja suurust määrates.</i></p><hr /><p>"
+"\"preparam\" ja \"postparam\" määravad, kas parameetrid tuleb sisestada enne "
+"(pre) või pärast (post) muutujat. Neid väärtusti näidatakse <b>ainult</b> "
+"siis, kui väärtus onmääratud. Toimib kõigi käsureamuutujatega.</p><hr /"
+"><p><b><i>Täieliku ülevaate parameetritest leiab Audexi veebilehelt.</i></"
+"b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
 msgid "Album Example:"
-msgstr ""
+msgstr "Albumi näide:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
 #: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
 msgid "Sampler Example:"
-msgstr ""
+msgstr "Kogumiku näide:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
 #: dialogs/commandwizardwidgetUI.ui:269
 msgid "About commandline schemes"
-msgstr ""
+msgstr "Täpsemalt käsureaskeemidest"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
 #: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
 #: dialogs/simplepatternwizardwidgetUI.ui:162
 msgid "About parameters"
-msgstr ""
+msgstr "Täpsemalt parameetritest"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
 #: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
 #: dialogs/simplepatternwizardwidgetUI.ui:189
 msgid "Album Artist"
-msgstr ""
+msgstr "Albumi esitaja"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
 #: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
 #: dialogs/simplepatternwizardwidgetUI.ui:211
 msgid "Album Title"
-msgstr ""
+msgstr "Albumi pealkiri"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
 #: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
 msgid "Track Artist"
-msgstr ""
+msgstr "Raja esitaja"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
 #: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
 msgid "Track Title"
-msgstr ""
+msgstr "Raja pealkiri"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
 #: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
 msgid "Track #"
-msgstr ""
+msgstr "Raja number"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
 #: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
 #: dialogs/simplepatternwizardwidgetUI.ui:231
 msgid "CD #"
-msgstr ""
+msgstr "CD number"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
 #: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
 #: dialogs/simplepatternwizardwidgetUI.ui:255
 msgid "# of Tracks"
-msgstr ""
+msgstr "Radade arv"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
 #: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
 #: dialogs/simplepatternwizardwidgetUI.ui:241
 msgid "Date"
-msgstr ""
+msgstr "Aeg"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
 #: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
 #: dialogs/simplepatternwizardwidgetUI.ui:221
 msgid "Genre"
-msgstr ""
+msgstr "Žanr"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
 #: dialogs/commandwizardwidgetUI.ui:423
 msgid "Cover File"
-msgstr ""
+msgstr "Kaanepildifail"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
 #: dialogs/commandwizardwidgetUI.ui:433
 msgid "Input File"
-msgstr ""
+msgstr "Sisendfail"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
 #: dialogs/commandwizardwidgetUI.ui:443
 msgid "Output File"
-msgstr ""
+msgstr "Väljundfail"
 
 #: dialogs/coverbrowserdialog.cpp:40
 msgid "Searching for covers..."
-msgstr ""
+msgstr "Kaanepiltide otsimine..."
 
 #: dialogs/coverbrowserdialog.cpp:75
 #, kde-format
 msgid "Fetching Thumbnail %1 / %2..."
-msgstr ""
+msgstr "Pisipildi %1/%2 tõmbamine..."
 
 #: dialogs/coverbrowserdialog.cpp:79
 #, kde-format
 msgid "Found 1 Cover"
 msgid_plural "Found %1 Covers"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Leiti 1 kaanepilt"
+msgstr[1] "Leiti %1 kaanepilti"
 
 #: dialogs/coverbrowserdialog.cpp:84
 msgid "No Covers Found"
-msgstr ""
+msgstr "Kaanepilte ei leitud"
 
 #: dialogs/coverbrowserdialog.cpp:104
 msgid "Fetch Cover From Google"
-msgstr ""
+msgstr "Kaanepildi tõmbamine Google'ist"
 
 #: dialogs/extractingprogressdialog.cpp:29
 msgid "Rip And Encode"
-msgstr ""
+msgstr "Rippimine ja kodeerimine"
 
 #: dialogs/extractingprogressdialog.cpp:43
 #: dialogs/extractingprogressdialog.cpp:194
 msgid "Ripping whole CD as single track"
-msgstr ""
+msgstr "Kogu CD rippimine ühe rajana"
 
 #: dialogs/extractingprogressdialog.cpp:44
 msgid "Encoding"
-msgstr ""
+msgstr "Kodeerimine"
 
 #: dialogs/extractingprogressdialog.cpp:48
 #, kde-format
 msgid "Ripping Track 0 of %1"
-msgstr ""
+msgstr "Raja 0/%1 rippimine"
 
 #: dialogs/extractingprogressdialog.cpp:49
 #, kde-format
 msgid "Encoding Track 0 of %1"
-msgstr ""
+msgstr "Raja 0/%1 kodeerimine"
 
 #: dialogs/extractingprogressdialog.cpp:168
 msgid "Do you really want to cancel?"
-msgstr ""
+msgstr "Kas tõesti loobuda?"
 
 #: dialogs/extractingprogressdialog.cpp:169
 msgid "Cancel"
-msgstr ""
+msgstr "Loobu"
 
 #: dialogs/extractingprogressdialog.cpp:187
 msgid "Ripping Track"
-msgstr ""
+msgstr "Raja rippimine"
 
 #: dialogs/extractingprogressdialog.cpp:187
 #, kde-format
 msgid "Ripping Track %1 of %2"
-msgstr ""
+msgstr "Raja %1/%2 rippimine"
 
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:188
 #: dialogs/extractingprogressdialog.cpp:195
 #: dialogs/extractingprogresswidgetUI.ui:165
 msgid "Overall Progress"
-msgstr ""
+msgstr "Üldine edenemine"
 
 #: dialogs/extractingprogressdialog.cpp:188
 #, kde-format
 msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr ""
+msgstr "Üldine edenemine (raja %1/%2 rippimine)"
 
 #: dialogs/extractingprogressdialog.cpp:206
 msgid "Waiting for an encoding job..."
-msgstr ""
+msgstr "Kodeerimise järel ootamine..."
 
 #: dialogs/extractingprogressdialog.cpp:209
 msgid "Encoding Track"
-msgstr ""
+msgstr "Raja kodeerimine"
 
 #: dialogs/extractingprogressdialog.cpp:209
 #, kde-format
 msgid "Encoding Track %1 of %2"
-msgstr ""
+msgstr "Raja %1/%2 kodeerimine"
 
 #: dialogs/extractingprogressdialog.cpp:256
 #: dialogs/extractingprogressdialog.cpp:263
 #, c-format, kde-format
 msgid "Speed: %1x"
-msgstr ""
+msgstr "Kiirus: %1x"
 
 #: dialogs/extractingprogressdialog.cpp:278
 msgid "All jobs successfully done."
-msgstr ""
+msgstr "Kõik tööd sooritati edukalt."
 
 #: dialogs/extractingprogressdialog.cpp:282
 #: dialogs/extractingprogressdialog.cpp:283
 #: dialogs/extractingprogressdialog.cpp:284
 msgid "Finished!"
-msgstr ""
+msgstr "Lõpetatud!"
 
 #: dialogs/extractingprogressdialog.cpp:289
 msgid "At least one job failed."
-msgstr ""
+msgstr "Vähemalt üks töö nurjus."
 
 #: dialogs/extractingprogressdialog.cpp:293
 #: dialogs/extractingprogressdialog.cpp:294
 #: dialogs/extractingprogressdialog.cpp:295
 msgid "Failed!"
-msgstr ""
+msgstr "Nurjus!"
 
 #: dialogs/extractingprogressdialog.cpp:311
 msgid "Show encoding log..."
-msgstr ""
+msgstr "Näita kodeerimislogi..."
 
 #: dialogs/extractingprogressdialog.cpp:315
 msgid "Show rip log..."
-msgstr ""
+msgstr "Näita rippimislogi..."
 
 #: dialogs/extractingprogressdialog.cpp:351
 msgid ""
@@ -553,51 +594,59 @@ msgid ""
 "\n"
 "However, do you want to continue extraction?"
 msgstr ""
+"Rippimiskiirus on viimased viis minutit olnud äärmiselt aeglane. \n"
+"Ekstraktimiskvaliteedi tõttu on Audex seadistatud mitte vahele jätma ühtegi "
+"tuvastatud viga. Kui sinu plaat on tõesti katki, ei pruugi ekstraktimine "
+"lõppedagi!\n"
+"Mõnikord võib ainult sellel seadmel olla raskusi heliandmete rippimisega "
+"plaadilt, nii et võib proovida mõnda teist.\n"
+"\n"
+"Kas siiski jätkata ekstraktimist?"
 
 #: dialogs/extractingprogressdialog.cpp:354
 msgid "Cancel extraction"
-msgstr ""
+msgstr "Loobu ekstraktimisest"
 
 #: dialogs/extractingprogressdialog.cpp:363
 msgid "Encoding protocol"
-msgstr ""
+msgstr "Kodeerimisprotokoll"
 
 #: dialogs/extractingprogressdialog.cpp:369
 msgid "Ripping protocol"
-msgstr ""
+msgstr "Rippimisprotokoll"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:30
 msgid "Show/hide details"
-msgstr ""
+msgstr "Üksikasjade näitamine/peitmine"
 
 #. i18n: ectx: property (text), widget (QToolButton, details_button)
 #: dialogs/extractingprogresswidgetUI.ui:33
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #. i18n: ectx: property (text), widget (QLabel, label_extracting)
 #. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
 #: dialogs/extractingprogresswidgetUI.ui:73
 #: dialogs/extractingprogresswidgetUI.ui:183
 msgid "Ripping Track 8 of 12"
-msgstr ""
+msgstr "Raja 8/12 rippimine"
 
 #. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
 #. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:86
 #: dialogs/extractingprogresswidgetUI.ui:132
 msgid "Speed: 0x"
-msgstr ""
+msgstr "Kiirus: 0x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_encoding)
 #: dialogs/extractingprogresswidgetUI.ui:119
 msgid "Encoding Track 8 of 12"
-msgstr ""
+msgstr "Raja 8/12 kodeerimine"
 
 #: dialogs/patternwizarddialog.cpp:30
 msgid "Filename Pattern Wizard"
-msgstr ""
+msgstr "Failinime mustri nõustaja"
 
 #: dialogs/patternwizarddialog.cpp:84
 msgid ""
@@ -621,6 +670,23 @@ msgid ""
 "extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
 "tr></table></p>"
 msgstr ""
+"<p>Järgmised muutujad asendatakse nende konkreetse tähendusega iga raja "
+"nimes.</p><p><table border=\"1\"><tr><th><em>Muutuja</em></"
+"th><th><em>Kirjeldus</em></th></tr><tr><td>$artist</td><td>CD esitaja. Kui "
+"tegemist on kogumikuga, esindab see silt enamikul juhtudel pealkirja.</td></"
+"tr><tr><td>$title</td><td>CD pealkiri. Kui tegemist on kogumikuga, esindab "
+"see silt enamikul juhtudel alapealkirja.</td></tr><tr><td>$date</td><td>CD "
+"väljalaskeaeg. Enamikul juhtudel on see aasta.</td></tr><tr><td>$genre</"
+"td><td>CD žanr.</td></tr><tr><td>$cdno</td><td>Mitmest CD-st koosneva albumi "
+"konkreetse CD number. Tihti koosnevad kogumikud mitmest CD-st. <i>Märkus:</"
+"i> kui aktiivse CD puhul on mitme CD lipu väärtuseks <b>not</b>, siis on see "
+"lihtsalt tühi.</td></tr><tr><td>$tartist</td><td>Iga konkreetse raja "
+"esitaja. See on eriti tulus kogumike korral.</td></tr><tr><td>$ttitle</"
+"td><td>Raja pealkiri. Tavaliselt on igal CD rajal oma pealkiri, milleks on "
+"laulu nimi.</td></tr><tr><td>$trackno</td><td>Raja number. Esimene rada on 1."
+"</td></tr><tr><td>$nooftracks</td><td>CD heliradade koguarv.</td></"
+"tr><tr><td>$suffix</td><td>Failinime laiend.</td></tr><tr><td>$audex</"
+"td><td>Audexi nimi ja versioon.</td></tr></table></p>"
 
 #: dialogs/patternwizarddialog.cpp:104
 msgid ""
@@ -635,58 +701,69 @@ msgid ""
 "from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
 "overview of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
+"<p>Muutujatel võivad Audexis olla parameetrid. Näiteks</p><pre>$artist/"
+"$title/${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>See "
+"tähendab, et raja number peab kindlasti olema kahekohaline arv. Kui number "
+"on väiksem kui10, lisatakse ette \"0\".</p><pre>$artist/${title lowercase="
+"\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase=\"true\"}/"
+"$trackno - $ttile.$suffix</pre><p>Pealkiri muudetakse suur- või "
+"väiketäheliseks. Seda saab teha ka teiste muutujatega.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Võetakse üks märk "
+"vasakult, milleks on esimene märk.</p><hr /><p><b><i>Täieliku ülevaate "
+"parameetritest leiab Audexi veebilehelt.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
 #: dialogs/patternwizardwidgetUI.ui:263
 msgid "About filename schemes"
-msgstr ""
+msgstr "Täpsemalt failinime skeemidest"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: dialogs/patternwizardwidgetUI.ui:416 dialogs/simplepatternwizardwidgetUI.ui:248
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
 msgid "Suffix"
-msgstr ""
+msgstr "Järelliide"
 
 #: dialogs/profiledatacoverdialog.cpp:37
 msgid "Cover Settings"
-msgstr ""
+msgstr "Kaanepildi seadistused"
 
 #: dialogs/profiledatacoverdialog.cpp:54
 msgid "JPEG (Joint Photographic Experts Group)"
-msgstr ""
+msgstr "JPEG (Joint Photographic Experts Group)"
 
 #: dialogs/profiledatacoverdialog.cpp:55
 msgid "PNG (Portable Network Graphics)"
-msgstr ""
+msgstr "PNG (Portable Network Graphics)"
 
 #: dialogs/profiledatacoverdialog.cpp:56
 msgid "BMP (Windows Bitmap)"
-msgstr ""
+msgstr "BMP (Windows Bitmap)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
 #: dialogs/profiledatacoverwidgetUI.ui:23
 msgid "Scale before store:"
-msgstr ""
+msgstr "Skaleerimine enne salvestamist:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_x)
 #: dialogs/profiledatacoverwidgetUI.ui:49
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), widget (QLabel, label_format)
 #: dialogs/profiledatacoverwidgetUI.ui:75
 #: dialogs/profiledatahashlistwidgetUI.ui:23
 #: dialogs/profiledataplaylistwidgetUI.ui:23
 msgid "Format:"
-msgstr ""
+msgstr "Vorming:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacoverwidgetUI.ui:91
 msgid "Cover pattern:"
-msgstr ""
+msgstr "Kaanepildi muster:"
 
 #: dialogs/profiledatacuesheetdialog.cpp:32
 msgid "Cue Sheet Settings"
-msgstr ""
+msgstr "Cue Sheet'i seadistused"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatacuesheetwidgetUI.ui:23
@@ -694,40 +771,40 @@ msgstr ""
 #: dialogs/profiledataplaylistwidgetUI.ui:39
 #: dialogs/profiledatasinglefilewidgetUI.ui:23
 msgid "Name/Pattern:"
-msgstr ""
+msgstr "Nimi/muster:"
 
 #: dialogs/profiledatadialog.cpp:97
 msgid "Modify Profile"
-msgstr ""
+msgstr "Profiili muutmine"
 
 #: dialogs/profiledatadialog.cpp:180
 msgid "Create Profile"
-msgstr ""
+msgstr "Profiili loomine"
 
 #: dialogs/profiledatadialog.cpp:184
 msgid "New Profile"
-msgstr ""
+msgstr "Uus profiil"
 
 #: dialogs/profiledatahashlistdialog.cpp:33
 #: dialogs/profiledataplaylistdialog.cpp:33
 msgid "Playlist Settings"
-msgstr ""
+msgstr "Esitusnimekirja seadistused"
 
 #: dialogs/profiledatahashlistdialog.cpp:40
 msgid "SFV (Simple File Verification)"
-msgstr ""
+msgstr "SFV (lihtne failide kontrollimine)"
 
 #: dialogs/profiledatahashlistdialog.cpp:41
 msgid "MD5 (Message-Digest algorithm 5)"
-msgstr ""
+msgstr "MD5 (Message-Digest algoritm 5)"
 
 #: dialogs/profiledatainfodialog.cpp:34
 msgid "Info Settings"
-msgstr ""
+msgstr "Teabeseadistused"
 
 #: dialogs/profiledatainfodialog.cpp:102
 msgid "Usable Variables For Text Template"
-msgstr ""
+msgstr "Tekstimallis kasutatavad muutujad"
 
 #: dialogs/profiledatainfodialog.cpp:106
 msgid ""
@@ -805,24 +882,95 @@ msgid ""
 "\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
 "'pm'.</td></tr></table></body></html>"
 msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
+"space: pre-wrap; }</style></head><body>Muutujad asendatakse spetsiaalse "
+"väärtusega ja nad võivad sisaldada isegi parameetreid.<br />Näiteks muutuja "
+"<div style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
+"$artist</pre></div>või sellega samaväärne<div style=\"font-family:monospace; "
+"background: #b3c1d6; color: black\"><pre>${artist}</pre></div>asendatakse "
+"asjakohase CD esitajaga. Muutujatel võib olla ka atribuut, näiteks:<div "
+"style=\"font-family:monospace; background: #b3c1d6; color: black\"><pre>"
+"${today format=\"yyyy-MM-dd\"}</pre></div>See näitab aktiivset kuupäeva. "
+"Vorminguga saab määrata, kuidas seda tehakse. Toodud näite puhul näidatakse "
+"kuupäeva kujul 2010-10-07. Vaata täpsemalt allpool.<br /><br />Kasutada saab "
+"järgmisi muutujaid:<br /><table border=1><thead><tr><th>Muutuja</"
+"th><th>Parameeter</th><th>Kirjeldus</th><th>Näide</th></tr></"
+"thead><tbody><tr><td>$artist</td><td></td><td>Ekstraktitud CD esitaja "
+"näitamine.</td><td>${artist }</td></tr><tr><td>$title</td><td></"
+"td><td>Ekstraktitud CD pealkirja näitamine.</td><td></td></tr><tr><td>$date</"
+"td><td></td><td>Ekstraktitud CD aja (tavaliselt väljalaskeaasta) näitamine.</"
+"td><td></td></tr><tr><td>$genre;</td><td></td><td>Ekstraktitud CD žanri "
+"näitamine.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
+"td><td>Kõigi ekstraktitud (tihendatud) muusikafailide (kaasa arvatud "
+"kaanepilt) kogusuuruse näitamine. Atribuut iec võib olla üks järgmistest: b, "
+"k, m, g. b tähendab baite, k KiB, m MiB ja g GiB. Atribuudi täpsus määrab "
+"kümnendkohtade arvu. Vaikimisi atribuudid on iec=\"m\" ja precision=\"2\"</"
+"td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</td><td></"
+"td><td>Kõigi ekstraktitud radade kogupikkuse näitamine. Vorming on min:sek.</"
+"td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Ekstraktitud radade "
+"koguarvu näitamine.</td><td></td></tr><tr><td>$discid</td><td>base</"
+"td><td>Aktiivse CD plaadi ID näitamine. Atribuudi alus on arvu alus. "
+"Vaikimisi on see 16 (kuueteistkümnendsüsteem).</td><td>${discid base=\"16\"}"
+"</td></tr><tr><td>$today</td><td>format</td><td>Aktiivse kuupäeva näitamine. "
+"Atribuut format määrab kindlaks väljundi (*).</td><td>${today format=\"yyyy-"
+"MM-dddd\"}</td></tr><tr><td>$now</td><td>format</td><td>Aktiivse kuupäeva ja/"
+"või kellaaja näitamine. Atribuut format määrab kindlaks väljundi (*).</"
+"td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</"
+"td><td></td><td>Reavahetuse näitamine.</td><td></td></tr></tbody></"
+"table><br /><br />(* kuupäeva/kellaaja vormingu avaldised)<table cellpadding="
+"\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Avaldis</"
+"th><th>Väljund</th></tr></thead><tr valign=\"top\"><td>d</td><td>Päev arvuna "
+"ilma alustava nullita (1 kuni 31).</td></tr><tr valign=\"top\"><td>dd</"
+"td><td>Päev arvuna koos alustava nulliga (01 kuni 31).</td></tr><tr valign="
+"\"top\"><td>ddd</td><td>Päeva emakeelne lühendatud nimetus (nt&#x2e; 'Esm' "
+"kuni 'Püh').</td></tr><tr valign=\"top\"><td>dddd</td><td>Päeva pikk "
+"emakeelne nimetus (nt&#x2e; 'Esmaspäev' kuni 'Pühapäev').</td></tr><tr "
+"valign=\"top\"><td>M</td><td>Kuu arvuna ilma alustava nullita (1 kuni 12).</"
+"td></tr><tr valign=\"top\"><td>MM</td><td>Kuu arvuna koos alustava nulliga "
+"(01 kuni 12).</td></tr><tr valign=\"top\"><td>MMM</td><td>Kuu emakeelne "
+"lühendatud nimetus (nt&#x2e; 'Jaan' kuni 'Dets').</td></tr><tr valign=\"top"
+"\"><td>MMMM</td><td>Kuu emakeelne pikk nimetus (nt&#x2e; 'Jaanuar' kuni "
+"'Detsember').</td></tr><tr valign=\"top\"><td>yy</td><td>Aasta kahekohalise  "
+"arvuna (00 kuni 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>Aasta "
+"neljakohalise arvuna.</td></tr></table><br /><table cellpadding=\"2\" "
+"cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top\"><th>Avaldis</"
+"th><th>Väljund</th></tr></thead><tr valign=\"top\"><td>h</td><td>Tunnid ilma "
+"alustava nullita (0 kuni 23 või 1 kuni 12, kui on e.l./p.l.).</td></tr><tr "
+"valign=\"top\"><td>hh</td><td>Tunnid koos alustava nulliga (00 kuni 23 või "
+"01 kuni 12, kui on e.l./p.l.).</td></tr><tr valign=\"top\"><td>H</"
+"td><td>Tunnid ilma alustava nullita (0 kuni 23 isegi e.l./p.l. korral).</"
+"td></tr><tr valign=\"top\"><td>HH</td><td>Tunnid koos alustava nulliga (00 "
+"kuni 23 isegi e.l./p.l. korral).</td></tr><tr valign=\"top\"><td>m</"
+"td><td>Minutid ilma alustava nullita (0 kuni 59).</td></tr><tr valign=\"top"
+"\"><td>mm</td><td>Minutid koos alustava nulliga (00 kuni 59).</td></tr><tr "
+"valign=\"top\"><td>s</td><td>Sekundid ilma alustava nullita (0 kuni 59).</"
+"td></tr><tr valign=\"top\"><td>ss</td><td>Sekundid koos alustava nulliga (00 "
+"kuni 59).</td></tr><tr valign=\"top\"><td>z</td><td>Millisekundid ilma "
+"alustava nullita (0 kuni 999).</td></tr><tr valign=\"top\"><td>zz</"
+"td><td>Millisekundid koos alustava nulliga (000 kuni 999).</td></tr><tr "
+"valign=\"top\"><td>AP või A</td><td>Tõlgendamine enne/pärastlõunase ajana. "
+"AP peab olema kas 'AM' või 'PM'.</td></tr><tr valign=\"top\"><td>ap or a</"
+"td><td>Tõlgendamine enne/pärastlõunase ajana. ap peab olema kas 'am' või "
+"'pm'.</td></tr></table></body></html>"
 
 #: dialogs/profiledatainfodialog.cpp:216
 msgid "Load Text Template"
-msgstr ""
+msgstr "Tekstimalli laadimine"
 
 #: dialogs/profiledatainfodialog.cpp:228
 msgid "Save Text Template"
-msgstr ""
+msgstr "Tekstimalli salvestamine"
 
 #. i18n: ectx: property (text), widget (QLabel, label_text)
 #: dialogs/profiledatainfowidgetUI.ui:25
 msgid "Information text:"
-msgstr ""
+msgstr "Teabetekst:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
 #: dialogs/profiledatainfowidgetUI.ui:58
 msgid "About variables"
-msgstr ""
+msgstr "Täpsemalt muutujatest"
 
 #. i18n: ectx: property (text), widget (QLabel, label_suffix)
 #: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
@@ -830,57 +978,57 @@ msgstr ""
 #: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
 #: widgets/wavewidgetUI.ui:31
 msgid "Suffix:"
-msgstr ""
+msgstr "Järelliide:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_pattern)
 #: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
 msgid "Pattern:"
-msgstr ""
+msgstr "Muster:"
 
 #: dialogs/profiledatasinglefiledialog.cpp:32
 msgid "Single File Settings"
-msgstr ""
+msgstr "Üksikfaili seadistused"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: dialogs/profiledatawidgetUI.ui:38
 msgid "Encoder"
-msgstr ""
+msgstr "Kooder"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_3)
 #: dialogs/profiledatawidgetUI.ui:72
 msgid "Filenames"
-msgstr ""
+msgstr "Failinimed"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
 #: dialogs/profiledatawidgetUI.ui:130
 msgid "Create FAT32 compatible filenames"
-msgstr ""
+msgstr "FAT32-ga ühilduvate failinimede loomine"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
 #: dialogs/profiledatawidgetUI.ui:143
 msgid "Replace spaces with underscores"
-msgstr ""
+msgstr "Tühikute asendamine alakriipsuga"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:150
 msgid ""
 "This setting overrides any parameterized variable settings in the pattern"
-msgstr ""
+msgstr "See tühistab kõik parameetritega muutujate seadistused mustris."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
 #: dialogs/profiledatawidgetUI.ui:153
 msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr ""
+msgstr "Kahekohalised rajanumbrid (nt. 01, 02, 03...)"
 
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: dialogs/profiledatawidgetUI.ui:177
 msgid "Extra"
-msgstr ""
+msgstr "Ekstra"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
 #: dialogs/profiledatawidgetUI.ui:195
 msgid "Store cover file in target folder"
-msgstr ""
+msgstr "Kaanepildifaili salvestamine sihtkataloogi"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
@@ -892,50 +1040,50 @@ msgstr ""
 #: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
 #: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
 msgid "Settings.."
-msgstr ""
+msgstr "Seadistused..."
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
 #: dialogs/profiledatawidgetUI.ui:221
 msgid "Create playlist in target folder"
-msgstr ""
+msgstr "Esitusnimekirja loomine sihtkataloogis"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
 #: dialogs/profiledatawidgetUI.ui:260
 msgid "Store info file in target folder"
-msgstr ""
+msgstr "Teabefaili salvestamine sihtkataloogi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
 #: dialogs/profiledatawidgetUI.ui:286
 msgid "Store hashlist in target folder"
-msgstr ""
+msgstr "Räsiloendi salvestamine sihtkataloogi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
 #: dialogs/profiledatawidgetUI.ui:306
 msgid "Store cue sheet in target folder"
-msgstr ""
+msgstr "Cue sheeti salvestamine sihtkataloogi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
 #: dialogs/profiledatawidgetUI.ui:326
 msgid "Store discid in target folder"
-msgstr ""
+msgstr "Plaadi ID salvestamine sihtkataloogi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
 #: dialogs/profiledatawidgetUI.ui:345
 msgid "Write single file"
-msgstr ""
+msgstr "Ühte faili kirjutamine"
 
 #: dialogs/protocoldialog.cpp:33
 msgid "Save"
-msgstr ""
+msgstr "Salvesta"
 
 #: dialogs/protocoldialog.cpp:62
 #, kde-format
 msgid "Save %1"
-msgstr ""
+msgstr "%1 salvestamine"
 
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
-msgstr ""
+msgstr "Mustri nõustaja"
 
 #: dialogs/simplepatternwizarddialog.cpp:81
 msgid ""
@@ -955,6 +1103,20 @@ msgid ""
 "audio tracks of the CD.</td></tr><tr><td>$audex</td><td>Audex name and "
 "version.</td></tr></table></p>"
 msgstr ""
+"<p>Järgmised muutujad asendatakse nende konkreetse tähendusega iga raja "
+"nimes.</p><p><table border=\"1\"><tr><th><em>Muutuja</em></"
+"th><th><em>Kirjeldus</em></th></tr><tr><td>$artist</td><td>CD esitaja. Kui "
+"tegemist on kogumikuga, siis esindab see silt enamikul juhtudel pealkirja.</"
+"td></tr><tr><td>$title</td><td>CD pealkiri. Kui tegemist on kogumikuga, siis "
+"esindab see silt enamikul juhtudel alapealkirja.</td></tr><tr><td>$date</"
+"td><td>CD väljalaskeaeg. Enamikul juhtudel on see aasta.</td></tr><tr><td>"
+"$genre</td><td>CD žanr.</td></tr><tr><td>$cdno</td><td>Mitme CD-ga albumites "
+"konkreetse CD number. Kogumikud koosnevad sageli mitmest CD-st. <i>Märkus:</"
+"i> kui aktiivse CD puhul on mitme CD lipu väärtuseks <b>not</b>, siis on see "
+"lihtsalt tühi.</td></tr><tr><td>$suffix</td><td>Failinime laiend (nt. \".jpg"
+"\", \".m3u\", \".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>CD "
+"heliradade koguarv.</td></tr><tr><td>$audex</td><td>Audexi nimi ja versioon."
+"</td></tr></table></p>"
 
 #: dialogs/simplepatternwizarddialog.cpp:98
 msgid ""
@@ -968,149 +1130,163 @@ msgid ""
 "left, which is the first one.</p><hr /><p><b><i>To have a complete overview "
 "of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
+"<p>Muutujatel võivad Audexis olla parameetrid. Näiteks</p><pre>$title "
+"(${cdno length=\"2\" fillchar=\"0\"}).$suffix</pre><p>See tähendab, et CD "
+"number peab kindlasti olema kahekohaline. Kui number on väiksem kui 10. "
+"lisatakse ette \"0\".</p><pre>${title lowercase=\"true\"}.$suffix<br />"
+"${title uppercase=\"true\"}.$suffix</pre><p>Pealkiri muudetakse suur- või "
+"väiketäheliseks. Seda saab teha ka teiste muutujatega.</p><pre>${artist left="
+"\"1\"} - $title.$suffix</pre><p>Võetakse üks märk vasakult, milleks on "
+"esimene märk.</p><hr /><p><b><i>Täieliku ülevaate parameetritest leiab "
+"Audexi veebilehelt.</i></b></p>"
 
 #. i18n: ectx: property (text), widget (QLabel, label_album_example)
 #: dialogs/simplepatternwizardwidgetUI.ui:26
 msgid "Example:"
-msgstr ""
+msgstr "Näide:"
 
 #. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
 #: dialogs/simplepatternwizardwidgetUI.ui:152
 msgid "About schemes"
-msgstr ""
+msgstr "Täpsemalt skeemidest"
 
 #: main.cpp:28
 msgid "Audex"
-msgstr ""
+msgstr "Audex"
 
 #: main.cpp:29
 msgid "KDE CDDA Extractor"
-msgstr ""
+msgstr "KDE CDDA ekstraktor"
 
 #: main.cpp:31
 msgid "Copyright © 2007–2011 by Marco Nelles"
-msgstr ""
+msgstr "Autoriõigus © 2007–2011: Marco Nelles"
 
 #: main.cpp:35
 msgid "Marco Nelles"
-msgstr ""
+msgstr "Marco Nelles"
 
 #: main.cpp:35
 msgid "Current maintainer, main developer"
-msgstr ""
+msgstr "Praegune hooldaja, põhiarendaja"
 
 #: main.cpp:36
 msgid "Craig Drummond"
-msgstr ""
+msgstr "Craig Drummond"
 
 #: main.cpp:36
 msgid "GUI improvements, development"
-msgstr ""
+msgstr "Graafilise kasutajaliidese parandused, arendamine"
 
 #: main.cpp:37
 msgid "credativ GmbH"
-msgstr ""
+msgstr "credativ GmbH"
 
 #: main.cpp:37
 msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
+msgstr "Erile tänu toetuse eest credativ GmbH-le (Saksamaa)"
 
 #: main.cpp:38
 msgid "freedb.org"
-msgstr ""
+msgstr "freedb.org"
 
 #: main.cpp:38
 msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
 msgstr ""
+"Eriline tänu freedb.org-i meeskonnale vaba CDDB-laadse andmebaasi "
+"käigushoidmise eest"
 
 #: main.cpp:39
 msgid "Xiph.Org Foundation"
-msgstr ""
+msgstr "Xiph.Org Foundation"
 
 #: main.cpp:39
 msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-msgstr ""
+msgstr "Eriline tänu Xiph.Org-ile CD rippija pakkumise eest."
 
 #: main.cpp:40
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Marek Laane"
 
 #: main.cpp:40
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "bald@smail.ee"
 
 #: mainwindow.cpp:27
 msgid "Unable to create ProfileModel object."
-msgstr ""
+msgstr "ProfileModeli objekti loomine nurjus."
 
 #: mainwindow.cpp:27 mainwindow.cpp:40
 msgid ""
 "Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
+"Sisemine tõrge. Kontrolli riistvara. Kui kõik on korras, tee palun veateade."
 
 #: mainwindow.cpp:40
 msgid "Unable to create CDDAModel object."
-msgstr ""
+msgstr "CDDAModeli objekti loomine nurjus."
 
 #: mainwindow.cpp:113
 msgid "No disc information set. Do you really want to continue?"
-msgstr ""
+msgstr "Plaaditeavet pole määratud. Kas tõesti jätkata?"
 
 #: mainwindow.cpp:114
 msgid "Disc information not found"
-msgstr ""
+msgstr "Plaaditteavet ei leitud"
 
 #: mainwindow.cpp:124
 msgid ""
 "Single file rip selected but not all audio tracks to rip selected. Do you "
 "really want to continue?"
 msgstr ""
+"Valitud on üksikfaili rippimine, kuid mitte kõik helirajad pole rippimiseks "
+"valitud. Kas siiski jätkata?"
 
 #: mainwindow.cpp:125
 msgid "Not all audio tracks selected for single file rip"
-msgstr ""
+msgstr "Kõik helirajad pole üksikfaili rippimiseks valitud"
 
 #: mainwindow.cpp:148
 msgid "General settings"
-msgstr ""
+msgstr "Üldised seadistused"
 
 #: mainwindow.cpp:151
 msgid "Profiles"
-msgstr ""
+msgstr "Profiilid"
 
 #: mainwindow.cpp:171
 msgid "Remote Server"
-msgstr ""
+msgstr "Võrguserver"
 
 #: mainwindow.cpp:183
 msgid "No status information available"
-msgstr ""
+msgstr "Olekuteave pole kättesaadav."
 
 #: mainwindow.cpp:187 models/cddamodel.cpp:683
 msgid "No disc in drive"
-msgstr ""
+msgstr "Seadmes pole plaati"
 
 #: mainwindow.cpp:191
 msgid "Audio disc in drive"
-msgstr ""
+msgstr "Seadmes on heliplaat"
 
 #: mainwindow.cpp:200 models/cddamodel.cpp:685
 msgid "Drive tray open"
-msgstr ""
+msgstr "Seadmesahtel on avatud"
 
 #: mainwindow.cpp:204 models/cddamodel.cpp:686
 msgid "Drive not ready"
-msgstr ""
+msgstr "Seade ei ole valmis"
 
 #: mainwindow.cpp:208 models/cddamodel.cpp:687
 msgid "Drive error"
-msgstr ""
+msgstr "Seadme tõrge"
 
 #: mainwindow.cpp:245
 msgid "Fetching CDDB information..."
-msgstr ""
+msgstr "CDDB teabe tõmbamine..."
 
 #: mainwindow.cpp:250
 #, kde-format
@@ -1118,14 +1294,16 @@ msgid ""
 "CDDB lookup failed, with the following error:\n"
 "%1"
 msgstr ""
+"CDDB otsing nurjus järgmise veaga:\n"
+"%1"
 
 #: mainwindow.cpp:251
 msgid "CDD Lookup Failure"
-msgstr ""
+msgstr "CDDB otsing nurjus"
 
 #: mainwindow.cpp:354
 msgid "Split titles"
-msgstr ""
+msgstr "Pealkirjade eraldamine"
 
 #: mainwindow.cpp:355
 msgid ""
@@ -1133,339 +1311,358 @@ msgid ""
 "\n"
 "Divider:"
 msgstr ""
+"Palun määra eraldav string. Arvesta tühikutega.\n"
+"\n"
+"Eraldaja:"
 
 #: mainwindow.cpp:365
 msgid "Do you really want to swap all artists and titles?"
-msgstr ""
+msgstr "Kas tõesti vahetada kõik esitajad ja pealkirjad?"
 
 #: mainwindow.cpp:366
 msgid "Swap artists and titles"
-msgstr ""
+msgstr "Esitajate ja pealkirjade vahetamine"
 
 #: mainwindow.cpp:378
 msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
+msgstr "Kas tõesti muuta kõik esitajad ja pealkirjad suurtäheliseks?"
 
 #: mainwindow.cpp:379
 msgid "Capitalize artists and titles"
-msgstr ""
+msgstr "Esitajate ja pealkirjade muutmise suurtäheliseks"
 
 #: mainwindow.cpp:391
 msgid "Do you really want to autofill track artists?"
-msgstr ""
+msgstr "Kas tõesti automaatselt täita raja esitajad?"
 
 #: mainwindow.cpp:392
 msgid "Autofill artists"
-msgstr ""
+msgstr "Esitajate automaatne täitmine"
 
 #: mainwindow.cpp:416
 msgid "Eject"
-msgstr ""
+msgstr "Väljasta"
 
 #: mainwindow.cpp:423
 msgid "Profile:"
-msgstr ""
+msgstr "Profiil:"
 
 #: mainwindow.cpp:435
 msgid "&Profile:"
-msgstr ""
+msgstr "&Profiil:"
 
 #: mainwindow.cpp:441
 msgid "Profile"
-msgstr ""
+msgstr "Profiil"
 
 #: mainwindow.cpp:449
 msgid "Fetch Info"
-msgstr ""
+msgstr "Tõmba teave"
 
 #: mainwindow.cpp:456
 msgid "Submit Info"
-msgstr ""
+msgstr "Saada teave"
 
 #: mainwindow.cpp:462
 msgid "Rip..."
-msgstr ""
+msgstr "Ripi..."
 
 #: mainwindow.cpp:471
 msgid "Split Titles..."
-msgstr ""
+msgstr "Eralda pealkirjad..."
 
 #: mainwindow.cpp:476
 msgid "Swap Artists And Titles"
-msgstr ""
+msgstr "Vaheta esitajad ja pealkirjad"
 
 #: mainwindow.cpp:481
 msgid "Capitalize"
-msgstr ""
+msgstr "Muuda suurtäheliseks"
 
 #: mainwindow.cpp:486
 msgid "Auto Fill Artists"
-msgstr ""
+msgstr "Täida automaatselt esinejad"
 
 #: mainwindow.cpp:491
 msgid "Select All Tracks"
-msgstr ""
+msgstr "Vali kõik rajad"
 
 #: mainwindow.cpp:496
 msgid "Deselect All Tracks"
-msgstr ""
+msgstr "Tühista kõigi radade valik"
 
 #: mainwindow.cpp:501
 msgid "Invert Selection"
-msgstr ""
+msgstr "Valik teistpidi"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
-msgstr ""
+msgstr "KCompactDisci objekti loomine nurjus."
 
 #: models/cddamodel.cpp:26 models/cddamodel.cpp:38
 msgid ""
 "This is an internal error. Check your hardware. If all okay please make bug "
 "report."
 msgstr ""
+"See on sisemine tõrge. Kontrolli riistvara. Kui kõik on korras, tee palun "
+"veateade."
 
 #: models/cddamodel.cpp:38
 msgid "Unable to create KCDDB object."
-msgstr ""
+msgstr "KCDDB objekti loomine nurjus."
 
 #: models/cddamodel.cpp:135
 #, kde-format
 msgid "Track %1"
-msgstr ""
+msgstr "Rada %1"
 
 #: models/cddamodel.cpp:684
 msgid "Disc in drive"
-msgstr ""
+msgstr "Plaat on seadmes"
 
 #: models/cddamodel.cpp:690
 msgid "No drive status available"
-msgstr ""
+msgstr "Seadme olek pole teada"
 
 #: models/cddamodel.cpp:699
 msgid "Disc playing"
-msgstr ""
+msgstr "Plaat mängib"
 
 #: models/cddamodel.cpp:700
 msgid "Disc paused"
-msgstr ""
+msgstr "Plaat on pausi peal"
 
 #: models/cddamodel.cpp:701
 msgid "Disc stopped"
-msgstr ""
+msgstr "Plaat on peatatud"
 
 #: models/cddamodel.cpp:704
 msgid "No disc status available"
-msgstr ""
+msgstr "Plaadi olek pole teada"
 
 #: models/cddamodel.cpp:713
 msgid "Audio disc"
-msgstr ""
+msgstr "Heliplaat"
 
 #: models/cddamodel.cpp:714
 msgid "No audio disc"
-msgstr ""
+msgstr "Heliplaat puudub"
 
 #: models/cddamodel.cpp:717
 msgid "No disc type information available"
-msgstr ""
+msgstr "Plaaditüübi teave puudub"
 
 #: models/cddamodel.cpp:726
 msgid "CD-Text"
-msgstr ""
+msgstr "CD-tekst"
 
 #: models/cddamodel.cpp:727
 msgid "CDDB"
-msgstr ""
+msgstr "CDDB"
 
 #: models/cddamodel.cpp:728
 msgid "Phonon Metadata"
-msgstr ""
+msgstr "Phononi metaandmed"
 
 #: models/cddamodel.cpp:731
 msgid "No disc information available"
-msgstr ""
+msgstr "Plaaditeave puudub"
 
 #: models/cddamodel.cpp:763 models/cddamodel.cpp:893
 msgid ""
 "There is an error with the CDDB server. Please wait or contact the "
 "administrator of the CDDB server."
 msgstr ""
+"CDDB serveriga tekkis tõrge. Palun oota või võta ühendust CDDB serveri "
+"administraatoriga."
 
 #: models/cddamodel.cpp:764 models/cddamodel.cpp:894
 msgid ""
 "Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
+"CDDB serverit ei leitud. Kontrolli oma võrguühendust. Võib-olla on CDDB "
+"server võrgust väljas."
 
 #: models/cddamodel.cpp:765 models/cddamodel.cpp:895
 msgid ""
 "Please wait, maybe the server is busy, or contact the CDDB server "
 "administrator."
 msgstr ""
+"Palun oota, võib-olla on server hõivatud, või võta ühendust CDDB serveri "
+"administraatoriga."
 
 #: models/cddamodel.cpp:766
 msgid "Please contact the CDDB server administrator."
-msgstr ""
+msgstr "Palun võta ühendust CDDB serveri administraatoriga."
 
 #: models/cddamodel.cpp:767 models/cddamodel.cpp:896
 msgid "This should not happen. Please make a bug report."
-msgstr ""
+msgstr "Seda ei tohiks juhtuda. Palun anna veast teada."
 
 #: models/cddamodel.cpp:772 models/cddamodel.cpp:897
 msgid "Please make a bug report and contact the CDDB server administrator."
-msgstr ""
+msgstr "Palun tee veateade ja võta ühendust CDDB serveri administraatoriga."
 
 #: models/cddamodel.cpp:902
 msgid ""
 "This means no data found in the CDDB database. Please enter the data "
 "manually. Maybe try another CDDB server."
 msgstr ""
+"See tähendab, et CDDB andmebaasis ei leitud andmeid. Palun sisesta andmed "
+"käsitsi. Võib ka proovida mõnda muud CDDB serverit."
 
 #: models/cddamodel.cpp:904
 msgid "This means no data found in the CDDB database."
-msgstr ""
+msgstr "See tähendab, et CDDB andmebaasis ei leitud andmeid."
 
 #: models/cddamodel.cpp:922
 msgid "Select CDDB Entry"
-msgstr ""
+msgstr "CDDB kirje valimine"
 
 #: models/cddamodel.cpp:923
 msgid "Select a CDDB entry:"
-msgstr ""
+msgstr "CDDB kirje:"
 
 #: models/cddamodel.h:46
 msgid "Rip"
-msgstr ""
+msgstr "Rippimine"
 
 #: models/cddamodel.h:47
 msgid "Track"
-msgstr ""
+msgstr "Rada"
 
 #: models/cddamodel.h:48
 msgid "Artist"
-msgstr ""
+msgstr "Esitaja"
 
 #: models/cddamodel.h:49
 msgid "Title"
-msgstr ""
+msgstr "Pealkiri"
 
 #: models/cddamodel.h:50
 msgid "Length"
-msgstr ""
+msgstr "Pikkus"
 
 #: models/profilemodel.cpp:134
 msgid "Profile name must not be empty."
-msgstr ""
+msgstr "Profiilil peab olema nimi."
 
 #: models/profilemodel.cpp:135
 msgid "You have given no name for the profile. Please set one."
-msgstr ""
+msgstr "Sa ei ole profiilile nime andnud. Palun tee seda."
 
 #: models/profilemodel.cpp:144
 msgid "Profile encoder is not defined."
-msgstr ""
+msgstr "Profiili kooder ei ole määratud."
 
 #: models/profilemodel.cpp:145
 msgid "You have given no encoder for the profile. Please set one."
-msgstr ""
+msgstr "Sa ei ole profiilile kooderit määranud. Palun tee seda."
 
 #: models/profilemodel.cpp:154
 msgid "Profile filename pattern is not defined."
-msgstr ""
+msgstr "Profiili failinime muster pole määratud."
 
 #: models/profilemodel.cpp:155
 msgid "You have given no filename pattern for the profile. Please set one."
-msgstr ""
+msgstr "Sa ei ole profiilile määranud failinime mustrit. Palun tee seda."
 
 #: models/profilemodel.cpp:170
 msgid "The image file format is unknown."
-msgstr ""
+msgstr "Pildifaili vorming on tundmatu."
 
 #: models/profilemodel.cpp:171
 msgid ""
 "Your given image file format is unknown. Please choose on of these formats: "
 "JPG/JPEG, PNG or BMP."
 msgstr ""
+"Määratud pildifaili vorming on tundmatu. Palun vali üks järgmistest "
+"vormingutest: JPG/JPEG, PNG või BMP."
 
 #: models/profilemodel.cpp:180
 msgid "Cover name must not be empty."
-msgstr ""
+msgstr "Kaanepildil peab nimi olema."
 
 #: models/profilemodel.cpp:181
 msgid "You have given no name for the cover. Please set one."
-msgstr ""
+msgstr "Sa ei ole kaanepildile nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:191
 msgid "The playlist file format is unknown."
-msgstr ""
+msgstr "Esitusnimekirjafaili vorming on tundmatu."
 
 #: models/profilemodel.cpp:192
 msgid ""
 "Your given playlist file format is unknown. Please choose on of these "
 "formats: M3U, PLS or XSPF."
 msgstr ""
+"Määratud esitusnimekirjafaili vorming on tundmatu. Palun vali üks "
+"järgmistest vormingutest: M3U, PLS või XSPF."
 
 #: models/profilemodel.cpp:201
 msgid "Playlist name must not be empty."
-msgstr ""
+msgstr "Esitusnimekirjal peab nimi olema."
 
 #: models/profilemodel.cpp:202
 msgid "You have given no name for the playlist. Please set one."
-msgstr ""
+msgstr "Sa ei ole esitusnimekirjale nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:214
 msgid "Info text name must not be empty."
-msgstr ""
+msgstr "Teabetekstil peab nimi olema."
 
 #: models/profilemodel.cpp:215
 msgid "You have given no name for the info text file. Please set one."
-msgstr ""
+msgstr "Sa ei ole teabetekstifailile nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:224
 msgid "Info text file name suffix must not be empty."
-msgstr ""
+msgstr "Teabetekstifailil peab järelliide olema."
 
 #: models/profilemodel.cpp:225
 msgid "You have given no suffix for the info text file. Please set one."
-msgstr ""
+msgstr "Sa ei ole teabetekstifailile järelliidet määranud Palun tee seda."
 
 #: models/profilemodel.cpp:235
 msgid "The hashlist file format is unknown."
-msgstr ""
+msgstr "Räsiloendifaili vorming on tundmatu."
 
 #: models/profilemodel.cpp:236
 msgid ""
 "Your given hashlist file format is unknown. Please choose on of these "
 "formats: SFV, MD5."
 msgstr ""
+"Määratud räsiloendifaili vorming on tundmatu. Palun vali üks järgmistest "
+"vormingutest: SFV, MD5."
 
 #: models/profilemodel.cpp:245
 msgid "Hashlist name must not be empty."
-msgstr ""
+msgstr "Räsiloendil peab nimi olema."
 
 #: models/profilemodel.cpp:246
 msgid "You have given no name for the hashlist. Please set one."
-msgstr ""
+msgstr "Sa ei ole räsiloendile nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:256
 msgid "Cue filename name must not be empty."
-msgstr ""
+msgstr "Cue-failil peab nimi olema."
 
 #: models/profilemodel.cpp:257
 msgid "You have given no name for the cue sheet. Please set one."
-msgstr ""
+msgstr "Sa ei ole cue sheetile nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:267
 msgid "Filename name must not be empty."
-msgstr ""
+msgstr "Failinimi peab määratud olema."
 
 #: models/profilemodel.cpp:268
 msgid "You have given no name for the single audio file. Please set one."
-msgstr ""
+msgstr "Sa ei ole üksikhelifailile nime andnud Palun tee seda."
 
 #: models/profilemodel.cpp:292
 msgid "Profile name already exists."
-msgstr ""
+msgstr "Profiili nimi on juba olemas."
 
 #: models/profilemodel.cpp:293
 #, kde-format
@@ -1473,10 +1670,12 @@ msgid ""
 "Your profile name %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
+"Sinu profiili nimi %1 on juba profiilide seas olemas. Palun vali unikaalne "
+"nimi."
 
 #: models/profilemodel.cpp:309
 msgid "Profile index already exists."
-msgstr ""
+msgstr "Profiili indeks on juba olemas."
 
 #: models/profilemodel.cpp:310
 #, kde-format
@@ -1484,134 +1683,141 @@ msgid ""
 "Your profile index %1 already exists in the set of profiles. Please choose a "
 "unique one."
 msgstr ""
+"Sinu profiili indeks %1 on juba profiilide seas olemas. Palun vali unikaalne "
+"indeks."
 
 #: models/profilemodel.cpp:366
 msgid "Unknown error. No index found in profile model."
-msgstr ""
+msgstr "Tundmatu tõrge. Profiili mudelis ei leitud indeksit."
 
 #: models/profilemodel.cpp:367
 msgid "This is an internal error. Please report."
-msgstr ""
+msgstr "See on sisemine tõrge. Palun anna sellest teada."
 
 #: models/profilemodel.h:178
 msgid " (Mobile Quality)"
-msgstr ""
+msgstr " (mobiilikvaliteet)"
 
 #: models/profilemodel.h:179
 msgid " (Normal Quality)"
-msgstr ""
+msgstr " (tavaline kvaliteet)"
 
 #: models/profilemodel.h:180
 msgid " (Extreme Quality)"
-msgstr ""
+msgstr " (ülim kvaliteet)"
 
 #: utils/cachedimage.cpp:103
 msgid "Common image formats"
-msgstr ""
+msgstr "Levinud pildivormingud"
 
 #: utils/cachedimage.cpp:142
 msgid "File does not exist."
-msgstr ""
+msgstr "Faili ei ole olemas."
 
 #: utils/cachedimage.cpp:142
 msgid "Please check if the file really exists."
-msgstr ""
+msgstr "Palun kontrolli, kas fail on tõesti olemas."
 
 #: utils/cachedimage.cpp:151
 msgid "Cannot open file."
-msgstr ""
+msgstr "Faili avamine nurjus."
 
 #: utils/cachedimage.cpp:151
 msgid "Please check your file. Maybe you do not have proper permissions."
-msgstr ""
+msgstr "Palun kontrolli faili. Võib-olla sul ei ole vajalikke õigusi."
 
 #: utils/cachedimage.cpp:157 utils/cachedimage.cpp:204
 msgid "Unsupported image format"
-msgstr ""
+msgstr "Toetamata pildivorming"
 
 #: utils/cachedimage.cpp:157
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
 "cover image with an external program to a common file format like JPEG."
 msgstr ""
+"Palun kontrolli faili. Võib-olla on see riknenud. Vastasel juhul proovi "
+"teisendada oma kaanepilt välise programmiga mõnesse levinumasse "
+"failivormingusse nagu JPEG."
 
 #: utils/cachedimage.cpp:174
 msgid "Cannot open file"
-msgstr ""
+msgstr "Faili avamine nurjus"
 
 #: utils/cachedimage.cpp:174
 msgid "Please check your permissions."
-msgstr ""
+msgstr "Palun kontrolli oma õigusi."
 
 #: utils/cachedimage.cpp:181
 msgid "Cannot save file"
-msgstr ""
+msgstr "Faili salvestamine nurjus"
 
 #: utils/cachedimage.cpp:181
 msgid "Please check your permissions. Do you have enough space?"
-msgstr ""
+msgstr "Palun kontrolli oma õigusi. Kas ruumi on ikka piisavalt?"
 
 #: utils/cachedimage.cpp:204
 msgid ""
 "Please use common image formats like JPEG, PNG or GIF as they are supported "
 "on almost all systems."
 msgstr ""
+"Palun kasuta levinumaid pildivorminguid, nagu JPEG, PNG või GIF, sest neid "
+"toetavad peaaegu kõik süsteemid."
 
 #: utils/cachedimage.cpp:212
 msgid "Cannot write on device"
-msgstr ""
+msgstr "Kirjutamine seadmesse nurjus"
 
 #: utils/cachedimage.cpp:212
 msgid "Please check your permissions. Do you have enough space on your device?"
-msgstr ""
+msgstr "Palun kontrolli oma õigusi. Kas seadmes on ikka piisavalt ruumi?"
 
 #: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
 msgid "Internal device error."
-msgstr ""
+msgstr "Sisemine seadme tõrge."
 
 #: utils/cddaextractthread.cpp:32
 msgid "Check your device and make a bug report."
-msgstr ""
+msgstr "Kontrolli oma seadet ja tee veateade."
 
 #: utils/cddaextractthread.cpp:78
 msgid "Extracting finished."
-msgstr ""
+msgstr "Ekstraktimine on lõpetatud."
 
 #: utils/cddaextractthread.cpp:103
 #, kde-format
 msgid "Ripping track %1 (%2:%3)..."
-msgstr ""
+msgstr "Raja %1 (%2:%3) rippimine..."
 
 #: utils/cddaextractthread.cpp:105
 msgid "Ripping whole CD as single track."
-msgstr ""
+msgstr "Kogu CD rippimine ühe rajana."
 
 #: utils/cddaextractthread.cpp:107
 #, kde-format
 msgid "Start reading track %1 with %2 sectors"
-msgstr ""
+msgstr "%2 sektoriga raja %1 lugemise alustamine"
 
 #: utils/cddaextractthread.cpp:146
 msgid "User canceled extracting."
-msgstr ""
+msgstr "Kasutaja katkestas ekstraktimise."
 
 #: utils/cddaextractthread.cpp:149
 #, kde-format
 msgid "An error occured while ripping track %1."
-msgstr ""
+msgstr "Raja %1 rippimisel tekkis tõrge."
 
 #: utils/cddaextractthread.cpp:153
 #, kde-format
 msgid "Ripping OK (Track %1)."
-msgstr ""
+msgstr "Rippimisega on kõik korras (rada %1)."
 
 #: utils/cddaextractthread.cpp:155
 msgid "Ripping OK."
-msgstr ""
+msgstr "Rippimisega on kõik korras."
 
 #: utils/cddaextractthread.cpp:160
 msgid "Reading finished"
-msgstr ""
+msgstr "Lugemine on lõpetatud"
 
 #: utils/cddaextractthread.cpp:203
 #, kde-format
@@ -1619,6 +1825,8 @@ msgid ""
 "Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"Parandati servavärin (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:207
 #, kde-format
@@ -1626,6 +1834,8 @@ msgid ""
 "Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"Parandati aatomivärin (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:212
 #, kde-format
@@ -1633,6 +1843,8 @@ msgid ""
 "Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"Tuvastati kriimustus (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:213
 #, kde-format
@@ -1640,44 +1852,58 @@ msgid ""
 "SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
 "%4)"
 msgstr ""
+"TUVASTATI KRIIMUSTUS (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:217
 #, kde-format
 msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Parandamine (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon "
+"%3:%4)"
 
 #: utils/cddaextractthread.cpp:222
 #, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Sektorite vahelejätmine (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:223
 #, kde-format
 msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"VAHELEJÄTMINE (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon "
+"%3:%4)"
 
 #: utils/cddaextractthread.cpp:227
 #, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Triiv (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:231
 #, kde-format
 msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Oode (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:241
 #, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Hüljatu parandus (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:245
 #, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"Topelduse parandus (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:249
 #, kde-format
@@ -1685,12 +1911,16 @@ msgid ""
 "Read error detected (absolute sector %1, relative sector %2, track time pos "
 "%3:%4)"
 msgstr ""
+"Tuvastati lugemistõrge (absoluutne sektor %1, suhteline sektor %2, raja "
+"aegpositsioon %3:%4)"
 
 #: utils/cddaextractthread.cpp:250
 #, kde-format
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
+"LUGEMISTÕRGE (absoluutne sektor %1, suhteline sektor %2, raja aegpositsioon "
+"%3:%4)"
 
 #: utils/cddaparanoia.cpp:41
 #, kde-format
@@ -1698,323 +1928,331 @@ msgid ""
 "Check your device. Is it really \"%1\"? If so also check your permissions on "
 "\"%1\"."
 msgstr ""
+"Kontrolli seadet. Kas see on tõesti \"%1\"? Kui jah, siis kontrolli ka, "
+"millised on sinu õigused seadme \"%1\" puhul."
 
 #: utils/coverfetcher.cpp:103
 msgid "There was an error communicating with Google."
-msgstr ""
+msgstr "Google'iga suhtlemisel tekkis tõrge."
 
 #: utils/coverfetcher.cpp:103
 msgid "Try again later. Otherwise make a bug report."
-msgstr ""
+msgstr "Proovi uuesti või tee veateade."
 
 #: utils/coverfetcher.cpp:114
 msgid "Google server: Empty response."
-msgstr ""
+msgstr "Google'i server: tühi vastus."
 
 #: utils/coverfetcher.cpp:115
 msgid "Try again later. Make a bug report."
-msgstr ""
+msgstr "Proovi uuesti või tee veateade."
 
 #: utils/coverfetcher.cpp:176
 #, kde-format
 msgid "%1x%2, %3 KiB"
-msgstr ""
+msgstr "%1x%2, %3 KiB"
 
 #: utils/encoderassistant.h:66
 msgid "MP3"
-msgstr ""
+msgstr "MP3"
 
 #: utils/encoderassistant.h:98
 msgid "Ogg Vorbis"
-msgstr ""
+msgstr "Ogg Vorbis"
 
 #: utils/encoderassistant.h:128
 msgid "FLAC (Lossless)"
-msgstr ""
+msgstr "FLAC (kadudeta)"
 
 #: utils/encoderassistant.h:139
 msgid "MP4 (AAC)"
-msgstr ""
+msgstr "MP4 (AAC)"
 
 #: utils/encoderassistant.h:157
 msgid "WAVE (Raw Uncompressed)"
-msgstr ""
+msgstr "WAVE (toores, tihendamata)"
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
 #: utils/encoderassistant.h:166 utils/encoderassistant.h:167
 #: widgets/lamewidgetUI.ui:130
 msgid "Custom"
-msgstr ""
+msgstr "Kohandatud"
 
 #: utils/encoderwrapper.cpp:57
 msgid "Command pattern is empty."
-msgstr ""
+msgstr "Käsu muster on tühi."
 
 #: utils/encoderwrapper.cpp:69
 #, kde-format
 msgid "Encoding track %1..."
-msgstr ""
+msgstr "Raja %1 kodeerimine..."
 
 #: utils/encoderwrapper.cpp:87
 #, kde-format
 msgid "Deleted partial file \"%1\"."
-msgstr ""
+msgstr "Osaline fail \"%1\" on kustutatud."
 
 #: utils/encoderwrapper.cpp:92
 msgid "User canceled encoding."
-msgstr ""
+msgstr "Kasutaja katkestas kodeerimise."
 
 #: utils/encoderwrapper.cpp:140
 #, kde-format
 msgid "Encoding OK (\"%1\")."
-msgstr ""
+msgstr "Kodeerimisega on kõik korras (\"%1\")."
 
 #: utils/encoderwrapper.cpp:142
 #, kde-format
 msgid "An error occured while encoding file \"%1\"."
-msgstr ""
+msgstr "Faili \"%1\" kodeerimisel tekkis tõrge."
 
 #: utils/encoderwrapper.cpp:143 utils/encoderwrapper.cpp:155
 #: utils/encoderwrapper.cpp:157 utils/encoderwrapper.cpp:163
 msgid "Please check your profile."
-msgstr ""
+msgstr "Palun kontrolli oma profiili."
 
 #: utils/encoderwrapper.cpp:153
 #, kde-format
 msgid "%1 failed to start."
-msgstr ""
+msgstr "%1 käivitamine nurjus."
 
 #: utils/encoderwrapper.cpp:153
 msgid ""
 "Either it is missing, or you may have insufficient permissions to invoke the "
 "program."
 msgstr ""
+"See kas puudub või ei ole sul piisavaid õigusi programmi käivitamiseks."
 
 #: utils/encoderwrapper.cpp:155
 #, kde-format
 msgid "%1 crashed some time after starting successfully."
-msgstr ""
+msgstr "%1 käivitus edukalt, aga varsti tabas seda krahh."
 
 #: utils/encoderwrapper.cpp:157
 #, kde-format
 msgid "%1 timed out. This should not happen."
-msgstr ""
+msgstr "%1 aegus. Seda ei tohiks juhtuda."
 
 #: utils/encoderwrapper.cpp:159
 #, kde-format
 msgid "An error occurred when attempting to write to %1."
-msgstr ""
+msgstr "%1 kirjutamise katsel tekkis tõrge."
 
 #: utils/encoderwrapper.cpp:159
 msgid ""
 "For example, the process may not be running, or it may have closed its input "
 "channel."
 msgstr ""
+"Protsess ei pruugi näiteks töötada või on see sulgenud oma sisendkanali."
 
 #: utils/encoderwrapper.cpp:161
 #, kde-format
 msgid "An error occurred when attempting to read from %1."
-msgstr ""
+msgstr "%1 lugemise katsel tekkis tõrge."
 
 #: utils/encoderwrapper.cpp:161
 msgid "For example, the process may not be running."
-msgstr ""
+msgstr "Protsess ei pruugi näiteks töötada."
 
 #: utils/encoderwrapper.cpp:163
 #, kde-format
 msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
+msgstr "%1 tabas tundmatu tõrge. Seda ei tohiks juhtuda."
 
 #: utils/upload.cpp:61
 #, kde-format
 msgid "Uploading file %1 to server. Please wait..."
-msgstr ""
+msgstr "Faili %1 üleslaadimine serverisse. Palun oota..."
 
 #: utils/upload.cpp:68
 #, kde-format
 msgid "Finished uploading file %1 to server."
-msgstr ""
+msgstr "Lõpetati faili %1 üleslaadimine serverisse."
 
 #: widgets/cddaheaderwidget.cpp:461
 msgid "Released: "
-msgstr ""
+msgstr "Väljalase: "
 
 #: widgets/cddaheaderwidget.cpp:462
 msgid "Genre: "
-msgstr ""
+msgstr "Žanr: "
 
 #: widgets/cddaheaderwidget.cpp:463
 msgid "CD Number: "
-msgstr ""
+msgstr "CD number: "
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #: widgets/cddaheaderwidget.cpp:518
 msgid "No CD in drive"
-msgstr ""
+msgstr "Seadmes pole CD-d"
 
 #: widgets/cddaheaderwidget.cpp:684
 msgid "Load Cover"
-msgstr ""
+msgstr "Kaanepildi laadimine"
 
 #: widgets/cddaheaderwidget.cpp:693 widgets/profilewidget.cpp:122
 msgid "Save Cover"
-msgstr ""
+msgstr "Kaanepildi salvestamine"
 
 #: widgets/cddaheaderwidget.cpp:773
 msgid "No cover found."
-msgstr ""
+msgstr "Kaanepilti ei leitud."
 
 #: widgets/cddaheaderwidget.cpp:773
 msgid ""
 "Check your artist name and title. Otherwise you can load a custom cover from "
 "an image file."
 msgstr ""
+"Kontrolli esitaja nime ja pealkirja. Vastasel juhul võid laadida "
+"pildifailist kohandatud kaanepildi."
 
 #: widgets/cddaheaderwidget.cpp:809
 msgid "Fetch cover from Google..."
-msgstr ""
+msgstr "Tõmba kaanepilt Google'ist..."
 
 #: widgets/cddaheaderwidget.cpp:814
 msgid "Set Custom Cover..."
-msgstr ""
+msgstr "Määra kohandatud kaanepilt..."
 
 #: widgets/cddaheaderwidget.cpp:819
 msgid "Save Cover To File..."
-msgstr ""
+msgstr "Salvesta kaanepilt failina..."
 
 #: widgets/cddaheaderwidget.cpp:824
 msgid "Show Full Size Cover..."
-msgstr ""
+msgstr "Näita kaanepilti täissuuruses..."
 
 #: widgets/cddaheaderwidget.cpp:829
 msgid "Remove Cover"
-msgstr ""
+msgstr "Eemalda kaanepilt"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/customwidgetUI.ui:29
 msgid "Command Pattern:"
-msgstr ""
+msgstr "Käsu muster:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
 msgid "Quality"
-msgstr ""
+msgstr "Kvaliteet"
 
 #. i18n: ectx: property (text), widget (QLabel, label_lowest)
 #: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
 #: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
 msgid "Lowest"
-msgstr ""
+msgstr "Madalaim"
 
 #. i18n: ectx: property (text), widget (QLabel, label_highest)
 #: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
 #: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
 msgid "Highest"
-msgstr ""
+msgstr "Kõrgeim"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/flacwidgetUI.ui:29
 msgid "Compression"
-msgstr ""
+msgstr "Tihendus"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "English"
-msgstr ""
+msgstr "Inglise"
 
 #: widgets/generalsettingswidget.cpp:25
 msgid "Deutsch"
-msgstr ""
+msgstr "Saksa"
 
 #: widgets/generalsettingswidget.cpp:26
 msgid "Français"
-msgstr ""
+msgstr "Prantsuse"
 
 #: widgets/generalsettingswidget.cpp:27
 msgid "Polski"
-msgstr ""
+msgstr "Poola"
 
 #: widgets/generalsettingswidget.cpp:28
 msgid "日本語"
-msgstr ""
+msgstr "日本語"
 
 #: widgets/generalsettingswidget.cpp:29
 msgid "Italiano"
-msgstr ""
+msgstr "Itaalia"
 
 #: widgets/generalsettingswidget.cpp:30
 msgid "Nederlands"
-msgstr ""
+msgstr "Hollandi"
 
 #: widgets/generalsettingswidget.cpp:31
 msgid "Español"
-msgstr ""
+msgstr "Hispaania"
 
 #: widgets/generalsettingswidget.cpp:32
 msgid "Português"
-msgstr ""
+msgstr "Portugali"
 
 #: widgets/generalsettingswidget.cpp:33
 msgid "Svenska"
-msgstr ""
+msgstr "Rootsi"
 
 #: widgets/generalsettingswidget.cpp:42
 msgid "None detected"
-msgstr ""
+msgstr "Ühtegi ei leitud"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
 #: widgets/generalsettingswidgetUI.ui:37
 msgid "Eject CD tray after finished extraction"
-msgstr ""
+msgstr "CD väljastamine pärast ekstraktimise lõpetamist"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
 #: widgets/generalsettingswidgetUI.ui:51
 msgid "Perform cover lookup automatically"
-msgstr ""
+msgstr "Automaatne kaanepildi otsing"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/generalsettingswidgetUI.ui:66
 msgid "Number of covers to fetch:"
-msgstr ""
+msgstr "Tõmmatavate kaanepiltide arv:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
 #: widgets/generalsettingswidgetUI.ui:106
 msgid "Localization:"
-msgstr ""
+msgstr "Keel:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: widgets/generalsettingswidgetUI.ui:126
 msgid "Device"
-msgstr ""
+msgstr "Seade"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: widgets/generalsettingswidgetUI.ui:156
 msgid "Paths"
-msgstr ""
+msgstr "Asukohad"
 
 #. i18n: ectx: property (text), widget (QLabel, label_basePath)
 #: widgets/generalsettingswidgetUI.ui:164
 msgid "Base path to store music files:"
-msgstr ""
+msgstr "Muusikafailide salvestamise baasasukoht:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: widgets/lamewidgetUI.ui:41
 msgid "Quality/Bitrate"
-msgstr ""
+msgstr "Kvaliteet/bitikiirus"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:53
 msgid ""
 "This preset should provide near transparency to most people on most music."
 msgstr ""
+"See valmisseadistus peaks pakkuma peaaegu täielikku läbipaistvust enamikule "
+"inimestest enamiku muusika puhul."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
 #: widgets/lamewidgetUI.ui:56
 msgid "Medium (140...185 kbit/s)"
-msgstr ""
+msgstr "Keskmine (140...185 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:69
@@ -2022,11 +2260,13 @@ msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
 msgstr ""
+"Kui sul on eriliselt hea kuulmine ja sama hea varustus, pakub see "
+"valmisseadistus üldiselt veidi paremat kvaliteeti kui \"standardne\" valik."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
 #: widgets/lamewidgetUI.ui:72
 msgid "Extreme (220...260 kbits/s)"
-msgstr ""
+msgstr "Ülim (220...260 kbits/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:98
@@ -2034,11 +2274,13 @@ msgid ""
 "This preset should generally be transparent to most people on most music and "
 "is already quite high in quality."
 msgstr ""
+"See valmisseadistus peaks üldiselt olema läbipaistev enamikule inimestest "
+"enamiku muusika puhul ja see on juba päris hea kvaliteediga."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
 #: widgets/lamewidgetUI.ui:101
 msgid "Standard (170...210 kbit/s)"
-msgstr ""
+msgstr "Standardne (170...210 kbit/s)"
 
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:114
@@ -2047,31 +2289,34 @@ msgid ""
 "but if you must have the absolute highest quality with no regard to "
 "filesize, this is the way to go."
 msgstr ""
+"See valmisseadistus on enamikule inimestest enamikus olukordades liiast, aga "
+"kui sa tahad tingimata absoluutselt kõrgeimat kvaliteeti hoolimata "
+"failisuurusest, siis on see õige valik."
 
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
 #: widgets/lamewidgetUI.ui:117
 msgid "Insane (320 kbit/s)"
-msgstr ""
+msgstr "Hullumeelne (320 kbit/s)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
 #: widgets/lamewidgetUI.ui:140
 msgid "Constant Bitrate"
-msgstr ""
+msgstr "Konstantne bitikiirus"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/lamewidgetUI.ui:153
 msgid "Target Bitrate (kbit/s)"
-msgstr ""
+msgstr "Sihtbitikiirus (kbit/s)"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
 #: widgets/lamewidgetUI.ui:248
 msgid "Embed cover in music file"
-msgstr ""
+msgstr "Kaanepildi põimimine muusikafaili"
 
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
 #: widgets/oggencwidgetUI.ui:152
 msgid "Target Bitrate ~"
-msgstr ""
+msgstr "Sihtbitikiirus ~"
 
 #. i18n: ectx: property (text), widget (QLabel, label_kbits)
 #. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
@@ -2079,30 +2324,30 @@ msgstr ""
 #: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
 #: widgets/oggencwidgetUI.ui:347
 msgid "kbit/s"
-msgstr ""
+msgstr "kbit/s"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
 #: widgets/oggencwidgetUI.ui:209
 msgid "Set minimum bitrate"
-msgstr ""
+msgstr "Minimaalne bitikiirus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
 #: widgets/oggencwidgetUI.ui:245
 msgid "Set maximum bitrate"
-msgstr ""
+msgstr "Maksimaalne bitikiirus"
 
 #: widgets/profilewidget.cpp:80
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr ""
+msgstr "Kas tõesti kustutada profiil \"%1\"?"
 
 #: widgets/profilewidget.cpp:81
 msgid "Delete profile"
-msgstr ""
+msgstr "Kustuta profiil"
 
 #: widgets/profilewidget.cpp:129
 msgid "Load Profiles"
-msgstr ""
+msgstr "Profiilide laadimine"
 
 #: widgets/profilewidget.cpp:138
 msgid ""
@@ -2110,55 +2355,64 @@ msgid ""
 "etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
 "some sample profiles based upon any found codecs.</font></p>"
 msgstr ""
+"<p>Kas otsida süsteemist uuesti koodekeid (Lame, Ogg Vorbis, Flac jne.)?</"
+"p><p><font style=\"font-style:italic;\">Sellega püütakse luua mõned "
+"näidisprofiilid leitud koodekite põhjal.</font></p>"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
 #: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:148
 #: widgets/profilewidgetUI.ui:65
 msgid "Codec Scan"
-msgstr ""
+msgstr "Koodekite otsimine"
 
 #: widgets/profilewidget.cpp:146
 msgid "No new codecs found"
-msgstr ""
+msgstr "Uusi koodekeid ei leitud"
 
 #: widgets/profilewidget.cpp:147
 #, kde-format
 msgid "1 new profile added"
 msgid_plural "%1 new profiles added"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lisati 1 uus profiil"
+msgstr[1] "Lisati %1 uut profiili"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
 #: widgets/profilewidgetUI.ui:21
 msgid "Add..."
-msgstr ""
+msgstr "Lisa..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
 #: widgets/profilewidgetUI.ui:28
 msgid "Remove"
-msgstr ""
+msgstr "Eemalda"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
 #: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
-msgstr ""
+msgstr "Muuda..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
 #: widgets/profilewidgetUI.ui:42
 msgid "Copy"
-msgstr ""
+msgstr "Kopeeri"
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
 #: widgets/profilewidgetUI.ui:85
 msgid "Load..."
-msgstr ""
+msgstr "Laadi..."
 
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
 #: widgets/profilewidgetUI.ui:92
 msgid "Save..."
-msgstr ""
+msgstr "Salvesta..."
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: widgets/remoteserversettingswidgetUI.ui:51
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
+
+#~ msgid "%1 new profiles added"
+#~ msgstr "Lisati %1 uut profiili"
+
+#~ msgid "TextLabel"
+#~ msgstr "Tekstipealdis"

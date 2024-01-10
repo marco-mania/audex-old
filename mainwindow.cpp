@@ -420,7 +420,7 @@ void MainWindow::setup_actions() {
   connect(ejectAction, SIGNAL(triggered(bool)), this, SLOT(eject()));
 
   profile_label = new QLabel(this);
-  profile_label->setText(i18n("Profile: "));
+  profile_label->setText(i18n("Profile:"));
   profile_combobox = new KComboBox(this);
   profile_combobox->setModel(profile_model);
   profile_combobox->setModelColumn(1);
@@ -432,7 +432,7 @@ void MainWindow::setup_actions() {
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
   KAction *plabelAction = new KAction(this);
-  plabelAction->setText(i18n("&Profile: "));
+  plabelAction->setText(i18n("&Profile:"));
   plabelAction->setDefaultWidget(profile_label);
   profile_label->setBuddy(profile_combobox);
   actionCollection()->addAction("profile_label", plabelAction);

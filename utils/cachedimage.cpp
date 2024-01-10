@@ -148,7 +148,7 @@ bool CachedImage::load(const QString& filename) {
   kDebug() << "Load cover image from file (" << _format << ")";
   if (!_format.isEmpty() && QImageReader::supportedImageFormats().contains(_format)) {
     if (!file.open(QIODevice::ReadOnly)) {
-      _error = Error(i18n("Can't open file."), i18n("Please check your file. Maybe you don't have proper permissions."), Error::ERROR);
+      _error = Error(i18n("Cannot open file."), i18n("Please check your file. Maybe you do not have proper permissions."), Error::ERROR);
       return FALSE;
     }
     _data = file.readAll();
@@ -171,14 +171,14 @@ void CachedImage::clear() {
 bool CachedImage::save(const QString& filename, const QSize& size) {
   QFile file(filename);
   if (!file.open(QIODevice::WriteOnly)) {
-    _error = Error(i18n("Can't open file"), i18n("Please check your permissions."), Error::ERROR);
+    _error = Error(i18n("Cannot open file"), i18n("Please check your permissions."), Error::ERROR);
     return FALSE;
   }
   QByteArray format = KMimeType::extractKnownExtension(filename).toLower().toAscii();
   if ((compare_format(format, _format) || (format.isEmpty())) && ((size.isNull()) || (size == _size))) {
     qint64 r = file.write(_data);
     if ((r==-1) || (r < _data.size())) {
-      _error = Error(i18n("Can't save file"), i18n("Please check your permissions. Do you have enough space?"), Error::ERROR);
+      _error = Error(i18n("Cannot save file"), i18n("Please check your permissions. Do you have enough space?"), Error::ERROR);
       file.close();
       return FALSE;
     }
@@ -209,7 +209,7 @@ bool CachedImage::_save(QIODevice *device, const QByteArray& format, const QSize
   bool ok;
   if (!format.isEmpty()) ok = image.save(device, format.data()); else ok = image.save(device);
   if (!ok) {
-    _error = Error(i18n("Can't write on device"), i18n("Please check your permissions. Do you have enough space on your device?"), Error::ERROR);
+    _error = Error(i18n("Cannot write on device"), i18n("Please check your permissions. Do you have enough space on your device?"), Error::ERROR);
     return FALSE;
   }
   _error = Error();

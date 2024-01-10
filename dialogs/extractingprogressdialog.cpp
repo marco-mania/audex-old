@@ -17,10 +17,9 @@
  */
 
 #include "extractingprogressdialog.h"
+#include <QDBusConnection>
 
 ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, CDDAModel *cdda_model, QWidget *parent) : KDialog(parent) {
-
-  Q_UNUSED(parent);
 
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
@@ -72,7 +71,7 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   finished = FALSE;
 
   progressbar_np_flag = FALSE;
-  
+  unity_message=QDBusMessage::createSignal("/Audex", "com.canonical.Unity.LauncherEntry", "Update");
 }
 
 ExtractingProgressDialog::~ExtractingProgressDialog() {
@@ -105,6 +104,7 @@ int ExtractingProgressDialog::exec() {
 
 void ExtractingProgressDialog::calc_overall_progress() {
   ui.progressBar_overall->setValue((int)(((float)(current_extract_overall+current_encode_overall)/2.0f)+.5f));
+  update_unity();
 }
 
 void ExtractingProgressDialog::toggle_details() {
@@ -186,6 +186,8 @@ void ExtractingProgressDialog::show_changed_extract_track(int no, int total, con
     
     ui.label_extracting->setText((1==total) ? i18n("Ripping Track") : i18n("Ripping Track %1 of %2", no, total));
     ui.label_overall_track->setText((1==total) ? i18n("Overall Progress") : i18n("Overall Progress (Ripping Track %1 of %2)", no, total));
+    current_track = no;
+    update_unity();
     
   } else {
     
@@ -267,6 +269,8 @@ void ExtractingProgressDialog::conclusion(bool successful) {
   QFlags<KDialog::ButtonCode> buttons = Close;
 
   finished = TRUE;
+  
+  update_unity();
   
   QPalette pal(ui.label_extracting->palette());
   KColorScheme kcs(QPalette::Active);
@@ -365,4 +369,19 @@ void ExtractingProgressDialog::open_extract_protocol_dialog() {
   ProtocolDialog *protocolDialog = new ProtocolDialog(audex->extractProtocol(), i18n("Ripping protocol"), this);
   protocolDialog->exec();
   delete protocolDialog;
+}
+
+void ExtractingProgressDialog::update_unity() {
+    QList<QVariant> args;
+    int progress = ui.progressBar_overall->value();
+    bool show_progress = progress>-1 && progress < 100 && !finished;
+    QMap<QString, QVariant> props;
+    props["count-visible"]=current_track>0 && !finished;
+    props["count"]=current_track;
+    props["progress-visible"]=show_progress;
+    props["progress"]=show_progress ? (double)(progress/100.0) : 0.0;
+    args.append("application://audex.desktop");
+    args.append(props);
+    unity_message.setArguments(args);
+    QDBusConnection::sessionBus().send(unity_message);
 }

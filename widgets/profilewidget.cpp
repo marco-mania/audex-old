@@ -144,9 +144,7 @@ void profileWidget::init_profiles() {
     int diff = profile_model->rowCount()-sizeBefore;
     KMessageBox::information(this, 0==diff
                                      ? i18n("No new codecs found")
-                                     : 1==diff
-                                       ? i18n("1 new profile added")
-                                       : i18n("%1 new profiles added", diff),
+                                     : i18np("1 new profile added", "%1 new profiles added", diff),
                                  i18n("Codec Scan"));
 
   }

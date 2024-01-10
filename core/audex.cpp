@@ -34,6 +34,7 @@ Audex::Audex(QWidget* parent, ProfileModel *profile_model, CDDAModel *cdda_model
 
   encoder_wrapper = new EncoderWrapper(this,
 			profile_model->getSelectedEncoderPatternFromCurrentIndex(),
+			profile_model->getSelectedEncoderNameAndVersion(),
 			Preferences::deletePartialFiles());
 
   if (!encoder_wrapper) {
@@ -165,10 +166,11 @@ void Audex::start_extract() {
     QString basepath = Preferences::basePath();
     int cdnum;
     if (!cdda_model->isMultiCD()) cdnum = 0; else cdnum = cdda_model->cdNum();
+    int nooftracks = cdda_model->numOfAudioTracks();
     bool overwrite = Preferences::overwriteExistingFiles();
     
     QString targetFilename;
-    if (!construct_target_filename_for_singlefile(targetFilename, cdnum, artist, title, year, genre, suffix, basepath, overwrite)) {
+    if (!construct_target_filename_for_singlefile(targetFilename, cdnum, nooftracks, artist, title, year, genre, suffix, basepath, overwrite)) {
       request_finish(FALSE);
       return;
     }
@@ -232,17 +234,18 @@ void Audex::start_extract() {
       int cdnum;
       if (!cdda_model->isMultiCD()) cdnum = 0; else cdnum = cdda_model->cdNum();
       int trackoffset = cdda_model->trackOffset();
+      int nooftracks = cdda_model->numOfAudioTracks();
       bool overwrite = Preferences::overwriteExistingFiles();
 
       QString targetFilename;
       if (cdda_model->isVarious()) {
-        if (!construct_target_filename(targetFilename, ex_track_index, cdnum, trackoffset,
+        if (!construct_target_filename(targetFilename, ex_track_index, cdnum, nooftracks, trackoffset,
 	    artist, title, tartist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, _2digitstracknum, overwrite, (ex_track_index==1))) {
           request_finish(FALSE);
           return;
         }
       } else {
-        if (!construct_target_filename(targetFilename, ex_track_index, cdnum, trackoffset,
+        if (!construct_target_filename(targetFilename, ex_track_index, cdnum, nooftracks, trackoffset,
 	    artist, title, artist, ttitle, year, genre, suffix, basepath, fat32_compatible, replacespaceswithunderscores, _2digitstracknum, overwrite, (ex_track_index==1))) {
           request_finish(FALSE);
           return;
@@ -325,6 +328,7 @@ void Audex::start_encode() {
     if (!job) return;
 
     int cdnum = cdda_model->cdNum();
+    int nooftracks = cdda_model->numOfAudioTracks();
     QString artist = cdda_model->artist();
     QString title = cdda_model->title();
     QString year = cdda_model->year();
@@ -340,7 +344,7 @@ void Audex::start_encode() {
 
     en_track_filename = job->sourceFilename();
     en_track_index = job->trackNo();
-    if (!encoder_wrapper->encode(job->trackNo(), cdnum, 0,
+    if (!encoder_wrapper->encode(job->trackNo(), cdnum, 0, nooftracks,
           artist, title, artist, title, genre, year, suffix, cover, FALSE, tmp_path,
 	  job->sourceFilename(), targetFilename)) {
       request_finish(FALSE);
@@ -361,6 +365,7 @@ void Audex::start_encode() {
 
     int cdnum = cdda_model->cdNum();
     int trackoffset = cdda_model->trackOffset();
+    int nooftracks = cdda_model->numOfAudioTracks();
     QString artist = cdda_model->artist();
     QString title = cdda_model->title();
     QString tartist = cdda_model->data(cdda_model->index(job->trackNo()-1, CDDA_MODEL_COLUMN_ARTIST_INDEX)).toString();
@@ -380,13 +385,13 @@ void Audex::start_encode() {
     en_track_filename = job->sourceFilename();
     en_track_index = job->trackNo();
     if (cdda_model->isVarious()) {
-      if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
+      if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset, nooftracks,
 	    artist, title, tartist, ttitle, genre, year, suffix, cover, fat32_compatible, tmp_path,
 	    job->sourceFilename(), targetFilename)) {
         request_finish(FALSE);
       }
     } else {
-      if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset,
+      if (!encoder_wrapper->encode(job->trackNo(), cdnum, trackoffset, nooftracks,
 	    artist, title, artist, ttitle, genre, year, suffix, cover, fat32_compatible, tmp_path,
 	    job->sourceFilename(), targetFilename)) {
         request_finish(FALSE);
@@ -522,7 +527,7 @@ void Audex::check_if_thread_still_running() {
 }
 
 bool Audex::construct_target_filename(QString& targetFilename,
-	int trackno, int cdno, int gindex,
+	int trackno, int cdno, int nooftracks, int gindex,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& year, const QString& genre,
@@ -533,7 +538,7 @@ bool Audex::construct_target_filename(QString& targetFilename,
 
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseFilenamePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_PATTERN_INDEX)).toString(),
-	trackno, cdno, gindex, artist, title, tartist, ttitle, year, genre, ext, fat_compatible, replacespaceswithunderscores, _2digitstracknum);
+	trackno, cdno, gindex, nooftracks, artist, title, tartist, ttitle, year, genre, ext, fat_compatible, replacespaceswithunderscores, _2digitstracknum);
 
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
@@ -585,7 +590,7 @@ bool Audex::construct_target_filename(QString& targetFilename,
 }
 
 bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
-	int cdno,
+	int cdno, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& date, const QString& genre,
 	const QString& ext, const QString& basepath,
@@ -593,7 +598,7 @@ bool Audex::construct_target_filename_for_singlefile(QString& targetFilename,
  
   PatternParser patternparser;
   targetFilename = ((basepath.right(1)=="/")?basepath:basepath+"/")+patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_SF_NAME_INDEX)).toString(),
-	cdno, artist, title, date, genre, ext, FALSE);
+	cdno, nooftracks, artist, title, date, genre, ext, FALSE);
 
   int lastSlash = targetFilename.lastIndexOf("/", -1);
   if (lastSlash == -1) {
@@ -710,7 +715,8 @@ void Audex::execute_finish() {
 
       PatternParser patternparser;
       QString coverName = patternparser.parseSimplePattern(pattern,
-	cdda_model->cdNum(), cdda_model->artist(), cdda_model->title(),
+	cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
+	cdda_model->artist(), cdda_model->title(),
 	QString("%1").arg(cdda_model->year()), cdda_model->genre(),
 	format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
       QString fileName = target_dir+"/"+coverName;
@@ -741,7 +747,8 @@ void Audex::execute_finish() {
 
     PatternParser patternparser;
     QString playlistName = patternparser.parseSimplePattern(pattern,
-	cdda_model->cdNum(), cdda_model->artist(), cdda_model->title(),
+	cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
+	cdda_model->artist(), cdda_model->title(),
 	QString("%1").arg(cdda_model->year()), cdda_model->genre(),
 	format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     QString fileName = target_dir+"/"+playlistName;
@@ -790,7 +797,8 @@ void Audex::execute_finish() {
 
     PatternParser patternparser;
     QString infoName = patternparser.parseSimplePattern(profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_NAME_INDEX)).toString(),
-	cdda_model->cdNum(), cdda_model->artist(), cdda_model->title(),
+	cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
+	cdda_model->artist(), cdda_model->title(),
 	QString("%1").arg(cdda_model->year()), cdda_model->genre(),
 	profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX)).toString(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     QString fileName = target_dir+"/"+infoName;
@@ -828,7 +836,8 @@ void Audex::execute_finish() {
 
     PatternParser patternparser;
     QString infoName = patternparser.parseSimplePattern(pattern,
-	cdda_model->cdNum(), cdda_model->artist(), cdda_model->title(),
+	cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
+	cdda_model->artist(), cdda_model->title(),
 	QString("%1").arg(cdda_model->year()), cdda_model->genre(),
 	format.toLower(), profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     QString fileName = target_dir+"/"+infoName;
@@ -906,7 +915,8 @@ void Audex::execute_finish() {
 
     PatternParser patternparser;
     QString cueName = patternparser.parseSimplePattern(pattern,
-	cdda_model->cdNum(), cdda_model->artist(), cdda_model->title(),
+	cdda_model->cdNum(), cdda_model->numOfAudioTracks(),
+	cdda_model->artist(), cdda_model->title(),
 	QString("%1").arg(cdda_model->year()), cdda_model->genre(),
 	"cue", profile_model->data(profile_model->index(profile_model->currentProfileRow(), PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX)).toBool());
     QString fileName = target_dir+"/"+cueName;

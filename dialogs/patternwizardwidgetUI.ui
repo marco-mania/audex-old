@@ -47,9 +47,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -76,9 +76,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -105,9 +105,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -161,9 +161,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -190,9 +190,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -219,9 +219,9 @@
         <colorrole role="Highlight">
          <brush brushstyle="SolidPattern">
           <color alpha="255">
-           <red>124</red>
-           <green>130</green>
-           <blue>119</blue>
+           <red>65</red>
+           <green>139</green>
+           <blue>212</blue>
           </color>
          </brush>
         </colorrole>
@@ -429,6 +429,13 @@
       </size>
      </property>
     </spacer>
+   </item>
+   <item row="8" column="1">
+    <widget class="KPushButton" name="kpushbutton_nooftracks">
+     <property name="text">
+      <string># of Tracks</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

@@ -57,6 +57,7 @@ private slots:
   void insDate();
   void insGenre();
   void insCoverFile();
+  void insNoOfTracks();
   void insInFile();
   void insOutFile();
 

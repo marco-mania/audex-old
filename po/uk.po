@@ -2,55 +2,524 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011.
+# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: audex\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2011-01-15 02:46+0100\n"
-"PO-Revision-Date: 2011-01-15 09:30+0200\n"
+"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"PO-Revision-Date: 2012-10-16 16:52+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Ukrainian <translation@linux.org.ua>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
-"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n%"
-"10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"Language: uk\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: dialogs/profiledatahashlistdialog.cpp:33
-#: dialogs/profiledataplaylistdialog.cpp:33
-msgid "Playlist Settings"
-msgstr "Параметри списку відтворення"
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
+#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
+#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
+msgid "Overwrite existing files"
+msgstr "Перезаписати існуючі файли"
 
-#: dialogs/profiledatahashlistdialog.cpp:40
-msgid "SFV (Simple File Verification)"
-msgstr "SFV (Simple File Verification)"
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
+#. i18n: ectx: label, entry (deletePartialFiles), group (general)
+#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
+msgid "Delete partial files after cancel"
+msgstr "Вилучити файли частин після скасування"
 
-#: dialogs/profiledatahashlistdialog.cpp:41
-msgid "MD5 (Message-Digest algorithm 5)"
-msgstr "MD5 (алгоритм Message-Digest 5)"
+#. i18n: ectx: label, entry (ejectCDTray), group (general)
+#: audex.kcfg:22
+msgid "Eject CD tray after extraction finished"
+msgstr "Виштовхнути лоток після видобування даних"
 
-#: dialogs/extractingprogressdialog.cpp:30
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
+#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
+#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+msgid "Perform CDDB lookup automatically"
+msgstr "Автоматично шукати у CDDB"
+
+#. i18n: ectx: label, entry (coverLookupAuto), group (general)
+#: audex.kcfg:30
+msgid "Perform cover lookup (amazon) automatically"
+msgstr "Автоматично шукати обкладинки (на amazon)"
+
+#. i18n: ectx: label, entry (wikipediaLocale), group (general)
+#: audex.kcfg:34
+msgid "Wikipedia localization"
+msgstr "Мова Вікіпедії"
+
+#. i18n: ectx: label, entry (fetchCount), group (general)
+#: audex.kcfg:38
+msgid "Number of covers to fetch"
+msgstr "Кількість обкладинок для звантаження"
+
+#. i18n: ectx: label, entry (cdDevice), group (general)
+#: audex.kcfg:42
+msgid "CD Device"
+msgstr "Пристрій КД"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
+#. i18n: ectx: label, entry (paranoiaMode), group (general)
+#: audex.kcfg:46 widgets/generalsettingswidgetUI.ui:139
+msgid "Full paranoia mode (best quality)"
+msgstr "Режим параної (найкраща якість)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
+#. i18n: ectx: label, entry (neverSkip), group (general)
+#: audex.kcfg:50 widgets/generalsettingswidgetUI.ui:146
+msgid "Never skip on read error"
+msgstr "Ніколи не пропускати помилки читання"
+
+#. i18n: ectx: label, entry (basePath), group (general)
+#: audex.kcfg:54
+msgid "Base path to store music files"
+msgstr "Базова тека звукових файлів"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
+#. i18n: ectx: label, entry (upload), group (general)
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+msgid "Upload files to server"
+msgstr "Вивантажити файли на сервер"
+
+#. i18n: ectx: label, entry (url), group (general)
+#: audex.kcfg:62
+msgid "URL of server"
+msgstr "Адреса сервера"
+
+#. i18n: ectx: Menu (file)
+#: audexui.rc:6
+msgid "&Audex"
+msgstr "&Audex"
+
+#. i18n: ectx: Menu (cddb)
+#: audexui.rc:13
+msgid "&CDDB"
+msgstr "&CDDB"
+
+#. i18n: ectx: Menu (titlecorrectiontools)
+#: audexui.rc:18
+msgctxt "@title:menu"
+msgid "Title Correction Tools"
+msgstr "Інструменти виправлення заголовків"
+
+#. i18n: ectx: Menu (settings)
+#: audexui.rc:25
+msgid "&Settings"
+msgstr "П&араметри"
+
+#: core/audex.cpp:112
+msgid "No profile selected. Operation abort."
+msgstr "Не вказано жодного профілю. Дію перервано."
+
+#: core/audex.cpp:129
+#, kde-format
+msgid "Start ripping and encoding with profile \"%1\"..."
+msgstr "Запуск видобування та кодування на основі профілю «%1»…"
+
+#: core/audex.cpp:545 core/audex.cpp:605
+#, kde-format
+msgid "Can't find path \"%1\"."
+msgstr "Не вдалося знайти шлях «%1»."
+
+#: core/audex.cpp:545 core/audex.cpp:554 core/audex.cpp:605 core/audex.cpp:614
+msgid "Please check your path (write access?)"
+msgstr ""
+"Будь ласка, перевірте, чи правильно вказано шлях (права доступу на запис?)"
+
+#: core/audex.cpp:554 core/audex.cpp:614
+#, kde-format
+msgid "Unable to create folder \"%1\"."
+msgstr "Не вдалося створити теку «%1»."
+
+#: core/audex.cpp:557 core/audex.cpp:617
+#, kde-format
+msgid "Folder \"%1\" successfully created."
+msgstr "Теку «%1» успішно створено."
+
+#: core/audex.cpp:560 core/audex.cpp:620
+#, kde-format
+msgid "Folder \"%1\" already exists."
+msgstr "Тека з назвою «%1» вже існує."
+
+#: core/audex.cpp:567
+#, kde-format
+msgid ""
+"Free space on \"%1\" is less than 200 MiB. Problems with low space possible."
+msgstr ""
+"На диску «%1» залишилося менше 200 МіБ вільного місця. Можливі проблеми з "
+"нестачею пам’яті."
+
+#: core/audex.cpp:573 core/audex.cpp:633
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Overwriting."
+msgstr "Увага! Файл з назвою «%1» вже існує. Його буде перезаписано."
+
+#: core/audex.cpp:575 core/audex.cpp:635 core/audex.cpp:729 core/audex.cpp:762
+#: core/audex.cpp:811 core/audex.cpp:851 core/audex.cpp:890 core/audex.cpp:929
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Skipping."
+msgstr "Увага! Файл з назвою «%1» вже існує. Його буде пропущено."
+
+#: core/audex.cpp:627
+#, kde-format
+msgid ""
+"Free space on \"%1\" is less than 800 MiB. Problems with low space possible."
+msgstr ""
+"На диску «%1» залишилося менше 800 МіБ вільного місця. Можливі проблеми з "
+"нестачею пам’яті."
+
+#: core/audex.cpp:654
+#, kde-format
+msgid "Temporary folder \"%1\" error."
+msgstr "Помилка, пов’язана з текою тимчасових даних «%1»."
+
+#: core/audex.cpp:654
+msgid "Please check."
+msgstr "Будь ласка, перевірте його наявність."
+
+#: core/audex.cpp:660
+#, kde-format
+msgid ""
+"Free space on temporary folder \"%1\" is less than 800 MiB. Problems with "
+"low space possible."
+msgstr ""
+"У каталозі для тимчасових файлів «%1» залишилося менше 800 МіБ вільного "
+"місця. Можливі проблеми з нестачею пам’яті."
+
+#: core/audex.cpp:662
+#, kde-format
+msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
+msgstr "У тимчасовому каталозі «%1» має бути не менше 200 МіБ вільного місця."
+
+#: core/audex.cpp:662
+msgid "Please free space or set another path."
+msgstr "Будь ласка, звільніть місце або вкажіть каталог на іншому носії."
+
+#: core/audex.cpp:696
+msgid "Eject CD tray"
+msgstr "Виштовхнути лоток КД"
+
+#: core/audex.cpp:734
+#, kde-format
+msgid "Cover \"%1\" successfully saved."
+msgstr "Обкладинку «%1» успішно збережено."
+
+#: core/audex.cpp:788
+#, kde-format
+msgid "Playlist \"%1\" successfully created."
+msgstr "Список композицій «%1» успішно створено."
+
+#: core/audex.cpp:824
+#, kde-format
+msgid "Infofile \"%1\" successfully created."
+msgstr "Файл інформації «%1» успішно створено."
+
+#: core/audex.cpp:872
+#, kde-format
+msgid "Hashlist \"%1\" successfully created."
+msgstr "Список хешів «%1» успішно створено."
+
+#: core/audex.cpp:903
+msgid "Discid successfully stored."
+msgstr "Ідентифікатор диска успішно збережено."
+
+#: core/audex.cpp:943
+#, kde-format
+msgid "Cue sheet \"%1\" successfully created."
+msgstr "Список композицій «%1» успішно створено."
+
+#: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
+msgid "Edit Data"
+msgstr "Редагувати дані"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
+#: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
+msgid "Various Artists"
+msgstr "Різні виконавці"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
+#: dialogs/cddaheaderdatawidgetUI.ui:23
+msgid "Multi CD"
+msgstr "Мульти-КД"
+
+#. i18n: ectx: property (text), widget (QLabel, label_artist)
+#: dialogs/cddaheaderdatawidgetUI.ui:49
+msgid "Artist:"
+msgstr "Виконавець:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_title)
+#: dialogs/cddaheaderdatawidgetUI.ui:65
+msgid "Title:"
+msgstr "Назва:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
+#: dialogs/cddaheaderdatawidgetUI.ui:75
+msgid "CD Number:"
+msgstr "Номер КД:"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/cddaheaderdatawidgetUI.ui:89
+msgid "Track Offset:"
+msgstr "Відступ доріжки:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_genre)
+#: dialogs/cddaheaderdatawidgetUI.ui:105
+msgid "Genre:"
+msgstr "Жанр:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_year)
+#: dialogs/cddaheaderdatawidgetUI.ui:128
+msgid "Year:"
+msgstr "Рік:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_extdata)
+#: dialogs/cddaheaderdatawidgetUI.ui:155
+msgid ""
+"Additional\n"
+"Information:"
+msgstr ""
+"Додаткові\n"
+"відомості:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_discid)
+#: dialogs/cddaheaderdatawidgetUI.ui:171
+msgid "Disc ID:"
+msgstr "Ідентифікатор диска:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_discid_2)
+#: dialogs/cddaheaderdatawidgetUI.ui:178
+msgid "0x00000000"
+msgstr "0x00000000"
+
+#: dialogs/commandwizarddialog.cpp:30
+msgid "Command Pattern Wizard"
+msgstr "Майстер шаблонів команд"
+
+#: dialogs/commandwizarddialog.cpp:86
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$cover</td><td>The cover file.</td></"
+"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
+"td></tr><tr><td>$i</td><td>The temporary WAV file (input file) created by "
+"Audex from CD audio track. You can use it as a normal input file for your "
+"command line encoder.</td></tr><tr><td>$o</td><td>The full output filename "
+"and path (output file). Use it as the output for your command line encoder.</"
+"td></tr><tr><td>$audex</td><td>Audex name and version.</td></tr><tr><td>"
+"$encoder</td><td>Encoder name and version.</td></tr></table></p>"
+msgstr ""
+"<p>Наведені нижче змінні буде замінено на їх значення у всіх назвах файлів "
+"композицій.</p><p><table border=\"1\"><tr><th><em>Змінна</em></"
+"th><th><em>Опис</em></th></tr><tr><td>$artist</td><td>Виконавець композицій "
+"компакт-диска. Якщо компакт-диск є збірником творів різних виконавців, "
+"здебільшого значенням цієї змінної є назва компакт-диска.</td></tr><tr><td>"
+"$title</td><td>Назва компакт-диска. Якщо компакт-диска є збірником творів "
+"різних виконавців, значенням цієї змінної є підзаголовок.</td></tr><tr><td>"
+"$date</td><td>Дата випуску компакт-диска. Здебільшого використовують рік "
+"випуску компакт-диска.</td></tr><tr><td>$genre</td><td>Жанр компакт-диска.</"
+"td></tr><tr><td>$cdno</td><td>Номер компакт-диска у альбомі з декількох "
+"компакт-дисків. Збірники часто складаються з декількох компакт-дисків. "
+"<i>Зауваження:</i> якщо для поточного компакт-диска прапорець збірника "
+"<b>не</b> встановлено, значення цього параметра буде порожнім рядком.</td></"
+"tr><tr><td>$tartist</td><td>Виконавець окремої композиції. Важливий параметр "
+"для збірників творів декількох виконавців.</td></tr><tr><td>$ttitle</"
+"td><td>Заголовок композиції. Зазвичай кожна композиція на компакт-диску має "
+"власний заголовок — назву пісні.</td></tr><tr><td>$trackno</td><td>Номер "
+"композиції. Перша композиція на диску має номер 1.</td></tr><tr><td>$cover</"
+"td><td>Файл зображення обкладинки.</td></tr><tr><td>$nooftracks</"
+"td><td>Загальна кількість доріжок на компакт-диску.</td></tr><tr><td>$i</"
+"td><td>Тимчасовий файл WAV (файл вхідних даних), який буде створено Audex на "
+"основі даних композиції з компакт-диска. Ви можете скористатися цим файлом "
+"вхідних даних для передавання його до програми кодування, яка керується з "
+"командного рядка.</td></tr><tr><td>$o</td><td>Назва файла вихідних даних "
+"(остаточного файла) повністю. Нею можна скористатися для визначення файла "
+"вихідних даних програми кодування, яка керується з командного рядка.</td></"
+"tr><tr><td>$audex</td><td>Назва Audex і версія програми.</td></tr><tr><td>"
+"$encoder</td><td>Назва і версія інструмента кодування.</td></tr></table></p>"
+
+#: dialogs/commandwizarddialog.cpp:109
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
+"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a JPG image "
+"with the size of 300x300 will be inserted. If no size is set, the size of "
+"the original cover file will be taken. If no cover is set, this variable "
+"will be replaced by nothing, otherwise something like <i>/tmp/cover.123.jpg</"
+"i> will be inserted. Possible formats are \"JPG\", \"PNG\" and \"GIF"
+"\" (Default: \"JPG\").</p>\n"
+"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+"bear this in mind, if you set the format and size.</i></p><hr /><p>\"preparam"
+"\" and \"postparam\" define parameters inserted before (pre) or behind "
+"(post) the variable. These values are <b>only</b> shown if a value is set."
+"Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+"<p>До змінних Audex можна додавати параметри. Приклади:</p><pre>${cover "
+"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Вставити назву "
+"файла зображення JPG розміром 300x300. Якщо не вказувати розмір, буде "
+"вставлено початковий файл зображення обкладинки. Якщо назви файла обкладинки "
+"не встановлено, змінну буде замінено на порожній рядок. Якщо ж файл буде "
+"знайдено, програма вставить щось таке: <i>/tmp/cover.123.jpg</i>. Можна "
+"використовувати файли у форматах «JPG», «PNG» і «GIF» (Типово буде "
+"використано файл JPG).</p>\n"
+"<p><i><b>Зауваження:</b> у інструменті кодування LAME не передбачено "
+"використання файлів, розмір яких перевищує 128 КіБ. Зважте на це, коли "
+"встановлюватимете значення для формату і розміру.</i></p><hr /><p>За "
+"допомогою ключових слів «preparam» і «postparam» можна визначити параметри, "
+"які буде вставлено до змінної або після змінної. Ці значення буде показано, "
+"<b>лише</b> якщо значення встановлено. Ці ключові слова можна "
+"використовувати для всіх змінних командного рядка.</p><hr /"
+"><p><b><i>Докладний огляд параметрів можна знайти на вебсторінці Audex.</i></"
+"b></p>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+msgid "Album Example:"
+msgstr "Приклад альбому:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+msgid "Sampler Example:"
+msgstr "Контрольний приклад:"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
+#: dialogs/commandwizardwidgetUI.ui:269
+msgid "About commandline schemes"
+msgstr "Про схеми побудови рядка команди"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
+#: dialogs/simplepatternwizardwidgetUI.ui:162
+msgid "About parameters"
+msgstr "Про параметри"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
+#: dialogs/simplepatternwizardwidgetUI.ui:189
+msgid "Album Artist"
+msgstr "Виконавець альбому"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
+#: dialogs/simplepatternwizardwidgetUI.ui:211
+msgid "Album Title"
+msgstr "Назва альбому"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+msgid "Track Artist"
+msgstr "Виконавець доріжки"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+msgid "Track Title"
+msgstr "Назва доріжки"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+msgid "Track #"
+msgstr "Номер доріжки"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
+#: dialogs/simplepatternwizardwidgetUI.ui:231
+msgid "CD #"
+msgstr "Номер КД"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
+#: dialogs/simplepatternwizardwidgetUI.ui:255
+msgid "# of Tracks"
+msgstr "К-ть доріжок"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
+#: dialogs/simplepatternwizardwidgetUI.ui:241
+msgid "Date"
+msgstr "Дата"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
+#: dialogs/simplepatternwizardwidgetUI.ui:221
+msgid "Genre"
+msgstr "Жанр"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
+#: dialogs/commandwizardwidgetUI.ui:423
+msgid "Cover File"
+msgstr "Файл обкладинки"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
+#: dialogs/commandwizardwidgetUI.ui:433
+msgid "Input File"
+msgstr "Вхідний файл"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
+#: dialogs/commandwizardwidgetUI.ui:443
+msgid "Output File"
+msgstr "Вихідний файл"
+
+#: dialogs/coverbrowserdialog.cpp:40
+msgid "Searching for covers..."
+msgstr "Пошук обкладинок…"
+
+#: dialogs/coverbrowserdialog.cpp:75
+#, kde-format
+msgid "Fetching Thumbnail %1 / %2..."
+msgstr "Отримання мініатюри %1 з %2…"
+
+#: dialogs/coverbrowserdialog.cpp:79
+#, kde-format
+msgid "Found 1 Cover"
+msgid_plural "Found %1 Covers"
+msgstr[0] "Знайдено %1 обкладинку"
+msgstr[1] "Знайдено %1 обкладинки"
+msgstr[2] "Знайдено %1 обкладинок"
+msgstr[3] "Знайдено одну обкладинку"
+
+#: dialogs/coverbrowserdialog.cpp:84
+msgid "No Covers Found"
+msgstr "Обкладинок не знайдено"
+
+#: dialogs/coverbrowserdialog.cpp:104
+msgid "Fetch Cover From Google"
+msgstr "Звантажити обкладинку з Google"
+
+#: dialogs/extractingprogressdialog.cpp:29
 msgid "Rip And Encode"
 msgstr "Видобути і закодувати"
 
-#: dialogs/extractingprogressdialog.cpp:44
-#: dialogs/extractingprogressdialog.cpp:192
+#: dialogs/extractingprogressdialog.cpp:43
+#: dialogs/extractingprogressdialog.cpp:194
 msgid "Ripping whole CD as single track"
 msgstr "Видобування всіх даних як єдиної доріжки"
 
-#: dialogs/extractingprogressdialog.cpp:45
+#: dialogs/extractingprogressdialog.cpp:44
 msgid "Encoding"
 msgstr "Кодування"
 
-#: dialogs/extractingprogressdialog.cpp:49
+#: dialogs/extractingprogressdialog.cpp:48
 #, kde-format
 msgid "Ripping Track 0 of %1"
 msgstr "Видобування доріжки 0 з %1"
 
-#: dialogs/extractingprogressdialog.cpp:50
+#: dialogs/extractingprogressdialog.cpp:49
 #, kde-format
 msgid "Encoding Track 0 of %1"
 msgstr "Кодування доріжки 0 з %1"
@@ -72,10 +541,10 @@ msgstr "Видобування доріжки"
 msgid "Ripping Track %1 of %2"
 msgstr "Видобування доріжки %1 з %2"
 
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:165
 #. i18n: ectx: property (text), widget (QLabel, label_overall)
 #: dialogs/extractingprogressdialog.cpp:188
-#: dialogs/extractingprogressdialog.cpp:193 rc.cpp:98
+#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogresswidgetUI.ui:165
 msgid "Overall Progress"
 msgstr "Загальний поступ"
 
@@ -84,54 +553,54 @@ msgstr "Загальний поступ"
 msgid "Overall Progress (Ripping Track %1 of %2)"
 msgstr "Загальний поступ (видобування доріжки %1 з %2)"
 
-#: dialogs/extractingprogressdialog.cpp:204
+#: dialogs/extractingprogressdialog.cpp:206
 msgid "Waiting for an encoding job..."
 msgstr "Очікування на завершення кодування…"
 
-#: dialogs/extractingprogressdialog.cpp:207
+#: dialogs/extractingprogressdialog.cpp:209
 msgid "Encoding Track"
 msgstr "Кодування доріжки"
 
-#: dialogs/extractingprogressdialog.cpp:207
+#: dialogs/extractingprogressdialog.cpp:209
 #, kde-format
 msgid "Encoding Track %1 of %2"
 msgstr "Кодування доріжки %1 з %2"
 
-#: dialogs/extractingprogressdialog.cpp:254
-#: dialogs/extractingprogressdialog.cpp:261
+#: dialogs/extractingprogressdialog.cpp:256
+#: dialogs/extractingprogressdialog.cpp:263
 #, c-format, kde-format
 msgid "Speed: %1x"
 msgstr "Швидкість: %1x"
 
-#: dialogs/extractingprogressdialog.cpp:274
+#: dialogs/extractingprogressdialog.cpp:278
 msgid "All jobs successfully done."
 msgstr "Всі завдання успішно виконано."
 
-#: dialogs/extractingprogressdialog.cpp:278
-#: dialogs/extractingprogressdialog.cpp:279
-#: dialogs/extractingprogressdialog.cpp:280
+#: dialogs/extractingprogressdialog.cpp:282
+#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:284
 msgid "Finished!"
 msgstr "Завершено."
 
-#: dialogs/extractingprogressdialog.cpp:285
+#: dialogs/extractingprogressdialog.cpp:289
 msgid "At least one job failed."
 msgstr "Під час виконання принаймні одного завдання сталася помилка."
 
-#: dialogs/extractingprogressdialog.cpp:289
-#: dialogs/extractingprogressdialog.cpp:290
-#: dialogs/extractingprogressdialog.cpp:291
+#: dialogs/extractingprogressdialog.cpp:293
+#: dialogs/extractingprogressdialog.cpp:294
+#: dialogs/extractingprogressdialog.cpp:295
 msgid "Failed!"
 msgstr "Помилка."
 
-#: dialogs/extractingprogressdialog.cpp:307
+#: dialogs/extractingprogressdialog.cpp:311
 msgid "Show encoding log..."
 msgstr "Показати журнал кодування…"
 
-#: dialogs/extractingprogressdialog.cpp:311
+#: dialogs/extractingprogressdialog.cpp:315
 msgid "Show rip log..."
 msgstr "Показати журнал видобування…"
 
-#: dialogs/extractingprogressdialog.cpp:347
+#: dialogs/extractingprogressdialog.cpp:351
 msgid ""
 "Ripping speed was extremly slow for the last 5 minutes.\n"
 "Due to extraction quality, audex is configured to never skip any detected "
@@ -150,81 +619,52 @@ msgstr ""
 "\n"
 "Отже, чи бажаєте ви, щоб програма продовжувала спроби видобування даних?"
 
-#: dialogs/extractingprogressdialog.cpp:350
+#: dialogs/extractingprogressdialog.cpp:354
 msgid "Cancel extraction"
 msgstr "Скасувати видобування"
 
-#: dialogs/extractingprogressdialog.cpp:359
+#: dialogs/extractingprogressdialog.cpp:363
 msgid "Encoding protocol"
 msgstr "Протокол кодування"
 
-#: dialogs/extractingprogressdialog.cpp:365
+#: dialogs/extractingprogressdialog.cpp:369
 msgid "Ripping protocol"
 msgstr "Протокол видобування"
 
-#: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
-msgid "Edit Data"
-msgstr "Редагувати дані"
+#. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:30
+msgid "Show/hide details"
+msgstr "Показати/Приховати подробиці"
 
-#: dialogs/profiledatasinglefiledialog.cpp:32
-msgid "Single File Settings"
-msgstr "Параметри єдиного файла"
+#. i18n: ectx: property (text), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:33
+msgid "..."
+msgstr "…"
 
-#: dialogs/coverbrowserdialog.cpp:40
-msgid "Searching for covers..."
-msgstr "Пошук обкладинок…"
+#. i18n: ectx: property (text), widget (QLabel, label_extracting)
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
+#: dialogs/extractingprogresswidgetUI.ui:73
+#: dialogs/extractingprogresswidgetUI.ui:183
+msgid "Ripping Track 8 of 12"
+msgstr "Видобування доріжки 8 з 12"
 
-#: dialogs/coverbrowserdialog.cpp:75
-#, kde-format
-msgid "Fetching Thumbnail %1 / %2..."
-msgstr "Отримання мініатюри %1 з %2…"
+#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
+#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:86
+#: dialogs/extractingprogresswidgetUI.ui:132
+msgid "Speed: 0x"
+msgstr "Швидкість: 0x"
 
-#: dialogs/coverbrowserdialog.cpp:79
-#, kde-format
-msgid "Found %1 Covers"
-msgstr "Знайдено %1 обкладинки"
-
-#: dialogs/coverbrowserdialog.cpp:84
-msgid "No Covers Found"
-msgstr "Обкладинок не знайдено"
-
-#: dialogs/coverbrowserdialog.cpp:104
-msgid "Fetch Cover From Google"
-msgstr "Звантажити обкладинку з Google"
-
-#: dialogs/profiledatacoverdialog.cpp:37
-msgid "Cover Settings"
-msgstr "Параметри обкладинок"
-
-#: dialogs/profiledatacoverdialog.cpp:54
-msgid "JPEG (Joint Photographic Experts Group)"
-msgstr "JPEG (Joint Photographic Experts Group)"
-
-#: dialogs/profiledatacoverdialog.cpp:55
-msgid "PNG (Portable Network Graphics)"
-msgstr "PNG (Portable Network Graphics)"
-
-#: dialogs/profiledatacoverdialog.cpp:56
-msgid "BMP (Windows Bitmap)"
-msgstr "BMP (Windows Bitmap)"
-
-#: dialogs/profiledatadialog.cpp:97
-msgid "Modify Profile"
-msgstr "Змінити профіль"
-
-#: dialogs/profiledatadialog.cpp:180
-msgid "Create Profile"
-msgstr "Створити профіль"
-
-#: dialogs/profiledatadialog.cpp:184
-msgid "New Profile"
-msgstr "Новий профіль"
+#. i18n: ectx: property (text), widget (QLabel, label_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:119
+msgid "Encoding Track 8 of 12"
+msgstr "Кодування доріжки 8 з 12"
 
 #: dialogs/patternwizarddialog.cpp:30
 msgid "Filename Pattern Wizard"
 msgstr "Майстер шаблонів назв файлів"
 
-#: dialogs/patternwizarddialog.cpp:83
+#: dialogs/patternwizarddialog.cpp:84
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
 "every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
@@ -241,8 +681,10 @@ msgid ""
 "is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
 "td><td>The track title. Normally each track on a CD has its own title, which "
 "is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$suffix</td><td>The filename extension.</"
-"td></tr></table></p>"
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
 msgstr ""
 "<p>Наведені нижче змінні буде замінено на їх значення у всіх назвах файлів "
 "композицій</p><p><table border=\"1\"><tr><th><em>Змінна</em></"
@@ -261,10 +703,12 @@ msgstr ""
 "для збірників творів декількох виконавців.</td></tr><tr><td>$ttitle</"
 "td><td>Заголовок композиції. Зазвичай кожна композиція на компакт-диску має "
 "власний заголовок — назву пісні.</td></tr><tr><td>$trackno</td><td>Номер "
-"композиції. Перша композиція на диску має номер 1.</td></tr><tr><td>$suffix</"
-"td><td>Суфікс назви файла.</td></tr></table></p>"
+"композиції. Перша композиція на диску має номер 1.</td></tr><tr><td>"
+"$nooftracks</td><td>Загальна кількість доріжок на компакт-диску.</td></"
+"tr><tr><td>$suffix</td><td>Суфікс назви файла.</td></tr><tr><td>$audex</"
+"td><td>Назва Audex і версія програми.</td></tr></table></p>"
 
-#: dialogs/patternwizarddialog.cpp:101
+#: dialogs/patternwizarddialog.cpp:104
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
 "${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
@@ -289,101 +733,91 @@ msgstr ""
 "><p><b><i>Щоб докладніше познайомитися з використанням параметрів, "
 "відвідайте сторінку Audex.</i></b></p>"
 
-#: dialogs/commandwizarddialog.cpp:30
-msgid "Command Pattern Wizard"
-msgstr "Майстер шаблонів команд"
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/patternwizardwidgetUI.ui:263
+msgid "About filename schemes"
+msgstr "Про схеми побудови назв файлів"
 
-#: dialogs/commandwizarddialog.cpp:85
-msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$cover</td><td>The cover file.</td></"
-"tr><tr><td>$i</td><td>The temporary WAV file (input file) created by Audex "
-"from CD audio track. You can use it as a normal input file for your command "
-"line encoder.</td></tr><tr><td>$o</td><td>The full output filename and path "
-"(output file). Use it as the output for your command line encoder.</td></"
-"tr></table></p>"
-msgstr ""
-"<p>Наведені нижче змінні буде замінено на їх значення у всіх назвах файлів "
-"композицій.</p><p><table border=\"1\"><tr><th><em>Змінна</em></"
-"th><th><em>Опис</em></th></tr><tr><td>$artist</td><td>Виконавець композицій "
-"компакт-диска. Якщо компакт-диск є збірником творів різних виконавців, "
-"здебільшого значенням цієї змінної є назва компакт-диска.</td></tr><tr><td>"
-"$title</td><td>Назва компакт-диска. Якщо компакт-диска є збірником творів "
-"різних виконавців, значенням цієї змінної є підзаголовок.</td></tr><tr><td>"
-"$date</td><td>Дата випуску компакт-диска. Здебільшого використовують рік "
-"випуску компакт-диска.</td></tr><tr><td>$genre</td><td>Жанр компакт-диска.</"
-"td></tr><tr><td>$cdno</td><td>Номер компакт-диска у альбомі з декількох "
-"компакт-дисків. Збірники часто складаються з декількох компакт-дисків. "
-"<i>Зауваження:</i> якщо для поточного компакт-диска прапорець збірника "
-"<b>не</b> встановлено, значення цього параметра буде порожнім рядком.</td></"
-"tr><tr><td>$tartist</td><td>Виконавець окремої композиції. Важливий параметр "
-"для збірників творів декількох виконавців.</td></tr><tr><td>$ttitle</"
-"td><td>Заголовок композиції. Зазвичай кожна композиція на компакт-диску має "
-"власний заголовок — назву пісні.</td></tr><tr><td>$trackno</td><td>Номер "
-"композиції. Перша композиція на диску має номер 1.</td></tr><tr><td>$cover</"
-"td><td>Файл зображення обкладинки.</td></tr><tr><td>$i</td><td>Тимчасовий "
-"файл WAV (файл вхідних даних), який буде створено Audex на основі даних "
-"композиції з компакт-диска. Ви можете скористатися цим файлом вхідних даних "
-"для передавання його до програми кодування, яка керується з командного рядка."
-"</td></tr><tr><td>$o</td><td>Назва файла вихідних даних (остаточного файла) "
-"повністю. Нею можна скористатися для визначення файла вихідних даних "
-"програми кодування, яка керується з командного рядка.</td></tr></table></p>"
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
+msgid "Suffix"
+msgstr "Суфікс"
 
-#: dialogs/commandwizarddialog.cpp:105
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
-"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a JPG image "
-"with the size of 300x300 will be inserted. If no size is set, the size of "
-"the original cover file will be taken. If no cover is set, this variable "
-"will be replaced by nothing, otherwise something like <i>/tmp/cover.123.jpg</"
-"i> will be inserted. Possible formats are \"JPG\", \"PNG\" and \"GIF"
-"\" (Default: \"JPG\").</p>\n"
-"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-"bear this in mind, if you set the format and size.</i></p><hr /><p>\"preparam"
-"\" and \"postparam\" define parameters inserted before (pre) or behind "
-"(post) the variable. These values are <b>only</b> shown if a value is set."
-"Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
-"<p>До змінних Audex можна додавати параметри. Приклади:</p><pre>${cover "
-"format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Вставити назву "
-"файла зображення JPG розміром 300x300. Якщо не вказувати розмір, буде "
-"вставлено початковий файл зображення обкладинки. Якщо назви файла обкладинки "
-"не встановлено, змінну буде замінено на порожній рядок. Якщо ж файл буде "
-"знайдено, програма вставить щось таке: <i>/tmp/cover.123.jpg</i>. Можна "
-"використовувати файли у форматах «JPG», «PNG» і «GIF» (Типово буде використано "
-"файл JPG).</p>\n"
-"<p><i><b>Зауваження:</b> у інструменті кодування LAME не передбачено "
-"використання файлів, розмір яких перевищує 128 КіБ. Зважте на це, коли "
-"встановлюватимете значення для формату і розміру.</i></p><hr /><p>За "
-"допомогою ключових слів «preparam» і «postparam» можна визначити параметри, "
-"які буде вставлено до змінної або після змінної. Ці значення буде показано, "
-"<b>лише</b> якщо значення встановлено. Ці ключові слова можна "
-"використовувати для всіх змінних командного рядка.</p><hr /"
-"><p><b><i>Докладний огляд параметрів можна знайти на веб-сторінці Audex.</"
-"i></b></p>"
+#: dialogs/profiledatacoverdialog.cpp:37
+msgid "Cover Settings"
+msgstr "Параметри обкладинок"
 
-#: dialogs/protocoldialog.cpp:33
-msgid "Save"
-msgstr "Зберегти"
+#: dialogs/profiledatacoverdialog.cpp:54
+msgid "JPEG (Joint Photographic Experts Group)"
+msgstr "JPEG (Joint Photographic Experts Group)"
 
-#: dialogs/protocoldialog.cpp:62
-msgid "Save "
-msgstr "Зберегти"
+#: dialogs/profiledatacoverdialog.cpp:55
+msgid "PNG (Portable Network Graphics)"
+msgstr "PNG (Portable Network Graphics)"
+
+#: dialogs/profiledatacoverdialog.cpp:56
+msgid "BMP (Windows Bitmap)"
+msgstr "BMP (Windows Bitmap)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
+#: dialogs/profiledatacoverwidgetUI.ui:23
+msgid "Scale before store:"
+msgstr "Масштабувати перед зберіганням:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_x)
+#: dialogs/profiledatacoverwidgetUI.ui:49
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#: dialogs/profiledatacoverwidgetUI.ui:75
+#: dialogs/profiledatahashlistwidgetUI.ui:23
+#: dialogs/profiledataplaylistwidgetUI.ui:23
+msgid "Format:"
+msgstr "Формат:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatacoverwidgetUI.ui:91
+msgid "Cover pattern:"
+msgstr "Шаблон обкладинки:"
+
+#: dialogs/profiledatacuesheetdialog.cpp:32
+msgid "Cue Sheet Settings"
+msgstr "Параметри списку композицій"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledataplaylistwidgetUI.ui:39
+#: dialogs/profiledatasinglefilewidgetUI.ui:23
+msgid "Name/Pattern:"
+msgstr "Назва/Шаблон:"
+
+#: dialogs/profiledatadialog.cpp:97
+msgid "Modify Profile"
+msgstr "Змінити профіль"
+
+#: dialogs/profiledatadialog.cpp:180
+msgid "Create Profile"
+msgstr "Створити профіль"
+
+#: dialogs/profiledatadialog.cpp:184
+msgid "New Profile"
+msgstr "Новий профіль"
+
+#: dialogs/profiledatahashlistdialog.cpp:33
+#: dialogs/profiledataplaylistdialog.cpp:33
+msgid "Playlist Settings"
+msgstr "Параметри списку відтворення"
+
+#: dialogs/profiledatahashlistdialog.cpp:40
+msgid "SFV (Simple File Verification)"
+msgstr "SFV (Simple File Verification)"
+
+#: dialogs/profiledatahashlistdialog.cpp:41
+msgid "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (алгоритм Message-Digest 5)"
 
 #: dialogs/profiledatainfodialog.cpp:34
 msgid "Info Settings"
@@ -406,9 +840,9 @@ msgid ""
 "attribute, for example:<div style=\"font-family:monospace; background: "
 "#b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>This "
 "would print the current date. Setting the format will control how this is "
-"done. The example (above)would result int the date being printed as 2010-10-"
-"07 (if this was the current date). See below for more details.<br /><br /"
-">You can make use of the following variables:<br /><table "
+"done. The example (above)would result int the date being printed as "
+"2010-10-07 (if this was the current date). See below for more details.<br /"
+"><br />You can make use of the following variables:<br /><table "
 "border=1><thead><tr><th>Variable</th><th>Parameter</th><th>Description</"
 "th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
 "td><td>Prints the relevant artist of the extracted cd.</td><td>${artist }</"
@@ -420,8 +854,8 @@ msgid ""
 "td><td>Prints the overall size of all extracted (compressed) music files "
 "(incl. the cover). The attribute iec can be one of the following: b, k, m, "
 "g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the "
-"number of decimal places. Default attributes are iec=\"m\" and precision=\"2"
-"\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
+"number of decimal places. Default attributes are iec=\"m\" and precision="
+"\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
 "td><td></td><td>Prints the relevant overall length of all extracted tracks. "
 "The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></"
 "td><td>Prints the total number of extracted tracks.</td><td></td></"
@@ -434,8 +868,8 @@ msgid ""
 "The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
 "MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak."
 "</td><td></td></tr></tbody></table><br /><br />(* date/time format "
-"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border=\"1"
-"\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
+"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
+"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
 "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
 "zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
 "number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
@@ -493,41 +927,42 @@ msgstr ""
 "диска композиції.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
 "td><td>Загальний розмір всіх видобути (стиснутих) музичних файлів (а також "
 "обкладинки). Значенням параметра «iec» може бути одна з літер: b, k, m, g. b "
-"означає байти, k — КіБ, m — МіБ і g — ГіБ. За допомогою параметра «precision» "
-"можна вказати кількість цифр у десятковому записі. Типовими значеннями є iec="
-"\"m\" і precision=\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></"
-"tr><tr><td>$length</td><td></td><td>Загальна тривалість відтворення всіх "
-"видобутих доріжок. Форматом запису є хвилини:секунди.</td><td></td></"
-"tr><tr><td>$nooftracks</td><td></td><td>Загальна кількість видобутих доріжок."
-"</td><td></td></tr><tr><td>$discid</td><td>base</td><td>Ідентифікатор диска "
-"(discid) поточного компакт диска. Параметр «base» визначає основу числення. "
-"Типовим значенням є 16 (шістнадцятковий ідентифікатор).</td><td>${discid "
-"base=\"16\"}</td></tr><tr><td>$today</td><td>format</td><td>Поточна дата. "
-"Параметр «format» визначає формат виведення даних (*).</td><td>${today format="
-"\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</td><td>format</td><td>Поточна дата "
-"і/або час. Параметр «format» визначає формат виведення даних (*).</td><td>"
-"${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></"
-"td><td>Розрив рядка.</td><td></td></tr></tbody></table><br /><br />(* Вирази "
-"для дати/часу)<table cellpadding=\"2\" cellspacing=\"1\" border=\"1"
-"\"><thead><tr valign=\"top\"><th>Вираз</th><th>Виведені дані</th></tr></"
-"thead><tr valign=\"top\"><td>d</td><td>Номер дня без початкового нуля (від 1 "
-"до 31).</td></tr><tr valign=\"top\"><td>dd</td><td>Номер дня з початковим "
-"нулем (від 01 до 31).</td></tr><tr valign=\"top\"><td>ddd</td><td>Скорочена "
-"форма локалізованої назви дня (тобто від «Пнд» до «Ндл»).</td></tr><tr valign="
-"\"top\"><td>dddd</td><td>Повна форма локалізованої назви дня (тобто від "
-"«Понеділок» до «Неділя»).</td></tr><tr valign=\"top\"><td>M</td><td>Номер "
-"місяця без початкового нуля (від 1 до 12).</td></tr><tr valign=\"top"
-"\"><td>MM</td><td>Номер місяця з початковим нулем (від 01 до 12).</td></"
-"tr><tr valign=\"top\"><td>MMM</td><td>Скорочена локалізована назва місяця "
-"(тобто від «Счн» до «Грд»).</td></tr><tr valign=\"top\"><td>MMMM</td><td>Повна "
-"локалізована назва місяця (тобто від «Січень» до «Грудень»).</td></tr><tr "
-"valign=\"top\"><td>yy</td><td>Двоцифровий номер року (від 00 до 99).</td></"
-"tr><tr valign=\"top\"><td>yyyy</td><td>Чотирицифровий номер року.</td></tr></"
-"table><br /><table cellpadding=\"2\" cellspacing=\"1\" border=\"1"
-"\"><thead><tr valign=\"top\"><th>Вираз</th><th>Виведені дані</th></tr></"
-"thead><tr valign=\"top\"><td>h</td><td>Година без початкового нуля (від 0 до "
-"23 або від 1 до 12 у дванадцятигодинному режимі).</td></tr><tr valign=\"top"
-"\"><td>hh</td><td>Година з початковим нулем (від 0 до 23 або від 1 до 12 у "
+"означає байти, k — КіБ, m — МіБ і g — ГіБ. За допомогою параметра "
+"«precision» можна вказати кількість цифр у десятковому записі. Типовими "
+"значеннями є iec=\"m\" і precision=\"2\"</td><td>${size iec=\"k\" precision="
+"\"2\"}</td></tr><tr><td>$length</td><td></td><td>Загальна тривалість "
+"відтворення всіх видобутих доріжок. Форматом запису є хвилини:секунди.</"
+"td><td></td></tr><tr><td>$nooftracks</td><td></td><td>Загальна кількість "
+"видобутих доріжок.</td><td></td></tr><tr><td>$discid</td><td>base</"
+"td><td>Ідентифікатор диска (discid) поточного компакт диска. Параметр «base» "
+"визначає основу числення. Типовим значенням є 16 (шістнадцятковий "
+"ідентифікатор).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
+"td><td>format</td><td>Поточна дата. Параметр «format» визначає формат "
+"виведення даних (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"tr><tr><td>$now</td><td>format</td><td>Поточна дата і/або час. Параметр "
+"«format» визначає формат виведення даних (*).</td><td>${now format=\"yyyy-MM-"
+"dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></td><td>Розрив рядка.</"
+"td><td></td></tr></tbody></table><br /><br />(* Вирази для дати/часу)<table "
+"cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
+"\"><th>Вираз</th><th>Виведені дані</th></tr></thead><tr valign=\"top"
+"\"><td>d</td><td>Номер дня без початкового нуля (від 1 до 31).</td></tr><tr "
+"valign=\"top\"><td>dd</td><td>Номер дня з початковим нулем (від 01 до 31).</"
+"td></tr><tr valign=\"top\"><td>ddd</td><td>Скорочена форма локалізованої "
+"назви дня (тобто від «Пнд» до «Ндл»).</td></tr><tr valign=\"top\"><td>dddd</"
+"td><td>Повна форма локалізованої назви дня (тобто від «Понеділок» до "
+"«Неділя»).</td></tr><tr valign=\"top\"><td>M</td><td>Номер місяця без "
+"початкового нуля (від 1 до 12).</td></tr><tr valign=\"top\"><td>MM</"
+"td><td>Номер місяця з початковим нулем (від 01 до 12).</td></tr><tr valign="
+"\"top\"><td>MMM</td><td>Скорочена локалізована назва місяця (тобто від «Счн» "
+"до «Грд»).</td></tr><tr valign=\"top\"><td>MMMM</td><td>Повна локалізована "
+"назва місяця (тобто від «Січень» до «Грудень»).</td></tr><tr valign=\"top"
+"\"><td>yy</td><td>Двоцифровий номер року (від 00 до 99).</td></tr><tr valign="
+"\"top\"><td>yyyy</td><td>Чотирицифровий номер року.</td></tr></table><br /"
+"><table cellpadding=\"2\" cellspacing=\"1\" border=\"1\"><thead><tr valign="
+"\"top\"><th>Вираз</th><th>Виведені дані</th></tr></thead><tr valign=\"top"
+"\"><td>h</td><td>Година без початкового нуля (від 0 до 23 або від 1 до 12 у "
+"дванадцятигодинному режимі).</td></tr><tr valign=\"top\"><td>hh</"
+"td><td>Година з початковим нулем (від 0 до 23 або від 1 до 12 у "
 "дванадцятигодинному режимі).</td></tr><tr valign=\"top\"><td>H</"
 "td><td>Година без початкового нуля (від 0 до 23 у будь-якому режимі).</td></"
 "tr><tr valign=\"top\"><td>HH</td><td>Година з початковим нулем (від 00 до 23 "
@@ -552,11 +987,132 @@ msgstr "Завантажити шаблон тексту"
 msgid "Save Text Template"
 msgstr "Зберегти шаблон тексту"
 
+#. i18n: ectx: property (text), widget (QLabel, label_text)
+#: dialogs/profiledatainfowidgetUI.ui:25
+msgid "Information text:"
+msgstr "Інформація:"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
+#: dialogs/profiledatainfowidgetUI.ui:58
+msgid "About variables"
+msgstr "Про змінні"
+
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
+#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
+#: widgets/wavewidgetUI.ui:31
+msgid "Suffix:"
+msgstr "Суфікс:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
+msgid "Pattern:"
+msgstr "Шаблон:"
+
+#: dialogs/profiledatasinglefiledialog.cpp:32
+msgid "Single File Settings"
+msgstr "Параметри єдиного файла"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: dialogs/profiledatawidgetUI.ui:38
+msgid "Encoder"
+msgstr "Інструмент кодування"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: dialogs/profiledatawidgetUI.ui:72
+msgid "Filenames"
+msgstr "Назви файлів"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
+#: dialogs/profiledatawidgetUI.ui:130
+msgid "Create FAT32 compatible filenames"
+msgstr "Використовувати сумісні з FAT32 назви файлів"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
+#: dialogs/profiledatawidgetUI.ui:143
+msgid "Replace spaces with underscores"
+msgstr "Замінити пробіли на «_»"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:150
+msgid ""
+"This setting overrides any parameterized variable settings in the pattern"
+msgstr ""
+"Значення цього параметра є пріоритетнішим за будь-які значення параметрів у "
+"шаблоні"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:153
+msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+msgstr "Встановити двоцифровий номер композиції (наприклад, 01, 02, 03…)"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: dialogs/profiledatawidgetUI.ui:177
+msgid "Extra"
+msgstr "Додатково"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:195
+msgid "Store cover file in target folder"
+msgstr "Зберігати файл обкладинки у теці призначення"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_singlefile)
+#: dialogs/profiledatawidgetUI.ui:208 dialogs/profiledatawidgetUI.ui:234
+#: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
+#: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
+msgid "Settings.."
+msgstr "Параметри…"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
+#: dialogs/profiledatawidgetUI.ui:221
+msgid "Create playlist in target folder"
+msgstr "Створювати список композицій у теці призначення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:260
+msgid "Store info file in target folder"
+msgstr "Зберігати файл інформації у теці призначення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
+#: dialogs/profiledatawidgetUI.ui:286
+msgid "Store hashlist in target folder"
+msgstr "Зберігати файл хеш-списку у теці призначення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
+#: dialogs/profiledatawidgetUI.ui:306
+msgid "Store cue sheet in target folder"
+msgstr "Зберігати файл списку у теці призначення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
+#: dialogs/profiledatawidgetUI.ui:326
+msgid "Store discid in target folder"
+msgstr "Зберігати файл diskid у теці призначення"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
+#: dialogs/profiledatawidgetUI.ui:345
+msgid "Write single file"
+msgstr "Записати єдиний файл"
+
+#: dialogs/protocoldialog.cpp:33
+msgid "Save"
+msgstr "Зберегти"
+
+#: dialogs/protocoldialog.cpp:62
+#, kde-format
+msgid "Save %1"
+msgstr "Зберегти %1"
+
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
 msgstr "Майстер шаблонів"
 
-#: dialogs/simplepatternwizarddialog.cpp:80
+#: dialogs/simplepatternwizarddialog.cpp:81
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
 "every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
@@ -570,7 +1126,9 @@ msgid ""
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
 "<b>not</b> set for the current CD, than this value will be just empty.</td></"
 "tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \".m3u\", "
-"\".md5\" ...).</td></tr></table></p>"
+"\".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$audex</td><td>Audex name and "
+"version.</td></tr></table></p>"
 msgstr ""
 "<p>Наведені нижче змінні буде замінено на їх значення у всіх назвах файлів "
 "композицій.</p><p><table border=\"1\"><tr><th><em>Змінна</em></"
@@ -585,9 +1143,12 @@ msgstr ""
 "компакт-дисків. Збірники часто складаються з декількох компакт-дисків. "
 "<i>Зауваження:</i> якщо для поточного компакт-диска прапорець збірника "
 "<b>не</b> встановлено, значення цього параметра буде порожнім рядком.</td></"
-"tr><tr><td>$suffix</td><td>Суфікс назви файла.</td></tr></table></p>"
+"tr><tr><td>$suffix</td><td>Суфікс назви файла.</td></tr><tr><td>$nooftracks</"
+"td><td>Загальна кількість звукових доріжок на компакт-диску.</td></"
+"tr><tr><td>$audex</td><td>Назва Audex і версія програми.</td></tr></table></"
+"p>"
 
-#: dialogs/simplepatternwizarddialog.cpp:95
+#: dialogs/simplepatternwizarddialog.cpp:98
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
 "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd number "
@@ -610,654 +1171,79 @@ msgstr ""
 "докладніше познайомитися з використанням параметрів, відвідайте сторінку "
 "Audex.</i></b></p>"
 
-#: dialogs/profiledatacuesheetdialog.cpp:32
-msgid "Cue Sheet Settings"
-msgstr "Параметри списку композицій"
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/simplepatternwizardwidgetUI.ui:26
+msgid "Example:"
+msgstr "Приклад:"
 
-#: core/audex.cpp:111
-msgid "No profile selected. Operation abort."
-msgstr "Не вказано жодного профілю. Дію перервано."
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
+#: dialogs/simplepatternwizardwidgetUI.ui:152
+msgid "About schemes"
+msgstr "Про схеми побудови назв файлів"
 
-#: core/audex.cpp:128
-#, kde-format
-msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "Запуск видобування та кодування на основі профілю «%1»…"
+#: main.cpp:28
+msgid "Audex"
+msgstr "Audex"
 
-#: core/audex.cpp:540 core/audex.cpp:600
-#, kde-format
-msgid "Can't find path \"%1\"."
-msgstr "Не вдалося знайти шлях «%1»."
+#: main.cpp:29
+msgid "KDE CDDA Extractor"
+msgstr "Інструмент видобування даних з CDDA для KDE"
 
-#: core/audex.cpp:540 core/audex.cpp:549 core/audex.cpp:600 core/audex.cpp:609
-msgid "Please check your path (write access?)"
+#: main.cpp:31
+msgid "Copyright © 2007–2011 by Marco Nelles"
+msgstr "© Marco Nelles, 2007–2011"
+
+#: main.cpp:35
+msgid "Marco Nelles"
+msgstr "Marco Nelles"
+
+#: main.cpp:35
+msgid "Current maintainer, main developer"
+msgstr "Поточний супровідник, основний розробник"
+
+#: main.cpp:36
+msgid "Craig Drummond"
+msgstr "Craig Drummond"
+
+#: main.cpp:36
+msgid "GUI improvements, development"
+msgstr "Покращення інтерфейсу програми, участь у розробці"
+
+#: main.cpp:37
+msgid "credativ GmbH"
+msgstr "credativ GmbH"
+
+#: main.cpp:37
+msgid "Special thanks to credativ GmbH (Germany) for support"
+msgstr "Особлива подяка credativ GmbH (Німеччина) за підтримку"
+
+#: main.cpp:38
+msgid "freedb.org"
+msgstr "freedb.org"
+
+#: main.cpp:38
+msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
+msgstr "Особлива подяка freedb.org за надання вільної БД компакт-дисків"
+
+#: main.cpp:39
+msgid "Xiph.Org Foundation"
+msgstr "Фундація Xiph.Org"
+
+#: main.cpp:39
+msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
 msgstr ""
-"Будь ласка, перевірте, чи правильно вказано шлях (права доступу на запис?)"
-
-#: core/audex.cpp:549 core/audex.cpp:609
-#, kde-format
-msgid "Unable to create folder \"%1\"."
-msgstr "Не вдалося створити теку «%1»."
-
-#: core/audex.cpp:552 core/audex.cpp:612
-#, kde-format
-msgid "Folder \"%1\" successfully created."
-msgstr "Теку «%1» успішно створено."
-
-#: core/audex.cpp:555 core/audex.cpp:615
-#, kde-format
-msgid "Folder \"%1\" already exists."
-msgstr "Тека з назвою «%1» вже існує."
-
-#: core/audex.cpp:562
-#, kde-format
-msgid ""
-"Free space on \"%1\" is less than 200 MiB. Problems with low space possible."
-msgstr ""
-"На диску «%1» залишилося менше 200 МіБ вільного місця. Можливі проблеми з "
-"нестачею пам’яті."
-
-#: core/audex.cpp:568 core/audex.cpp:628
-#, kde-format
-msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "Увага! Файл з назвою «%1» вже існує. Його буде перезаписано."
-
-#: core/audex.cpp:570 core/audex.cpp:630 core/audex.cpp:723 core/audex.cpp:755
-#: core/audex.cpp:803 core/audex.cpp:842 core/audex.cpp:881 core/audex.cpp:919
-#, kde-format
-msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "Увага! Файл з назвою «%1» вже існує. Його буде пропущено."
-
-#: core/audex.cpp:622
-#, kde-format
-msgid ""
-"Free space on \"%1\" is less than 800 MiB. Problems with low space possible."
-msgstr ""
-"На диску «%1» залишилося менше 800 МіБ вільного місця. Можливі проблеми з "
-"нестачею пам’яті."
-
-#: core/audex.cpp:649
-#, kde-format
-msgid "Temporary folder \"%1\" error."
-msgstr "Помилка, пов’язана з текою тимчасових даних «%1»."
-
-#: core/audex.cpp:649
-msgid "Please check."
-msgstr "Будь ласка, перевірте його наявність."
-
-#: core/audex.cpp:655
-#, kde-format
-msgid ""
-"Free space on temporary folder \"%1\" is less than 800 MiB. Problems with "
-"low space possible."
-msgstr ""
-"У каталозі для тимчасових файлів «%1» залишилося менше 800 МіБ вільного "
-"місця. Можливі проблеми з нестачею пам’яті."
-
-#: core/audex.cpp:657
-#, kde-format
-msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr "У тимчасовому каталозі «%1» має бути не менше 200 МіБ вільного місця."
-
-#: core/audex.cpp:657
-msgid "Please free space or set another path."
-msgstr "Будь ласка, звільніть місце або вкажіть каталог на іншому носії."
-
-#: core/audex.cpp:691
-msgid "Eject CD tray"
-msgstr "Виштовхнути лоток КД"
-
-#: core/audex.cpp:728
-#, kde-format
-msgid "Cover \"%1\" successfully saved."
-msgstr "Обкладинку «%1» успішно збережено."
-
-#: core/audex.cpp:781
-#, kde-format
-msgid "Playlist \"%1\" successfully created."
-msgstr "Список композицій «%1» успішно створено."
-
-#: core/audex.cpp:816
-#, kde-format
-msgid "Infofile \"%1\" successfully created."
-msgstr "Файл інформації «%1» успішно створено."
-
-#: core/audex.cpp:863
-#, kde-format
-msgid "Hashlist \"%1\" successfully created."
-msgstr "Список хешів «%1» успішно створено."
-
-#: core/audex.cpp:894
-msgid "Discid successfully stored."
-msgstr "Ідентифікатор диска успішно збережено."
-
-#: core/audex.cpp:933
-#, kde-format
-msgid "Cue sheet \"%1\" successfully created."
-msgstr "Список композицій «%1» успішно створено."
-
-#: utils/encoderassistant.h:66
-msgid "MP3"
-msgstr "MP3"
-
-#: utils/encoderassistant.h:97
-msgid "Ogg Vorbis"
-msgstr "Ogg Vorbis"
-
-#: utils/encoderassistant.h:126
-msgid "FLAC (Uncompressed)"
-msgstr "FLAC (без стискання)"
-
-#: utils/encoderassistant.h:136
-msgid "MP4 (AAC)"
-msgstr "MP4 (AAC)"
-
-#: utils/encoderassistant.h:153
-msgid "WAVE (Raw Uncompressed)"
-msgstr "WAVE (звичайний без стискання)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:130
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:161 rc.cpp:406
-msgid "Custom"
-msgstr "Нетипова"
-
-#: utils/coverfetcher.cpp:103
-msgid "There was an error communicating with Google."
-msgstr "Під час спроби обміну даними з Google сталася помилка."
-
-#: utils/coverfetcher.cpp:103
-msgid "Try again later. Otherwise make a bug report."
-msgstr ""
-"Повторіть спробу пізніше. Якщо і ця спроба зазнає невдачі, надішліть авторам "
-"звіт про помилку."
-
-#: utils/coverfetcher.cpp:114
-msgid "Google server: Empty response."
-msgstr "Сервер Google: порожня відповідь."
-
-#: utils/coverfetcher.cpp:115
-msgid "Try again later. Make a bug report."
-msgstr "Повторіть спробу пізніше. Надішліть авторам звіт про помилку."
-
-#: utils/coverfetcher.cpp:176
-#, kde-format
-msgid "%1x%2, %3 KiB"
-msgstr "%1⨯%2, %3 КіБ"
-
-#: utils/encoderwrapper.cpp:56
-msgid "Command pattern is empty."
-msgstr "Шаблон команди не вказано."
-
-#: utils/encoderwrapper.cpp:68
-#, kde-format
-msgid "Encoding track %1..."
-msgstr "Кодування доріжки %1…"
-
-#: utils/encoderwrapper.cpp:86
-#, kde-format
-msgid "Deleted partial file \"%1\"."
-msgstr "Вилучення файла частини «%1»."
-
-#: utils/encoderwrapper.cpp:91
-msgid "User canceled encoding."
-msgstr "Кодування, скасоване користувачем."
-
-#: utils/encoderwrapper.cpp:139
-#, kde-format
-msgid "Encoding OK (\"%1\")."
-msgstr "Успішне кодування («%1»)."
-
-#: utils/encoderwrapper.cpp:141
-#, kde-format
-msgid "An error occured while encoding file \"%1\"."
-msgstr "Під час спроби кодування файла «%1» сталася помилка."
-
-#: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
-#: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
-msgid "Please check your profile."
-msgstr "Будь ласка, перевірте ваш профіль."
-
-#: utils/encoderwrapper.cpp:152
-#, kde-format
-msgid "%1 failed to start."
-msgstr "Не вдалося запустити %1."
-
-#: utils/encoderwrapper.cpp:152
-msgid ""
-"Either it is missing, or you may have insufficient permissions to invoke the "
-"program."
-msgstr ""
-"Програму або не встановлено, або ви не маєте достатніх прав доступу для її "
-"запуску."
-
-#: utils/encoderwrapper.cpp:154
-#, kde-format
-msgid "%1 crashed some time after starting successfully."
-msgstr "Програма %1 аварійно завершила роботу після успішного запуску."
-
-#: utils/encoderwrapper.cpp:156
-#, kde-format
-msgid "%1 timed out. This should not happen."
-msgstr "Перевищено час очікування даних від %1. Сталася якась помилка."
-
-#: utils/encoderwrapper.cpp:158
-#, kde-format
-msgid "An error occurred when attempting to write to %1."
-msgstr "Під час спроби запису до %1 сталася помилка."
-
-#: utils/encoderwrapper.cpp:158
-msgid ""
-"For example, the process may not be running, or it may have closed its input "
-"channel."
-msgstr ""
-"Наприклад, процес не запущено або закрито вхідний канал даних цього процесу."
-
-#: utils/encoderwrapper.cpp:160
-#, kde-format
-msgid "An error occurred when attempting to read from %1."
-msgstr "Під час спроби читання з %1 сталася помилка."
-
-#: utils/encoderwrapper.cpp:160
-msgid "For example, the process may not be running."
-msgstr "Наприклад, процес не запущено."
-
-#: utils/encoderwrapper.cpp:162
-#, kde-format
-msgid "An unknown error occurred to %1. This should not happen."
-msgstr ""
-"З %1 сталася невідома програмі помилка. Такого не повинно було трапитися."
-
-#: utils/upload.cpp:61
-#, kde-format
-msgid "Uploading file %1 to server. Please wait..."
-msgstr "Вивантаження файла %1 на сервер. Будь ласка, зачекайте…"
-
-#: utils/upload.cpp:68
-#, kde-format
-msgid "Finished uploading file %1 to server."
-msgstr "Завершено вивантаження файла %1 на сервер."
-
-#: utils/cddaparanoia.cpp:41 utils/cddaextractthread.cpp:32
-msgid "Internal device error."
-msgstr "Внутрішня помилка пристрою"
-
-#: utils/cddaparanoia.cpp:41
-#, kde-format
-msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
-msgstr ""
-"Перевірте ваш пристрій. Це справді «%1»? Якщо це так, перевірте, чи має ваш "
-"користувач достатні права доступу до «%1»."
-
-#: utils/cachedimage.cpp:103
-msgid "Common image formats"
-msgstr "Поширені формати зображень"
-
-#: utils/cachedimage.cpp:142
-msgid "File does not exist."
-msgstr "Файла не існує."
-
-#: utils/cachedimage.cpp:142
-msgid "Please check if the file really exists."
-msgstr "Будь ласка, перевірте чи існує цей файл."
-
-#: utils/cachedimage.cpp:151
-msgid "Can't open file."
-msgstr "Не вдалося відкрити файл."
-
-#: utils/cachedimage.cpp:151
-msgid "Please check your file. Maybe you don't have proper permissions."
-msgstr ""
-"Будь ласка, перевірте ваш файл. Можливо, у вашого користувача немає "
-"достатніх прав доступу до нього."
-
-#: utils/cachedimage.cpp:157 utils/cachedimage.cpp:204
-msgid "Unsupported image format"
-msgstr "Непідтримуваних формат зображень"
-
-#: utils/cachedimage.cpp:157
-msgid ""
-"Please check your file. Maybe it is corrupted. Otherwise try to convert your "
-"cover image with an external program to a common file format like JPEG."
-msgstr ""
-"Будь ласка, перевірте ваш файл. Можливо його пошкоджено. Якщо це не так, "
-"спробуйте перетворити дані зображення обкладинки за допомогою зовнішньої "
-"програми у один з поширених форматів файлів, наприклад, JPEG."
-
-#: utils/cachedimage.cpp:174
-msgid "Can't open file"
-msgstr "Не вдалося відкрити файл"
-
-#: utils/cachedimage.cpp:174
-msgid "Please check your permissions."
-msgstr "Будь ласка, переконайтеся, що маєте належні права доступу."
-
-#: utils/cachedimage.cpp:181
-msgid "Can't save file"
-msgstr "Не вдалося зберегти файл"
-
-#: utils/cachedimage.cpp:181
-msgid "Please check your permissions. Do you have enough space?"
-msgstr ""
-"Будь ласка, переконайтеся, що маєте належні права доступу. Чи достатньо "
-"місця на диску?"
-
-#: utils/cachedimage.cpp:204
-msgid ""
-"Please use common image formats like JPEG, PNG or GIF as they are supported "
-"on almost all systems."
-msgstr ""
-"Будь ласка, використовуйте поширені формати зображень, зокрема JPEG, PNG або "
-"GIF, оскільки ці формати підтримуються майже всіма системами."
-
-#: utils/cachedimage.cpp:212
-msgid "Can't write on device"
-msgstr "Не вдалося виконати запис на пристрій"
-
-#: utils/cachedimage.cpp:212
-msgid "Please check your permissions. Do you have enough space on your device?"
-msgstr ""
-"Будь ласка, переконайтеся, що маєте належні права доступу. Чи достатньо "
-"місця на вашому пристрої?"
-
-#: utils/cddaextractthread.cpp:32
-msgid "Check your device and make a bug report."
-msgstr ""
-"Перевірте роботу вашого пристрою і спробуйте написати повідомлення про ваду."
-
-#: utils/cddaextractthread.cpp:78
-msgid "Extracting finished."
-msgstr "Видобування завершено."
-
-#: utils/cddaextractthread.cpp:103
-#, kde-format
-msgid "Ripping track %1 (%2:%3)..."
-msgstr "Видобування доріжки %1 (%2:%3)…"
-
-#: utils/cddaextractthread.cpp:105
-msgid "Ripping whole CD as single track."
-msgstr "Видобування всіх даних як єдиної доріжки."
-
-#: utils/cddaextractthread.cpp:107
-#, kde-format
-msgid "Start reading track %1 with %2 sectors"
-msgstr "Почато читання доріжки %1 з %2 секторів"
-
-#: utils/cddaextractthread.cpp:146
-msgid "User canceled extracting."
-msgstr "Видобування скасовано користувачем."
-
-#: utils/cddaextractthread.cpp:149
-#, kde-format
-msgid "An error occured while ripping track %1."
-msgstr "Під час видобування доріжки %1 сталася помилка."
-
-#: utils/cddaextractthread.cpp:153
-#, kde-format
-msgid "Ripping OK (Track %1)."
-msgstr "Успішне видобування (доріжка %1)."
-
-#: utils/cddaextractthread.cpp:155
-msgid "Ripping OK."
-msgstr "Успішне видобування."
-
-#: utils/cddaextractthread.cpp:160
-msgid "Reading finished"
-msgstr "Читання завершено"
-
-#: utils/cddaextractthread.cpp:203
-#, kde-format
-msgid ""
-"Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
-msgstr ""
-"Виправлено відхилення границь (абсолютний сектор %1, відносний сектор %2, "
-"часова позиція доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:207
-#, kde-format
-msgid ""
-"Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
-"%4)"
-msgstr ""
-"Виправлено атомарне відхилення (абсолютний сектор %1, відносний сектор %2, "
-"часова позиція доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:212
-#, kde-format
-msgid ""
-"Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%"
-"4)"
-msgstr ""
-"Виявлено подряпину (абсолютний сектор %1, відносний сектор %2, часова "
-"позиція доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:213
-#, kde-format
-msgid ""
-"SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%"
-"4)"
-msgstr ""
-"ВИЯВЛЕНО ПОДРЯПИНУ (абсолютний сектор %1, відносний сектор %2, часова "
-"позиція доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:217
-#, kde-format
-msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Відновлення (абсолютний сектор %1, відносний сектор %2, часова позиція "
-"доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:222
-#, kde-format
-msgid ""
-"Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Пропущено сектори (абсолютний сектор %1, відносний сектор %2, часова позиція "
-"доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:223
-#, kde-format
-msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"ПРОПУЩЕНО (absolute sector %1, relative sector %2, track time pos %3:%4)"
-
-#: utils/cddaextractthread.cpp:227
-#, kde-format
-msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Зсув (абсолютний сектор %1, відносний сектор %2, часова позиція доріжки %3:%"
-"4)"
-
-#: utils/cddaextractthread.cpp:231
-#, kde-format
-msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Повернення (absolute sector %1, relative sector %2, track time pos %3:%4)"
-
-#: utils/cddaextractthread.cpp:241
-#, kde-format
-msgid ""
-"Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Пропущено прив’язку (absolute sector %1, relative sector %2, track time pos %"
-"3:%4)"
-
-#: utils/cddaextractthread.cpp:245
-#, kde-format
-msgid ""
-"Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"Дублювання прив’язки (absolute sector %1, relative sector %2, track time pos "
-"%3:%4)"
-
-#: utils/cddaextractthread.cpp:249
-#, kde-format
-msgid ""
-"Read error detected (absolute sector %1, relative sector %2, track time pos %"
-"3:%4)"
-msgstr ""
-"Виявлено помилку читання (абсолютний сектор %1, відносний сектор %2, часова "
-"позиція доріжки %3:%4)"
-
-#: utils/cddaextractthread.cpp:250
-#, kde-format
-msgid ""
-"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
-msgstr ""
-"ПОМИЛКА ЧИТАННЯ (абсолютний сектор %1, відносний сектор %2, часова позиція "
-"доріжки %3:%4)"
-
-#: widgets/generalsettingswidget.cpp:24
-msgid "English"
-msgstr "Англійська"
-
-#: widgets/generalsettingswidget.cpp:25
-msgid "Deutsch"
-msgstr "Німецька"
-
-#: widgets/generalsettingswidget.cpp:26
-msgid "Français"
-msgstr "Французька"
-
-#: widgets/generalsettingswidget.cpp:27
-msgid "Polski"
-msgstr "Польська"
-
-#: widgets/generalsettingswidget.cpp:28
-msgid "日本語"
-msgstr "Японська"
-
-#: widgets/generalsettingswidget.cpp:29
-msgid "Italiano"
-msgstr "Італійська"
-
-#: widgets/generalsettingswidget.cpp:30
-msgid "Nederlands"
-msgstr "Голландська"
-
-#: widgets/generalsettingswidget.cpp:31
-msgid "Español"
-msgstr "Іспанська"
-
-#: widgets/generalsettingswidget.cpp:32
-msgid "Português"
-msgstr "Португальська"
-
-#: widgets/generalsettingswidget.cpp:33
-msgid "Svenska"
-msgstr "Шведська"
-
-#: widgets/generalsettingswidget.cpp:42
-msgid "None detected"
-msgstr "Не виявлено жодного"
-
-#: widgets/profilewidget.cpp:80
-#, kde-format
-msgid "Do you really want to delete profile \"%1\"?"
-msgstr "Ви справді бажаєте вилучити профіль «%1»?"
-
-#: widgets/profilewidget.cpp:81
-msgid "Delete profile"
-msgstr "Вилучити профіль"
-
-#: widgets/profilewidget.cpp:122 widgets/cddaheaderwidget.cpp:693
-msgid "Save Cover"
-msgstr "Зберегти обкладинку"
-
-#: widgets/profilewidget.cpp:129
-msgid "Load Profiles"
-msgstr "Завантажити профілі"
-
-#: widgets/profilewidget.cpp:138
-msgid ""
-"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
-"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
-"some sample profiles based upon any found codecs.</font></p>"
-msgstr ""
-"<p>Бажаєте, щоб програма виконала повторне виявлення кодеків у вашій системі "
-"(Lame, Ogg Vorbis, Flac тощо)?</p><p><font style=\"font-style:italic;"
-"\">Програма спробує створити декілька шаблонів профілів на основі переліку "
-"знайдених кодеків.</font></p>"
-
-#. i18n: file: widgets/profilewidgetUI.ui:65
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:150 rc.cpp:498
-msgid "Codec Scan"
-msgstr "Виявлення кодеків"
-
-#: widgets/profilewidget.cpp:146
-msgid "No new codecs found"
-msgstr "Нових кодеків не знайдено"
-
-#: widgets/profilewidget.cpp:148
-msgid "1 new profile added"
-msgstr "Додано 1 новий профіль"
-
-#: widgets/profilewidget.cpp:149
-#, kde-format
-msgid "%1 new profiles added"
-msgstr "Додано %1 нових профілі"
-
-#: widgets/cddaheaderwidget.cpp:461
-msgid "Released: "
-msgstr "Випущено:"
-
-#: widgets/cddaheaderwidget.cpp:462
-msgid "Genre: "
-msgstr "Жанр:"
-
-#: widgets/cddaheaderwidget.cpp:463
-msgid "CD Number: "
-msgstr "Номер КД: "
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:94
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:494 rc.cpp:465
-msgid "Wikipedia"
-msgstr "Вікіпедія"
-
-#: widgets/cddaheaderwidget.cpp:518
-msgid "No CD in drive"
-msgstr "У пристрої немає компакт-диска"
-
-#: widgets/cddaheaderwidget.cpp:684
-msgid "Load Cover"
-msgstr "Завантажити обкладинку"
-
-#: widgets/cddaheaderwidget.cpp:773
-msgid "No cover found."
-msgstr "Обкладинки не знайдено."
-
-#: widgets/cddaheaderwidget.cpp:773
-msgid ""
-"Check your artist name and title. Otherwise you can load a custom cover from "
-"an image file."
-msgstr ""
-"Перевірте, чи правильно вказано ім’я або назву виконавця та назву "
-"композиції. Крім того, ви можете завантажити власну обкладинку з файла "
-"зображення."
-
-#: widgets/cddaheaderwidget.cpp:809
-msgid "Fetch cover from Google..."
-msgstr "Звантажити обкладинку з Google…"
-
-#: widgets/cddaheaderwidget.cpp:814
-msgid "Set Custom Cover..."
-msgstr "Встановити власну обкладинку…"
-
-#: widgets/cddaheaderwidget.cpp:819
-msgid "Save Cover To File..."
-msgstr "Зберегти обкладинку до файла…"
-
-#: widgets/cddaheaderwidget.cpp:824
-msgid "Show Full Size Cover..."
-msgstr "Показати повнорозмірну обкладинку…"
-
-#: widgets/cddaheaderwidget.cpp:829
-msgid "Remove Cover"
-msgstr "Вилучити обкладинку"
+"Особлива подяка фундації Xiph.Org за надання пристрою для видобування даних "
+"з компакт-дисків"
+
+#: main.cpp:40
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#: main.cpp:40
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
 
 #: mainwindow.cpp:27
 msgid "Unable to create ProfileModel object."
@@ -1391,12 +1377,12 @@ msgid "Eject"
 msgstr "Виштовхнути"
 
 #: mainwindow.cpp:423
-msgid "Profile: "
+msgid "Profile:"
 msgstr "Профіль:"
 
 #: mainwindow.cpp:435
-msgid "&Profile: "
-msgstr "П&рофіль: "
+msgid "&Profile:"
+msgstr "П&рофіль:"
 
 #: mainwindow.cpp:441
 msgid "Profile"
@@ -1441,262 +1427,6 @@ msgstr "Скасувати вибір всіх доріжок"
 #: mainwindow.cpp:501
 msgid "Invert Selection"
 msgstr "Інвертувати вибір"
-
-#: main.cpp:28
-msgid "Audex"
-msgstr "Audex"
-
-#: main.cpp:29
-msgid "KDE CDDA Extractor"
-msgstr "Інструмент видобування даних з CDDA для KDE"
-
-#: main.cpp:31
-msgid "Copyright © 2007–2011 by Marco Nelles"
-msgstr "© Marco Nelles, 2007–2011"
-
-#: main.cpp:35
-msgid "Marco Nelles"
-msgstr "Marco Nelles"
-
-#: main.cpp:35
-msgid "Current maintainer, main developer"
-msgstr "Поточний супровідник, основний розробник"
-
-#: main.cpp:36
-msgid "Craig Drummond"
-msgstr "Craig Drummond"
-
-#: main.cpp:36
-msgid "GUI improvements, development"
-msgstr "Покращення інтерфейсу програми, участь у розробці"
-
-#: main.cpp:37
-msgid "credativ GmbH"
-msgstr "credativ GmbH"
-
-#: main.cpp:37
-msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr "Особлива подяка credativ GmbH (Німеччина) за підтримку"
-
-#: main.cpp:38
-msgid "freedb.org"
-msgstr "freedb.org"
-
-#: main.cpp:38
-msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr "Особлива подяка freedb.org за надання вільної БД компакт-дисків"
-
-#: main.cpp:39
-msgid "Xiph.Org Foundation"
-msgstr "Фундація Xiph.Org"
-
-#: main.cpp:39
-msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-msgstr ""
-"Особлива подяка фундації Xiph.Org за надання пристрою для видобування даних "
-"з компакт-дисків"
-
-#: main.cpp:40 rc.cpp:1
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Юрій Чорноіван"
-
-#: main.cpp:40 rc.cpp:2
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "yurchor@ukr.net"
-
-#: models/cddamodel.h:46
-msgid "Rip"
-msgstr "Видобути"
-
-#: models/cddamodel.h:47
-msgid "Track"
-msgstr "Доріжка"
-
-#: models/cddamodel.h:48
-msgid "Artist"
-msgstr "Виконавець"
-
-#: models/cddamodel.h:49
-msgid "Title"
-msgstr "Назва"
-
-#: models/cddamodel.h:50
-msgid "Length"
-msgstr "Тривалість"
-
-#: models/profilemodel.cpp:134
-msgid "Profile name must not be empty."
-msgstr "Назва профілю не може бути порожньою."
-
-#: models/profilemodel.cpp:135
-msgid "You've given no name for the profile. Please set one."
-msgstr "Ви не надали профілю жодної назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:144
-msgid "Profile encoder is not defined."
-msgstr "Не вказано інструменту кодування профілю."
-
-#: models/profilemodel.cpp:145
-msgid "You've given no encoder for the profile. Please set one."
-msgstr ""
-"Ви не вказали інструменту кодування для профілю. Будь ласка, вкажіть якусь "
-"назву."
-
-#: models/profilemodel.cpp:154
-msgid "Profile filename pattern is not defined."
-msgstr "Не вказано шаблону назв файлів профілю."
-
-#: models/profilemodel.cpp:155
-msgid "You've given no filename pattern for the profile. Please set one."
-msgstr "Ви не вказали шаблону назв файлів профілю. Будь ласка, вкажіть шаблон."
-
-#: models/profilemodel.cpp:170
-msgid "The image file format is unknown."
-msgstr "Невідомий формат файла зображення."
-
-#: models/profilemodel.cpp:171
-msgid ""
-"Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
-msgstr ""
-"Вказаний вами формат зображення невідомий програмі. Будь ласка, оберіть один "
-"з таких форматів: JPG/JPEG, PNG або BMP."
-
-#: models/profilemodel.cpp:180
-msgid "Cover name must not be empty."
-msgstr "Назва обкладинки не повинна бути порожньою."
-
-#: models/profilemodel.cpp:181
-msgid "You've given no name for the cover. Please set one."
-msgstr "Ви не надали обкладинці жодної назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:191
-msgid "The playlist file format is unknown."
-msgstr "Невідомий формат списку композицій."
-
-#: models/profilemodel.cpp:192
-msgid ""
-"Your given playlist file format is unknown. Please choose on of these "
-"formats: M3U, PLS or XSPF."
-msgstr ""
-"Вказаний вами формат файла списку композицій невідомий програмі. Будь ласка, "
-"оберіть один з таких форматів: M3U, PLS або XSPF."
-
-#: models/profilemodel.cpp:201
-msgid "Playlist name must not be empty."
-msgstr "Назва списку композицій не повинна бути порожньою."
-
-#: models/profilemodel.cpp:202
-msgid "You've given no name for the playlist. Please set one."
-msgstr ""
-"Ви не надали списку композицій жодної назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:214
-msgid "Info text name must not be empty."
-msgstr "Назва тексту відомостей не повинна бути порожньою."
-
-#: models/profilemodel.cpp:215
-msgid "You've given no name for the info text file. Please set one."
-msgstr ""
-"Ви не надали тексту відомостей жодної назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:224
-msgid "Info text file name suffix must not be empty."
-msgstr "Суфікс назви файла тексту відомостей не повинен бути порожнім."
-
-#: models/profilemodel.cpp:225
-msgid "You've given no suffix for the info text file. Please set one."
-msgstr ""
-"Ви не надали файлу тексту відомостей жодного суфіксу назви. Будь ласка, "
-"вкажіть якийсь суфікс."
-
-#: models/profilemodel.cpp:235
-msgid "The hashlist file format is unknown."
-msgstr "Невідомий формат файла списку хешів."
-
-#: models/profilemodel.cpp:236
-msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
-msgstr ""
-"Вказаний вами формат файла списку хешів невідомий програмі. Будь ласка, "
-"виберіть один з таких форматів: SFV, MD5."
-
-#: models/profilemodel.cpp:245
-msgid "Hashlist name must not be empty."
-msgstr "Назва списку хешів не повинна бути порожньою."
-
-#: models/profilemodel.cpp:246
-msgid "You've given no name for the hashlist. Please set one."
-msgstr ""
-"Ви не надали списку хешів жодної назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:256
-msgid "Cue filename name must not be empty."
-msgstr "Назва файла списку композицій не може бути порожньою."
-
-#: models/profilemodel.cpp:257
-msgid "You've given no name for the cue sheet. Please set one."
-msgstr ""
-"Ви не надали списку композицій ніякої назви. Будь ласка, вкажіть якусь назву."
-
-#: models/profilemodel.cpp:267
-msgid "Filename name must not be empty."
-msgstr "Назва файла не може бути порожньою."
-
-#: models/profilemodel.cpp:268
-msgid "You've given no name for the single audio file. Please set one."
-msgstr ""
-"Ви не надали ніякої назви для окремих звукових файлів. Будь ласка, вкажіть "
-"якусь назву."
-
-#: models/profilemodel.cpp:292
-msgid "Profile name already exists."
-msgstr "Профіль з такою назвою вже існує."
-
-#: models/profilemodel.cpp:293
-#, kde-format
-msgid ""
-"Your profile name %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr ""
-"У списку профілів вже є профіль з вказаною вами назвою %1. Будь ласка, "
-"оберіть якусь іншу назву."
-
-#: models/profilemodel.cpp:309
-msgid "Profile index already exists."
-msgstr "Профіль з таким індексом вже існує."
-
-#: models/profilemodel.cpp:310
-#, kde-format
-msgid ""
-"Your profile index %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr ""
-"У списку профілів вже є профіль з вказаним вами індексом %1. Будь ласка, "
-"оберіть якийсь інший індекс."
-
-#: models/profilemodel.cpp:366
-msgid "Unknown error. No index found in profile model."
-msgstr "Невідома помилка. У моделі профілю не знайдено індексів."
-
-#: models/profilemodel.cpp:367
-msgid "This is an internal error. Please report."
-msgstr "Внутрішня помилка. Будь ласка, повідомте про неї авторів програми."
-
-#: models/profilemodel.h:178
-msgid " (Mobile Quality)"
-msgstr " (Низька якість)"
-
-#: models/profilemodel.h:179
-msgid " (Normal Quality)"
-msgstr " (Звичайна якість)"
-
-#: models/profilemodel.h:180
-msgid " (Extreme Quality)"
-msgstr " (Найкраща якість)"
 
 #: models/cddamodel.cpp:26
 msgid "Unable to create KCompactDisc object."
@@ -1781,7 +1511,7 @@ msgstr ""
 
 #: models/cddamodel.cpp:764 models/cddamodel.cpp:894
 msgid ""
-"Can't find the CDDB server. Check your network. Maybe the CDDB server is "
+"Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
 "offline."
 msgstr ""
 "Не вдалося знайти сервер CDDB. Перевірте наявність мережевого з’єднання. "
@@ -1830,702 +1560,760 @@ msgstr "Виберіть запис CDDB"
 msgid "Select a CDDB entry:"
 msgstr "Виберіть запис CDDB:"
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:16
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: models/cddamodel.cpp:947 rc.cpp:232
-msgid "Various Artists"
-msgstr "Різні виконавці"
+#: models/cddamodel.h:46
+msgid "Rip"
+msgstr "Видобути"
 
-#. i18n: file: dialogs/profiledatasinglefilewidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:39
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:39
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatacuesheetwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:5 rc.cpp:11 rc.cpp:229 rc.cpp:311
-msgid "Name/Pattern:"
-msgstr "Назва/Шаблон:"
+#: models/cddamodel.h:47
+msgid "Track"
+msgstr "Доріжка"
 
-#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:75
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#: rc.cpp:8 rc.cpp:220 rc.cpp:226
-msgid "Format:"
-msgstr "Формат:"
+#: models/cddamodel.h:48
+msgid "Artist"
+msgstr "Виконавець"
 
-#. i18n: file: dialogs/coverbrowserwidgetUI.ui:19
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:14
-msgid "TextLabel"
-msgstr "TextLabel"
+#: models/cddamodel.h:49
+msgid "Title"
+msgstr "Назва"
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:38
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: rc.cpp:17
-msgid "Encoder"
-msgstr "Інструмент кодування"
+#: models/cddamodel.h:50
+msgid "Length"
+msgstr "Тривалість"
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:72
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: rc.cpp:20
-msgid "Filenames"
-msgstr "Назви файлів"
+#: models/profilemodel.cpp:134
+msgid "Profile name must not be empty."
+msgstr "Назва профілю не може бути порожньою."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:95
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:99
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:23 rc.cpp:159
-msgid "Pattern:"
-msgstr "Шаблон:"
+#: models/profilemodel.cpp:135
+msgid "You have given no name for the profile. Please set one."
+msgstr "Ви не надали профілю жодної назви. Будь ласка, вкажіть якусь назву."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:130
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
-#: rc.cpp:26
-msgid "Create FAT32 compatible filenames"
-msgstr "Використовувати сумісні з FAT32 назви файлів"
+#: models/profilemodel.cpp:144
+msgid "Profile encoder is not defined."
+msgstr "Не вказано інструмента кодування профілю."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:143
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
-#: rc.cpp:29
-msgid "Replace spaces with underscores"
-msgstr "Замінити пробіли на «_»"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:150
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
-#: rc.cpp:32
-msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
+#: models/profilemodel.cpp:145
+msgid "You have given no encoder for the profile. Please set one."
 msgstr ""
-"Значення цього параметра є пріоритетнішим за будь-які значення параметрів у "
-"шаблоні"
+"Ви не вказали інструмента кодування для профілю. Будь ласка, вкажіть якусь "
+"назву."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:153
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
-#: rc.cpp:35
-msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr "Встановити двоцифровий номер композиції (наприклад, 01, 02, 03…)"
+#: models/profilemodel.cpp:154
+msgid "Profile filename pattern is not defined."
+msgstr "Не вказано шаблону назв файлів профілю."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:177
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: rc.cpp:38
-msgid "Extra"
-msgstr "Додатково"
+#: models/profilemodel.cpp:155
+msgid "You have given no filename pattern for the profile. Please set one."
+msgstr "Ви не вказали шаблону назв файлів профілю. Будь ласка, вкажіть шаблон."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:195
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
-#: rc.cpp:41
-msgid "Store cover file in target folder"
-msgstr "Зберігати файл обкладинки у теці призначення"
+#: models/profilemodel.cpp:170
+msgid "The image file format is unknown."
+msgstr "Невідомий формат файла зображення."
 
-#. i18n: file: dialogs/profiledatawidgetUI.ui:208
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:234
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:273
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:299
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:313
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cuesheet)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:355
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_singlefile)
-#: rc.cpp:44 rc.cpp:50 rc.cpp:56 rc.cpp:62 rc.cpp:68 rc.cpp:77
-msgid "Settings.."
-msgstr "Параметри…"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:221
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
-#: rc.cpp:47
-msgid "Create playlist in target folder"
-msgstr "Створювати список композицій у теці призначення"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:260
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
-#: rc.cpp:53
-msgid "Store info file in target folder"
-msgstr "Зберігати файл інформації у теці призначення"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:286
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
-#: rc.cpp:59
-msgid "Store hashlist in target folder"
-msgstr "Зберігати файл хеш-списку у теці призначення"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:306
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
-#: rc.cpp:65
-msgid "Store cue sheet in target folder"
-msgstr "Зберігати файл списку у теці призначення"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:326
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
-#: rc.cpp:71
-msgid "Store discid in target folder"
-msgstr "Зберігати файл diskid у теці призначення"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:345
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
-#: rc.cpp:74
-msgid "Write single file"
-msgstr "Записати єдиний файл"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:30
-#. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
-#: rc.cpp:80
-msgid "Show/hide details"
-msgstr "Показати/Приховати подробиці"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:33
-#. i18n: ectx: property (text), widget (QToolButton, details_button)
-#: rc.cpp:83
-msgid "..."
-msgstr "…"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:73
-#. i18n: ectx: property (text), widget (QLabel, label_extracting)
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:183
-#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: rc.cpp:86 rc.cpp:101
-msgid "Ripping Track 8 of 12"
-msgstr "Видобування доріжки 8 з 12"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:86
-#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:132
-#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: rc.cpp:89 rc.cpp:95
-msgid "Speed: 0x"
-msgstr "Швидкість: 0x"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:119
-#. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: rc.cpp:92
-msgid "Encoding Track 8 of 12"
-msgstr "Кодування доріжки 8 з 12"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: rc.cpp:104 rc.cpp:266
-msgid "Album Example:"
-msgstr "Приклад альбому:"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:140
-#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:143
-#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: rc.cpp:107 rc.cpp:269
-msgid "Sampler Example:"
-msgstr "Контрольний приклад:"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:263
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: rc.cpp:110
-msgid "About filename schemes"
-msgstr "Про схеми побудови назв файлів"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:273
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:162
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:276
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: rc.cpp:113 rc.cpp:168 rc.cpp:275
-msgid "About parameters"
-msgstr "Про параметри"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:301
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:116
+#: models/profilemodel.cpp:171
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p></body></html>"
+"Your given image file format is unknown. Please choose on of these formats: "
+"JPG/JPEG, PNG or BMP."
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p></body></html>"
+"Вказаний вами формат зображення невідомий програмі. Будь ласка, оберіть один "
+"з таких форматів: JPG/JPEG, PNG або BMP."
 
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:304
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:191
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:300
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:123 rc.cpp:176 rc.cpp:278
-msgid "Album Artist"
-msgstr "Виконавець альбому"
+#: models/profilemodel.cpp:180
+msgid "Cover name must not be empty."
+msgstr "Назва обкладинки не повинна бути порожньою."
 
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:326
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:215
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:322
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#: rc.cpp:126 rc.cpp:184 rc.cpp:281
-msgid "Album Title"
-msgstr "Назва альбому"
+#: models/profilemodel.cpp:181
+msgid "You have given no name for the cover. Please set one."
+msgstr "Ви не надали обкладинці жодної назви. Будь ласка, вкажіть якусь назву."
 
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:348
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:344
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
-#: rc.cpp:129 rc.cpp:284
-msgid "Track Artist"
-msgstr "Виконавець доріжки"
+#: models/profilemodel.cpp:191
+msgid "The playlist file format is unknown."
+msgstr "Невідомий формат списку композицій."
 
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:370
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:366
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
-#: rc.cpp:132 rc.cpp:287
-msgid "Track Title"
-msgstr "Назва доріжки"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:380
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:376
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
-#: rc.cpp:135 rc.cpp:290
-msgid "Track #"
-msgstr "Номер доріжки"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:390
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:231
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:386
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#: rc.cpp:138 rc.cpp:196 rc.cpp:293
-msgid "CD #"
-msgstr "Номер КД"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:400
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:241
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:396
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#: rc.cpp:141 rc.cpp:202 rc.cpp:296
-msgid "Date"
-msgstr "Дата"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:410
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:251
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:406
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#: rc.cpp:144 rc.cpp:208 rc.cpp:299
-msgid "Genre"
-msgstr "Жанр"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:420
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:258
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: rc.cpp:147 rc.cpp:211
-msgid "Suffix"
-msgstr "Суфікс"
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:25
-#. i18n: ectx: property (text), widget (QLabel, label_text)
-#: rc.cpp:150
-msgid "Information text:"
-msgstr "Інформація:"
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:58
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
-#: rc.cpp:153
-msgid "About variables"
-msgstr "Про змінні"
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:72
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/oggencwidgetUI.ui:297
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/wavewidgetUI.ui:31
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/flacwidgetUI.ui:114
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/customwidgetUI.ui:50
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/lamewidgetUI.ui:254
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/faacwidgetUI.ui:117
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#: rc.cpp:156 rc.cpp:342 rc.cpp:348 rc.cpp:370 rc.cpp:376 rc.cpp:428
-#: rc.cpp:444
-msgid "Suffix:"
-msgstr "Суфікс:"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: rc.cpp:162
-msgid "Example:"
-msgstr "Приклад:"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:152
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: rc.cpp:165
-msgid "About schemes"
-msgstr "Про схеми побудови назв файлів"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:188
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:171
+#: models/profilemodel.cpp:192
 msgid ""
-"<p>This tag will be replaced with artist of the whole CD.</p>\n"
-"<hr />\n"
-"<p>If your CD is a compilation, then this tag represents the title in most "
-"cases.</p>"
+"Your given playlist file format is unknown. Please choose on of these "
+"formats: M3U, PLS or XSPF."
 msgstr ""
-"<p>Цей теґ буде замінено на назву або ім’я виконавця компакт-диска.</p>\n"
-"<hr />\n"
-"<p>Якщо компакт-диск є збіркою творів різних виконавців, теґ здебільшого "
-"відповідатиме назві компакт-диска.</p>"
+"Вказаний вами формат файла списку композицій невідомий програмі. Будь ласка, "
+"оберіть один з таких форматів: M3U, PLS або XSPF."
 
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:212
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
-#: rc.cpp:179
+#: models/profilemodel.cpp:201
+msgid "Playlist name must not be empty."
+msgstr "Назва списку композицій не повинна бути порожньою."
+
+#: models/profilemodel.cpp:202
+msgid "You have given no name for the playlist. Please set one."
+msgstr ""
+"Ви не надали списку композицій жодної назви. Будь ласка, вкажіть якусь назву."
+
+#: models/profilemodel.cpp:214
+msgid "Info text name must not be empty."
+msgstr "Назва тексту відомостей не повинна бути порожньою."
+
+#: models/profilemodel.cpp:215
+msgid "You have given no name for the info text file. Please set one."
+msgstr ""
+"Ви не надали тексту відомостей жодної назви. Будь ласка, вкажіть якусь назву."
+
+#: models/profilemodel.cpp:224
+msgid "Info text file name suffix must not be empty."
+msgstr "Суфікс назви файла тексту відомостей не повинен бути порожнім."
+
+#: models/profilemodel.cpp:225
+msgid "You have given no suffix for the info text file. Please set one."
+msgstr ""
+"Ви не надали файлу тексту відомостей жодного суфіксу назви. Будь ласка, "
+"вкажіть якийсь суфікс."
+
+#: models/profilemodel.cpp:235
+msgid "The hashlist file format is unknown."
+msgstr "Невідомий формат файла списку хешів."
+
+#: models/profilemodel.cpp:236
 msgid ""
-"<p>This tag will be replaced with the title of the whole CD.</p>\n"
-"<hr />\n"
-"<p>If your CD is a compilation, then this tag represents the subtitle in "
-"most cases.</p>"
+"Your given hashlist file format is unknown. Please choose on of these "
+"formats: SFV, MD5."
 msgstr ""
-"<p>Цей теґ буде замінено на назву компакт-диска.</p>\n"
-"<hr />\n"
-"<p>Якщо компакт-диск є збіркою творів різних виконавців, теґ здебільшого "
-"відповідатиме підзаголовку компакт-диска.</p>"
+"Вказаний вами формат файла списку хешів невідомий програмі. Будь ласка, "
+"виберіть один з таких форматів: SFV, MD5."
 
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:228
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cdno)
-#: rc.cpp:187
+#: models/profilemodel.cpp:245
+msgid "Hashlist name must not be empty."
+msgstr "Назва списку хешів не повинна бути порожньою."
+
+#: models/profilemodel.cpp:246
+msgid "You have given no name for the hashlist. Please set one."
+msgstr ""
+"Ви не надали списку хешів жодної назви. Будь ласка, вкажіть якусь назву."
+
+#: models/profilemodel.cpp:256
+msgid "Cue filename name must not be empty."
+msgstr "Назва файла списку композицій не може бути порожньою."
+
+#: models/profilemodel.cpp:257
+msgid "You have given no name for the cue sheet. Please set one."
+msgstr ""
+"Ви не надали списку композицій ніякої назви. Будь ласка, вкажіть якусь назву."
+
+#: models/profilemodel.cpp:267
+msgid "Filename name must not be empty."
+msgstr "Назва файла не може бути порожньою."
+
+#: models/profilemodel.cpp:268
+msgid "You have given no name for the single audio file. Please set one."
+msgstr ""
+"Ви не надали ніякої назви для окремих звукових файлів. Будь ласка, вкажіть "
+"якусь назву."
+
+#: models/profilemodel.cpp:292
+msgid "Profile name already exists."
+msgstr "Профіль з такою назвою вже існує."
+
+#: models/profilemodel.cpp:293
+#, kde-format
 msgid ""
-"<p>This tag will be replaced with the CD number of a multi-CD album. Often "
-"compilations consist of several CDs.</p>\n"
-"<hr />\n"
-"<p>This tag has two properties:\n"
-"<ul><li><i>length</i> defines how many digits the number should consist of "
-"at least (Default: 2).</li>\n"
-"<li><i>fillchar</i> sets the char taken to fill the free spaces in front of "
-"the number, if it has less digits than defined by <i>length</i>. (Default: "
-"0).</li></ul></p>\n"
-"<hr />\n"
-"<p>Note: This tag will only be replaced if the multi-CD flag is enabled for "
-"the CD.</p>"
+"Your profile name %1 already exists in the set of profiles. Please choose a "
+"unique one."
 msgstr ""
-"<p>Цей теґ буде замінено на номер компакт-диска альбому, що складається з "
-"декількох компакт-дисків. Часто з декількох дисків складаються збірки.</p>\n"
-"<hr />\n"
-"<p>Для цього теґу передбачено дві властивості:\n"
-"<ul><li><i>length</i> визначає найменшу кількість цифр, з яких має "
-"складатися номер диска (типове значення: 2).</li>\n"
-"<li><i>fillchar</i> визначає символ, який буде використано для заповнення "
-"вільного місця у номері, якщо кількість його цифр буде меншою за визначену "
-"за допомогою властивості <i>length</i> (типове значення: 0).</li></ul></p>\n"
-"<hr />\n"
-"<p>Зауваження: заміна цього теґу відбуватиметься, лише якщо вказано, що "
-"компакт-диск є частиною мульти-КД.</p>"
+"У списку профілів вже є профіль з вказаною вами назвою %1. Будь ласка, "
+"оберіть якусь іншу назву."
 
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:238
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_date)
-#: rc.cpp:199
+#: models/profilemodel.cpp:309
+msgid "Profile index already exists."
+msgstr "Профіль з таким індексом вже існує."
+
+#: models/profilemodel.cpp:310
+#, kde-format
 msgid ""
-"This tag will be replaced with the release date of the CD. In almost all "
-"cases this is the year."
+"Your profile index %1 already exists in the set of profiles. Please choose a "
+"unique one."
 msgstr ""
-"Цей теґ буде замінено на дату випуску компакт-диска. Здебільшого буде "
-"вказано рік випуску."
+"У списку профілів вже є профіль з вказаним вами індексом %1. Будь ласка, "
+"оберіть якийсь інший індекс."
 
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:248
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
-#: rc.cpp:205
-msgid "This tag will be replaced with the genre."
-msgstr "Цей теґ буде замінено на назву жанру."
+#: models/profilemodel.cpp:366
+msgid "Unknown error. No index found in profile model."
+msgstr "Невідома помилка. У моделі профілю не знайдено індексів."
 
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
-#: rc.cpp:214
-msgid "Scale before store:"
-msgstr "Масштабувати перед зберіганням:"
+#: models/profilemodel.cpp:367
+msgid "This is an internal error. Please report."
+msgstr "Внутрішня помилка. Будь ласка, повідомте про неї авторів програми."
 
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:49
-#. i18n: ectx: property (text), widget (QLabel, label_x)
-#: rc.cpp:217
-msgid "x"
-msgstr "x"
+#: models/profilemodel.h:178
+msgid " (Mobile Quality)"
+msgstr " (Низька якість)"
 
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:91
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:223
-msgid "Cover pattern:"
-msgstr "Шаблон обкладинки:"
+#: models/profilemodel.h:179
+msgid " (Normal Quality)"
+msgstr " (Звичайна якість)"
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
-#: rc.cpp:235
-msgid "Multi CD"
-msgstr "Мульти-КД"
+#: models/profilemodel.h:180
+msgid " (Extreme Quality)"
+msgstr " (Найкраща якість)"
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:49
-#. i18n: ectx: property (text), widget (QLabel, label_artist)
-#: rc.cpp:238
-msgid "Artist:"
-msgstr "Виконавець:"
+#: utils/cachedimage.cpp:103
+msgid "Common image formats"
+msgstr "Поширені формати зображень"
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:65
-#. i18n: ectx: property (text), widget (QLabel, label_title)
-#: rc.cpp:241
-msgid "Title:"
-msgstr "Назва:"
+#: utils/cachedimage.cpp:142
+msgid "File does not exist."
+msgstr "Файла не існує."
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:75
-#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
-#: rc.cpp:244
-msgid "CD Number:"
-msgstr "Номер КД:"
+#: utils/cachedimage.cpp:142
+msgid "Please check if the file really exists."
+msgstr "Будь ласка, перевірте чи існує цей файл."
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:89
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:247
-msgid "Track Offset:"
-msgstr "Відступ доріжки:"
+#: utils/cachedimage.cpp:151
+msgid "Cannot open file."
+msgstr "Не вдалося відкрити файл."
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:105
-#. i18n: ectx: property (text), widget (QLabel, label_genre)
-#: rc.cpp:250
-msgid "Genre:"
+#: utils/cachedimage.cpp:151
+msgid "Please check your file. Maybe you do not have proper permissions."
+msgstr ""
+"Будь ласка, перевірте ваш файл. Можливо, у вашого користувача немає "
+"достатніх прав доступу до нього."
+
+#: utils/cachedimage.cpp:157 utils/cachedimage.cpp:204
+msgid "Unsupported image format"
+msgstr "Непідтримуваний формат зображень"
+
+#: utils/cachedimage.cpp:157
+msgid ""
+"Please check your file. Maybe it is corrupted. Otherwise try to convert your "
+"cover image with an external program to a common file format like JPEG."
+msgstr ""
+"Будь ласка, перевірте ваш файл. Можливо його пошкоджено. Якщо це не так, "
+"спробуйте перетворити дані зображення обкладинки за допомогою зовнішньої "
+"програми у один з поширених форматів файлів, наприклад JPEG."
+
+#: utils/cachedimage.cpp:174
+msgid "Cannot open file"
+msgstr "Не вдалося відкрити файл"
+
+#: utils/cachedimage.cpp:174
+msgid "Please check your permissions."
+msgstr "Будь ласка, переконайтеся, що маєте належні права доступу."
+
+#: utils/cachedimage.cpp:181
+msgid "Cannot save file"
+msgstr "Не вдалося зберегти файл"
+
+#: utils/cachedimage.cpp:181
+msgid "Please check your permissions. Do you have enough space?"
+msgstr ""
+"Будь ласка, переконайтеся, що маєте належні права доступу. Чи достатньо "
+"місця на диску?"
+
+#: utils/cachedimage.cpp:204
+msgid ""
+"Please use common image formats like JPEG, PNG or GIF as they are supported "
+"on almost all systems."
+msgstr ""
+"Будь ласка, використовуйте поширені формати зображень, зокрема JPEG, PNG або "
+"GIF, оскільки ці формати підтримуються майже всіма системами."
+
+#: utils/cachedimage.cpp:212
+msgid "Cannot write on device"
+msgstr "Не вдалося виконати запис на пристрій"
+
+#: utils/cachedimage.cpp:212
+msgid "Please check your permissions. Do you have enough space on your device?"
+msgstr ""
+"Будь ласка, переконайтеся, що маєте належні права доступу. Чи достатньо "
+"місця на вашому пристрої?"
+
+#: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
+msgid "Internal device error."
+msgstr "Внутрішня помилка пристрою"
+
+#: utils/cddaextractthread.cpp:32
+msgid "Check your device and make a bug report."
+msgstr ""
+"Перевірте роботу вашого пристрою і спробуйте написати повідомлення про ваду."
+
+#: utils/cddaextractthread.cpp:78
+msgid "Extracting finished."
+msgstr "Видобування завершено."
+
+#: utils/cddaextractthread.cpp:103
+#, kde-format
+msgid "Ripping track %1 (%2:%3)..."
+msgstr "Видобування доріжки %1 (%2:%3)…"
+
+#: utils/cddaextractthread.cpp:105
+msgid "Ripping whole CD as single track."
+msgstr "Видобування всіх даних як єдиної доріжки."
+
+#: utils/cddaextractthread.cpp:107
+#, kde-format
+msgid "Start reading track %1 with %2 sectors"
+msgstr "Почато читання доріжки %1 з %2 секторів"
+
+#: utils/cddaextractthread.cpp:146
+msgid "User canceled extracting."
+msgstr "Видобування скасовано користувачем."
+
+#: utils/cddaextractthread.cpp:149
+#, kde-format
+msgid "An error occured while ripping track %1."
+msgstr "Під час видобування доріжки %1 сталася помилка."
+
+#: utils/cddaextractthread.cpp:153
+#, kde-format
+msgid "Ripping OK (Track %1)."
+msgstr "Успішне видобування (доріжка %1)."
+
+#: utils/cddaextractthread.cpp:155
+msgid "Ripping OK."
+msgstr "Успішне видобування."
+
+#: utils/cddaextractthread.cpp:160
+msgid "Reading finished"
+msgstr "Читання завершено"
+
+#: utils/cddaextractthread.cpp:203
+#, kde-format
+msgid ""
+"Fixed edge jitter (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
+msgstr ""
+"Виправлено відхилення границь (абсолютний сектор %1, відносний сектор %2, "
+"часова позиція доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:207
+#, kde-format
+msgid ""
+"Fixed atom jitter (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
+msgstr ""
+"Виправлено атомарне відхилення (абсолютний сектор %1, відносний сектор %2, "
+"часова позиція доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:212
+#, kde-format
+msgid ""
+"Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
+msgstr ""
+"Виявлено подряпину (абсолютний сектор %1, відносний сектор %2, часова "
+"позиція доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:213
+#, kde-format
+msgid ""
+"SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
+msgstr ""
+"ВИЯВЛЕНО ПОДРЯПИНУ (абсолютний сектор %1, відносний сектор %2, часова "
+"позиція доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:217
+#, kde-format
+msgid "Repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Відновлення (абсолютний сектор %1, відносний сектор %2, часова позиція "
+"доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:222
+#, kde-format
+msgid ""
+"Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Пропущено сектори (абсолютний сектор %1, відносний сектор %2, часова позиція "
+"доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:223
+#, kde-format
+msgid "SKIP (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"ПРОПУЩЕНО (absolute sector %1, relative sector %2, track time pos %3:%4)"
+
+#: utils/cddaextractthread.cpp:227
+#, kde-format
+msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Зсув (абсолютний сектор %1, відносний сектор %2, часова позиція доріжки %3:"
+"%4)"
+
+#: utils/cddaextractthread.cpp:231
+#, kde-format
+msgid "Backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Повернення (absolute sector %1, relative sector %2, track time pos %3:%4)"
+
+#: utils/cddaextractthread.cpp:241
+#, kde-format
+msgid ""
+"Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Пропущено прив’язку (absolute sector %1, relative sector %2, track time pos "
+"%3:%4)"
+
+#: utils/cddaextractthread.cpp:245
+#, kde-format
+msgid ""
+"Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"Дублювання прив’язки (absolute sector %1, relative sector %2, track time pos "
+"%3:%4)"
+
+#: utils/cddaextractthread.cpp:249
+#, kde-format
+msgid ""
+"Read error detected (absolute sector %1, relative sector %2, track time pos "
+"%3:%4)"
+msgstr ""
+"Виявлено помилку читання (абсолютний сектор %1, відносний сектор %2, часова "
+"позиція доріжки %3:%4)"
+
+#: utils/cddaextractthread.cpp:250
+#, kde-format
+msgid ""
+"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+"ПОМИЛКА ЧИТАННЯ (абсолютний сектор %1, відносний сектор %2, часова позиція "
+"доріжки %3:%4)"
+
+#: utils/cddaparanoia.cpp:41
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"Перевірте ваш пристрій. Це справді «%1»? Якщо це так, перевірте, чи має ваш "
+"користувач достатні права доступу до «%1»."
+
+#: utils/coverfetcher.cpp:103
+msgid "There was an error communicating with Google."
+msgstr "Під час спроби обміну даними з Google сталася помилка."
+
+#: utils/coverfetcher.cpp:103
+msgid "Try again later. Otherwise make a bug report."
+msgstr ""
+"Повторіть спробу пізніше. Якщо і ця спроба зазнає невдачі, надішліть авторам "
+"звіт про помилку."
+
+#: utils/coverfetcher.cpp:114
+msgid "Google server: Empty response."
+msgstr "Сервер Google: порожня відповідь."
+
+#: utils/coverfetcher.cpp:115
+msgid "Try again later. Make a bug report."
+msgstr "Повторіть спробу пізніше. Надішліть авторам звіт про помилку."
+
+#: utils/coverfetcher.cpp:176
+#, kde-format
+msgid "%1x%2, %3 KiB"
+msgstr "%1⨯%2, %3 КіБ"
+
+#: utils/encoderassistant.h:66
+msgid "MP3"
+msgstr "MP3"
+
+#: utils/encoderassistant.h:98
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: utils/encoderassistant.h:128
+msgid "FLAC (Lossless)"
+msgstr "FLAC (без втрат)"
+
+#: utils/encoderassistant.h:139
+msgid "MP4 (AAC)"
+msgstr "MP4 (AAC)"
+
+#: utils/encoderassistant.h:157
+msgid "WAVE (Raw Uncompressed)"
+msgstr "WAVE (звичайний без стискання)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
+#: utils/encoderassistant.h:166 utils/encoderassistant.h:167
+#: widgets/lamewidgetUI.ui:130
+msgid "Custom"
+msgstr "Нетипова"
+
+#: utils/encoderwrapper.cpp:57
+msgid "Command pattern is empty."
+msgstr "Шаблон команди не вказано."
+
+#: utils/encoderwrapper.cpp:69
+#, kde-format
+msgid "Encoding track %1..."
+msgstr "Кодування доріжки %1…"
+
+#: utils/encoderwrapper.cpp:87
+#, kde-format
+msgid "Deleted partial file \"%1\"."
+msgstr "Вилучення файла частини «%1»."
+
+#: utils/encoderwrapper.cpp:92
+msgid "User canceled encoding."
+msgstr "Кодування, скасоване користувачем."
+
+#: utils/encoderwrapper.cpp:140
+#, kde-format
+msgid "Encoding OK (\"%1\")."
+msgstr "Успішне кодування («%1»)."
+
+#: utils/encoderwrapper.cpp:142
+#, kde-format
+msgid "An error occured while encoding file \"%1\"."
+msgstr "Під час спроби кодування файла «%1» сталася помилка."
+
+#: utils/encoderwrapper.cpp:143 utils/encoderwrapper.cpp:155
+#: utils/encoderwrapper.cpp:157 utils/encoderwrapper.cpp:163
+msgid "Please check your profile."
+msgstr "Будь ласка, перевірте ваш профіль."
+
+#: utils/encoderwrapper.cpp:153
+#, kde-format
+msgid "%1 failed to start."
+msgstr "Не вдалося запустити %1."
+
+#: utils/encoderwrapper.cpp:153
+msgid ""
+"Either it is missing, or you may have insufficient permissions to invoke the "
+"program."
+msgstr ""
+"Програму або не встановлено, або ви не маєте достатніх прав доступу для її "
+"запуску."
+
+#: utils/encoderwrapper.cpp:155
+#, kde-format
+msgid "%1 crashed some time after starting successfully."
+msgstr "Програма %1 аварійно завершила роботу після успішного запуску."
+
+#: utils/encoderwrapper.cpp:157
+#, kde-format
+msgid "%1 timed out. This should not happen."
+msgstr "Перевищено час очікування даних від %1. Сталася якась помилка."
+
+#: utils/encoderwrapper.cpp:159
+#, kde-format
+msgid "An error occurred when attempting to write to %1."
+msgstr "Під час спроби запису до %1 сталася помилка."
+
+#: utils/encoderwrapper.cpp:159
+msgid ""
+"For example, the process may not be running, or it may have closed its input "
+"channel."
+msgstr ""
+"Наприклад, процес не запущено або закрито вхідний канал даних цього процесу."
+
+#: utils/encoderwrapper.cpp:161
+#, kde-format
+msgid "An error occurred when attempting to read from %1."
+msgstr "Під час спроби читання з %1 сталася помилка."
+
+#: utils/encoderwrapper.cpp:161
+msgid "For example, the process may not be running."
+msgstr "Наприклад, процес не запущено."
+
+#: utils/encoderwrapper.cpp:163
+#, kde-format
+msgid "An unknown error occurred to %1. This should not happen."
+msgstr ""
+"З %1 сталася невідома програмі помилка. Такого не повинно було трапитися."
+
+#: utils/upload.cpp:61
+#, kde-format
+msgid "Uploading file %1 to server. Please wait..."
+msgstr "Вивантаження файла %1 на сервер. Будь ласка, зачекайте…"
+
+#: utils/upload.cpp:68
+#, kde-format
+msgid "Finished uploading file %1 to server."
+msgstr "Завершено вивантаження файла %1 на сервер."
+
+#: widgets/cddaheaderwidget.cpp:461
+msgid "Released: "
+msgstr "Випущено:"
+
+#: widgets/cddaheaderwidget.cpp:462
+msgid "Genre: "
 msgstr "Жанр:"
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:128
-#. i18n: ectx: property (text), widget (QLabel, label_year)
-#: rc.cpp:253
-msgid "Year:"
-msgstr "Рік:"
+#: widgets/cddaheaderwidget.cpp:463
+msgid "CD Number: "
+msgstr "Номер КД: "
 
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:155
-#. i18n: ectx: property (text), widget (QLabel, label_extdata)
-#: rc.cpp:256
-msgid ""
-"Additional\n"
-"Information:"
-msgstr ""
-"Додаткові\n"
-"відомості:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:171
-#. i18n: ectx: property (text), widget (QLabel, label_discid)
-#: rc.cpp:260
-msgid "Disc ID:"
-msgstr "Ідентифікатор диска:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:178
-#. i18n: ectx: property (text), widget (QLabel, label_discid_2)
-#: rc.cpp:263
-msgid "0x00000000"
-msgstr "0x00000000"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:269
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
-#: rc.cpp:272
-msgid "About commandline schemes"
-msgstr "Про схеми побудови рядка команди"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:416
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
-#: rc.cpp:302
-msgid "Cover File"
-msgstr "Файл обкладинки"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:426
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
-#: rc.cpp:305
-msgid "Input File"
-msgstr "Вхідний файл"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:436
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
-#: rc.cpp:308
-msgid "Output File"
-msgstr "Вихідний файл"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:29
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: widgets/faacwidgetUI.ui:29
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:314 rc.cpp:431
-msgid "Quality"
-msgstr "Якість"
+#: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
+msgid "Wikipedia"
+msgstr "Вікіпедія"
 
-#. i18n: file: widgets/oggencwidgetUI.ui:101
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/flacwidgetUI.ui:79
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/lamewidgetUI.ui:185
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/faacwidgetUI.ui:82
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#: rc.cpp:317 rc.cpp:360 rc.cpp:415 rc.cpp:434
-msgid "Lowest"
-msgstr "Найнижча"
+#: widgets/cddaheaderwidget.cpp:518
+msgid "No CD in drive"
+msgstr "У пристрої немає компакт-диска"
 
-#. i18n: file: widgets/oggencwidgetUI.ui:122
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#: rc.cpp:320
+#: widgets/cddaheaderwidget.cpp:684
+msgid "Load Cover"
+msgstr "Завантажити обкладинку"
+
+#: widgets/cddaheaderwidget.cpp:693 widgets/profilewidget.cpp:122
+msgid "Save Cover"
+msgstr "Зберегти обкладинку"
+
+#: widgets/cddaheaderwidget.cpp:773
+msgid "No cover found."
+msgstr "Обкладинки не знайдено."
+
+#: widgets/cddaheaderwidget.cpp:773
 msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:italic;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif';\">Highest</span></p></body></html>"
+"Check your artist name and title. Otherwise you can load a custom cover from "
+"an image file."
 msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:italic;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif';\">Найвища</span></p></body></html>"
+"Перевірте, чи правильно вказано ім’я або назву виконавця та назву "
+"композиції. Крім того, ви можете завантажити власну обкладинку з файла "
+"зображення."
 
-#. i18n: file: widgets/oggencwidgetUI.ui:153
-#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: rc.cpp:327
-msgid "Target Bitrate ~"
-msgstr "Остаточна бітова швидкість ~"
+#: widgets/cddaheaderwidget.cpp:809
+msgid "Fetch cover from Google..."
+msgstr "Звантажити обкладинку з Google…"
 
-#. i18n: file: widgets/oggencwidgetUI.ui:200
-#. i18n: ectx: property (text), widget (QLabel, label_kbits)
-#. i18n: file: widgets/oggencwidgetUI.ui:269
-#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
-#. i18n: file: widgets/oggencwidgetUI.ui:348
-#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
-#: rc.cpp:330 rc.cpp:339 rc.cpp:345
-msgid "kbit/s"
-msgstr "кбіт/с"
+#: widgets/cddaheaderwidget.cpp:814
+msgid "Set Custom Cover..."
+msgstr "Встановити власну обкладинку…"
 
-#. i18n: file: widgets/oggencwidgetUI.ui:210
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
-#: rc.cpp:333
-msgid "Set minimum bitrate"
-msgstr "Встановити мінімальну бітову швидкість"
+#: widgets/cddaheaderwidget.cpp:819
+msgid "Save Cover To File..."
+msgstr "Зберегти обкладинку до файла…"
 
-#. i18n: file: widgets/oggencwidgetUI.ui:246
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
-#: rc.cpp:336
-msgid "Set maximum bitrate"
-msgstr "Встановити максимальну бітову швидкість"
+#: widgets/cddaheaderwidget.cpp:824
+msgid "Show Full Size Cover..."
+msgstr "Показати повнорозмірну обкладинку…"
 
-#. i18n: file: widgets/remoteserversettingswidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#. i18n: file: audex.kcfg:58
-#. i18n: ectx: label, entry (upload), group (general)
-#: rc.cpp:351 rc.cpp:540
-msgid "Upload files to server"
-msgstr "Вивантажити файли на сервер"
+#: widgets/cddaheaderwidget.cpp:829
+msgid "Remove Cover"
+msgstr "Вилучити обкладинку"
 
-#. i18n: file: widgets/remoteserversettingswidgetUI.ui:51
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:354
-msgid "URL:"
-msgstr "URL:"
-
-#. i18n: file: widgets/flacwidgetUI.ui:29
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:357
-msgid "Compression"
-msgstr "Стиснення"
-
-#. i18n: file: widgets/flacwidgetUI.ui:96
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#. i18n: file: widgets/lamewidgetUI.ui:196
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#. i18n: file: widgets/faacwidgetUI.ui:99
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#: rc.cpp:363 rc.cpp:418 rc.cpp:437
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Highest</"
-"p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Найвища</"
-"p></body></html>"
-
-#. i18n: file: widgets/customwidgetUI.ui:29
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:373
+#: widgets/customwidgetUI.ui:29
 msgid "Command Pattern:"
 msgstr "Шаблон команди:"
 
-#. i18n: file: widgets/lamewidgetUI.ui:41
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:379
+#: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
+msgid "Quality"
+msgstr "Якість"
+
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
+#: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+msgid "Lowest"
+msgstr "Найнижча"
+
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
+#: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+msgid "Highest"
+msgstr "Найвищий"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/flacwidgetUI.ui:29
+msgid "Compression"
+msgstr "Стиснення"
+
+#: widgets/generalsettingswidget.cpp:24
+msgid "English"
+msgstr "Англійська"
+
+#: widgets/generalsettingswidget.cpp:25
+msgid "Deutsch"
+msgstr "Німецька"
+
+#: widgets/generalsettingswidget.cpp:26
+msgid "Français"
+msgstr "Французька"
+
+#: widgets/generalsettingswidget.cpp:27
+msgid "Polski"
+msgstr "Польська"
+
+#: widgets/generalsettingswidget.cpp:28
+msgid "日本語"
+msgstr "Японська"
+
+#: widgets/generalsettingswidget.cpp:29
+msgid "Italiano"
+msgstr "Італійська"
+
+#: widgets/generalsettingswidget.cpp:30
+msgid "Nederlands"
+msgstr "Голландська"
+
+#: widgets/generalsettingswidget.cpp:31
+msgid "Español"
+msgstr "Іспанська"
+
+#: widgets/generalsettingswidget.cpp:32
+msgid "Português"
+msgstr "Португальська"
+
+#: widgets/generalsettingswidget.cpp:33
+msgid "Svenska"
+msgstr "Шведська"
+
+#: widgets/generalsettingswidget.cpp:42
+msgid "None detected"
+msgstr "Не виявлено жодного"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:37
+msgid "Eject CD tray after finished extraction"
+msgstr "Виштовхнути лоток КД після завершення видобування"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:51
+msgid "Perform cover lookup automatically"
+msgstr "Автоматично виконувати пошук обкладинки"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:66
+msgid "Number of covers to fetch:"
+msgstr "Кількість обкладинок для звантаження:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
+#: widgets/generalsettingswidgetUI.ui:106
+msgid "Localization:"
+msgstr "Локалізація:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: widgets/generalsettingswidgetUI.ui:126
+msgid "Device"
+msgstr "Пристрій"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: widgets/generalsettingswidgetUI.ui:156
+msgid "Paths"
+msgstr "Шляхи"
+
+#. i18n: ectx: property (text), widget (QLabel, label_basePath)
+#: widgets/generalsettingswidgetUI.ui:164
+msgid "Base path to store music files:"
+msgstr "Базова тека звукових файлів:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/lamewidgetUI.ui:41
 msgid "Quality/Bitrate"
 msgstr "Якість/Бітова швидкість"
 
-#. i18n: file: widgets/lamewidgetUI.ui:53
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
-#: rc.cpp:382
+#: widgets/lamewidgetUI.ui:53
 msgid ""
 "This preset should provide near transparency to most people on most music."
 msgstr ""
 "Цей набір налаштувань має дати результати, які не відрізнятимуться більшістю "
 "слухачів для більшості творів від початкового звуку."
 
-#. i18n: file: widgets/lamewidgetUI.ui:56
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
-#: rc.cpp:385
+#: widgets/lamewidgetUI.ui:56
 msgid "Medium (140...185 kbit/s)"
 msgstr "Середня (140..185 кбіт/с)"
 
-#. i18n: file: widgets/lamewidgetUI.ui:69
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
-#: rc.cpp:388
+#: widgets/lamewidgetUI.ui:69
 msgid ""
 "If you have extremely good hearing and similar equipment, this preset will "
 "generally provide slightly higher quality than the \"standard\" mode"
@@ -2534,15 +2322,13 @@ msgstr ""
 "налаштувань забезпечить кодування з дещо кращою якістю, ніж кодування у "
 "режимі «Стандартний»."
 
-#. i18n: file: widgets/lamewidgetUI.ui:72
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
-#: rc.cpp:391
+#: widgets/lamewidgetUI.ui:72
 msgid "Extreme (220...260 kbits/s)"
 msgstr "Найкраща (220..260 кбіт/с)"
 
-#. i18n: file: widgets/lamewidgetUI.ui:98
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
-#: rc.cpp:394
+#: widgets/lamewidgetUI.ui:98
 msgid ""
 "This preset should generally be transparent to most people on most music and "
 "is already quite high in quality."
@@ -2551,15 +2337,13 @@ msgstr ""
 "більшості слухачів і для більшості творів. Якість цих результатів буде "
 "досить висока."
 
-#. i18n: file: widgets/lamewidgetUI.ui:101
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
-#: rc.cpp:397
+#: widgets/lamewidgetUI.ui:101
 msgid "Standard (170...210 kbit/s)"
 msgstr "Стандартна (170..210 кбіт/с)"
 
-#. i18n: file: widgets/lamewidgetUI.ui:114
 #. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
-#: rc.cpp:400
+#: widgets/lamewidgetUI.ui:114
 msgid ""
 "This preset will usually be overkill for most people and most situations, "
 "but if you must have the absolute highest quality with no regard to "
@@ -2569,214 +2353,262 @@ msgstr ""
 "більшості випадків, але, якщо вам потрібна абсолютно найкраща якість звуку, "
 "байдуже яким буде розмір файла, це ваш вибір."
 
-#. i18n: file: widgets/lamewidgetUI.ui:117
 #. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
-#: rc.cpp:403
+#: widgets/lamewidgetUI.ui:117
 msgid "Insane (320 kbit/s)"
 msgstr "Божевільна (320 кбіт/с)"
 
-#. i18n: file: widgets/lamewidgetUI.ui:140
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
-#: rc.cpp:409
+#: widgets/lamewidgetUI.ui:140
 msgid "Constant Bitrate"
 msgstr "Стала бітова швидкість"
 
-#. i18n: file: widgets/lamewidgetUI.ui:153
 #. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: rc.cpp:412
+#: widgets/lamewidgetUI.ui:153
 msgid "Target Bitrate (kbit/s)"
 msgstr "Остаточна бітова швидкість (кбіт/с)"
 
-#. i18n: file: widgets/lamewidgetUI.ui:239
 #. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: rc.cpp:425
+#: widgets/lamewidgetUI.ui:248
 msgid "Embed cover in music file"
 msgstr "Вбудувати обкладинку до звукового файла"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#. i18n: file: audex.kcfg:14
-#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
-#: rc.cpp:447 rc.cpp:507
-msgid "Overwrite existing files"
-msgstr "Перезаписати існуючі файли"
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: widgets/oggencwidgetUI.ui:152
+msgid "Target Bitrate ~"
+msgstr "Остаточна бітова швидкість ~"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:30
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#. i18n: file: audex.kcfg:18
-#. i18n: ectx: label, entry (deletePartialFiles), group (general)
-#: rc.cpp:450 rc.cpp:510
-msgid "Delete partial files after cancel"
-msgstr "Вилучити файли частин після скасування"
+#. i18n: ectx: property (text), widget (QLabel, label_kbits)
+#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
+#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
+#: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
+#: widgets/oggencwidgetUI.ui:347
+msgid "kbit/s"
+msgstr "кбіт/с"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:37
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
-#: rc.cpp:453
-msgid "Eject CD tray after finished extraction"
-msgstr "Виштовхнути лоток КД після завершення видобування"
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
+#: widgets/oggencwidgetUI.ui:209
+msgid "Set minimum bitrate"
+msgstr "Встановити мінімальну бітову швидкість"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:44
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#. i18n: file: audex.kcfg:26
-#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
-#: rc.cpp:456 rc.cpp:516
-msgid "Perform CDDB lookup automatically"
-msgstr "Автоматично шукати у CDDB"
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
+#: widgets/oggencwidgetUI.ui:245
+msgid "Set maximum bitrate"
+msgstr "Встановити максимальну бітову швидкість"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:51
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
-#: rc.cpp:459
-msgid "Perform cover lookup automatically"
-msgstr "Автоматично виконувати пошук обкладинки"
+#: widgets/profilewidget.cpp:80
+#, kde-format
+msgid "Do you really want to delete profile \"%1\"?"
+msgstr "Ви справді бажаєте вилучити профіль «%1»?"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:66
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:462
-msgid "Number of covers to fetch:"
-msgstr "Кількість обкладинок для звантаження:"
+#: widgets/profilewidget.cpp:81
+msgid "Delete profile"
+msgstr "Вилучити профіль"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:106
-#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
-#: rc.cpp:468
-msgid "Localization:"
-msgstr "Локалізація:"
+#: widgets/profilewidget.cpp:129
+msgid "Load Profiles"
+msgstr "Завантажити профілі"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:126
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: rc.cpp:471
-msgid "Device"
-msgstr "Пристрій"
+#: widgets/profilewidget.cpp:138
+msgid ""
+"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
+"some sample profiles based upon any found codecs.</font></p>"
+msgstr ""
+"<p>Бажаєте, щоб програма виконала повторне виявлення кодеків у вашій системі "
+"(Lame, Ogg Vorbis, Flac тощо)?</p><p><font style=\"font-style:italic;"
+"\">Програма спробує створити декілька шаблонів профілів на основі переліку "
+"знайдених кодеків.</font></p>"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:139
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#. i18n: file: audex.kcfg:46
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#: rc.cpp:474 rc.cpp:531
-msgid "Full paranoia mode (best quality)"
-msgstr "Режим параної (найкраща якість)"
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:148
+#: widgets/profilewidgetUI.ui:65
+msgid "Codec Scan"
+msgstr "Виявлення кодеків"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:146
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#. i18n: file: audex.kcfg:50
-#. i18n: ectx: label, entry (neverSkip), group (general)
-#: rc.cpp:477 rc.cpp:534
-msgid "Never skip on read error"
-msgstr "Ніколи не пропускати помилки читання"
+#: widgets/profilewidget.cpp:146
+msgid "No new codecs found"
+msgstr "Нових кодеків не знайдено"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:156
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: rc.cpp:480
-msgid "Paths"
-msgstr "Шляхи"
+#: widgets/profilewidget.cpp:147
+#, kde-format
+msgid "1 new profile added"
+msgid_plural "%1 new profiles added"
+msgstr[0] "Додано %1 новий профіль"
+msgstr[1] "Додано %1 нових профілі"
+msgstr[2] "Додано %1 нових профілів"
+msgstr[3] "Додано 1 новий профіль"
 
-#. i18n: file: widgets/generalsettingswidgetUI.ui:164
-#. i18n: ectx: property (text), widget (QLabel, label_basePath)
-#: rc.cpp:483
-msgid "Base path to store music files:"
-msgstr "Базова тека звукових файлів:"
-
-#. i18n: file: widgets/profilewidgetUI.ui:21
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
-#: rc.cpp:486
+#: widgets/profilewidgetUI.ui:21
 msgid "Add..."
 msgstr "Додати…"
 
-#. i18n: file: widgets/profilewidgetUI.ui:28
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
-#: rc.cpp:489
+#: widgets/profilewidgetUI.ui:28
 msgid "Remove"
 msgstr "Вилучити"
 
-#. i18n: file: widgets/profilewidgetUI.ui:35
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
-#: rc.cpp:492
+#: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
 msgstr "Змінити…"
 
-#. i18n: file: widgets/profilewidgetUI.ui:42
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
-#: rc.cpp:495
+#: widgets/profilewidgetUI.ui:42
 msgid "Copy"
 msgstr "Копіювати"
 
-#. i18n: file: widgets/profilewidgetUI.ui:85
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
-#: rc.cpp:501
+#: widgets/profilewidgetUI.ui:85
 msgid "Load..."
 msgstr "Завантажити…"
 
-#. i18n: file: widgets/profilewidgetUI.ui:92
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
-#: rc.cpp:504
+#: widgets/profilewidgetUI.ui:92
 msgid "Save..."
 msgstr "Зберегти…"
 
-#. i18n: file: audex.kcfg:22
-#. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: rc.cpp:513
-msgid "Eject CD tray after extraction finished"
-msgstr "Виштовхнути лоток після видобування даних"
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/remoteserversettingswidgetUI.ui:51
+msgid "URL:"
+msgstr "URL:"
 
-#. i18n: file: audex.kcfg:30
-#. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: rc.cpp:519
-msgid "Perform cover lookup (amazon) automatically"
-msgstr "Автоматично шукати обкладинки (на amazon)"
+#~ msgid "%1 new profiles added"
+#~ msgstr "Додано %1 нових профілі"
 
-#. i18n: file: audex.kcfg:34
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: rc.cpp:522
-msgid "Wikipedia localization"
-msgstr "Мова Вікіпедії"
+#~ msgid "TextLabel"
+#~ msgstr "TextLabel"
 
-#. i18n: file: audex.kcfg:38
-#. i18n: ectx: label, entry (fetchCount), group (general)
-#: rc.cpp:525
-msgid "Number of covers to fetch"
-msgstr "Кількість обкладинок для звантаження"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
+#~ "size:10pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
+#~ "size:10pt; font-weight:400; font-style:normal;\">\n"
+#~ "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
+#~ "margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\"></p></body></html>"
 
-#. i18n: file: audex.kcfg:42
-#. i18n: ectx: label, entry (cdDevice), group (general)
-#: rc.cpp:528
-msgid "CD Device"
-msgstr "Пристрій КД"
+#~ msgid ""
+#~ "<p>This tag will be replaced with artist of the whole CD.</p>\n"
+#~ "<hr />\n"
+#~ "<p>If your CD is a compilation, then this tag represents the title in "
+#~ "most cases.</p>"
+#~ msgstr ""
+#~ "<p>Цей теґ буде замінено на назву або ім’я виконавця компакт-диска.</p>\n"
+#~ "<hr />\n"
+#~ "<p>Якщо компакт-диск є збіркою творів різних виконавців, теґ здебільшого "
+#~ "відповідатиме назві компакт-диска.</p>"
 
-#. i18n: file: audex.kcfg:54
-#. i18n: ectx: label, entry (basePath), group (general)
-#: rc.cpp:537
-msgid "Base path to store music files"
-msgstr "Базова тека звукових файлів"
+#~ msgid ""
+#~ "<p>This tag will be replaced with the title of the whole CD.</p>\n"
+#~ "<hr />\n"
+#~ "<p>If your CD is a compilation, then this tag represents the subtitle in "
+#~ "most cases.</p>"
+#~ msgstr ""
+#~ "<p>Цей теґ буде замінено на назву компакт-диска.</p>\n"
+#~ "<hr />\n"
+#~ "<p>Якщо компакт-диск є збіркою творів різних виконавців, теґ здебільшого "
+#~ "відповідатиме підзаголовку компакт-диска.</p>"
 
-#. i18n: file: audex.kcfg:62
-#. i18n: ectx: label, entry (url), group (general)
-#: rc.cpp:543
-msgid "URL of server"
-msgstr "Адреса сервера"
+#~ msgid ""
+#~ "<p>This tag will be replaced with the CD number of a multi-CD album. "
+#~ "Often compilations consist of several CDs.</p>\n"
+#~ "<hr />\n"
+#~ "<p>This tag has two properties:\n"
+#~ "<ul><li><i>length</i> defines how many digits the number should consist "
+#~ "of at least (Default: 2).</li>\n"
+#~ "<li><i>fillchar</i> sets the char taken to fill the free spaces in front "
+#~ "of the number, if it has less digits than defined by <i>length</i>. "
+#~ "(Default: 0).</li></ul></p>\n"
+#~ "<hr />\n"
+#~ "<p>Note: This tag will only be replaced if the multi-CD flag is enabled "
+#~ "for the CD.</p>"
+#~ msgstr ""
+#~ "<p>Цей теґ буде замінено на номер компакт-диска альбому, що складається з "
+#~ "декількох компакт-дисків. Часто з декількох дисків складаються збірки.</"
+#~ "p>\n"
+#~ "<hr />\n"
+#~ "<p>Для цього теґу передбачено дві властивості:\n"
+#~ "<ul><li><i>length</i> визначає найменшу кількість цифр, з яких має "
+#~ "складатися номер диска (типове значення: 2).</li>\n"
+#~ "<li><i>fillchar</i> визначає символ, який буде використано для заповнення "
+#~ "вільного місця у номері, якщо кількість його цифр буде меншою за "
+#~ "визначену за допомогою властивості <i>length</i> (типове значення: 0).</"
+#~ "li></ul></p>\n"
+#~ "<hr />\n"
+#~ "<p>Зауваження: заміна цього теґу відбуватиметься, лише якщо вказано, що "
+#~ "компакт-диск є частиною мульти-КД.</p>"
 
-#. i18n: file: audexui.rc:6
-#. i18n: ectx: Menu (file)
-#: rc.cpp:548
-msgid "&Audex"
-msgstr "&Audex"
+#~ msgid ""
+#~ "This tag will be replaced with the release date of the CD. In almost all "
+#~ "cases this is the year."
+#~ msgstr ""
+#~ "Цей теґ буде замінено на дату випуску компакт-диска. Здебільшого буде "
+#~ "вказано рік випуску."
 
-#. i18n: file: audexui.rc:13
-#. i18n: ectx: Menu (cddb)
-#: rc.cpp:551
-msgid "&CDDB"
-msgstr "&CDDB"
+#~ msgid "This tag will be replaced with the genre."
+#~ msgstr "Цей теґ буде замінено на назву жанру."
 
-#. i18n: file: audexui.rc:18
-#. i18n: ectx: Menu (titlecorrectiontools)
-#: rc.cpp:554
-msgctxt "@title:menu"
-msgid "Title Correction Tools"
-msgstr "Інструменти виправлення заголовків"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
+#~ "size:10pt; font-weight:400; font-style:italic;\">\n"
+#~ "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif';\">Highest</span></p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
+#~ "size:10pt; font-weight:400; font-style:italic;\">\n"
+#~ "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
+#~ "style=\" font-family:'Sans Serif';\">Найвища</span></p></body></html>"
 
-#. i18n: file: audexui.rc:25
-#. i18n: ectx: Menu (settings)
-#: rc.cpp:557
-msgid "&Settings"
-msgstr "П&араметри"
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\">Highest</p></body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
+#~ "font-weight:400; font-style:normal;\">\n"
+#~ "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+#~ "\">Найвища</p></body></html>"
 
 #~ msgid ""
 #~ "Unable to create temporary folder \"%1\". Please check. Abort operation."

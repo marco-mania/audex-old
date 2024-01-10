@@ -48,6 +48,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
   connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
   connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
   connect(ui.kpushbutton_cover_file, SIGNAL(clicked()), this, SLOT(insCoverFile()));
+  connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
   connect(ui.kpushbutton_input_file, SIGNAL(clicked()), this, SLOT(insInFile()));
   connect(ui.kpushbutton_output_file, SIGNAL(clicked()), this, SLOT(insOutFile()));
 
@@ -94,8 +95,11 @@ void CommandWizardDialog::about_commandline_schemes() {
                                "<tr><td>$ttitle</td><td>The track title. Normally each track on a CD has its own title, which is the name of the song.</td></tr>"
                                "<tr><td>$trackno</td><td>The track number. First track is 1.</td></tr>"
                                "<tr><td>$cover</td><td>The cover file.</td></tr>"
+                               "<tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</td></tr>"
                                "<tr><td>$i</td><td>The temporary WAV file (input file) created by Audex from CD audio track. You can use it as a normal input file for your command line encoder.</td></tr>"
                                "<tr><td>$o</td><td>The full output filename and path (output file). Use it as the output for your command line encoder.</td></tr>"
+                               "<tr><td>$audex</td><td>Audex name and version.</td></tr>"
+                               "<tr><td>$encoder</td><td>Encoder name and version.</td></tr>"
                                "</table></p>"),
                           ui.kurllabel_aboutcommandlineschemes);
 }
@@ -184,6 +188,13 @@ void CommandWizardDialog::insCoverFile() {
   update_example();
 }
 
+void CommandWizardDialog::insNoOfTracks() {
+  QString text = ui.klineedit_command->text();
+  text.insert(ui.klineedit_command->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  ui.klineedit_command->setText(text);
+  update_example();
+}
+
 void CommandWizardDialog::insInFile() {
   QString text = ui.klineedit_command->text();
   text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_INPUT_FILE));
@@ -208,16 +219,16 @@ void CommandWizardDialog::update_example() {
   PatternParser patternparser;
   QString filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
         "/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
-        2, 1, 1,
+        2, 1, 1, 12,
         "Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-        "2006", "Rock", "ogg", NULL, FALSE, QDir::tempPath(), TRUE);
+        "2006", "Rock", "ogg", NULL, FALSE, QDir::tempPath(), "LAME 3.98.2", TRUE);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
   filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
         "/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
-        4, 2, 1,
+        4, 2, 1, 18,
         "Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
-        "2003", "Darkwave", "ogg", NULL, FALSE, QDir::tempPath(), TRUE);
+        "2003", "Darkwave", "ogg", NULL, FALSE, QDir::tempPath(), "LAME 3.98.2", TRUE);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }

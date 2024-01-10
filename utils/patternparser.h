@@ -32,6 +32,8 @@
 #include <KLocale>
 #include <KStandardDirs>
 
+#include "config.h"
+
 #include "utils/cachedimage.h"
 
 #define IS_TRUE(val) ( ((val.toLower()=="true")||(val=="1")||(val.toLower()=="on")) ? TRUE : FALSE)
@@ -50,6 +52,7 @@
 #define VAR_DATE					"date"
 #define VAR_GENRE					"genre"
 #define VAR_SUFFIX					"suffix"
+#define VAR_ENCODER					"encoder"
 
 #define VAR_INPUT_FILE					"i"
 #define VAR_OUTPUT_FILE					"o"
@@ -58,10 +61,12 @@
 #define VAR_DISCID					"discid"
 #define VAR_CD_SIZE					"size"
 #define VAR_CD_LENGTH					"length"
-#define VAR_CD_NO_OF_TRACKS				"nooftracks"
 #define VAR_TODAY					"today"
 #define VAR_NOW						"now"
 #define VAR_LINEBREAK					"br"
+
+#define VAR_AUDEX					"audex"
+#define VAR_NO_OF_TRACKS				"nooftracks"
 
 #define STANDARD_EMBED_COVER_FORMAT			"jpg"
 
@@ -100,6 +105,7 @@ public:
   void setLength(const int length) { this->length = length; }
   void setNoOfTracks(const int nooftracks) { this->nooftracks = nooftracks; }
   void setDemoMode(const bool demomode) { this->demomode = demomode; }
+  void setEncoder(const QString& encoder) { this->encoder = encoder; }
 
   inline const QString text() const { return p_text; }
 
@@ -126,6 +132,7 @@ private:
   qreal size;
   int length;
   int nooftracks;
+  QString encoder;
 
   bool demomode;
   /*TEMP*/bool found_suffix;
@@ -153,7 +160,7 @@ public:
   ~PatternParser();
 
   const QString parseFilenamePattern(const QString& pattern,
-	int trackno, int cdno, int trackoffset,
+	int trackno, int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix,
@@ -161,15 +168,16 @@ public:
 
   const QString parseCommandPattern(const QString& pattern,
 	const QString& input, const QString& output,
-	int trackno, int cdno, int trackoffset,
+	int trackno, int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
-	bool fat32compatible, const QString& tmppath,
+	bool fat32compatible, const QString& tmppath, const QString& encoder,
 	const bool demomode = FALSE);
 
   const QString parseSimplePattern(const QString& pattern,
-	int cdno, const QString& artist, const QString& title,
+	int cdno, int nooftracks,
+	const QString& artist, const QString& title,
 	const QString& date, const QString& genre, const QString& suffix,
 	bool fat32compatible);
 

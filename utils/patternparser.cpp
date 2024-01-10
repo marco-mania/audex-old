@@ -261,8 +261,13 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
       }
 
     }
+    
+    if (qName == VAR_ENCODER) {
+      p_element += encoder;
+    }
 
   }
+  
   if (is_text_pattern) {
     if (qName == VAR_CD_SIZE) {
       QChar iec;
@@ -277,7 +282,6 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
             else if (iec=='g') p_element += QString("%1").arg(size / (1024.0f*1024.0f*1024.0f), 0, 'f', p);
     }
     if (qName == VAR_CD_LENGTH) p_element += QString("%1:%2").arg(length / 60, 2, 10, QChar('0')).arg(length % 60, 2, 10, QChar('0'));
-    if (qName == VAR_CD_NO_OF_TRACKS) p_element += QString("%1").arg(nooftracks);
     if (qName == VAR_TODAY) {
       QString format;
       if (!atts.value("format").isEmpty()) format = atts.value("format");
@@ -305,6 +309,8 @@ bool SaxHandler::startElement(const QString& namespaceURI, const QString &localN
     }
   }
   
+  if (qName == VAR_NO_OF_TRACKS) p_element += QString("%1").arg(nooftracks);
+  if (qName == VAR_AUDEX) p_element += QString("Audex Version %1").arg(AUDEX_VERSION);
   
   if ((!p_element.isEmpty()) && (is_command_pattern)) {
   
@@ -415,7 +421,7 @@ PatternParser::~PatternParser() {
 }
 
 const QString PatternParser::parseFilenamePattern(const QString& pattern,
-	int trackno, int cdno, int trackoffset,
+	int trackno, int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix,
@@ -425,6 +431,7 @@ const QString PatternParser::parseFilenamePattern(const QString& pattern,
   handler.setTrackNo(trackno);
   handler.setCDNo(cdno);
   handler.setTrackOffset(trackoffset);
+  handler.setNoOfTracks(nooftracks);
   handler.setArtist(artist);
   handler.setTitle(title);
   handler.setTrackArtist(tartist);
@@ -449,11 +456,11 @@ const QString PatternParser::parseFilenamePattern(const QString& pattern,
 
 const QString PatternParser::parseCommandPattern(const QString& pattern,
 	const QString& input, const QString& output,
-	int trackno, int cdno, int trackoffset,
+	int trackno, int cdno, int trackoffset, int nooftracks,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
 	const QString& date, const QString& genre, const QString& suffix, CachedImage *cover,
-	bool fatcompatible, const QString& tmppath, const bool demomode) {
+	bool fatcompatible, const QString& tmppath, const QString& encoder, const bool demomode) {
 
   SaxHandler handler;
   handler.setInputFile(input);
@@ -461,6 +468,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setTrackNo(trackno);
   handler.setCDNo(cdno);
   handler.setTrackOffset(trackoffset);
+  handler.setNoOfTracks(nooftracks);
   handler.setArtist(artist);
   handler.setTitle(title);
   handler.setTrackArtist(tartist);
@@ -473,6 +481,7 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
   handler.setTMPPath(tmppath);
   handler.setDemoMode(demomode);
   handler.set2DigitsTrackNum(FALSE);
+  handler.setEncoder(encoder);
   
   QXmlInputSource inputSource;
   inputSource.setData("<commandpattern>"+p_xmlize_pattern(pattern)+"</commandpattern>");
@@ -486,12 +495,14 @@ const QString PatternParser::parseCommandPattern(const QString& pattern,
 }
 
 const QString PatternParser::parseSimplePattern(const QString& pattern,
-	int cdno, const QString& artist, const QString& title,
+	int cdno, const int nooftracks,
+	const QString& artist, const QString& title,
 	const QString& date, const QString& genre, const QString& suffix,
 	bool fat32compatible) {
 
   SaxHandler handler;
   handler.setCDNo(cdno);
+  handler.setNoOfTracks(nooftracks);
   handler.setArtist(artist);
   handler.setTitle(title);
   handler.setDate(date);

@@ -2,272 +2,306 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Marco Nelles <marco@maniatek.de>, 2009.
 # Pavel Fric <pavelfric@seznam.cz>, 2009, 2010.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011.
+# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012.
+# Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: cs.new\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2011-01-15 02:46+0100\n"
-"PO-Revision-Date: 2011-01-10 16:08+0100\n"
-"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
+"POT-Creation-Date: 2012-10-16 08:29+0200\n"
+"PO-Revision-Date: 2012-10-16 12:37+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"Language: cs\n"
 
-#: dialogs/profiledatahashlistdialog.cpp:33
-#: dialogs/profiledataplaylistdialog.cpp:33
-msgid "Playlist Settings"
-msgstr "Nastavení seznamu skladeb"
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
+#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
+#: audex.kcfg:14 widgets/generalsettingswidgetUI.ui:23
+msgid "Overwrite existing files"
+msgstr "Přepsat stávající soubory"
 
-#: dialogs/profiledatahashlistdialog.cpp:40
-msgid "SFV (Simple File Verification)"
-msgstr "SFV (jednoduché ověření souboru - Simple File Verification)"
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
+#. i18n: ectx: label, entry (deletePartialFiles), group (general)
+#: audex.kcfg:18 widgets/generalsettingswidgetUI.ui:30
+msgid "Delete partial files after cancel"
+msgstr "Po zrušení operace smazat neúplné soubory"
 
-#: dialogs/profiledatahashlistdialog.cpp:41
-msgid "MD5 (Message-Digest algorithm 5)"
-msgstr ""
+#. i18n: ectx: label, entry (ejectCDTray), group (general)
+#: audex.kcfg:22
+msgid "Eject CD tray after extraction finished"
+msgstr "Vysunout CD z mechaniky po skončení získávání dat"
 
-#: dialogs/extractingprogressdialog.cpp:30
-msgid "Rip And Encode"
-msgstr "Získat a zakódovat"
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
+#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
+#: audex.kcfg:26 widgets/generalsettingswidgetUI.ui:44
+msgid "Perform CDDB lookup automatically"
+msgstr "Provést vyhledání v CDDB automaticky"
 
-#: dialogs/extractingprogressdialog.cpp:44
-#: dialogs/extractingprogressdialog.cpp:192
-msgid "Ripping whole CD as single track"
-msgstr ""
+#. i18n: ectx: label, entry (coverLookupAuto), group (general)
+#: audex.kcfg:30
+msgid "Perform cover lookup (amazon) automatically"
+msgstr "Provést vyhledání obalu automaticky (služba Amazon)"
 
-#: dialogs/extractingprogressdialog.cpp:45
-#, fuzzy
-#| msgid "Encoding Track"
-msgid "Encoding"
-msgstr "Kóduje se stopa"
+#. i18n: ectx: label, entry (wikipediaLocale), group (general)
+#: audex.kcfg:34
+msgid "Wikipedia localization"
+msgstr "Překlad do národních jazyků pro službu Wikipedie"
 
-#: dialogs/extractingprogressdialog.cpp:49
+#. i18n: ectx: label, entry (fetchCount), group (general)
+#: audex.kcfg:38
+msgid "Number of covers to fetch"
+msgstr "Počet obalů, který se má natáhnout"
+
+#. i18n: ectx: label, entry (cdDevice), group (general)
+#: audex.kcfg:42
+msgid "CD Device"
+msgstr "Zařízení CD"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
+#. i18n: ectx: label, entry (paranoiaMode), group (general)
+#: audex.kcfg:46 widgets/generalsettingswidgetUI.ui:139
+msgid "Full paranoia mode (best quality)"
+msgstr "Úplný režim paranoia (nejlepší kvalita)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
+#. i18n: ectx: label, entry (neverSkip), group (general)
+#: audex.kcfg:50 widgets/generalsettingswidgetUI.ui:146
+msgid "Never skip on read error"
+msgstr "Nikdy nepřeskakovat při chybě čtení"
+
+#. i18n: ectx: label, entry (basePath), group (general)
+#: audex.kcfg:54
+msgid "Base path to store music files"
+msgstr "Základní adresář pro uložení hudebních souborů"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
+#. i18n: ectx: label, entry (upload), group (general)
+#: audex.kcfg:58 widgets/remoteserversettingswidgetUI.ui:23
+msgid "Upload files to server"
+msgstr "Odeslat soubory na server"
+
+#. i18n: ectx: label, entry (url), group (general)
+#: audex.kcfg:62
+msgid "URL of server"
+msgstr "Adresa serveru"
+
+#. i18n: ectx: Menu (file)
+#: audexui.rc:6
+msgid "&Audex"
+msgstr "&Audex"
+
+#. i18n: ectx: Menu (cddb)
+#: audexui.rc:13
+msgid "&CDDB"
+msgstr "&CDDB"
+
+#. i18n: ectx: Menu (titlecorrectiontools)
+#: audexui.rc:18
+msgctxt "@title:menu"
+msgid "Title Correction Tools"
+msgstr "Nástroj na opravu názvů"
+
+#. i18n: ectx: Menu (settings)
+#: audexui.rc:25
+msgid "&Settings"
+msgstr "&Nastavení"
+
+#: core/audex.cpp:112
+msgid "No profile selected. Operation abort."
+msgstr "Nebyl vybrán žádný profil. Operace byla zrušena."
+
+#: core/audex.cpp:129
 #, kde-format
-msgid "Ripping Track 0 of %1"
-msgstr "Získává se stopa  0 z %1"
+msgid "Start ripping and encoding with profile \"%1\"..."
+msgstr "Začít získávání a kódování s profilem \"%1\"..."
 
-#: dialogs/extractingprogressdialog.cpp:50
+#: core/audex.cpp:545 core/audex.cpp:605
 #, kde-format
-msgid "Encoding Track 0 of %1"
-msgstr "Převádí se stopa  0 z %1"
+msgid "Can't find path \"%1\"."
+msgstr "Nelze najít cestu \"%1\"."
 
-#: dialogs/extractingprogressdialog.cpp:168
-msgid "Do you really want to cancel?"
-msgstr "Opravdu chcete zrušit získávání stop?"
+#: core/audex.cpp:545 core/audex.cpp:554 core/audex.cpp:605 core/audex.cpp:614
+msgid "Please check your path (write access?)"
+msgstr "Prosím, zkontrolujte svou cestu (práva k zápisu?)"
 
-#: dialogs/extractingprogressdialog.cpp:169
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: dialogs/extractingprogressdialog.cpp:187
-msgid "Ripping Track"
-msgstr "Získává se stopa"
-
-#: dialogs/extractingprogressdialog.cpp:187
+#: core/audex.cpp:554 core/audex.cpp:614
 #, kde-format
-msgid "Ripping Track %1 of %2"
-msgstr "Získává se stopa %1 z %2"
+msgid "Unable to create folder \"%1\"."
+msgstr "Nelze vytvořit složku \"%1\"."
 
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:165
-#. i18n: ectx: property (text), widget (QLabel, label_overall)
-#: dialogs/extractingprogressdialog.cpp:188
-#: dialogs/extractingprogressdialog.cpp:193 rc.cpp:98
-msgid "Overall Progress"
-msgstr "Celkový postup"
-
-#: dialogs/extractingprogressdialog.cpp:188
+#: core/audex.cpp:557 core/audex.cpp:617
 #, kde-format
-msgid "Overall Progress (Ripping Track %1 of %2)"
-msgstr "Celkový postup (při získávání stopy %1 z %2)"
+msgid "Folder \"%1\" successfully created."
+msgstr "Složka \"%1\" byla úspěšně vytvořena."
 
-#: dialogs/extractingprogressdialog.cpp:204
-msgid "Waiting for an encoding job..."
-msgstr "Čeká se na úkoly spojené se zakódováním..."
-
-#: dialogs/extractingprogressdialog.cpp:207
-msgid "Encoding Track"
-msgstr "Kóduje se stopa"
-
-#: dialogs/extractingprogressdialog.cpp:207
+#: core/audex.cpp:560 core/audex.cpp:620
 #, kde-format
-msgid "Encoding Track %1 of %2"
-msgstr "Převádí se stopa  %1 z %2"
+msgid "Folder \"%1\" already exists."
+msgstr "Složka \"%1\" již existuje."
 
-#: dialogs/extractingprogressdialog.cpp:254
-#: dialogs/extractingprogressdialog.cpp:261
-#, c-format, kde-format
-msgid "Speed: %1x"
-msgstr "Rychlost: %1x"
-
-#: dialogs/extractingprogressdialog.cpp:274
-msgid "All jobs successfully done."
-msgstr "Všechny úkoly byly úspěšně dokončeny."
-
-#: dialogs/extractingprogressdialog.cpp:278
-#: dialogs/extractingprogressdialog.cpp:279
-#: dialogs/extractingprogressdialog.cpp:280
-msgid "Finished!"
-msgstr "Dokončeno!"
-
-#: dialogs/extractingprogressdialog.cpp:285
-msgid "At least one job failed."
-msgstr "Přinejmenším provedení jednoho úkolu selhalo."
-
-#: dialogs/extractingprogressdialog.cpp:289
-#: dialogs/extractingprogressdialog.cpp:290
-#: dialogs/extractingprogressdialog.cpp:291
-msgid "Failed!"
-msgstr "Selhalo!"
-
-#: dialogs/extractingprogressdialog.cpp:307
-msgid "Show encoding log..."
-msgstr "Ukázat zápis o průběhu kódování..."
-
-#: dialogs/extractingprogressdialog.cpp:311
-msgid "Show rip log..."
-msgstr "Ukázat zápis o průběhu získávání..."
-
-#: dialogs/extractingprogressdialog.cpp:347
+#: core/audex.cpp:567
+#, kde-format
 msgid ""
-"Ripping speed was extremly slow for the last 5 minutes.\n"
-"Due to extraction quality, audex is configured to never skip any detected "
-"error. If your disc is really broken extraction may never end!\n"
-"In some cases, it might be that only this drive has difficulty ripping audio "
-"data from this disc. Maybe try another one.\n"
-"\n"
-"However, do you want to continue extraction?"
+"Free space on \"%1\" is less than 200 MiB. Problems with low space possible."
 msgstr ""
-"Rychlost získávání dat je posledních pět minut neobyčejně pomalá.\n"
-"Kvůli zachování kvality získávaných dat je Audex nastaven tak, aby "
-"jakoukoliv chybu nikdy nepřeskočil. Takže pokud je Váš disk opravdu "
-"poškozen, získávání dat možná nikdy neskončí.\n"
-"Někdy se stává, že jen tato mechanika nemůže získávat zvuková data z daného "
-"disku. Možná byste měl vyzkoušet jinou.\n"
-"\n"
-"Nicméně otázka zní, zda chcete pokračovat v získávání dat?"
+"Na \"%1\" je méně než 200 MiB volného místa. Možná se objeví potíže kvůli "
+"nedostatku místa."
 
-#: dialogs/extractingprogressdialog.cpp:350
-msgid "Cancel extraction"
-msgstr "Zrušit získávání"
+#: core/audex.cpp:573 core/audex.cpp:633
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Overwriting."
+msgstr "Varování: Soubor \"%1\" již existuje. Přepisuje se."
 
-#: dialogs/extractingprogressdialog.cpp:359
-msgid "Encoding protocol"
-msgstr "Protokol o zakódování"
+#: core/audex.cpp:575 core/audex.cpp:635 core/audex.cpp:729 core/audex.cpp:762
+#: core/audex.cpp:811 core/audex.cpp:851 core/audex.cpp:890 core/audex.cpp:929
+#, kde-format
+msgid "Warning! File \"%1\" already exists. Skipping."
+msgstr "Varování: Soubor \"%1\" již existuje. Přeskakuje se."
 
-#: dialogs/extractingprogressdialog.cpp:365
-msgid "Ripping protocol"
-msgstr "Protokol o získávání"
+#: core/audex.cpp:627
+#, kde-format
+msgid ""
+"Free space on \"%1\" is less than 800 MiB. Problems with low space possible."
+msgstr ""
+"Na \"%1\" je méně než 800 MiB volného místa. Možná se objeví potíže kvůli "
+"nedostatku místa."
+
+#: core/audex.cpp:654
+#, kde-format
+msgid "Temporary folder \"%1\" error."
+msgstr "Chyba složky s dočasnými soubory \"%1\"."
+
+#: core/audex.cpp:654
+msgid "Please check."
+msgstr "Zkontrolujte, prosím."
+
+#: core/audex.cpp:660
+#, kde-format
+msgid ""
+"Free space on temporary folder \"%1\" is less than 800 MiB. Problems with "
+"low space possible."
+msgstr ""
+"Ve složce s dočasnými soubory \"%1\" je méně než 800 MB volného místa. Možná "
+"se objeví potíže kvůli nedostatku místa."
+
+#: core/audex.cpp:662
+#, kde-format
+msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
+msgstr ""
+"Složka s dočasnými soubory \"%1\" potřebuje přinejmenším 200 MB volného "
+"místa."
+
+#: core/audex.cpp:662
+msgid "Please free space or set another path."
+msgstr "Prosím, uvolněte místo nebo nastavte jinou cestu."
+
+#: core/audex.cpp:696
+msgid "Eject CD tray"
+msgstr "Vysunout CD mechaniku"
+
+#: core/audex.cpp:734
+#, kde-format
+msgid "Cover \"%1\" successfully saved."
+msgstr "Obal \"%1\" byl úspěšně uložen."
+
+#: core/audex.cpp:788
+#, kde-format
+msgid "Playlist \"%1\" successfully created."
+msgstr "Seznam skladeb \"%1\" byl úspěšně vytvořen."
+
+#: core/audex.cpp:824
+#, kde-format
+msgid "Infofile \"%1\" successfully created."
+msgstr "Soubor s informacemi \"%1\" byl úspěšně vytvořen."
+
+#: core/audex.cpp:872
+#, kde-format
+msgid "Hashlist \"%1\" successfully created."
+msgstr "Hašový seznam \"%1\" byl úspěšně vytvořen."
+
+#: core/audex.cpp:903
+msgid "Discid successfully stored."
+msgstr "ID disku bylo úspěšně uloženo."
+
+#: core/audex.cpp:943
+#, kde-format
+msgid "Cue sheet \"%1\" successfully created."
+msgstr "List CUE \"%1\" byl úspěšně vytvořen."
 
 #: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:493
 msgid "Edit Data"
 msgstr "Upravit data"
 
-#: dialogs/profiledatasinglefiledialog.cpp:32
-#, fuzzy
-#| msgid "Cover Settings"
-msgid "Single File Settings"
-msgstr "Nastavení obalů"
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
+#: dialogs/cddaheaderdatawidgetUI.ui:16 models/cddamodel.cpp:947
+msgid "Various Artists"
+msgstr "Různí umělci"
 
-#: dialogs/coverbrowserdialog.cpp:40
-msgid "Searching for covers..."
-msgstr "Vyhledávají se obaly..."
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
+#: dialogs/cddaheaderdatawidgetUI.ui:23
+msgid "Multi CD"
+msgstr "Více CD"
 
-#: dialogs/coverbrowserdialog.cpp:75
-#, kde-format
-msgid "Fetching Thumbnail %1 / %2..."
-msgstr "Natahuje se obal %1 / %2..."
+#. i18n: ectx: property (text), widget (QLabel, label_artist)
+#: dialogs/cddaheaderdatawidgetUI.ui:49
+msgid "Artist:"
+msgstr "Umělec:"
 
-#: dialogs/coverbrowserdialog.cpp:79
-#, kde-format
-msgid "Found %1 Covers"
-msgstr "Byly nalezeny %1 obaly"
+#. i18n: ectx: property (text), widget (QLabel, label_title)
+#: dialogs/cddaheaderdatawidgetUI.ui:65
+msgid "Title:"
+msgstr "Název:"
 
-#: dialogs/coverbrowserdialog.cpp:84
-msgid "No Covers Found"
-msgstr "Nebyly nalezeny žádné obaly"
+#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
+#: dialogs/cddaheaderdatawidgetUI.ui:75
+msgid "CD Number:"
+msgstr "Číslo CD:"
 
-#: dialogs/coverbrowserdialog.cpp:104
-msgid "Fetch Cover From Google"
-msgstr "Natáhnout obrázek obalu ze služby Google"
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: dialogs/cddaheaderdatawidgetUI.ui:89
+msgid "Track Offset:"
+msgstr "Posun stopy:"
 
-#: dialogs/profiledatacoverdialog.cpp:37
-msgid "Cover Settings"
-msgstr "Nastavení obalů"
+#. i18n: ectx: property (text), widget (QLabel, label_genre)
+#: dialogs/cddaheaderdatawidgetUI.ui:105
+msgid "Genre:"
+msgstr "Žánr:"
 
-#: dialogs/profiledatacoverdialog.cpp:54
-msgid "JPEG (Joint Photographic Experts Group)"
-msgstr "JPEG (Joint Photographic Experts Group)"
+#. i18n: ectx: property (text), widget (QLabel, label_year)
+#: dialogs/cddaheaderdatawidgetUI.ui:128
+msgid "Year:"
+msgstr "Rok:"
 
-#: dialogs/profiledatacoverdialog.cpp:55
-msgid "PNG (Portable Network Graphics)"
-msgstr "PNG (Portable Network Graphics)"
-
-#: dialogs/profiledatacoverdialog.cpp:56
-msgid "BMP (Windows Bitmap)"
-msgstr "BMP (Windows Bitmap)"
-
-#: dialogs/profiledatadialog.cpp:97
-msgid "Modify Profile"
-msgstr "Pozměnit profil"
-
-#: dialogs/profiledatadialog.cpp:180
-msgid "Create Profile"
-msgstr "Vytvořit profil"
-
-#: dialogs/profiledatadialog.cpp:184
-msgid "New Profile"
-msgstr "Nový profil"
-
-#: dialogs/patternwizarddialog.cpp:30
-msgid "Filename Pattern Wizard"
-msgstr "Průvodce vzory názvů souborů"
-
-#: dialogs/patternwizarddialog.cpp:83
+#. i18n: ectx: property (text), widget (QLabel, label_extdata)
+#: dialogs/cddaheaderdatawidgetUI.ui:155
 msgid ""
-"<p>The following variables will be replaced with their particular meaning in "
-"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
-"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
-"the CD. If your CD is a compilation, then this tag represents the title in "
-"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
-"is a compilation, then this tag represents the subtitle in most cases.</td></"
-"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
-"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
-"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
-"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
-"<b>not</b> set for the current CD, than this value will be just empty.</td></"
-"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
-"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
-"td><td>The track title. Normally each track on a CD has its own title, which "
-"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
-"First track is 1.</td></tr><tr><td>$suffix</td><td>The filename extension.</"
-"td></tr></table></p>"
+"Additional\n"
+"Information:"
 msgstr ""
+"Doplňkové\n"
+"informace:"
 
-#: dialogs/patternwizarddialog.cpp:101
-msgid ""
-"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
-"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
-"that the tracknumber will be forced to a length of 2 digits. If the number "
-"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
-"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
-"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
-"lowercased. This works with the other variables, too.</p><pre>${artist left="
-"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
-"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
-"overview of parameters go to the Audex webpage.</i></b></p>"
-msgstr ""
+#. i18n: ectx: property (text), widget (QLabel, label_discid)
+#: dialogs/cddaheaderdatawidgetUI.ui:171
+msgid "Disc ID:"
+msgstr "Číslo disku"
+
+#. i18n: ectx: property (text), widget (QLabel, label_discid_2)
+#: dialogs/cddaheaderdatawidgetUI.ui:178
+msgid "0x00000000"
+msgstr "0x00000000"
 
 #: dialogs/commandwizarddialog.cpp:30
 msgid "Command Pattern Wizard"
 msgstr "Pomocník pro vzory příkazů"
 
-#: dialogs/commandwizarddialog.cpp:85
+#: dialogs/commandwizarddialog.cpp:86
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
 "every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
@@ -285,14 +319,36 @@ msgid ""
 "td><td>The track title. Normally each track on a CD has its own title, which "
 "is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
 "First track is 1.</td></tr><tr><td>$cover</td><td>The cover file.</td></"
-"tr><tr><td>$i</td><td>The temporary WAV file (input file) created by Audex "
-"from CD audio track. You can use it as a normal input file for your command "
-"line encoder.</td></tr><tr><td>$o</td><td>The full output filename and path "
-"(output file). Use it as the output for your command line encoder.</td></"
-"tr></table></p>"
+"tr><tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</"
+"td></tr><tr><td>$i</td><td>The temporary WAV file (input file) created by "
+"Audex from CD audio track. You can use it as a normal input file for your "
+"command line encoder.</td></tr><tr><td>$o</td><td>The full output filename "
+"and path (output file). Use it as the output for your command line encoder.</"
+"td></tr><tr><td>$audex</td><td>Audex name and version.</td></tr><tr><td>"
+"$encoder</td><td>Encoder name and version.</td></tr></table></p>"
 msgstr ""
+"<p>Následující proměnné budou nahrazeny jejich zvláštním významem v názvu "
+"každé skladby.</p><p><table border=\"1\"><tr><th><em>Proměnná</em></"
+"th><th><em>Popis</em></th></tr><tr><td>$artist</td><td>Umělec CD. Pokud je "
+"Vaše CD sbírkou, pak tato značka ve většině případů představuje název.</td></"
+"tr><tr><td>$title</td><td>Název CD. Pokud je Vaše CD sbírkou, pak tato "
+"značka ve většině případů představuje pod název.</td></tr><tr><td>$date</"
+"td><td>Datum vydání CD. V téměř všech případech je to rok.</td></tr><tr><td>"
+"$genre</td><td>Žánr CD.</td></tr><tr><td>$cdno</td><td>Číslo CD v albu s "
+"více CD. Sbírky často sestávají z několika CD. <i>Poznámka:</i> Pokud "
+"příznak více CD <b>není</b> nastaven pro nynější CD, potom bude tato hodnota "
+"prostě prázdná.</td></tr><tr><td>$tartist</td><td>Toto je umělec každé "
+"jednotlivé skladby. Je to obzvláště užitečné u CD kompilací.</td></"
+"tr><tr><td>$ttitle</td><td>Název stopy. Běžně má každá stopa na CD svůj "
+"vlastní název, což je název písně.</td></tr><tr><td>$trackno</td><td>Číslo "
+"skladby. První stopa je 1.</td></tr><tr><td>$cover</td><td>Soubor s obalem.</"
+"td></tr><tr><td>$i</td><td>Dočasný soubor WAV (vstupní soubor) vytvořený "
+"Audexem ze zvukové stopy na CD. Můžete jej použít jako běžný vstupní soubor "
+"pro svůj kodér v příkazovém řádku.</td></tr><tr><td>$o</td><td>Celý název "
+"výstupního souboru a cesta (výstupní soubor). Použijte jej jako výstup pro "
+"svůj kodér v příkazovém řádku.</td></tr></table></p>"
 
-#: dialogs/commandwizarddialog.cpp:105
+#: dialogs/commandwizarddialog.cpp:109
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>${cover format=\"JPG"
 "\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>A filename of a JPG image "
@@ -308,14 +364,444 @@ msgid ""
 "Works with all commandline variables.</p><hr /><p><b><i>To have a complete "
 "overview of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
+"<p>Proměnné v Audexu mohou mít parametry. Např.</p><pre>${cover format=\"JPG "
+"\" x=\"300\" y=\"300\" preparam=\"-ti \"}</pre><p>Bude vložen název souboru "
+"obrázku JPG o velikosti 300x300. Pokud není nastavena velikost, převezme se "
+"velikost z původního souboru s obalem. Pokud není nastaven žádný obal, "
+"nebude tato proměnná nahrazena ničím, jinak bude vloženo něco jako <i>/tmp/"
+"cover.123.jpg</i>. Možné jsou formáty \"JPG\", \"PNG\" a \"GIF\" (Výchozí: "
+"\"JPG\").</p>\n"
+"<p><i><b>Poznámka:</b> LAME vyřazuje soubory s obaly, které jsou větší než "
+"128 KiB. Mějte to, prosím, na paměti, když nastavujete formát a velikost.</"
+"i></p><hr /><p>\"preparam\" a \"postparam\" určuje parametry vložené před "
+"(pre) nebo za (post) proměnnou. Tyto hodnoty jsou ukázány <b>jen</b> pokud "
+"je nastavena hodnota. Pracuje se všemi proměnnými příkazového řádku.</p><hr /"
+"><p><b><i>Pro úplný přehled o parametrech, jděte na stránky Audexu.</i></b></"
+"p>"
 
-#: dialogs/protocoldialog.cpp:33
-msgid "Save"
-msgstr "Uložit"
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/commandwizardwidgetUI.ui:26 dialogs/patternwizardwidgetUI.ui:26
+msgid "Album Example:"
+msgstr "Příklad alba:"
 
-#: dialogs/protocoldialog.cpp:62
-msgid "Save "
-msgstr "Uložit"
+#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
+#: dialogs/commandwizardwidgetUI.ui:143 dialogs/patternwizardwidgetUI.ui:140
+msgid "Sampler Example:"
+msgstr "Příklad ukázky"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
+#: dialogs/commandwizardwidgetUI.ui:269
+msgid "About commandline schemes"
+msgstr "O schématech příkazového řádku"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
+#: dialogs/commandwizardwidgetUI.ui:276 dialogs/patternwizardwidgetUI.ui:273
+#: dialogs/simplepatternwizardwidgetUI.ui:162
+msgid "About parameters"
+msgstr "O parametrech"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
+#: dialogs/commandwizardwidgetUI.ui:300 dialogs/patternwizardwidgetUI.ui:300
+#: dialogs/simplepatternwizardwidgetUI.ui:189
+msgid "Album Artist"
+msgstr "Umělec alba"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
+#: dialogs/commandwizardwidgetUI.ui:322 dialogs/patternwizardwidgetUI.ui:322
+#: dialogs/simplepatternwizardwidgetUI.ui:211
+msgid "Album Title"
+msgstr "Název alba"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
+#: dialogs/commandwizardwidgetUI.ui:344 dialogs/patternwizardwidgetUI.ui:344
+msgid "Track Artist"
+msgstr "Umělec stopy"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
+#: dialogs/commandwizardwidgetUI.ui:366 dialogs/patternwizardwidgetUI.ui:366
+msgid "Track Title"
+msgstr "Název stopy"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
+#: dialogs/commandwizardwidgetUI.ui:376 dialogs/patternwizardwidgetUI.ui:376
+msgid "Track #"
+msgstr "Stopa #"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
+#: dialogs/commandwizardwidgetUI.ui:386 dialogs/patternwizardwidgetUI.ui:386
+#: dialogs/simplepatternwizardwidgetUI.ui:231
+msgid "CD #"
+msgstr "CD #"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_nooftracks)
+#: dialogs/commandwizardwidgetUI.ui:393 dialogs/patternwizardwidgetUI.ui:436
+#: dialogs/simplepatternwizardwidgetUI.ui:255
+msgid "# of Tracks"
+msgstr "# ze skladeb"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
+#: dialogs/commandwizardwidgetUI.ui:403 dialogs/patternwizardwidgetUI.ui:396
+#: dialogs/simplepatternwizardwidgetUI.ui:241
+msgid "Date"
+msgstr "Datum"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
+#: dialogs/commandwizardwidgetUI.ui:413 dialogs/patternwizardwidgetUI.ui:406
+#: dialogs/simplepatternwizardwidgetUI.ui:221
+msgid "Genre"
+msgstr "Žánr"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
+#: dialogs/commandwizardwidgetUI.ui:423
+msgid "Cover File"
+msgstr "Soubor obalu"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
+#: dialogs/commandwizardwidgetUI.ui:433
+msgid "Input File"
+msgstr "Vstupní soubor"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
+#: dialogs/commandwizardwidgetUI.ui:443
+msgid "Output File"
+msgstr "Výstupní soubor"
+
+#: dialogs/coverbrowserdialog.cpp:40
+msgid "Searching for covers..."
+msgstr "Vyhledávají se obaly..."
+
+#: dialogs/coverbrowserdialog.cpp:75
+#, kde-format
+msgid "Fetching Thumbnail %1 / %2..."
+msgstr "Natahuje se obal %1 / %2..."
+
+#: dialogs/coverbrowserdialog.cpp:79
+#, kde-format
+msgid "Found 1 Cover"
+msgid_plural "Found %1 Covers"
+msgstr[0] "Byl nalezen 1 obal"
+msgstr[1] "Byly nalezeny %1 obaly"
+msgstr[2] "Bylo nalezeno %1 obalů"
+
+#: dialogs/coverbrowserdialog.cpp:84
+msgid "No Covers Found"
+msgstr "Nebyly nalezeny žádné obaly"
+
+#: dialogs/coverbrowserdialog.cpp:104
+msgid "Fetch Cover From Google"
+msgstr "Natáhnout obrázek obalu ze služby Google"
+
+#: dialogs/extractingprogressdialog.cpp:29
+msgid "Rip And Encode"
+msgstr "Získat a zakódovat"
+
+#: dialogs/extractingprogressdialog.cpp:43
+#: dialogs/extractingprogressdialog.cpp:194
+msgid "Ripping whole CD as single track"
+msgstr "Celé CD se získává jako jedna skladba"
+
+#: dialogs/extractingprogressdialog.cpp:44
+msgid "Encoding"
+msgstr "Převádění"
+
+#: dialogs/extractingprogressdialog.cpp:48
+#, kde-format
+msgid "Ripping Track 0 of %1"
+msgstr "Získává se stopa  0 z %1"
+
+#: dialogs/extractingprogressdialog.cpp:49
+#, kde-format
+msgid "Encoding Track 0 of %1"
+msgstr "Převádí se stopa  0 z %1"
+
+#: dialogs/extractingprogressdialog.cpp:168
+msgid "Do you really want to cancel?"
+msgstr "Opravdu si přejete zrušit získávání stop?"
+
+#: dialogs/extractingprogressdialog.cpp:169
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: dialogs/extractingprogressdialog.cpp:187
+msgid "Ripping Track"
+msgstr "Získává se stopa"
+
+#: dialogs/extractingprogressdialog.cpp:187
+#, kde-format
+msgid "Ripping Track %1 of %2"
+msgstr "Získává se stopa %1 z %2"
+
+#. i18n: ectx: property (text), widget (QLabel, label_overall)
+#: dialogs/extractingprogressdialog.cpp:188
+#: dialogs/extractingprogressdialog.cpp:195
+#: dialogs/extractingprogresswidgetUI.ui:165
+msgid "Overall Progress"
+msgstr "Celkový postup"
+
+#: dialogs/extractingprogressdialog.cpp:188
+#, kde-format
+msgid "Overall Progress (Ripping Track %1 of %2)"
+msgstr "Celkový postup (při získávání stopy %1 z %2)"
+
+#: dialogs/extractingprogressdialog.cpp:206
+msgid "Waiting for an encoding job..."
+msgstr "Čeká se na úkoly spojené se zakódováním..."
+
+#: dialogs/extractingprogressdialog.cpp:209
+msgid "Encoding Track"
+msgstr "Převádí se stopa"
+
+#: dialogs/extractingprogressdialog.cpp:209
+#, kde-format
+msgid "Encoding Track %1 of %2"
+msgstr "Převádí se stopa  %1 z %2"
+
+#: dialogs/extractingprogressdialog.cpp:256
+#: dialogs/extractingprogressdialog.cpp:263
+#, c-format, kde-format
+msgid "Speed: %1x"
+msgstr "Rychlost: %1x"
+
+#: dialogs/extractingprogressdialog.cpp:278
+msgid "All jobs successfully done."
+msgstr "Všechny úkoly byly úspěšně dokončeny."
+
+#: dialogs/extractingprogressdialog.cpp:282
+#: dialogs/extractingprogressdialog.cpp:283
+#: dialogs/extractingprogressdialog.cpp:284
+msgid "Finished!"
+msgstr "Dokončeno!"
+
+#: dialogs/extractingprogressdialog.cpp:289
+msgid "At least one job failed."
+msgstr "Přinejmenším provedení jednoho úkolu selhalo."
+
+#: dialogs/extractingprogressdialog.cpp:293
+#: dialogs/extractingprogressdialog.cpp:294
+#: dialogs/extractingprogressdialog.cpp:295
+msgid "Failed!"
+msgstr "Selhalo!"
+
+#: dialogs/extractingprogressdialog.cpp:311
+msgid "Show encoding log..."
+msgstr "Ukázat zápis o průběhu převádění..."
+
+#: dialogs/extractingprogressdialog.cpp:315
+msgid "Show rip log..."
+msgstr "Ukázat zápis o průběhu získávání..."
+
+#: dialogs/extractingprogressdialog.cpp:351
+msgid ""
+"Ripping speed was extremly slow for the last 5 minutes.\n"
+"Due to extraction quality, audex is configured to never skip any detected "
+"error. If your disc is really broken extraction may never end!\n"
+"In some cases, it might be that only this drive has difficulty ripping audio "
+"data from this disc. Maybe try another one.\n"
+"\n"
+"However, do you want to continue extraction?"
+msgstr ""
+"Rychlost získávání dat je posledních pět minut neobyčejně pomalá.\n"
+"Kvůli zachování kvality získávaných dat je Audex nastaven tak, aby "
+"jakoukoliv chybu nikdy nepřeskočil. Takže pokud je Váš disk opravdu "
+"poškozen, získávání dat možná nikdy neskončí.\n"
+"Někdy se stává, že jen tato mechanika nemůže získávat zvuková data z daného "
+"disku. Možná byste měl vyzkoušet jinou.\n"
+"\n"
+"Nicméně otázka zní, zda si přejete pokračovat v získávání dat?"
+
+#: dialogs/extractingprogressdialog.cpp:354
+msgid "Cancel extraction"
+msgstr "Zrušit získávání"
+
+#: dialogs/extractingprogressdialog.cpp:363
+msgid "Encoding protocol"
+msgstr "Protokol o převodu"
+
+#: dialogs/extractingprogressdialog.cpp:369
+msgid "Ripping protocol"
+msgstr "Protokol o získávání"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:30
+msgid "Show/hide details"
+msgstr "Ukázat/Skrýt podrobnosti"
+
+#. i18n: ectx: property (text), widget (QToolButton, details_button)
+#: dialogs/extractingprogresswidgetUI.ui:33
+msgid "..."
+msgstr "..."
+
+#. i18n: ectx: property (text), widget (QLabel, label_extracting)
+#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
+#: dialogs/extractingprogresswidgetUI.ui:73
+#: dialogs/extractingprogresswidgetUI.ui:183
+msgid "Ripping Track 8 of 12"
+msgstr "Získává se stopa 8 z 12"
+
+#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
+#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:86
+#: dialogs/extractingprogresswidgetUI.ui:132
+msgid "Speed: 0x"
+msgstr "Rychlost: 0x"
+
+#. i18n: ectx: property (text), widget (QLabel, label_encoding)
+#: dialogs/extractingprogresswidgetUI.ui:119
+msgid "Encoding Track 8 of 12"
+msgstr "Převádí se stopa 8 z 12"
+
+#: dialogs/patternwizarddialog.cpp:30
+msgid "Filename Pattern Wizard"
+msgstr "Průvodce vzory názvů souborů"
+
+#: dialogs/patternwizarddialog.cpp:84
+msgid ""
+"<p>The following variables will be replaced with their particular meaning in "
+"every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
+"th><th><em>Description</em></th></tr><tr><td>$artist</td><td>The artist of "
+"the CD. If your CD is a compilation, then this tag represents the title in "
+"most cases.</td></tr><tr><td>$title</td><td>The title of the CD. If your CD "
+"is a compilation, then this tag represents the subtitle in most cases.</td></"
+"tr><tr><td>$date</td><td>The release date of the CD. In almost all cases "
+"this is the year.</td></tr><tr><td>$genre</td><td>The genre of the CD.</td></"
+"tr><tr><td>$cdno</td><td>The CD number of a multi-CD album. Often "
+"compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
+"<b>not</b> set for the current CD, than this value will be just empty.</td></"
+"tr><tr><td>$tartist</td><td>This is the artist of every individual track. It "
+"is especially useful on compilation CDs.</td></tr><tr><td>$ttitle</"
+"td><td>The track title. Normally each track on a CD has its own title, which "
+"is the name of the song.</td></tr><tr><td>$trackno</td><td>The track number. "
+"First track is 1.</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$suffix</td><td>The filename "
+"extension.</td></tr><tr><td>$audex</td><td>Audex name and version.</td></"
+"tr></table></p>"
+msgstr ""
+"<p>Následující proměnné budou nahrazeny jejich zvláštním významem v názvu "
+"každé skladby.</p><p><table border=\"1\"><tr><th><em>Proměnná</em></"
+"th><th><em>Popis</em></th></tr><tr><td>$artist</td><td>Umělec CD. Pokud je "
+"Vaše CD sbírkou, pak tato značka ve většině případů představuje název.</td></"
+"tr><tr><td>$title</td><td>Název CD. Pokud je Vaše CD sbírkou, pak tato "
+"značka ve většině případů představuje pod název.</td></tr><tr><td>$date</"
+"td><td>Datum vydání CD. V téměř všech případech je to rok.</td></tr><tr><td>"
+"$genre</td><td>Žánr CD.</td></tr><tr><td>$cdno</td><td>Číslo CD v albu s "
+"více CD. Sbírky často sestávají z několika CD. <i>Poznámka:</i> Pokud "
+"příznak více CD <b>není</b> nastaven pro nynější CD, potom bude tato hodnota "
+"prostě prázdná.</td></tr><tr><td>$tartist</td><td>Toto je umělec každé "
+"jednotlivé skladby. Je to obzvláště důležité na CD kompilacích.</td></"
+"tr><tr><td>$ttitle</td><td>Název skladby. Běžně má každá stopa na CD svůj "
+"vlastní název, což je název písně.</td></tr><tr><td>$trackno</td><td>Číslo "
+"stopy. První stopa je 1.</td></tr><tr><td>$suffix</td><td>Přípona názvu "
+"souboru.</td></tr></table></p>"
+
+#: dialogs/patternwizarddialog.cpp:104
+msgid ""
+"<p>Variables in Audex can have parameters. E.g.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>This means, "
+"that the tracknumber will be forced to a length of 2 digits. If the number "
+"is less than 10, it will be filled up with \"0\".</p><pre>$artist/${title "
+"lowercase=\"true\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase="
+"\"true\"}/$trackno - $ttile.$suffix</pre><p>The title will be uppercased or "
+"lowercased. This works with the other variables, too.</p><pre>${artist left="
+"\"1\"}/$artist/$title/$trackno - $ttile.$suffix</pre><p>Take one character "
+"from the left, which is the first one.</p><hr /><p><b><i>To have a complete "
+"overview of parameters go to the Audex webpage.</i></b></p>"
+msgstr ""
+"<p>Proměnné v Audexu mohou mít parametry. Např.</p><pre>$artist/$title/"
+"${trackno length=\"2\" fillchar=\"0\"} - $ttile.$suffix</pre><p>Toto "
+"znamená, že číslo CD bude mít nuceně délku 2 číslic. Pokud je číslo menší "
+"než 10, bude vyplněno číslicí \"0\".</p><pre>$artist/${title lowercase=\"true"
+"\"}/$trackno - $ttile.$suffix<br />$artist/${title uppercase=\"true\"}/"
+"$trackno - $ttile.$suffix</pre><p>Název bude psán buď velkými nebo malými "
+"písmeny. Pracuje to i s jinými proměnnými.</p><pre>${artist left=\"1\"}/"
+"$artist/$title/$trackno - $ttile.$suffix</pre><p>Vzít jeden znak zleva, "
+"který je první.</p><hr /><p><b><i>Pro úplný přehled parametrů, jděte na "
+"stránky Audexu.</i></b></p>"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
+#: dialogs/patternwizardwidgetUI.ui:263
+msgid "About filename schemes"
+msgstr "O schématech názvů souborů"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
+#: dialogs/patternwizardwidgetUI.ui:416
+#: dialogs/simplepatternwizardwidgetUI.ui:248
+msgid "Suffix"
+msgstr "Přípona:"
+
+#: dialogs/profiledatacoverdialog.cpp:37
+msgid "Cover Settings"
+msgstr "Nastavení obalů"
+
+#: dialogs/profiledatacoverdialog.cpp:54
+msgid "JPEG (Joint Photographic Experts Group)"
+msgstr "JPEG (Joint Photographic Experts Group)"
+
+#: dialogs/profiledatacoverdialog.cpp:55
+msgid "PNG (Portable Network Graphics)"
+msgstr "PNG (Portable Network Graphics)"
+
+#: dialogs/profiledatacoverdialog.cpp:56
+msgid "BMP (Windows Bitmap)"
+msgstr "BMP (Windows Bitmap)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
+#: dialogs/profiledatacoverwidgetUI.ui:23
+msgid "Scale before store:"
+msgstr "Před uložením škálovat:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_x)
+#: dialogs/profiledatacoverwidgetUI.ui:49
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), widget (QLabel, label_format)
+#: dialogs/profiledatacoverwidgetUI.ui:75
+#: dialogs/profiledatahashlistwidgetUI.ui:23
+#: dialogs/profiledataplaylistwidgetUI.ui:23
+msgid "Format:"
+msgstr "Formát:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatacoverwidgetUI.ui:91
+msgid "Cover pattern:"
+msgstr "Vzor pro obal:"
+
+#: dialogs/profiledatacuesheetdialog.cpp:32
+msgid "Cue Sheet Settings"
+msgstr "Nastavení listů CUE"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatacuesheetwidgetUI.ui:23
+#: dialogs/profiledatahashlistwidgetUI.ui:39
+#: dialogs/profiledataplaylistwidgetUI.ui:39
+#: dialogs/profiledatasinglefilewidgetUI.ui:23
+msgid "Name/Pattern:"
+msgstr "Název/Vzor:"
+
+#: dialogs/profiledatadialog.cpp:97
+msgid "Modify Profile"
+msgstr "Pozměnit profil"
+
+#: dialogs/profiledatadialog.cpp:180
+msgid "Create Profile"
+msgstr "Vytvořit profil"
+
+#: dialogs/profiledatadialog.cpp:184
+msgid "New Profile"
+msgstr "Nový profil"
+
+#: dialogs/profiledatahashlistdialog.cpp:33
+#: dialogs/profiledataplaylistdialog.cpp:33
+msgid "Playlist Settings"
+msgstr "Nastavení seznamu skladeb"
+
+#: dialogs/profiledatahashlistdialog.cpp:40
+msgid "SFV (Simple File Verification)"
+msgstr "SFV (jednoduché ověření souboru - Simple File Verification)"
+
+#: dialogs/profiledatahashlistdialog.cpp:41
+msgid "MD5 (Message-Digest algorithm 5)"
+msgstr "MD5 (algoritmus pro obsah zpráv 5)"
 
 #: dialogs/profiledatainfodialog.cpp:34
 msgid "Info Settings"
@@ -326,83 +812,6 @@ msgid "Usable Variables For Text Template"
 msgstr "Proměnné použitelné pro předlohu s textem"
 
 #: dialogs/profiledatainfodialog.cpp:106
-#, fuzzy
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li "
-#| "{ white-space: pre-wrap; }</style></head><body>Variables will be replaced "
-#| "by a special value and can even contain attributes.<br />For example the "
-#| "variable<div style=\"font-family:monospace; background: #b3c1d6; color: "
-#| "black\"><pre>$artist</pre></div>or the equivalent<br /><div style=\"font-"
-#| "family:monospace; background: #b3c1d6; color: black\"><pre>${artist}</"
-#| "pre></div>will be replaced by the relevant artist of the CD.<br />Also, "
-#| "variables can have attributes. For instance:<div style=\"font-family:"
-#| "monospace; background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-"
-#| "MM-dd\" }</pre></div>This means that the current date is printed. To "
-#| "define how this is done, you can set a format. The example given would "
-#| "result in output of the form 2008-10-07. See below for more details.<br /"
-#| "><br />You can make use of the following variables:<br /><table "
-#| "border=1><thead><tr><th>Tag</th><th>Variable</th><th>Description</"
-#| "th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
-#| "td><td>Prints the relevant artist of the extracted CD.</td><td>${artist }"
-#| "</td></tr><tr><td>$title</td><td></td><td>Prints the relevant title of "
-#| "the extracted CD.</td><td></td></tr><tr><td>$date</td><td></td><td>Prints "
-#| "the relevant date (usually release year) of the extracted CD.</td><td></"
-#| "td></tr><tr><td>$genre;</td><td></td><td>Prints the relevant genre of the "
-#| "extracted CD.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
-#| "td><td>Prints the overall size of all extracted (compressed) music files "
-#| "(incl. the cover). The attribute iec can be one of the following: b, k, "
-#| "m, g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives "
-#| "the number of decimal places. Default attributes are iec=\"m\" and "
-#| "precision=\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></"
-#| "tr><tr><td>$length</td><td></td><td>Prints the relevant overall length of "
-#| "all extracted tracks. The format is min:sec.</td><td></td></tr><tr><td>"
-#| "$nooftracks</td><td></td><td>Prints the total number of extracted tracks."
-#| "</td><td></td></tr><tr><td>$discid</td><td>base</td><td>Prints the disc "
-#| "ID of the current CD. The base attribute specifies the base of the "
-#| "number. The default is 16 (hexadecimal).</td><td>${discid base=\"16\"}</"
-#| "td></tr><tr><td>$today</td><td>format</td><td>Prints the current date. "
-#| "The attribute format specifies the output (*).</td><td>${today format="
-#| "\"yyyy-MM-dddd\"}</td></tr><tr><td>$now</td><td>format</td><td>Prints the "
-#| "current date and/or time. The attribute format specifies the output (*).</"
-#| "td><td>${now format=\"yyyy-MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</"
-#| "td><td></td><td>Prints a linebreak.</td><td></td></tr></tbody></"
-#| "table><br /><br />(* date/time format expressions)<table cellpadding=\"2"
-#| "\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
-#| "\"><th>Expression</th><th>Output</th></tr></thead><tr valign=\"top"
-#| "\"><td>d</td><td>The day as a number, without a leading zero (1 to 31).</"
-#| "td></tr><tr valign=\"top\"><td>dd</td><td>The day as a number, with a "
-#| "leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</td><td>The "
-#| "abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></tr><tr "
-#| "valign=\"top\"><td>dddd</td><td>The long localized day name (e.g&#x2e; "
-#| "'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
-#| "month as a number, without a leading zero (1 to 12).</td></tr><tr valign="
-#| "\"top\"><td>MM</td><td>The month as a number, with a leading zero (01 to "
-#| "12).</td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated "
-#| "localized month name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top"
-#| "\"><td>MMMM</td><td>The long localized month name (e.g&#x2e; 'January' to "
-#| "'December').</td></tr><tr valign=\"top\"><td>yy</td><td>The year as a two-"
-#| "digit number (00 to 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>The "
-#| "year as four-digit number.</td></tr></table><br /><table cellpadding=\"2"
-#| "\" cellspacing=\"1\" border=\"1\"><thead><tr valign=\"top"
-#| "\"><th>Expression</th><th>Output</th></tr></thead><tr valign=\"top"
-#| "\"><td>h</td><td>The hour without a leading zero (0 to 23, or 1 to 12 if "
-#| "AM/PM display).</td></tr><tr valign=\"top\"><td>hh</td><td>The hour with "
-#| "a leading zero (00 to 23, or 01 to 12 if AM/PM display).</td></tr><tr "
-#| "valign=\"top\"><td>H</td><td>The hour without a leading zero (0 to 23, "
-#| "even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</td><td>The "
-#| "hour with a leading zero (00 to 23, even with AM/PM display).</td></"
-#| "tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero (0 "
-#| "to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
-#| "leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
-#| "second without a leading zero (0 to 59).</td></tr><tr valign=\"top"
-#| "\"><td>ss</td><td>The second with a leading zero (00 to 59).</td></tr><tr "
-#| "valign=\"top\"><td>z</td><td>The milliseconds without leading zeroes (0 "
-#| "to 999).</td></tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with "
-#| "leading zeroes (000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</"
-#| "td><td>Interpret as an AM/PM time. AP must be either 'AM' or 'PM'.</td></"
-#| "tr><tr valign=\"top\"><td>ap or a</td><td>Interpret as an AM/PM time. ap "
-#| "must be either 'am' or 'pm'.</td></tr></table></body></html>"
 msgid ""
 "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
 "REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
@@ -415,9 +824,9 @@ msgid ""
 "attribute, for example:<div style=\"font-family:monospace; background: "
 "#b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\"}</pre></div>This "
 "would print the current date. Setting the format will control how this is "
-"done. The example (above)would result int the date being printed as 2010-10-"
-"07 (if this was the current date). See below for more details.<br /><br /"
-">You can make use of the following variables:<br /><table "
+"done. The example (above)would result int the date being printed as "
+"2010-10-07 (if this was the current date). See below for more details.<br /"
+"><br />You can make use of the following variables:<br /><table "
 "border=1><thead><tr><th>Variable</th><th>Parameter</th><th>Description</"
 "th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
 "td><td>Prints the relevant artist of the extracted cd.</td><td>${artist }</"
@@ -429,8 +838,8 @@ msgid ""
 "td><td>Prints the overall size of all extracted (compressed) music files "
 "(incl. the cover). The attribute iec can be one of the following: b, k, m, "
 "g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the "
-"number of decimal places. Default attributes are iec=\"m\" and precision=\"2"
-"\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
+"number of decimal places. Default attributes are iec=\"m\" and precision="
+"\"2\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
 "td><td></td><td>Prints the relevant overall length of all extracted tracks. "
 "The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></"
 "td><td>Prints the total number of extracted tracks.</td><td></td></"
@@ -443,8 +852,8 @@ msgid ""
 "The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
 "MM-dddd hh:mm:ss\"}</td></tr><tr><td>$br</td><td></td><td>Prints a linebreak."
 "</td><td></td></tr></tbody></table><br /><br />(* date/time format "
-"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border=\"1"
-"\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
+"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border="
+"\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
 "thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
 "zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
 "number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
@@ -562,11 +971,130 @@ msgstr "Nahrát šablona s textem"
 msgid "Save Text Template"
 msgstr "Uložit šablonu s textem"
 
+#. i18n: ectx: property (text), widget (QLabel, label_text)
+#: dialogs/profiledatainfowidgetUI.ui:25
+msgid "Information text:"
+msgstr "Informační text:"
+
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
+#: dialogs/profiledatainfowidgetUI.ui:58
+msgid "About variables"
+msgstr "O proměnných"
+
+#. i18n: ectx: property (text), widget (QLabel, label_suffix)
+#: dialogs/profiledatainfowidgetUI.ui:72 widgets/customwidgetUI.ui:50
+#: widgets/faacwidgetUI.ui:118 widgets/flacwidgetUI.ui:115
+#: widgets/lamewidgetUI.ui:263 widgets/oggencwidgetUI.ui:296
+#: widgets/wavewidgetUI.ui:31
+msgid "Suffix:"
+msgstr "Přípona:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_pattern)
+#: dialogs/profiledatainfowidgetUI.ui:99 dialogs/profiledatawidgetUI.ui:95
+msgid "Pattern:"
+msgstr "Vzor: "
+
+#: dialogs/profiledatasinglefiledialog.cpp:32
+msgid "Single File Settings"
+msgstr "Nastavení pro jeden soubor"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: dialogs/profiledatawidgetUI.ui:38
+msgid "Encoder"
+msgstr "Kodér"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
+#: dialogs/profiledatawidgetUI.ui:72
+msgid "Filenames"
+msgstr "Názvy souborů"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
+#: dialogs/profiledatawidgetUI.ui:130
+msgid "Create FAT32 compatible filenames"
+msgstr "Vytvořit názvy souborů slučitelné s FAT32"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
+#: dialogs/profiledatawidgetUI.ui:143
+msgid "Replace spaces with underscores"
+msgstr "Nahradit mezery podtržítky"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:150
+msgid ""
+"This setting overrides any parameterized variable settings in the pattern"
+msgstr "Toto nastavení ve vzoru zruší jakékoli parametrické nastavení proměnné"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
+#: dialogs/profiledatawidgetUI.ui:153
+msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
+msgstr "Nastavit dvojmístné číslo skladby (např. 01, 02, 03...)"
+
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: dialogs/profiledatawidgetUI.ui:177
+msgid "Extra"
+msgstr "Navíc"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
+#: dialogs/profiledatawidgetUI.ui:195
+msgid "Store cover file in target folder"
+msgstr "Uložit soubor s obrázkem obalu v cílové složce"
+
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cuesheet)
+#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_singlefile)
+#: dialogs/profiledatawidgetUI.ui:208 dialogs/profiledatawidgetUI.ui:234
+#: dialogs/profiledatawidgetUI.ui:273 dialogs/profiledatawidgetUI.ui:299
+#: dialogs/profiledatawidgetUI.ui:313 dialogs/profiledatawidgetUI.ui:355
+msgid "Settings.."
+msgstr "Nastavení..."
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
+#: dialogs/profiledatawidgetUI.ui:221
+msgid "Create playlist in target folder"
+msgstr "Vytvořit seznam skladeb v cílové složce"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
+#: dialogs/profiledatawidgetUI.ui:260
+msgid "Store info file in target folder"
+msgstr "Uložit soubor s informacemi v cílové složce"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
+#: dialogs/profiledatawidgetUI.ui:286
+msgid "Store hashlist in target folder"
+msgstr "Uložit soubor s hašovým seznamem v cílové složce"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
+#: dialogs/profiledatawidgetUI.ui:306
+msgid "Store cue sheet in target folder"
+msgstr "Uložit list CUE v cílové složce"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
+#: dialogs/profiledatawidgetUI.ui:326
+msgid "Store discid in target folder"
+msgstr "Uložit ID disku v cílové složce"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
+#: dialogs/profiledatawidgetUI.ui:345
+msgid "Write single file"
+msgstr "Zapsat jeden soubor"
+
+#: dialogs/protocoldialog.cpp:33
+msgid "Save"
+msgstr "Uložit"
+
+#: dialogs/protocoldialog.cpp:62
+#, kde-format
+msgid "Save %1"
+msgstr "Uložit %1"
+
 #: dialogs/simplepatternwizarddialog.cpp:30
 msgid "Pattern Wizard"
 msgstr "Pomocník pro vzory"
 
-#: dialogs/simplepatternwizarddialog.cpp:80
+#: dialogs/simplepatternwizarddialog.cpp:81
 msgid ""
 "<p>The following variables will be replaced with their particular meaning in "
 "every track name.</p><p><table border=\"1\"><tr><th><em>Variable</em></"
@@ -580,10 +1108,24 @@ msgid ""
 "compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is "
 "<b>not</b> set for the current CD, than this value will be just empty.</td></"
 "tr><tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \".m3u\", "
-"\".md5\" ...).</td></tr></table></p>"
+"\".md5\" ...).</td></tr><tr><td>$nooftracks</td><td>The total number of "
+"audio tracks of the CD.</td></tr><tr><td>$audex</td><td>Audex name and "
+"version.</td></tr></table></p>"
 msgstr ""
+"<p>Následující proměnné budou nahrazeny jejich zvláštním významem v názvu "
+"každé skladby.</p><p><table border=\"1\"><tr><th><em>Proměnná</em></"
+"th><th><em>Popis</em></th></tr><tr><td>$artist</td><td>Umělec CD. Pokud je "
+"Vaše CD sbírkou, pak tato značka ve většině případů představuje název.</td></"
+"tr><tr><td>$title</td><td>Název CD. Pokud je Vaše CD sbírkou, pak tato "
+"značka ve většině případů představuje pod název.</td></tr><tr><td>$date</"
+"td><td>Datum vydání CD. V téměř všech případech je to rok.</td></tr><tr><td>"
+"$genre</td><td>Žánr CD.</td></tr><tr><td>$cdno</td><td>Číslo CD v albu s "
+"více CD. Sbírky často sestávají z několika CD. <i>Poznámka:</i> Pokud "
+"příznak více CD <b>není</b> nastaven pro nynější CD, potom bude tato hodnota "
+"prostě prázdná.</td></tr><tr><td>$suffix</td><td>Přípona u názvu souboru "
+"(např. \".jpg\", \".m3u\", \".md5\" ...).</td></tr></table></p>"
 
-#: dialogs/simplepatternwizarddialog.cpp:95
+#: dialogs/simplepatternwizarddialog.cpp:98
 msgid ""
 "<p>Variables in Audex can have parameters. E.g.</p><pre>$title (${cdno "
 "length=\"2\" fillchar=\"0\"}).$suffix</pre><p>This means, that the cd number "
@@ -595,390 +1137,662 @@ msgid ""
 "left, which is the first one.</p><hr /><p><b><i>To have a complete overview "
 "of parameters go to the Audex webpage.</i></b></p>"
 msgstr ""
+"<p>Proměnné v Audexu mohou mít parametry. Např.</p><pre>$title (${cdno "
+"length=\"2\" fillchar=\"0\"}).$suffix</pre><p>Toto znamená, že číslo CD bude "
+"mít nuceně délku 2 číslic. Pokud je číslo menší než 10, bude vyplněno "
+"číslicí \"0\".</p><pre>${title lowercase=\"true\"}.$suffix<br />${title "
+"uppercase=\"true\"}.$suffix</pre><p>Název bude psán buď velkými nebo malými "
+"písmeny. Pracuje to i s jinými proměnnými.</p><pre>${artist left=\"1\"} - "
+"$title.$suffix</pre><p>Vzít jeden znak zleva, který je první.</p><hr /"
+"><p><b><i>Pro úplný přehled o parametrech, jděte na stránky Audexu.</i></b></"
+"p>"
 
-#: dialogs/profiledatacuesheetdialog.cpp:32
-#, fuzzy
-#| msgid "Cover Settings"
-msgid "Cue Sheet Settings"
-msgstr "Nastavení obalů"
+#. i18n: ectx: property (text), widget (QLabel, label_album_example)
+#: dialogs/simplepatternwizardwidgetUI.ui:26
+msgid "Example:"
+msgstr "Příklad:"
 
-#: core/audex.cpp:111
-msgid "No profile selected. Operation abort."
-msgstr "Nebyl vybrán žádný profil. Operace byla zrušena."
+#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
+#: dialogs/simplepatternwizardwidgetUI.ui:152
+msgid "About schemes"
+msgstr "O schématech"
 
-#: core/audex.cpp:128
-#, kde-format
-msgid "Start ripping and encoding with profile \"%1\"..."
-msgstr "Začít získávání a kódování s profilem \"%1\"..."
+#: main.cpp:28
+msgid "Audex"
+msgstr "Audex"
 
-#: core/audex.cpp:540 core/audex.cpp:600
-#, kde-format
-msgid "Can't find path \"%1\"."
-msgstr "Nelze najít cestu \"%1\"."
+#: main.cpp:29
+msgid "KDE CDDA Extractor"
+msgstr "Extraktor CDDA pro KDE"
 
-#: core/audex.cpp:540 core/audex.cpp:549 core/audex.cpp:600 core/audex.cpp:609
-msgid "Please check your path (write access?)"
-msgstr "Zkontrolujte, prosím, svou cestu (přístup k zápisu?)"
+#: main.cpp:31
+msgid "Copyright © 2007–2011 by Marco Nelles"
+msgstr "Autorské právo (c) 2007-2011, Marco Nelles"
 
-#: core/audex.cpp:549 core/audex.cpp:609
-#, kde-format
-msgid "Unable to create folder \"%1\"."
-msgstr "Nelze vytvořit složku \"%1\"."
+#: main.cpp:35
+msgid "Marco Nelles"
+msgstr "Marco Nelles"
 
-#: core/audex.cpp:552 core/audex.cpp:612
-#, kde-format
-msgid "Folder \"%1\" successfully created."
-msgstr "Složka \"%1\" byla úspěšně vytvořena."
+#: main.cpp:35
+msgid "Current maintainer, main developer"
+msgstr "Současný správce, hlavní vývojář"
 
-#: core/audex.cpp:555 core/audex.cpp:615
-#, kde-format
-msgid "Folder \"%1\" already exists."
-msgstr "Složka \"%1\" již existuje."
+#: main.cpp:36
+msgid "Craig Drummond"
+msgstr "Craig Drummond"
 
-#: core/audex.cpp:562
-#, fuzzy, kde-format
-#| msgid ""
-#| "Free space on \"%1\" is less than 200 MB. Problems with low space "
-#| "possible."
+#: main.cpp:36
+msgid "GUI improvements, development"
+msgstr "Vylepšení grafického uživatelského rozhraní, vývoj"
+
+#: main.cpp:37
+msgid "credativ GmbH"
+msgstr "credativ GmbH"
+
+#: main.cpp:37
+msgid "Special thanks to credativ GmbH (Germany) for support"
+msgstr "Zvláštní poděkování credativ GmbH (Německo) za podporu"
+
+#: main.cpp:38
+msgid "freedb.org"
+msgstr "freedb.org"
+
+#: main.cpp:38
+msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
+msgstr ""
+"Zvláštní poděkování patří freedb.org za poskytnutí svobodné CD databáze na "
+"způsob CDDB"
+
+#: main.cpp:39
+msgid "Xiph.Org Foundation"
+msgstr "Nadace Xiph.Org"
+
+#: main.cpp:39
+msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
+msgstr ""
+"Zvláštní poděkování nadaci Xiph.Org za poskytnutí zařízení pro získávání dat "
+"z kompaktních disků"
+
+#: main.cpp:40
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Pavel Fric"
+
+#: main.cpp:40
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "pavelfric@seznam.cz"
+
+#: mainwindow.cpp:27
+msgid "Unable to create ProfileModel object."
+msgstr "Předmět ProfileModel nelze vytvořit."
+
+#: mainwindow.cpp:27 mainwindow.cpp:40
 msgid ""
-"Free space on \"%1\" is less than 200 MiB. Problems with low space possible."
+"Internal error. Check your hardware. If all okay please make bug report."
 msgstr ""
-"Na \"%1\" je méně než 200 MB volného místa. Možná se objeví potíže kvůli "
-"nedostatku místa."
+"Vnitřní chyba. Zkontrolujte hardware svého počítače. Pokud bude vše v "
+"pořádku, prosím, nahlaste chybu."
 
-#: core/audex.cpp:568 core/audex.cpp:628
-#, kde-format
-msgid "Warning! File \"%1\" already exists. Overwriting."
-msgstr "Varování: Soubor \"%1\" již existuje. Přepisuje se."
+#: mainwindow.cpp:40
+msgid "Unable to create CDDAModel object."
+msgstr "Předmět CDDAModel nelze vytvořit."
 
-#: core/audex.cpp:570 core/audex.cpp:630 core/audex.cpp:723 core/audex.cpp:755
-#: core/audex.cpp:803 core/audex.cpp:842 core/audex.cpp:881 core/audex.cpp:919
-#, kde-format
-msgid "Warning! File \"%1\" already exists. Skipping."
-msgstr "Varování: Soubor \"%1\" již existuje. Přeskakuje se."
+#: mainwindow.cpp:113
+msgid "No disc information set. Do you really want to continue?"
+msgstr ""
+"Není nastavena žádná informace o disku. Stále ještě si přejete pokračovat?"
 
-#: core/audex.cpp:622
-#, fuzzy, kde-format
-#| msgid ""
-#| "Free space on \"%1\" is less than 200 MB. Problems with low space "
-#| "possible."
+#: mainwindow.cpp:114
+msgid "Disc information not found"
+msgstr "Nebyly nalezeny žádné informace o disku"
+
+#: mainwindow.cpp:124
 msgid ""
-"Free space on \"%1\" is less than 800 MiB. Problems with low space possible."
+"Single file rip selected but not all audio tracks to rip selected. Do you "
+"really want to continue?"
 msgstr ""
-"Na \"%1\" je méně než 200 MB volného místa. Možná se objeví potíže kvůli "
-"nedostatku místa."
+"Je vybráno získávání do jednoho souboru, ale nejsou vybrány všechny zvukové "
+"stopy. Opravdu si přejete pokračovat?"
 
-#: core/audex.cpp:649
-#, fuzzy, kde-format
-#| msgid "Temporary folder \"%1\" does not exists."
-msgid "Temporary folder \"%1\" error."
-msgstr "Složka s dočasnými soubory \"%1\" neexistuje."
+#: mainwindow.cpp:125
+msgid "Not all audio tracks selected for single file rip"
+msgstr "Pro získávání do jednoho souboru nejsou vybrány všechny zvukové stopy"
 
-#: core/audex.cpp:649
-msgid "Please check."
-msgstr "Zkontrolujte, prosím."
+#: mainwindow.cpp:148
+msgid "General settings"
+msgstr "Obecná nastavení"
 
-#: core/audex.cpp:655
-#, kde-format
-msgid ""
-"Free space on temporary folder \"%1\" is less than 800 MiB. Problems with "
-"low space possible."
-msgstr ""
-"Ve složce s dočasnými soubory \"%1\" je méně než 800 MB volného místa. Možná "
-"se objeví potíže kvůli nedostatku místa."
+#: mainwindow.cpp:151
+msgid "Profiles"
+msgstr "Profily"
 
-#: core/audex.cpp:657
-#, kde-format
-msgid "Temporary folder \"%1\" needs at least 200 MiB of free space."
-msgstr ""
-"Složka s dočasnými soubory \"%1\" potřebuje přinejmenším 200 MB volného "
-"místa."
+#: mainwindow.cpp:171
+msgid "Remote Server"
+msgstr "Vzdálený server"
 
-#: core/audex.cpp:657
-msgid "Please free space or set another path."
-msgstr "Uvolněte, prosím, místo, nebo nastavte jinou cestu."
+#: mainwindow.cpp:183
+msgid "No status information available"
+msgstr "Není dostupná žádná stavová informace"
 
-#: core/audex.cpp:691
-msgid "Eject CD tray"
-msgstr "Vysunout CD mechaniku"
+#: mainwindow.cpp:187 models/cddamodel.cpp:683
+msgid "No disc in drive"
+msgstr "V mechanice není žádný disk"
 
-#: core/audex.cpp:728
-#, kde-format
-msgid "Cover \"%1\" successfully saved."
-msgstr "Obal \"%1\" byl úspěšně uložen."
+#: mainwindow.cpp:191
+msgid "Audio disc in drive"
+msgstr "Audio disk je v mechanice"
 
-#: core/audex.cpp:781
-#, kde-format
-msgid "Playlist \"%1\" successfully created."
-msgstr "Seznam skladeb \"%1\" byl úspěšně vytvořen."
+#: mainwindow.cpp:200 models/cddamodel.cpp:685
+msgid "Drive tray open"
+msgstr "Otevřít mechaniku"
 
-#: core/audex.cpp:816
-#, fuzzy, kde-format
-#| msgid "Infofile \"%1\" successfully stored."
-msgid "Infofile \"%1\" successfully created."
-msgstr "Soubor s informacemi \"%1\" byl úspěšně uložen."
+#: mainwindow.cpp:204 models/cddamodel.cpp:686
+msgid "Drive not ready"
+msgstr "Mechanika není připravena"
 
-#: core/audex.cpp:863
-#, fuzzy, kde-format
-#| msgid "Playlist \"%1\" successfully created."
-msgid "Hashlist \"%1\" successfully created."
-msgstr "Seznam skladeb \"%1\" byl úspěšně vytvořen."
+#: mainwindow.cpp:208 models/cddamodel.cpp:687
+msgid "Drive error"
+msgstr "Chyba mechaniky"
 
-#: core/audex.cpp:894
-msgid "Discid successfully stored."
-msgstr "ID disku bylo úspěšně uloženo."
+#: mainwindow.cpp:245
+msgid "Fetching CDDB information..."
+msgstr "Natahují se informace z CDDB..."
 
-#: core/audex.cpp:933
-#, fuzzy, kde-format
-#| msgid "Playlist \"%1\" successfully created."
-msgid "Cue sheet \"%1\" successfully created."
-msgstr "Seznam skladeb \"%1\" byl úspěšně vytvořen."
-
-#: utils/encoderassistant.h:66
-msgid "MP3"
-msgstr "MP3"
-
-#: utils/encoderassistant.h:97
-msgid "Ogg Vorbis"
-msgstr "Ogg Vorbis"
-
-#: utils/encoderassistant.h:126
-msgid "FLAC (Uncompressed)"
-msgstr "FLAC (nekomprimovaný)"
-
-#: utils/encoderassistant.h:136
-msgid "MP4 (AAC)"
-msgstr "MP4 (AAC)"
-
-#: utils/encoderassistant.h:153
-msgid "WAVE (Raw Uncompressed)"
-msgstr "WAVE (surový nekomprimovaný)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:130
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
-#: utils/encoderassistant.h:161 rc.cpp:406
-msgid "Custom"
-msgstr "Vlastní"
-
-#: utils/coverfetcher.cpp:103
-msgid "There was an error communicating with Google."
-msgstr "Při dorozumívání se se službou Google se vyskytla chyba."
-
-#: utils/coverfetcher.cpp:103
-msgid "Try again later. Otherwise make a bug report."
-msgstr ""
-"Později to vyzkoušejte znovu. Jinak vytvořte zprávu o programové chybě."
-
-#: utils/coverfetcher.cpp:114
-msgid "Google server: Empty response."
-msgstr "Server Google: Bezobsažná odpověď."
-
-#: utils/coverfetcher.cpp:115
-msgid "Try again later. Make a bug report."
-msgstr "Později to vyzkoušejte znovu. Vytvořte zprávu o programové chybě."
-
-#: utils/coverfetcher.cpp:176
-#, kde-format
-msgid "%1x%2, %3 KiB"
-msgstr "%1x%2, %3 kB"
-
-#: utils/encoderwrapper.cpp:56
-msgid "Command pattern is empty."
-msgstr "Vzor příkazu není vyplněn"
-
-#: utils/encoderwrapper.cpp:68
-#, kde-format
-msgid "Encoding track %1..."
-msgstr "Kóduje se stopa %1..."
-
-#: utils/encoderwrapper.cpp:86
-#, kde-format
-msgid "Deleted partial file \"%1\"."
-msgstr "Neúplný soubor \"%1\" byl smazán."
-
-#: utils/encoderwrapper.cpp:91
-msgid "User canceled encoding."
-msgstr "Kódování bylo zrušeno uživatelem."
-
-#: utils/encoderwrapper.cpp:139
-#, kde-format
-msgid "Encoding OK (\"%1\")."
-msgstr "Kódování OK (\"%1\")."
-
-#: utils/encoderwrapper.cpp:141
-#, fuzzy, kde-format
-#| msgid "An error occurred while encoding file \"%1\"."
-msgid "An error occured while encoding file \"%1\"."
-msgstr "Při kódování souboru \"%1\" se vyskytla chyba."
-
-#: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
-#: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
-msgid "Please check your profile."
-msgstr "Zkontrolujte, prosím, svůj profil."
-
-#: utils/encoderwrapper.cpp:152
-#, kde-format
-msgid "%1 failed to start."
-msgstr "Spuštění %1 selhalo."
-
-#: utils/encoderwrapper.cpp:152
-msgid ""
-"Either it is missing, or you may have insufficient permissions to invoke the "
-"program."
-msgstr "Buď chybí, anebo nemáte dostatečná oprávnění pro spuštění programu."
-
-#: utils/encoderwrapper.cpp:154
-#, kde-format
-msgid "%1 crashed some time after starting successfully."
-msgstr "%1 po úspěšném spuštění za nějakou dobu havarovalo."
-
-#: utils/encoderwrapper.cpp:156
-#, kde-format
-msgid "%1 timed out. This should not happen."
-msgstr "%1 vypršel. Toto se nemělo stát."
-
-#: utils/encoderwrapper.cpp:158
-#, kde-format
-msgid "An error occurred when attempting to write to %1."
-msgstr "Při pokusu o zápis do %1 se vyskytla chyba."
-
-#: utils/encoderwrapper.cpp:158
-#, fuzzy
-#| msgid ""
-#| "For example, the proc may not be running, or it may have closed its input "
-#| "channel."
-msgid ""
-"For example, the process may not be running, or it may have closed its input "
-"channel."
-msgstr ""
-"Například nemusí běžet proces, nebo může mít zavřený svůj vstupní kanál."
-
-#: utils/encoderwrapper.cpp:160
-#, kde-format
-msgid "An error occurred when attempting to read from %1."
-msgstr "Při pokusu o čtení z %1 se vyskytla chyba."
-
-#: utils/encoderwrapper.cpp:160
-#, fuzzy
-#| msgid "For example, the proc may not be running."
-msgid "For example, the process may not be running."
-msgstr "Například nemusí běžet proces."
-
-#: utils/encoderwrapper.cpp:162
-#, kde-format
-msgid "An unknown error occurred to %1. This should not happen."
-msgstr "U %1 se vyskytla neznámá chyba. Toto se nemělo stát."
-
-#: utils/upload.cpp:61
-#, kde-format
-msgid "Uploading file %1 to server. Please wait..."
-msgstr "Nahrávání souboru %1 na server. Prosím, počkejte..."
-
-#: utils/upload.cpp:68
-#, kde-format
-msgid "Finished uploading file %1 to server."
-msgstr "Nahrávání souboru %1 na server dokončeno."
-
-#: utils/cddaparanoia.cpp:41 utils/cddaextractthread.cpp:32
-msgid "Internal device error."
-msgstr "Vnitřní chyba na zařízení"
-
-#: utils/cddaparanoia.cpp:41
+#: mainwindow.cpp:250
 #, kde-format
 msgid ""
-"Check your device. Is it really \"%1\"? If so also check your permissions on "
-"\"%1\"."
+"CDDB lookup failed, with the following error:\n"
+"%1"
 msgstr ""
-"Zkontrolujte své zařízení. Jde skutečně o \"%1\"? Pokud ano, zkontrolujte "
-"také svá oprávnění k \"%1\"."
+"Vyhledávání v CDDB se nezdařilo. Chyba:\n"
+"%1"
+
+#: mainwindow.cpp:251
+msgid "CDD Lookup Failure"
+msgstr "Vyhledávání v CDDB se nezdařilo"
+
+#: mainwindow.cpp:354
+msgid "Split titles"
+msgstr "Rozdělit názvy"
+
+#: mainwindow.cpp:355
+msgid ""
+"Please set a divider string. Be aware of empty spaces.\n"
+"\n"
+"Divider:"
+msgstr ""
+"Prosím, nastavte rozdělovací řetězec. Dejte si pozor na prázdné mezery.\n"
+"\n"
+"Rozdělovač:"
+
+#: mainwindow.cpp:365
+msgid "Do you really want to swap all artists and titles?"
+msgstr "Opravdu si přejete vyměnit všechny umělce a názvy?"
+
+#: mainwindow.cpp:366
+msgid "Swap artists and titles"
+msgstr "Vyměnit všechny umělce a názvy"
+
+#: mainwindow.cpp:378
+msgid "Do you really want to capitalize all artists and titles?"
+msgstr ""
+"Opravdu si přejete psát všechny umělce a názvy s velkým začátečním písmenem?"
+
+#: mainwindow.cpp:379
+msgid "Capitalize artists and titles"
+msgstr "Psát všechny umělce a názvy s velkým začátečním písmenem"
+
+#: mainwindow.cpp:391
+msgid "Do you really want to autofill track artists?"
+msgstr "Opravdu si přejete u stop automaticky vyplnit umělce?"
+
+#: mainwindow.cpp:392
+msgid "Autofill artists"
+msgstr "Automaticky vyplnit umělce"
+
+#: mainwindow.cpp:416
+msgid "Eject"
+msgstr "Vysunout"
+
+#: mainwindow.cpp:423
+msgid "Profile:"
+msgstr "Profil:"
+
+#: mainwindow.cpp:435
+msgid "&Profile:"
+msgstr "&Profil:"
+
+#: mainwindow.cpp:441
+msgid "Profile"
+msgstr "Profil"
+
+#: mainwindow.cpp:449
+msgid "Fetch Info"
+msgstr "Natáhnout informace"
+
+#: mainwindow.cpp:456
+msgid "Submit Info"
+msgstr "Odeslat informace"
+
+#: mainwindow.cpp:462
+msgid "Rip..."
+msgstr "Získat..."
+
+#: mainwindow.cpp:471
+msgid "Split Titles..."
+msgstr "Rozdělit názvy..."
+
+#: mainwindow.cpp:476
+msgid "Swap Artists And Titles"
+msgstr "Vyměnit umělce a názvy"
+
+#: mainwindow.cpp:481
+msgid "Capitalize"
+msgstr "Velká počáteční písmena"
+
+#: mainwindow.cpp:486
+msgid "Auto Fill Artists"
+msgstr "Automaticky vyplnit umělce"
+
+#: mainwindow.cpp:491
+msgid "Select All Tracks"
+msgstr "Vybrat všechny stopy"
+
+#: mainwindow.cpp:496
+msgid "Deselect All Tracks"
+msgstr "Zrušit výběr u všech stop"
+
+#: mainwindow.cpp:501
+msgid "Invert Selection"
+msgstr "Obrátit výběr"
+
+#: models/cddamodel.cpp:26
+msgid "Unable to create KCompactDisc object."
+msgstr "Objekt KCompactDisc nelze vytvořit."
+
+#: models/cddamodel.cpp:26 models/cddamodel.cpp:38
+msgid ""
+"This is an internal error. Check your hardware. If all okay please make bug "
+"report."
+msgstr ""
+"Toto je vnitřní chyba. Zkontrolujte hardware svého počítače. Pokud bude vše "
+"v pořádku, prosím, nahlaste chybu."
+
+#: models/cddamodel.cpp:38
+msgid "Unable to create KCDDB object."
+msgstr "Objekt KCDDB nelze vytvořit."
+
+#: models/cddamodel.cpp:135
+#, kde-format
+msgid "Track %1"
+msgstr "Stopa %1"
+
+#: models/cddamodel.cpp:684
+msgid "Disc in drive"
+msgstr "Disk je v mechanice"
+
+#: models/cddamodel.cpp:690
+msgid "No drive status available"
+msgstr "Není dostupná žádná informace o stavu mechaniky"
+
+#: models/cddamodel.cpp:699
+msgid "Disc playing"
+msgstr "Disk se přehrává"
+
+#: models/cddamodel.cpp:700
+msgid "Disc paused"
+msgstr "Přehrávání disku je pozastaveno"
+
+#: models/cddamodel.cpp:701
+msgid "Disc stopped"
+msgstr "Přehrávání disku bylo zastaveno"
+
+#: models/cddamodel.cpp:704
+msgid "No disc status available"
+msgstr "Není dostupná žádná informace o stavu disku"
+
+#: models/cddamodel.cpp:713
+msgid "Audio disc"
+msgstr "Audio disk"
+
+#: models/cddamodel.cpp:714
+msgid "No audio disc"
+msgstr "Žádný audio disk"
+
+#: models/cddamodel.cpp:717
+msgid "No disc type information available"
+msgstr "Není dostupná žádná informace o typu disku"
+
+#: models/cddamodel.cpp:726
+msgid "CD-Text"
+msgstr "CD-Text"
+
+#: models/cddamodel.cpp:727
+msgid "CDDB"
+msgstr "CDDB"
+
+#: models/cddamodel.cpp:728
+msgid "Phonon Metadata"
+msgstr "Metadata pro Phonon"
+
+#: models/cddamodel.cpp:731
+msgid "No disc information available"
+msgstr "Není dostupná žádná informace o disku"
+
+#: models/cddamodel.cpp:763 models/cddamodel.cpp:893
+msgid ""
+"There is an error with the CDDB server. Please wait or contact the "
+"administrator of the CDDB server."
+msgstr ""
+"Došlo k problému se serverem CDDB. Prosím, počkejte nebo se spojte se "
+"správcem CDDB serveru."
+
+#: models/cddamodel.cpp:764 models/cddamodel.cpp:894
+msgid ""
+"Cannot find the CDDB server. Check your network. Maybe the CDDB server is "
+"offline."
+msgstr ""
+"Nelze najít server CDDB. Prověřte svou síť. Je možné, že server CDDB není "
+"připojený k internetu."
+
+#: models/cddamodel.cpp:765 models/cddamodel.cpp:895
+msgid ""
+"Please wait, maybe the server is busy, or contact the CDDB server "
+"administrator."
+msgstr ""
+"Počkejte, prosím. Je možné, že je server zaneprázdněn, nebo se spojte se "
+"správcem CDDB serveru."
+
+#: models/cddamodel.cpp:766
+msgid "Please contact the CDDB server administrator."
+msgstr "Prosím, spojte se se správcem serveru CDDB."
+
+#: models/cddamodel.cpp:767 models/cddamodel.cpp:896
+msgid "This should not happen. Please make a bug report."
+msgstr "Toto by se nemělo stávat. Prosím, vytvořte zprávu o chybě programu."
+
+#: models/cddamodel.cpp:772 models/cddamodel.cpp:897
+msgid "Please make a bug report and contact the CDDB server administrator."
+msgstr "Prosím, nahlaste chybu a spojte se se správcem serveru CDDB."
+
+#: models/cddamodel.cpp:902
+msgid ""
+"This means no data found in the CDDB database. Please enter the data "
+"manually. Maybe try another CDDB server."
+msgstr ""
+"Znamená to, že v databázi CDDB nebyla nalezena žádná data. Prosím, zadejte "
+"tato data ručně. Možná by pomohlo, zkusit nějaký jiný server CDDB."
+
+#: models/cddamodel.cpp:904
+msgid "This means no data found in the CDDB database."
+msgstr "To znamená, že v databázi CDDB nebyla nalezena žádná data."
+
+#: models/cddamodel.cpp:922
+msgid "Select CDDB Entry"
+msgstr "Vybrat záznam v CDDB"
+
+#: models/cddamodel.cpp:923
+msgid "Select a CDDB entry:"
+msgstr "Vybrat záznam v CDDB:"
+
+#: models/cddamodel.h:46
+msgid "Rip"
+msgstr "Získat"
+
+#: models/cddamodel.h:47
+msgid "Track"
+msgstr "Stopa"
+
+#: models/cddamodel.h:48
+msgid "Artist"
+msgstr "Umělec"
+
+#: models/cddamodel.h:49
+msgid "Title"
+msgstr "Název skladby"
+
+#: models/cddamodel.h:50
+msgid "Length"
+msgstr "Délka"
+
+#: models/profilemodel.cpp:134
+msgid "Profile name must not be empty."
+msgstr "Název profilu nesmí zůstat nevyplněn."
+
+#: models/profilemodel.cpp:135
+msgid "You have given no name for the profile. Please set one."
+msgstr "Nezadal jste žádný název pro profil. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:144
+msgid "Profile encoder is not defined."
+msgstr "Kodér není v profilu stanoven."
+
+#: models/profilemodel.cpp:145
+msgid "You have given no encoder for the profile. Please set one."
+msgstr "Nezadal jste žádný název pro kodér. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:154
+msgid "Profile filename pattern is not defined."
+msgstr "Vzor pro názvy souborů není v profilu stanoven."
+
+#: models/profilemodel.cpp:155
+msgid "You have given no filename pattern for the profile. Please set one."
+msgstr ""
+"Nezadal jste žádný vzor pro názvy souborů pro profil. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:170
+msgid "The image file format is unknown."
+msgstr "Formát souboru obrázku je neznámý."
+
+#: models/profilemodel.cpp:171
+msgid ""
+"Your given image file format is unknown. Please choose on of these formats: "
+"JPG/JPEG, PNG or BMP."
+msgstr ""
+"Vámi zadaný formát souboru obrázku je neznámý. Prosím, vyberte jeden z "
+"těchto formátů: JPG/JPEG, PNG nebo BMP."
+
+#: models/profilemodel.cpp:180
+msgid "Cover name must not be empty."
+msgstr "Název obalu nesmí zůstat nevyplněn."
+
+#: models/profilemodel.cpp:181
+msgid "You have given no name for the cover. Please set one."
+msgstr "Nezadal jste žádný název pro obal. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:191
+msgid "The playlist file format is unknown."
+msgstr "Formát souboru seznamu skladeb je neznámý."
+
+#: models/profilemodel.cpp:192
+msgid ""
+"Your given playlist file format is unknown. Please choose on of these "
+"formats: M3U, PLS or XSPF."
+msgstr ""
+"Vámi zadaný formát souboru seznamu skladeb je neznámý. Prosím, vyberte jeden "
+"z těchto formátů: M3U, PLS nebo XSPF."
+
+#: models/profilemodel.cpp:201
+msgid "Playlist name must not be empty."
+msgstr "Název seznamu skladeb nesmí zůstat nevyplněn."
+
+#: models/profilemodel.cpp:202
+msgid "You have given no name for the playlist. Please set one."
+msgstr "Nezadali jste žádný název pro seznam skladeb. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:214
+msgid "Info text name must not be empty."
+msgstr "Název informačního textu nesmí zůstat nevyplněn."
+
+#: models/profilemodel.cpp:215
+msgid "You have given no name for the info text file. Please set one."
+msgstr ""
+"Nezadali jste žádný název pro soubor s informačním textem. Prosím, jeden "
+"zadejte."
+
+#: models/profilemodel.cpp:224
+msgid "Info text file name suffix must not be empty."
+msgstr "Přípona u názvu informačního textu nesmí zůstat nevyplněna."
+
+#: models/profilemodel.cpp:225
+msgid "You have given no suffix for the info text file. Please set one."
+msgstr ""
+"Nezadali jste žádnou příponu pro soubor s informačním textem. Prosím, jednu "
+"zadejte."
+
+#: models/profilemodel.cpp:235
+msgid "The hashlist file format is unknown."
+msgstr "Formát souboru hašového seznamu je neznámý."
+
+#: models/profilemodel.cpp:236
+msgid ""
+"Your given hashlist file format is unknown. Please choose on of these "
+"formats: SFV, MD5."
+msgstr ""
+"Formát souboru hašového seznamu, který jste poskytl, je neznámý. Prosím, "
+"vyberte jeden z těchto formátů: SFV, MD5."
+
+#: models/profilemodel.cpp:245
+msgid "Hashlist name must not be empty."
+msgstr "Název hašového seznamu nesmí zůstat nevyplněn."
+
+#: models/profilemodel.cpp:246
+msgid "You have given no name for the hashlist. Please set one."
+msgstr "Nezadal jste žádný název pro hašový seznam. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:256
+msgid "Cue filename name must not be empty."
+msgstr "Název souboru CUE nesmí zůstat prázdný."
+
+#: models/profilemodel.cpp:257
+msgid "You have given no name for the cue sheet. Please set one."
+msgstr "Nezadal jste žádný název souboru CUE. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:267
+msgid "Filename name must not be empty."
+msgstr "Název souboru nesmí zůstat prázdný."
+
+#: models/profilemodel.cpp:268
+msgid "You have given no name for the single audio file. Please set one."
+msgstr ""
+"Nezadal jste žádný název pro jeden zvukový soubor. Prosím, jeden zadejte."
+
+#: models/profilemodel.cpp:292
+msgid "Profile name already exists."
+msgstr "Název profilu již existuje."
+
+#: models/profilemodel.cpp:293
+#, kde-format
+msgid ""
+"Your profile name %1 already exists in the set of profiles. Please choose a "
+"unique one."
+msgstr ""
+"Název Vašeho profilu %1 již v souboru profilů existuje. Prosím, vyberte si "
+"jeden, který bude jedinečný."
+
+#: models/profilemodel.cpp:309
+msgid "Profile index already exists."
+msgstr "Index profilu již existuje."
+
+#: models/profilemodel.cpp:310
+#, kde-format
+msgid ""
+"Your profile index %1 already exists in the set of profiles. Please choose a "
+"unique one."
+msgstr ""
+"Číslo profilu %1 již v souboru profilů existuje. Prosím, vyberte si jedno, "
+"které bude jedinečné."
+
+#: models/profilemodel.cpp:366
+msgid "Unknown error. No index found in profile model."
+msgstr "Neznámá chyba. V modelu profilu nebyl nalezen žádný index."
+
+#: models/profilemodel.cpp:367
+msgid "This is an internal error. Please report."
+msgstr "Toto je vnitřní chyba. Prosím, podejte o ní zprávu."
+
+#: models/profilemodel.h:178
+msgid " (Mobile Quality)"
+msgstr " (Kvalita vhodná při přemísťování se)"
+
+#: models/profilemodel.h:179
+msgid " (Normal Quality)"
+msgstr " (Obvyklá kvalita)"
+
+#: models/profilemodel.h:180
+msgid " (Extreme Quality)"
+msgstr " (Neobyčejná kvalita)"
 
 #: utils/cachedimage.cpp:103
-#, fuzzy
 msgid "Common image formats"
 msgstr "Běžné formáty obrázků"
 
 #: utils/cachedimage.cpp:142
-#, fuzzy
 msgid "File does not exist."
 msgstr "Soubor neexistuje."
 
 #: utils/cachedimage.cpp:142
-#, fuzzy
 msgid "Please check if the file really exists."
-msgstr "Ověřte, prosím, zda soubor skutečně existuje."
+msgstr "Prosím, ověřte zda soubor skutečně existuje."
 
 #: utils/cachedimage.cpp:151
-#, fuzzy
-#| msgid "Cannot open file."
-msgid "Can't open file."
+msgid "Cannot open file."
 msgstr "Soubor nelze otevřít."
 
 #: utils/cachedimage.cpp:151
-#, fuzzy
-#| msgid "Please check your file. Maybe you do not have proper permissions."
-msgid "Please check your file. Maybe you don't have proper permissions."
-msgstr "Ověřte, prosím, svůj soubor. Je možné, že nemáte náležitá oprávnění."
+msgid "Please check your file. Maybe you do not have proper permissions."
+msgstr ""
+"Prosím, zkontrolujte svůj soubor. Je možné, že nemáte náležitá oprávnění."
 
 #: utils/cachedimage.cpp:157 utils/cachedimage.cpp:204
-#, fuzzy
 msgid "Unsupported image format"
 msgstr "Nepodporovaný formát obrázku"
 
 #: utils/cachedimage.cpp:157
-#, fuzzy
 msgid ""
 "Please check your file. Maybe it is corrupted. Otherwise try to convert your "
 "cover image with an external program to a common file format like JPEG."
 msgstr ""
-"Ověřte, prosím, svůj soubor. Je možné, že je poškozen. Jinak se pokuste "
-"převést svůj obal ve vnějším programu na běžný souborový formát, jakým je "
+"Prosím, zkontrolujte svůj soubor. Je možné, že je poškozen. Jinak se pokuste "
+"převést svůj obal v jiném programu na běžný souborový formát, jako třeba "
 "JPEG."
 
 #: utils/cachedimage.cpp:174
-#, fuzzy
-#| msgid "Cannot open file"
-msgid "Can't open file"
+msgid "Cannot open file"
 msgstr "Nelze otevřít soubor"
 
 #: utils/cachedimage.cpp:174
-#, fuzzy
 msgid "Please check your permissions."
-msgstr "Ověřte, prosím, svá oprávnění."
+msgstr "Prosím, ověřte svá oprávnění."
 
 #: utils/cachedimage.cpp:181
-#, fuzzy
-#| msgid "Cannot save file"
-msgid "Can't save file"
+msgid "Cannot save file"
 msgstr "Soubor nelze uložit"
 
 #: utils/cachedimage.cpp:181
-#, fuzzy
 msgid "Please check your permissions. Do you have enough space?"
-msgstr "Ověřte, prosím, svá oprávnění. Máte dostatek volného místa?"
+msgstr "Prosím, ověřte svá oprávnění. Máte dostatek místa?"
 
 #: utils/cachedimage.cpp:204
-#, fuzzy
-#| msgid ""
-#| "Please use common image formats like jpeg, png or gif as they are "
-#| "supported on almost all systems."
 msgid ""
 "Please use common image formats like JPEG, PNG or GIF as they are supported "
 "on almost all systems."
 msgstr ""
-"Používejte, prosím, běžné souborové formáty, jakými jsou jpeg, png nebo gif, "
+"Používejte, prosím, běžné obrázkové formáty, jakými jsou JPEG, PNG nebo GIF, "
 "neboť jsou podporovány na téměř všech systémech."
 
 #: utils/cachedimage.cpp:212
-#, fuzzy
-#| msgid "Cannot write to device"
-msgid "Can't write on device"
+msgid "Cannot write on device"
 msgstr "Na zařízení nelze zapisovat"
 
 #: utils/cachedimage.cpp:212
-#, fuzzy
 msgid "Please check your permissions. Do you have enough space on your device?"
-msgstr ""
-"Ověřte, prosím, svá oprávnění. Máte na svém zařízení dostatek prostoru?"
+msgstr "Prosím, ověřte svá oprávnění. Máte na svém zařízení dostatek místa?"
+
+#: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
+msgid "Internal device error."
+msgstr "Vnitřní chyba na zařízení"
 
 #: utils/cddaextractthread.cpp:32
 msgid "Check your device and make a bug report."
@@ -995,24 +1809,21 @@ msgstr "Získává se stopa %1 (%2:%3)..."
 
 #: utils/cddaextractthread.cpp:105
 msgid "Ripping whole CD as single track."
-msgstr ""
+msgstr "Celé CD se získává jako jedna skladba."
 
 #: utils/cddaextractthread.cpp:107
-#, fuzzy, kde-format
-#| msgid "Start reading track %2 with %1 sector"
-#| msgid_plural "Start reading track %2 with %1 sectors"
+#, kde-format
 msgid "Start reading track %1 with %2 sectors"
-msgstr "Začíná se se čtením stopy %2 s %1 sektorem"
+msgstr "Začíná se se čtením skladby %1 s %2 sektory"
 
 #: utils/cddaextractthread.cpp:146
 msgid "User canceled extracting."
 msgstr "Získávání bylo zrušeno uživatelem."
 
 #: utils/cddaextractthread.cpp:149
-#, fuzzy, kde-format
-#| msgid "An error occurred while ripping track %1."
+#, kde-format
 msgid "An error occured while ripping track %1."
-msgstr "Při získávání stopy %1 se vyskytla chyba."
+msgstr "Při získávání skladby %1 došlo k chybě."
 
 #: utils/cddaextractthread.cpp:153
 #, kde-format
@@ -1020,10 +1831,8 @@ msgid "Ripping OK (Track %1)."
 msgstr "Získávání zvukových dat proběhlo v pořádku (stopa %1)."
 
 #: utils/cddaextractthread.cpp:155
-#, fuzzy
-#| msgid "Ripping Track"
 msgid "Ripping OK."
-msgstr "Získává se stopa"
+msgstr "Získávání proběhlo v pořádku."
 
 #: utils/cddaextractthread.cpp:160
 msgid "Reading finished"
@@ -1048,22 +1857,19 @@ msgstr ""
 "stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:212
-#, fuzzy, kde-format
-#| msgid ""
-#| "Scratch detected (absolute sector %1, relative sector %2, p_track time "
-#| "pos %3:%4)"
+#, kde-format
 msgid ""
-"Scratch detected (absolute sector %1, relative sector %2, track time pos %3:%"
-"4)"
+"Scratch detected (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
 msgstr ""
 "Zjištěno škrábnutí (absolutní sektor %1, relativní sektor %2, poloha času "
-"stopy %3:%4)"
+"skladby %3:%4)"
 
 #: utils/cddaextractthread.cpp:213
 #, kde-format
 msgid ""
-"SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:%"
-"4)"
+"SCRATCH DETECTED (absolute sector %1, relative sector %2, track time pos %3:"
+"%4)"
 msgstr ""
 "ZJIŠTĚNO ŠKRÁBNUTÍ (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
@@ -1075,15 +1881,12 @@ msgstr ""
 "Oprava (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:222
-#, fuzzy, kde-format
-#| msgid ""
-#| "Skip sectors (absolute sector %1, relative sector %2, p_track time pos %3:"
-#| "%4)"
+#, kde-format
 msgid ""
 "Skip sectors (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
 "Přeskočit sektory (absolutní sektor %1, relativní sektor %2, poloha času "
-"stopy %3:%4)"
+"skladby %3:%4)"
 
 #: utils/cddaextractthread.cpp:223
 #, kde-format
@@ -1092,10 +1895,9 @@ msgstr ""
 "PŘESKOČIT (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:227
-#, fuzzy, kde-format
+#, kde-format
 msgid "Drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
-"Nést (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:231
 #, kde-format
@@ -1104,26 +1906,22 @@ msgstr ""
 "Ustoupit (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:241
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
-"Dát do pořádku snížený (absolutní sektor %1, relativní sektor %2, poloha "
-"času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:245
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
-"Dát do pořádku zkopírovaný (absolutní sektor %1, relativní sektor %2, poloha "
-"času stopy %3:%4)"
 
 #: utils/cddaextractthread.cpp:249
 #, kde-format
 msgid ""
-"Read error detected (absolute sector %1, relative sector %2, track time pos %"
-"3:%4)"
+"Read error detected (absolute sector %1, relative sector %2, track time pos "
+"%3:%4)"
 msgstr ""
 "Zjištěna chyba čtení (absolutní sektor %1, relativní sektor %2, poloha času "
 "stopy %3:%4)"
@@ -1133,8 +1931,243 @@ msgstr ""
 msgid ""
 "READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
 msgstr ""
-"CHYBA ČTENÍ (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:%"
-"4)"
+"CHYBA ČTENÍ (absolutní sektor %1, relativní sektor %2, poloha času stopy %3:"
+"%4)"
+
+#: utils/cddaparanoia.cpp:41
+#, kde-format
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+"Zkontrolujte své zařízení. Jde skutečně o \"%1\"? Pokud ano, zkontrolujte "
+"také svá oprávnění k \"%1\"."
+
+#: utils/coverfetcher.cpp:103
+msgid "There was an error communicating with Google."
+msgstr "Při dorozumívání se se službou Google se vyskytla chyba."
+
+#: utils/coverfetcher.cpp:103
+msgid "Try again later. Otherwise make a bug report."
+msgstr ""
+"Později to vyzkoušejte znovu. Jinak vytvořte zprávu o programové chybě."
+
+#: utils/coverfetcher.cpp:114
+msgid "Google server: Empty response."
+msgstr "Server Google: Bezobsažná odpověď."
+
+#: utils/coverfetcher.cpp:115
+msgid "Try again later. Make a bug report."
+msgstr "Později to vyzkoušejte znovu. Vytvořte zprávu o programové chybě."
+
+#: utils/coverfetcher.cpp:176
+#, kde-format
+msgid "%1x%2, %3 KiB"
+msgstr "%1x%2, %3 kB"
+
+#: utils/encoderassistant.h:66
+msgid "MP3"
+msgstr "MP3"
+
+#: utils/encoderassistant.h:98
+msgid "Ogg Vorbis"
+msgstr "Ogg Vorbis"
+
+#: utils/encoderassistant.h:128
+msgid "FLAC (Lossless)"
+msgstr "FLAC (bezeztrátový)"
+
+#: utils/encoderassistant.h:139
+msgid "MP4 (AAC)"
+msgstr "MP4 (AAC)"
+
+#: utils/encoderassistant.h:157
+msgid "WAVE (Raw Uncompressed)"
+msgstr "WAVE (surový nekomprimovaný)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_custom)
+#: utils/encoderassistant.h:166 utils/encoderassistant.h:167
+#: widgets/lamewidgetUI.ui:130
+msgid "Custom"
+msgstr "Vlastní"
+
+#: utils/encoderwrapper.cpp:57
+msgid "Command pattern is empty."
+msgstr "Vzor příkazu není vyplněn"
+
+#: utils/encoderwrapper.cpp:69
+#, kde-format
+msgid "Encoding track %1..."
+msgstr "Převádí se stopa %1..."
+
+#: utils/encoderwrapper.cpp:87
+#, kde-format
+msgid "Deleted partial file \"%1\"."
+msgstr "Neúplný soubor \"%1\" byl smazán."
+
+#: utils/encoderwrapper.cpp:92
+msgid "User canceled encoding."
+msgstr "Převod byl uživatelem zrušen."
+
+#: utils/encoderwrapper.cpp:140
+#, kde-format
+msgid "Encoding OK (\"%1\")."
+msgstr "Převod OK (\"%1\")."
+
+#: utils/encoderwrapper.cpp:142
+#, kde-format
+msgid "An error occured while encoding file \"%1\"."
+msgstr "Při převodu souboru \"%1\" se vyskytla chyba."
+
+#: utils/encoderwrapper.cpp:143 utils/encoderwrapper.cpp:155
+#: utils/encoderwrapper.cpp:157 utils/encoderwrapper.cpp:163
+msgid "Please check your profile."
+msgstr "Prosím, zkontrolujte svůj profil."
+
+#: utils/encoderwrapper.cpp:153
+#, kde-format
+msgid "%1 failed to start."
+msgstr "Spuštění %1 selhalo."
+
+#: utils/encoderwrapper.cpp:153
+msgid ""
+"Either it is missing, or you may have insufficient permissions to invoke the "
+"program."
+msgstr "Buď chybí, anebo nemáte dostatečná oprávnění pro spuštění programu."
+
+#: utils/encoderwrapper.cpp:155
+#, kde-format
+msgid "%1 crashed some time after starting successfully."
+msgstr "%1 po úspěšném spuštění za nějakou dobu havarovalo."
+
+#: utils/encoderwrapper.cpp:157
+#, kde-format
+msgid "%1 timed out. This should not happen."
+msgstr "%1 vypršel. Toto se nemělo stát."
+
+#: utils/encoderwrapper.cpp:159
+#, kde-format
+msgid "An error occurred when attempting to write to %1."
+msgstr "Při pokusu o zápis do %1 se vyskytla chyba."
+
+#: utils/encoderwrapper.cpp:159
+msgid ""
+"For example, the process may not be running, or it may have closed its input "
+"channel."
+msgstr ""
+"Například nemusí běžet proces, nebo může mít zavřený svůj vstupní kanál."
+
+#: utils/encoderwrapper.cpp:161
+#, kde-format
+msgid "An error occurred when attempting to read from %1."
+msgstr "Při pokusu o čtení z %1 se vyskytla chyba."
+
+#: utils/encoderwrapper.cpp:161
+msgid "For example, the process may not be running."
+msgstr "Například nemusí běžet proces."
+
+#: utils/encoderwrapper.cpp:163
+#, kde-format
+msgid "An unknown error occurred to %1. This should not happen."
+msgstr "U %1 se vyskytla neznámá chyba. Toto se nemělo stát."
+
+#: utils/upload.cpp:61
+#, kde-format
+msgid "Uploading file %1 to server. Please wait..."
+msgstr "Nahrávání souboru %1 na server. Prosím, počkejte..."
+
+#: utils/upload.cpp:68
+#, kde-format
+msgid "Finished uploading file %1 to server."
+msgstr "Nahrávání souboru %1 na server dokončeno."
+
+#: widgets/cddaheaderwidget.cpp:461
+msgid "Released: "
+msgstr "Vydáno:"
+
+#: widgets/cddaheaderwidget.cpp:462
+msgid "Genre: "
+msgstr "Žánr:"
+
+#: widgets/cddaheaderwidget.cpp:463
+msgid "CD Number: "
+msgstr "CD číslo: "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/cddaheaderwidget.cpp:494 widgets/generalsettingswidgetUI.ui:94
+msgid "Wikipedia"
+msgstr "Wikipedie"
+
+#: widgets/cddaheaderwidget.cpp:518
+msgid "No CD in drive"
+msgstr "V mechanice není žádné CD"
+
+#: widgets/cddaheaderwidget.cpp:684
+msgid "Load Cover"
+msgstr "Nahrát obal"
+
+#: widgets/cddaheaderwidget.cpp:693 widgets/profilewidget.cpp:122
+msgid "Save Cover"
+msgstr "Uložit obal"
+
+#: widgets/cddaheaderwidget.cpp:773
+msgid "No cover found."
+msgstr "Nebyl nalezen žádný obal."
+
+#: widgets/cddaheaderwidget.cpp:773
+msgid ""
+"Check your artist name and title. Otherwise you can load a custom cover from "
+"an image file."
+msgstr ""
+"Prověřte jméno svého umělce a název. Dále také můžete nahrát vlastní obal ze "
+"souboru s obrázkem."
+
+#: widgets/cddaheaderwidget.cpp:809
+msgid "Fetch cover from Google..."
+msgstr "Natáhnout obrázek obalu ze služby Google..."
+
+#: widgets/cddaheaderwidget.cpp:814
+msgid "Set Custom Cover..."
+msgstr "Nastavit vlastní obal..."
+
+#: widgets/cddaheaderwidget.cpp:819
+msgid "Save Cover To File..."
+msgstr "Uložit obrázek obalu do souboru"
+
+#: widgets/cddaheaderwidget.cpp:824
+msgid "Show Full Size Cover..."
+msgstr "Ukázat obal v plné velikosti..."
+
+#: widgets/cddaheaderwidget.cpp:829
+msgid "Remove Cover"
+msgstr "Odstranit obal"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/customwidgetUI.ui:29
+msgid "Command Pattern:"
+msgstr "Vzor příkazu:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/faacwidgetUI.ui:29 widgets/oggencwidgetUI.ui:29
+msgid "Quality"
+msgstr "Kvalita"
+
+#. i18n: ectx: property (text), widget (QLabel, label_lowest)
+#: widgets/faacwidgetUI.ui:83 widgets/flacwidgetUI.ui:80
+#: widgets/lamewidgetUI.ui:190 widgets/oggencwidgetUI.ui:101
+msgid "Lowest"
+msgstr "Nejnižší"
+
+#. i18n: ectx: property (text), widget (QLabel, label_highest)
+#: widgets/faacwidgetUI.ui:97 widgets/flacwidgetUI.ui:94
+#: widgets/lamewidgetUI.ui:202 widgets/oggencwidgetUI.ui:118
+msgid "Highest"
+msgstr "Nejvyšší"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/flacwidgetUI.ui:29
+msgid "Compression"
+msgstr "Komprese"
 
 #: widgets/generalsettingswidget.cpp:24
 msgid "English"
@@ -1180,24 +2213,154 @@ msgstr "Švédský"
 msgid "None detected"
 msgstr "Žádný nebyl zjištěn"
 
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
+#: widgets/generalsettingswidgetUI.ui:37
+msgid "Eject CD tray after finished extraction"
+msgstr "Vysunout CD z mechaniky po skončení získávání dat"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
+#: widgets/generalsettingswidgetUI.ui:51
+msgid "Perform cover lookup automatically"
+msgstr "Provést vyhledání obalu automaticky"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/generalsettingswidgetUI.ui:66
+msgid "Number of covers to fetch:"
+msgstr "Počet obalů, který se má natáhnout:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
+#: widgets/generalsettingswidgetUI.ui:106
+msgid "Localization:"
+msgstr "Překlad:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: widgets/generalsettingswidgetUI.ui:126
+msgid "Device"
+msgstr "Zařízení"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: widgets/generalsettingswidgetUI.ui:156
+msgid "Paths"
+msgstr "Cesty"
+
+#. i18n: ectx: property (text), widget (QLabel, label_basePath)
+#: widgets/generalsettingswidgetUI.ui:164
+msgid "Base path to store music files:"
+msgstr "Základní adresář pro uložení hudebních souborů:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: widgets/lamewidgetUI.ui:41
+msgid "Quality/Bitrate"
+msgstr "Kvalita/Datový tok"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
+#: widgets/lamewidgetUI.ui:53
+msgid ""
+"This preset should provide near transparency to most people on most music."
+msgstr ""
+"Tato předvolba by měla být pro většinu lidí u většiny hudby dobře "
+"poslouchatelná."
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
+#: widgets/lamewidgetUI.ui:56
+msgid "Medium (140...185 kbit/s)"
+msgstr "Střední (140...185 kbit/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
+#: widgets/lamewidgetUI.ui:69
+msgid ""
+"If you have extremely good hearing and similar equipment, this preset will "
+"generally provide slightly higher quality than the \"standard\" mode"
+msgstr ""
+"Pokud máte neobyčejně dobrý sluch a podobně neobyčejné vybavení, poskytne "
+"Vám tato předvolba obecně vyšší kvalitu, než jakou poskytuje \"průměrný\" "
+"režim."
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
+#: widgets/lamewidgetUI.ui:72
+msgid "Extreme (220...260 kbits/s)"
+msgstr "Extrémní (220...260 kbits/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
+#: widgets/lamewidgetUI.ui:98
+msgid ""
+"This preset should generally be transparent to most people on most music and "
+"is already quite high in quality."
+msgstr ""
+"Tato předvolba by měla být pro většinu lidí u většiny hudby obecně dobře "
+"poslouchatelná jelikož kvalita záznamu je docela vysoká."
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
+#: widgets/lamewidgetUI.ui:101
+msgid "Standard (170...210 kbit/s)"
+msgstr "Obvyklá (170...210 kbit/s)"
+
+#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
+#: widgets/lamewidgetUI.ui:114
+msgid ""
+"This preset will usually be overkill for most people and most situations, "
+"but if you must have the absolute highest quality with no regard to "
+"filesize, this is the way to go."
+msgstr ""
+"Tato předvolba bude obvykle pro většinu lidí a většinu situací až "
+"přespříliš, ale jestliže musíte mít vyloženě nejvyšší kvalitu bez ohledu na "
+"velikost souboru, je toto právě ta cesta, kterou si přejete se vydat."
+
+#. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
+#: widgets/lamewidgetUI.ui:117
+msgid "Insane (320 kbit/s)"
+msgstr "Šílená (320 kbit/s)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
+#: widgets/lamewidgetUI.ui:140
+msgid "Constant Bitrate"
+msgstr "Stálý datový tok"
+
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: widgets/lamewidgetUI.ui:153
+msgid "Target Bitrate (kbit/s)"
+msgstr "Cílový datový tok (kbit/s)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
+#: widgets/lamewidgetUI.ui:248
+msgid "Embed cover in music file"
+msgstr "Vložit obal do hudebního souboru"
+
+#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
+#: widgets/oggencwidgetUI.ui:152
+msgid "Target Bitrate ~"
+msgstr "Cílový datový tok ~"
+
+#. i18n: ectx: property (text), widget (QLabel, label_kbits)
+#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
+#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
+#: widgets/oggencwidgetUI.ui:199 widgets/oggencwidgetUI.ui:268
+#: widgets/oggencwidgetUI.ui:347
+msgid "kbit/s"
+msgstr "kbit/s"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
+#: widgets/oggencwidgetUI.ui:209
+msgid "Set minimum bitrate"
+msgstr "Stanovit nejnižší datový tok"
+
+#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
+#: widgets/oggencwidgetUI.ui:245
+msgid "Set maximum bitrate"
+msgstr "Stanovit nejvyšší datový tok"
+
 #: widgets/profilewidget.cpp:80
 #, kde-format
 msgid "Do you really want to delete profile \"%1\"?"
-msgstr "Opravdu chcete profil \"%1\" smazat?"
+msgstr "Opravdu si přejete profil \"%1\" smazat?"
 
 #: widgets/profilewidget.cpp:81
 msgid "Delete profile"
 msgstr "Smazat profil"
 
-#: widgets/profilewidget.cpp:122 widgets/cddaheaderwidget.cpp:693
-msgid "Save Cover"
-msgstr "Uložit obal"
-
 #: widgets/profilewidget.cpp:129
-#, fuzzy
-#| msgid "Load profiles"
 msgid "Load Profiles"
-msgstr "Nahrát profily"
+msgstr "Načíst profily"
 
 #: widgets/profilewidget.cpp:138
 msgid ""
@@ -1210,9 +2373,9 @@ msgstr ""
 "vytvořit nějaké vzorové profily založené na jakýchkoli nalezených kodecích.</"
 "font></p>"
 
-#. i18n: file: widgets/profilewidgetUI.ui:65
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_init)
-#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:150 rc.cpp:498
+#: widgets/profilewidget.cpp:140 widgets/profilewidget.cpp:148
+#: widgets/profilewidgetUI.ui:65
 msgid "Codec Scan"
 msgstr "Hledání kodeků"
 
@@ -1220,2034 +2383,45 @@ msgstr "Hledání kodeků"
 msgid "No new codecs found"
 msgstr "Žádné nové kodeky nebyly nalezeny"
 
-#: widgets/profilewidget.cpp:148
-#, fuzzy
-#| msgid "%1 new profile added"
-#| msgid_plural "%1 new profiles added"
-msgid "1 new profile added"
-msgstr "Byly přidány %1 nové profily"
-
-#: widgets/profilewidget.cpp:149
-#, fuzzy, kde-format
-#| msgid "%1 new profile added"
-#| msgid_plural "%1 new profiles added"
-msgid "%1 new profiles added"
-msgstr "Byly přidány %1 nové profily"
-
-#: widgets/cddaheaderwidget.cpp:461
-msgid "Released: "
-msgstr "Vydáno:"
-
-#: widgets/cddaheaderwidget.cpp:462
-msgid "Genre: "
-msgstr "Žánr:"
-
-#: widgets/cddaheaderwidget.cpp:463
-msgid "CD Number: "
-msgstr "CD číslo: "
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:94
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: widgets/cddaheaderwidget.cpp:494 rc.cpp:465
-msgid "Wikipedia"
-msgstr "Wikipedie"
-
-#: widgets/cddaheaderwidget.cpp:518
-msgid "No CD in drive"
-msgstr "V mechanice není žádné CD"
-
-#: widgets/cddaheaderwidget.cpp:684
-#, fuzzy
-#| msgid "Load cover"
-msgid "Load Cover"
-msgstr "Nahrát obal"
-
-#: widgets/cddaheaderwidget.cpp:773
-msgid "No cover found."
-msgstr "Nebyl nalezen žádný obal."
-
-#: widgets/cddaheaderwidget.cpp:773
-#, fuzzy
-#| msgid ""
-#| "Check your artist name and title. Otherwise you can load your own cover."
-msgid ""
-"Check your artist name and title. Otherwise you can load a custom cover from "
-"an image file."
-msgstr ""
-"Prověřte jméno umělce a název. Dále také můžete nahrát svůj vlastní obal."
-
-#: widgets/cddaheaderwidget.cpp:809
-msgid "Fetch cover from Google..."
-msgstr "Natáhnout obrázek obalu ze služby Google..."
-
-#: widgets/cddaheaderwidget.cpp:814
-msgid "Set Custom Cover..."
-msgstr "Nastavit vlastní obal..."
-
-#: widgets/cddaheaderwidget.cpp:819
-msgid "Save Cover To File..."
-msgstr "Uložit obrázek obalu do souboru"
-
-#: widgets/cddaheaderwidget.cpp:824
-msgid "Show Full Size Cover..."
-msgstr "Ukázat obal v plné velikosti..."
-
-#: widgets/cddaheaderwidget.cpp:829
-msgid "Remove Cover"
-msgstr "Odstranit obal"
-
-#: mainwindow.cpp:27
-msgid "Unable to create ProfileModel object."
-msgstr "Předmět ProfileModel nelze vytvořit."
-
-#: mainwindow.cpp:27 mainwindow.cpp:40
-#, fuzzy
-#| msgid ""
-#| "Internal error. Check your hardware, and if it is all okay, please make a "
-#| "bug report."
-msgid ""
-"Internal error. Check your hardware. If all okay please make bug report."
-msgstr ""
-"Vnitřní chyba. Zkontrolujte si technické vybavení svého počítače. Pokud bude "
-"vše v pořádku, vytvořte, prosím, zprávu o chybě v programu."
-
-#: mainwindow.cpp:40
-msgid "Unable to create CDDAModel object."
-msgstr "Předmět CDDAModel nelze vytvořit."
-
-#: mainwindow.cpp:113
-msgid "No disc information set. Do you really want to continue?"
-msgstr "Není nastavena žádná informace o disku. Stále ještě chcete pokračovat?"
-
-#: mainwindow.cpp:114
-msgid "Disc information not found"
-msgstr "Nebyly nalezeny žádné informace o disku"
-
-#: mainwindow.cpp:124
-#, fuzzy
-#| msgid "No disc information set. Do you really want to continue?"
-msgid ""
-"Single file rip selected but not all audio tracks to rip selected. Do you "
-"really want to continue?"
-msgstr "Není nastavena žádná informace o disku. Stále ještě chcete pokračovat?"
-
-#: mainwindow.cpp:125
-msgid "Not all audio tracks selected for single file rip"
-msgstr ""
-
-#: mainwindow.cpp:148
-msgid "General settings"
-msgstr "Obecná nastavení"
-
-#: mainwindow.cpp:151
-msgid "Profiles"
-msgstr "Profily"
-
-#: mainwindow.cpp:171
-msgid "Remote Server"
-msgstr "Vzdálený server"
-
-#: mainwindow.cpp:183
-#, fuzzy
-#| msgid "No Status information available"
-msgid "No status information available"
-msgstr "Není dostupná žádná informace o stavu"
-
-#: mainwindow.cpp:187 models/cddamodel.cpp:683
-msgid "No disc in drive"
-msgstr "V mechanice není žádný disk"
-
-#: mainwindow.cpp:191
-msgid "Audio disc in drive"
-msgstr "Audiodisk je v mechanice"
-
-#: mainwindow.cpp:200 models/cddamodel.cpp:685
-msgid "Drive tray open"
-msgstr "Otevřít mechaniku"
-
-#: mainwindow.cpp:204 models/cddamodel.cpp:686
-msgid "Drive not ready"
-msgstr "Mechanika není připravena"
-
-#: mainwindow.cpp:208 models/cddamodel.cpp:687
-msgid "Drive error"
-msgstr "Chyba mechaniky"
-
-#: mainwindow.cpp:245
-msgid "Fetching CDDB information..."
-msgstr "Natahují se informace z CDDB..."
-
-#: mainwindow.cpp:250
+#: widgets/profilewidget.cpp:147
 #, kde-format
-msgid ""
-"CDDB lookup failed, with the following error:\n"
-"%1"
-msgstr ""
+msgid "1 new profile added"
+msgid_plural "%1 new profiles added"
+msgstr[0] "Byl přidán jeden nový profil"
+msgstr[1] "Byly přidány %1 nové profily"
+msgstr[2] "Bylo přidáno %1 nových profilů"
 
-#: mainwindow.cpp:251
-msgid "CDD Lookup Failure"
-msgstr ""
-
-#: mainwindow.cpp:354
-msgid "Split titles"
-msgstr "Rozdělit názvy"
-
-#: mainwindow.cpp:355
-msgid ""
-"Please set a divider string. Be aware of empty spaces.\n"
-"\n"
-"Divider:"
-msgstr ""
-"Nastavte, prosím, rozdělovací řetězec. Dejte si pozor na prázdné mezery.\n"
-"\n"
-"Rozdělovač:"
-
-#: mainwindow.cpp:365
-msgid "Do you really want to swap all artists and titles?"
-msgstr "Opravdu chcete vyměnit všechny umělce a názvy?"
-
-#: mainwindow.cpp:366
-msgid "Swap artists and titles"
-msgstr "Vyměnit všechny umělce a názvy"
-
-#: mainwindow.cpp:378
-msgid "Do you really want to capitalize all artists and titles?"
-msgstr ""
-"Opravdu chcete psát všechny umělce a názvy s velkým začátečním písmenem?"
-
-#: mainwindow.cpp:379
-msgid "Capitalize artists and titles"
-msgstr "Psát všechny umělce a názvy s velkým začátečním písmenem"
-
-#: mainwindow.cpp:391
-msgid "Do you really want to autofill track artists?"
-msgstr "Opravdu chcete u stop automaticky vyplnit umělce?"
-
-#: mainwindow.cpp:392
-msgid "Autofill artists"
-msgstr "Automaticky vyplnit umělce"
-
-#: mainwindow.cpp:416
-msgid "Eject"
-msgstr "Vysunout"
-
-#: mainwindow.cpp:423
-msgid "Profile: "
-msgstr "Profil:"
-
-#: mainwindow.cpp:435
-msgid "&Profile: "
-msgstr "&Profil:"
-
-#: mainwindow.cpp:441
-msgid "Profile"
-msgstr "Profil"
-
-#: mainwindow.cpp:449
-msgid "Fetch Info"
-msgstr "Natáhnout informace"
-
-#: mainwindow.cpp:456
-msgid "Submit Info"
-msgstr "Odeslat informace"
-
-#: mainwindow.cpp:462
-msgid "Rip..."
-msgstr "Získat..."
-
-#: mainwindow.cpp:471
-#, fuzzy
-#| msgid "Split titles..."
-msgid "Split Titles..."
-msgstr "Rozdělit názvy..."
-
-#: mainwindow.cpp:476
-#, fuzzy
-#| msgid "Swap artists and titles"
-msgid "Swap Artists And Titles"
-msgstr "Vyměnit všechny umělce a názvy"
-
-#: mainwindow.cpp:481
-msgid "Capitalize"
-msgstr "Velká počáteční písmena"
-
-#: mainwindow.cpp:486
-#, fuzzy
-#| msgid "Auto fill artists"
-msgid "Auto Fill Artists"
-msgstr "Automaticky vyplnit umělce"
-
-#: mainwindow.cpp:491
-#, fuzzy
-#| msgid "Select all tracks"
-msgid "Select All Tracks"
-msgstr "Vybrat všechny stopy"
-
-#: mainwindow.cpp:496
-#, fuzzy
-#| msgid "Select all tracks"
-msgid "Deselect All Tracks"
-msgstr "Vybrat všechny stopy"
-
-#: mainwindow.cpp:501
-msgid "Invert Selection"
-msgstr "Obrátit výběr"
-
-#: main.cpp:28
-msgid "Audex"
-msgstr "Audex"
-
-#: main.cpp:29
-#, fuzzy
-#| msgid "CDDA Extractor for KDE"
-msgid "KDE CDDA Extractor"
-msgstr "CDDA extraktor pro prostředí KDE"
-
-#: main.cpp:31
-#, fuzzy
-#| msgid "(c) 2007-2011 by Marco Nelles"
-msgid "Copyright © 2007–2011 by Marco Nelles"
-msgstr "(c) 2007-2011, od: Marco Nelles"
-
-#: main.cpp:35
-msgid "Marco Nelles"
-msgstr "Marco Nelles"
-
-#: main.cpp:35
-#, fuzzy
-#| msgid "Current maintainer, Main developer"
-msgid "Current maintainer, main developer"
-msgstr "Současný správce, hlavní vývojář"
-
-#: main.cpp:36
-msgid "Craig Drummond"
-msgstr "Craig Drummond"
-
-#: main.cpp:36
-#, fuzzy
-#| msgid "GUI improvements"
-msgid "GUI improvements, development"
-msgstr "Vylepšení grafického uživatelského rozhraní"
-
-#: main.cpp:37
-msgid "credativ GmbH"
-msgstr ""
-
-#: main.cpp:37
-msgid "Special thanks to credativ GmbH (Germany) for support"
-msgstr ""
-
-#: main.cpp:38
-msgid "freedb.org"
-msgstr "freedb.org"
-
-#: main.cpp:38
-msgid "Special thanks to freedb.org for providing a free CDDB-like CD database"
-msgstr ""
-"Zvláštní poděkování patří freedb.org za poskytnutí svobodné CD databáze na "
-"způsob CDDB"
-
-#: main.cpp:39
-msgid "Xiph.Org Foundation"
-msgstr ""
-
-#: main.cpp:39
-msgid "Special thanks to Xiph.Org Foundation for providing compact disc ripper"
-msgstr ""
-
-#: main.cpp:40 rc.cpp:1
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Pavel Fric"
-
-#: main.cpp:40 rc.cpp:2
-#, fuzzy
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "fripohled.blogspot.com"
-
-#: models/cddamodel.h:46
-msgid "Rip"
-msgstr "Získat"
-
-#: models/cddamodel.h:47
-msgid "Track"
-msgstr "Stopa"
-
-#: models/cddamodel.h:48
-msgid "Artist"
-msgstr "Umělec"
-
-#: models/cddamodel.h:49
-msgid "Title"
-msgstr "Název skladby"
-
-#: models/cddamodel.h:50
-msgid "Length"
-msgstr "Délka"
-
-#: models/profilemodel.cpp:134
-msgid "Profile name must not be empty."
-msgstr "Název profilu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:135
-#, fuzzy
-#| msgid "You have not given a name for the profile, please set one."
-msgid "You've given no name for the profile. Please set one."
-msgstr "Nezadal jste pro profil žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:144
-msgid "Profile encoder is not defined."
-msgstr "Kodér není v profilu stanoven."
-
-#: models/profilemodel.cpp:145
-#, fuzzy
-#| msgid "You have not given a name for the profile, please set one."
-msgid "You've given no encoder for the profile. Please set one."
-msgstr "Nezadal jste pro profil žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:154
-msgid "Profile filename pattern is not defined."
-msgstr "Vzor pro názvy souborů není v profilu stanoven."
-
-#: models/profilemodel.cpp:155
-#, fuzzy
-#| msgid ""
-#| "You have not given a filename pattern for the profile, please set one."
-msgid "You've given no filename pattern for the profile. Please set one."
-msgstr ""
-"Nezadal jste pro profil žádný vzor pro názvy souborů. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:170
-msgid "The image file format is unknown."
-msgstr "Formát souboru obrázku je neznámý."
-
-#: models/profilemodel.cpp:171
-#, fuzzy
-#| msgid ""
-#| "The given image file format is unknown. Please choose one of these "
-#| "formats: JPG/JPEG, PNG or BMP."
-msgid ""
-"Your given image file format is unknown. Please choose on of these formats: "
-"JPG/JPEG, PNG or BMP."
-msgstr ""
-"Zadaný formát souboru obrázku je neznámý. Z těchto formátů vyberte, prosím, "
-"jeden: JPG/JPEG, PNG nebo BMP."
-
-#: models/profilemodel.cpp:180
-msgid "Cover name must not be empty."
-msgstr "Název obalu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:181
-#, fuzzy
-#| msgid "You have not given a name for the cover, please set one."
-msgid "You've given no name for the cover. Please set one."
-msgstr "Nezadal jste pro obal žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:191
-msgid "The playlist file format is unknown."
-msgstr "Formát souboru seznamu skladeb je neznámý."
-
-#: models/profilemodel.cpp:192
-#, fuzzy
-#| msgid ""
-#| "The given playlist file format is unknown. Please choose one of these "
-#| "formats: M3U, PLS or XSPF."
-msgid ""
-"Your given playlist file format is unknown. Please choose on of these "
-"formats: M3U, PLS or XSPF."
-msgstr ""
-"Zadaný formát souboru seznamu skladeb je neznámý. Z těchto formátů vyberte, "
-"prosím, jeden: M3U, PLS nebo XSPF."
-
-#: models/profilemodel.cpp:201
-msgid "Playlist name must not be empty."
-msgstr "Název seznamu skladeb nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:202
-#, fuzzy
-#| msgid "You have not given a name for the playlist, please set one."
-msgid "You've given no name for the playlist. Please set one."
-msgstr "Nezadal jste pro seznam skladeb žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:214
-msgid "Info text name must not be empty."
-msgstr "Název informačního textu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:215
-#, fuzzy
-#| msgid "You have not given a name for the info text file, please set one."
-msgid "You've given no name for the info text file. Please set one."
-msgstr ""
-"Nezadal jste pro soubor s informačním textem žádný název. Jeden, prosím, "
-"určete."
-
-#: models/profilemodel.cpp:224
-msgid "Info text file name suffix must not be empty."
-msgstr "Přípona u názvu informačního textu nesmí zůstat nevyplněna."
-
-#: models/profilemodel.cpp:225
-#, fuzzy
-#| msgid "You have not given a suffix for the info text file, please set one."
-msgid "You've given no suffix for the info text file. Please set one."
-msgstr ""
-"Nezadal jste pro soubor s informačním textem žádnou příponu. Jednu, prosím, "
-"určete."
-
-#: models/profilemodel.cpp:235
-msgid "The hashlist file format is unknown."
-msgstr "Formát souboru hašového seznamu je neznámý."
-
-#: models/profilemodel.cpp:236
-#, fuzzy
-#| msgid ""
-#| "The given playlist file format is unknown. Please choose one of these "
-#| "formats: M3U, PLS or XSPF."
-msgid ""
-"Your given hashlist file format is unknown. Please choose on of these "
-"formats: SFV, MD5."
-msgstr ""
-"Zadaný formát souboru seznamu skladeb je neznámý. Z těchto formátů vyberte, "
-"prosím, jeden: M3U, PLS nebo XSPF."
-
-#: models/profilemodel.cpp:245
-msgid "Hashlist name must not be empty."
-msgstr "Název hašového seznamu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:246
-#, fuzzy
-#| msgid "You have not given a name for the hashlist, please set one."
-msgid "You've given no name for the hashlist. Please set one."
-msgstr "Nezadal jste pro hašový seznam žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:256
-#, fuzzy
-#| msgid "Profile name must not be empty."
-msgid "Cue filename name must not be empty."
-msgstr "Název profilu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:257
-#, fuzzy
-#| msgid "You have not given a name for the cover, please set one."
-msgid "You've given no name for the cue sheet. Please set one."
-msgstr "Nezadal jste pro obal žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:267
-#, fuzzy
-#| msgid "Profile name must not be empty."
-msgid "Filename name must not be empty."
-msgstr "Název profilu nesmí zůstat nevyplněn."
-
-#: models/profilemodel.cpp:268
-#, fuzzy
-#| msgid "You have not given a name for the profile, please set one."
-msgid "You've given no name for the single audio file. Please set one."
-msgstr "Nezadal jste pro profil žádný název. Jeden, prosím, určete."
-
-#: models/profilemodel.cpp:292
-msgid "Profile name already exists."
-msgstr "Název profilu již existuje."
-
-#: models/profilemodel.cpp:293
-#, fuzzy, kde-format
-#| msgid ""
-#| "The profile name %1 already exists in the set of profiles. Please choose "
-#| "a unique one."
-msgid ""
-"Your profile name %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr ""
-"Název profilu %1 již v souboru profilů existuje. Vyberte si, prosím, jeden, "
-"který bude jedinečný."
-
-#: models/profilemodel.cpp:309
-msgid "Profile index already exists."
-msgstr "Index profilu již existuje."
-
-#: models/profilemodel.cpp:310
-#, fuzzy, kde-format
-#| msgid ""
-#| "The profile index %1 already exists in the set of profiles. Please choose "
-#| "a unique one."
-msgid ""
-"Your profile index %1 already exists in the set of profiles. Please choose a "
-"unique one."
-msgstr ""
-"Index profilu %1 již v souboru profilů existuje. Vyberte si, prosím, jeden, "
-"který bude jedinečný."
-
-#: models/profilemodel.cpp:366
-msgid "Unknown error. No index found in profile model."
-msgstr "Neznámá chyba. V modelu profilu nebyl nalezen žádný index."
-
-#: models/profilemodel.cpp:367
-msgid "This is an internal error. Please report."
-msgstr "Toto je vnitřní chyba. Prosím, podejte o ní zprávu."
-
-#: models/profilemodel.h:178
-msgid " (Mobile Quality)"
-msgstr " (Kvalita vhodná při přemísťování se)"
-
-#: models/profilemodel.h:179
-msgid " (Normal Quality)"
-msgstr " (Obvyklá kvalita)"
-
-#: models/profilemodel.h:180
-msgid " (Extreme Quality)"
-msgstr " (Neobyčejná kvalita)"
-
-#: models/cddamodel.cpp:26
-#, fuzzy
-msgid "Unable to create KCompactDisc object."
-msgstr "Předmět KCompactDisc nelze vytvořit."
-
-#: models/cddamodel.cpp:26 models/cddamodel.cpp:38
-#, fuzzy
-#| msgid ""
-#| "This is an internal error. Check your hardware, and if it is all okay, "
-#| "please make a bug report."
-msgid ""
-"This is an internal error. Check your hardware. If all okay please make bug "
-"report."
-msgstr ""
-"Toto je vnitřní chyba. Prověřte si technické vybavení svého počítače. Pokud "
-"bude vše v pořádku, prosím, nahlašte chybu."
-
-#: models/cddamodel.cpp:38
-#, fuzzy
-msgid "Unable to create KCDDB object."
-msgstr "Předmět KCDDB nelze vytvořit."
-
-#: models/cddamodel.cpp:135
-#, fuzzy, kde-format
-msgid "Track %1"
-msgstr "Stopa %1"
-
-#: models/cddamodel.cpp:684
-#, fuzzy
-msgid "Disc in drive"
-msgstr "Disk je v mechanice"
-
-#: models/cddamodel.cpp:690
-#, fuzzy
-msgid "No drive status available"
-msgstr "Není dostupná žádná informace o stavu mechaniky"
-
-#: models/cddamodel.cpp:699
-#, fuzzy
-msgid "Disc playing"
-msgstr "Disk se přehrává"
-
-#: models/cddamodel.cpp:700
-#, fuzzy
-msgid "Disc paused"
-msgstr "Přehrávání disku je pozastaveno"
-
-#: models/cddamodel.cpp:701
-#, fuzzy
-msgid "Disc stopped"
-msgstr "Přehrávání disku bylo zastaveno"
-
-#: models/cddamodel.cpp:704
-#, fuzzy
-msgid "No disc status available"
-msgstr "Není dostupná žádná informace o stavu disku"
-
-#: models/cddamodel.cpp:713
-#, fuzzy
-#| msgid "Audio Disc"
-msgid "Audio disc"
-msgstr "Audiodisk"
-
-#: models/cddamodel.cpp:714
-#, fuzzy
-msgid "No audio disc"
-msgstr "Žádný audiodisk"
-
-#: models/cddamodel.cpp:717
-#, fuzzy
-msgid "No disc type information available"
-msgstr "Není dostupná žádná informace o typu disku"
-
-#: models/cddamodel.cpp:726
-#, fuzzy
-msgid "CD-Text"
-msgstr "Text na CD"
-
-#: models/cddamodel.cpp:727
-#, fuzzy
-msgid "CDDB"
-msgstr "CDDB"
-
-#: models/cddamodel.cpp:728
-#, fuzzy
-msgid "Phonon Metadata"
-msgstr "Meta-data pro Phonon"
-
-#: models/cddamodel.cpp:731
-#, fuzzy
-msgid "No disc information available"
-msgstr "Není dostupná žádná informace o disku"
-
-#: models/cddamodel.cpp:763 models/cddamodel.cpp:893
-#, fuzzy
-#| msgid ""
-#| "There is an error with the cddb server. Please wait or contact the "
-#| "administrator of the cddb server."
-msgid ""
-"There is an error with the CDDB server. Please wait or contact the "
-"administrator of the CDDB server."
-msgstr ""
-"Objevil se problém s cddb serverem. Počkejte, prosím, nebo se spojte se "
-"správcem cddb serveru."
-
-#: models/cddamodel.cpp:764 models/cddamodel.cpp:894
-#, fuzzy
-#| msgid ""
-#| "Can't find the cddb server. Check your network. Maybe the cddb server is "
-#| "offline."
-msgid ""
-"Can't find the CDDB server. Check your network. Maybe the CDDB server is "
-"offline."
-msgstr ""
-"Nelze najít cddb server. Prověřte svou síť. Je možné, že cddb server není "
-"připojený k internetu."
-
-#: models/cddamodel.cpp:765 models/cddamodel.cpp:895
-#, fuzzy
-#| msgid ""
-#| "Please wait, maybe the server is busy, or contact the cddb server "
-#| "administrator."
-msgid ""
-"Please wait, maybe the server is busy, or contact the CDDB server "
-"administrator."
-msgstr ""
-"Počkejte, prosím. Je možné, že je server zaneprázdněný, nebo se spojte se "
-"správcem cddb serveru."
-
-#: models/cddamodel.cpp:766
-#, fuzzy
-#| msgid "Please contact the cddb server administrator."
-msgid "Please contact the CDDB server administrator."
-msgstr "Spojte se, prosím, se správcem cddb serveru."
-
-#: models/cddamodel.cpp:767 models/cddamodel.cpp:896
-msgid "This should not happen. Please make a bug report."
-msgstr "Toto by se nemělo stávat. Vytvořte, prosím, zprávu o chybě programu."
-
-#: models/cddamodel.cpp:772 models/cddamodel.cpp:897
-#, fuzzy
-#| msgid "Please make a bug report and contact the cddb server administrator."
-msgid "Please make a bug report and contact the CDDB server administrator."
-msgstr ""
-"Vytvořte, prosím, zprávu o chybě programu a spojte se se správcem cddb "
-"serveru."
-
-#: models/cddamodel.cpp:902
-#, fuzzy
-#| msgid ""
-#| "This means no data was found in the CDDB database. Please enter the data "
-#| "manually, or maybe try another CDDB server."
-msgid ""
-"This means no data found in the CDDB database. Please enter the data "
-"manually. Maybe try another CDDB server."
-msgstr ""
-"Toto znamená, že v databázi CDDB nebyla nalezena žádná data. Zadejte, "
-"prosím, tato data vlastnoručně. Možná by pomohlo, kdybyste vyzkoušel další "
-"CDDB server."
-
-#: models/cddamodel.cpp:904
-msgid "This means no data found in the CDDB database."
-msgstr "To znamená, že v databázi CDDB nebyla nalezena žádná data."
-
-#: models/cddamodel.cpp:922
-msgid "Select CDDB Entry"
-msgstr "Vybrat záznam v CDDB"
-
-#: models/cddamodel.cpp:923
-msgid "Select a CDDB entry:"
-msgstr "Vybrat záznam v CDDB:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:16
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_various)
-#: models/cddamodel.cpp:947 rc.cpp:232
-msgid "Various Artists"
-msgstr "Různí umělci"
-
-#. i18n: file: dialogs/profiledatasinglefilewidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:39
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:39
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatacuesheetwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:5 rc.cpp:11 rc.cpp:229 rc.cpp:311
-msgid "Name/Pattern:"
-msgstr "Název/Vzor:"
-
-#. i18n: file: dialogs/profiledataplaylistwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:75
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#. i18n: file: dialogs/profiledatahashlistwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QLabel, label_format)
-#: rc.cpp:8 rc.cpp:220 rc.cpp:226
-msgid "Format:"
-msgstr "Formát:"
-
-#. i18n: file: dialogs/coverbrowserwidgetUI.ui:19
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:14
-msgid "TextLabel"
-msgstr "Textový štítek"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:38
-#. i18n: ectx: attribute (title), widget (QWidget, tab)
-#: rc.cpp:17
-msgid "Encoder"
-msgstr "Kodér"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:72
-#. i18n: ectx: attribute (title), widget (QWidget, tab_3)
-#: rc.cpp:20
-msgid "Filenames"
-msgstr "Názvy souborů"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:95
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:99
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:23 rc.cpp:159
-msgid "Pattern:"
-msgstr "Vzor: "
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:130
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_fat32compatible)
-#: rc.cpp:26
-msgid "Create FAT32 compatible filenames"
-msgstr "Vytvořit názvy souborů slučitelné s FAT32"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:143
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_underscore)
-#: rc.cpp:29
-msgid "Replace spaces with underscores"
-msgstr "Nahradit mezery podtržítky"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:150
-#. i18n: ectx: property (toolTip), widget (QCheckBox, checkBox_2digitstracknum)
-#: rc.cpp:32
-msgid ""
-"This setting overrides any parameterized variable settings in the pattern"
-msgstr ""
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:153
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_2digitstracknum)
-#: rc.cpp:35
-msgid "Set 2 digits track number (e.g. 01, 02, 03...)"
-msgstr ""
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:177
-#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
-#: rc.cpp:38
-#, fuzzy
-#| msgid "Extra Files"
-msgid "Extra"
-msgstr "Soubory navíc"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:195
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cover)
-#: rc.cpp:41
-msgid "Store cover file in target folder"
-msgstr "Uložit soubor s obrázkem obalu v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:208
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:234
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_playlist)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:273
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_info)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:299
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_hashlist)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:313
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cuesheet)
-#. i18n: file: dialogs/profiledatawidgetUI.ui:355
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_singlefile)
-#: rc.cpp:44 rc.cpp:50 rc.cpp:56 rc.cpp:62 rc.cpp:68 rc.cpp:77
-msgid "Settings.."
-msgstr "Nastavení..."
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:221
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_playlist)
-#: rc.cpp:47
-msgid "Create playlist in target folder"
-msgstr "Vytvořit seznam skladeb v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:260
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_info)
-#: rc.cpp:53
-msgid "Store info file in target folder"
-msgstr "Uložit soubor s informacemi v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:286
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_hashlist)
-#: rc.cpp:59
-msgid "Store hashlist in target folder"
-msgstr "Uložit soubor s hašovým seznamem v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:306
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cuesheet)
-#: rc.cpp:65
-#, fuzzy
-#| msgid "Store cover file in target folder"
-msgid "Store cue sheet in target folder"
-msgstr "Uložit soubor s obrázkem obalu v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:326
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_discid)
-#: rc.cpp:71
-msgid "Store discid in target folder"
-msgstr "Uložit ID disku v cílové složce"
-
-#. i18n: file: dialogs/profiledatawidgetUI.ui:345
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_singlefile)
-#: rc.cpp:74
-#, fuzzy
-#| msgid "Overwrite existing files"
-msgid "Write single file"
-msgstr "Přepsat stávající soubory"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:30
-#. i18n: ectx: property (toolTip), widget (QToolButton, details_button)
-#: rc.cpp:80
-msgid "Show/hide details"
-msgstr "Ukázat/Skrýt podrobnosti"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:33
-#. i18n: ectx: property (text), widget (QToolButton, details_button)
-#: rc.cpp:83
-msgid "..."
-msgstr "..."
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:73
-#. i18n: ectx: property (text), widget (QLabel, label_extracting)
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:183
-#. i18n: ectx: property (text), widget (KSqueezedTextLabel, label_overall_track)
-#: rc.cpp:86 rc.cpp:101
-msgid "Ripping Track 8 of 12"
-msgstr "Získává se stopa 8 z 12"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:86
-#. i18n: ectx: property (text), widget (QLabel, label_speed_extracting)
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:132
-#. i18n: ectx: property (text), widget (QLabel, label_speed_encoding)
-#: rc.cpp:89 rc.cpp:95
-msgid "Speed: 0x"
-msgstr "Rychlost: 0x"
-
-#. i18n: file: dialogs/extractingprogresswidgetUI.ui:119
-#. i18n: ectx: property (text), widget (QLabel, label_encoding)
-#: rc.cpp:92
-msgid "Encoding Track 8 of 12"
-msgstr "Převádí se stopa 8 z 12"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: rc.cpp:104 rc.cpp:266
-msgid "Album Example:"
-msgstr "Příklad alba:"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:140
-#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:143
-#. i18n: ectx: property (text), widget (QLabel, label_sampler_example)
-#: rc.cpp:107 rc.cpp:269
-msgid "Sampler Example:"
-msgstr "Příklad ukázky"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:263
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutfilenameschemes)
-#: rc.cpp:110
-msgid "About filename schemes"
-msgstr ""
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:273
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:162
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:276
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutparameters)
-#: rc.cpp:113 rc.cpp:168 rc.cpp:275
-msgid "About parameters"
-msgstr ""
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:301
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:116
-#, fuzzy
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#| "css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-#| "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\">Highest</p></body></html>"
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; "
-"margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"></"
-"p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Nejvyšší</"
-"p></body></html>"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:304
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:191
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:300
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:123 rc.cpp:176 rc.cpp:278
-msgid "Album Artist"
-msgstr "Umělec alba"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:326
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:215
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:322
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_albumtitle)
-#: rc.cpp:126 rc.cpp:184 rc.cpp:281
-msgid "Album Title"
-msgstr "Název alba"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:348
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:344
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackartist)
-#: rc.cpp:129 rc.cpp:284
-msgid "Track Artist"
-msgstr "Umělec stopy"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:370
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:366
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_tracktitle)
-#: rc.cpp:132 rc.cpp:287
-msgid "Track Title"
-msgstr "Název stopy"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:380
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:376
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_trackno)
-#: rc.cpp:135 rc.cpp:290
-msgid "Track #"
-msgstr "Stopa #"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:390
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:231
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:386
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cdno)
-#: rc.cpp:138 rc.cpp:196 rc.cpp:293
-msgid "CD #"
-msgstr "CD #"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:400
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:241
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:396
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_date)
-#: rc.cpp:141 rc.cpp:202 rc.cpp:296
-msgid "Date"
-msgstr "Datum"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:410
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:251
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:406
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_genre)
-#: rc.cpp:144 rc.cpp:208 rc.cpp:299
-msgid "Genre"
-msgstr "Žánr"
-
-#. i18n: file: dialogs/patternwizardwidgetUI.ui:420
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:258
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_suffix)
-#: rc.cpp:147 rc.cpp:211
-msgid "Suffix"
-msgstr "Přípona:"
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:25
-#. i18n: ectx: property (text), widget (QLabel, label_text)
-#: rc.cpp:150
-msgid "Information text:"
-msgstr "Informační text:"
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:58
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutvariables)
-#: rc.cpp:153
-msgid "About variables"
-msgstr ""
-
-#. i18n: file: dialogs/profiledatainfowidgetUI.ui:72
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/oggencwidgetUI.ui:297
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/wavewidgetUI.ui:31
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/flacwidgetUI.ui:114
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/customwidgetUI.ui:50
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/lamewidgetUI.ui:254
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#. i18n: file: widgets/faacwidgetUI.ui:117
-#. i18n: ectx: property (text), widget (QLabel, label_suffix)
-#: rc.cpp:156 rc.cpp:342 rc.cpp:348 rc.cpp:370 rc.cpp:376 rc.cpp:428
-#: rc.cpp:444
-msgid "Suffix:"
-msgstr "Přípona:"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:26
-#. i18n: ectx: property (text), widget (QLabel, label_album_example)
-#: rc.cpp:162
-msgid "Example:"
-msgstr "Příklad:"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:152
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutschemes)
-#: rc.cpp:165
-msgid "About schemes"
-msgstr ""
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:188
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumartist)
-#: rc.cpp:171
-msgid ""
-"<p>This tag will be replaced with artist of the whole CD.</p>\n"
-"<hr />\n"
-"<p>If your CD is a compilation, then this tag represents the title in most "
-"cases.</p>"
-msgstr ""
-"<p>Tato značka bude nahrazena jménem umělce celého CD.</p>\n"
-"<hr />\n"
-"<p>Pokud je vaše CD sbírkou, potom tato značka představuje název ve většině "
-"případů.</p>"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:212
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_albumtitle)
-#: rc.cpp:179
-msgid ""
-"<p>This tag will be replaced with the title of the whole CD.</p>\n"
-"<hr />\n"
-"<p>If your CD is a compilation, then this tag represents the subtitle in "
-"most cases.</p>"
-msgstr ""
-"<p>Tato značka bude nahrazena jménem umělce celého CD.</p>\n"
-"<hr />\n"
-"<p>Pokud je vaše CD sbírkou, potom tato značka představuje doplňkový název "
-"ve většině případů.</p>"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:228
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_cdno)
-#: rc.cpp:187
-msgid ""
-"<p>This tag will be replaced with the CD number of a multi-CD album. Often "
-"compilations consist of several CDs.</p>\n"
-"<hr />\n"
-"<p>This tag has two properties:\n"
-"<ul><li><i>length</i> defines how many digits the number should consist of "
-"at least (Default: 2).</li>\n"
-"<li><i>fillchar</i> sets the char taken to fill the free spaces in front of "
-"the number, if it has less digits than defined by <i>length</i>. (Default: "
-"0).</li></ul></p>\n"
-"<hr />\n"
-"<p>Note: This tag will only be replaced if the multi-CD flag is enabled for "
-"the CD.</p>"
-msgstr ""
-"<p>Tato značka bude u alba zahrnujícího více CD nahrazena číslem CD. Sbírky "
-"se často skládají z několika CD.</p>\n"
-"<hr />\n"
-"<p>Tato značka má dvě vlastnosti:\n"
-"<ul><li><i>délka</i> určuje, z kolika číslic má číslo přinejmenším sestávat "
-"(Výchozí: 2).</li>\n"
-"<li><i>znak pro vyplnění</i> stanoví znak, kterým se vyplní volné mezery "
-"před číslem, jestliže má menší počet číslic, než jak je stanoveno v "
-"nastavení vlastnosti <i>délka</i>. (Výchozí: 0).</li></ul></p>\n"
-"<hr />\n"
-"<p>Poznámka: Tato značka bude nahrazena pouze, když je pro CD povolen "
-"příznak více CD.</p>"
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:238
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_date)
-#: rc.cpp:199
-msgid ""
-"This tag will be replaced with the release date of the CD. In almost all "
-"cases this is the year."
-msgstr ""
-"Tato značka bude nahrazena datem, kdy bylo CD vydáno. Téměř ve všech "
-"případech jím je rok."
-
-#. i18n: file: dialogs/simplepatternwizardwidgetUI.ui:248
-#. i18n: ectx: property (toolTip), widget (KPushButton, kpushbutton_genre)
-#: rc.cpp:205
-msgid "This tag will be replaced with the genre."
-msgstr "Tato značka bude nahrazena žánrem."
-
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_scale)
-#: rc.cpp:214
-msgid "Scale before store:"
-msgstr "Před uložením škálovat:"
-
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:49
-#. i18n: ectx: property (text), widget (QLabel, label_x)
-#: rc.cpp:217
-msgid "x"
-msgstr "x"
-
-#. i18n: file: dialogs/profiledatacoverwidgetUI.ui:91
-#. i18n: ectx: property (text), widget (QLabel, label_pattern)
-#: rc.cpp:223
-msgid "Cover pattern:"
-msgstr "Vzor pro obal:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_multicd)
-#: rc.cpp:235
-msgid "Multi CD"
-msgstr "Více CD"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:49
-#. i18n: ectx: property (text), widget (QLabel, label_artist)
-#: rc.cpp:238
-msgid "Artist:"
-msgstr "Umělec:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:65
-#. i18n: ectx: property (text), widget (QLabel, label_title)
-#: rc.cpp:241
-msgid "Title:"
-msgstr "Název:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:75
-#. i18n: ectx: property (text), widget (QLabel, label_cdnum)
-#: rc.cpp:244
-msgid "CD Number:"
-msgstr "Číslo CD:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:89
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:247
-msgid "Track Offset:"
-msgstr "Posun stopy:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:105
-#. i18n: ectx: property (text), widget (QLabel, label_genre)
-#: rc.cpp:250
-msgid "Genre:"
-msgstr "Žánr:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:128
-#. i18n: ectx: property (text), widget (QLabel, label_year)
-#: rc.cpp:253
-msgid "Year:"
-msgstr "Rok:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:155
-#. i18n: ectx: property (text), widget (QLabel, label_extdata)
-#: rc.cpp:256
-msgid ""
-"Additional\n"
-"Information:"
-msgstr ""
-"Doplňkové\n"
-"informace:"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:171
-#. i18n: ectx: property (text), widget (QLabel, label_discid)
-#: rc.cpp:260
-msgid "Disc ID:"
-msgstr "Číslo disku"
-
-#. i18n: file: dialogs/cddaheaderdatawidgetUI.ui:178
-#. i18n: ectx: property (text), widget (QLabel, label_discid_2)
-#: rc.cpp:263
-msgid "0x00000000"
-msgstr "0x00000000"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:269
-#. i18n: ectx: property (text), widget (KUrlLabel, kurllabel_aboutcommandlineschemes)
-#: rc.cpp:272
-msgid "About commandline schemes"
-msgstr ""
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:416
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_cover_file)
-#: rc.cpp:302
-msgid "Cover File"
-msgstr "Soubor obalu"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:426
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_input_file)
-#: rc.cpp:305
-msgid "Input File"
-msgstr "Vstupní soubor"
-
-#. i18n: file: dialogs/commandwizardwidgetUI.ui:436
-#. i18n: ectx: property (text), widget (KPushButton, kpushbutton_output_file)
-#: rc.cpp:308
-msgid "Output File"
-msgstr "Výstupní soubor"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:29
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#. i18n: file: widgets/faacwidgetUI.ui:29
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:314 rc.cpp:431
-msgid "Quality"
-msgstr "Kvalita"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:101
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/flacwidgetUI.ui:79
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/lamewidgetUI.ui:185
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#. i18n: file: widgets/faacwidgetUI.ui:82
-#. i18n: ectx: property (text), widget (QLabel, label_lowest)
-#: rc.cpp:317 rc.cpp:360 rc.cpp:415 rc.cpp:434
-msgid "Lowest"
-msgstr "Nejnižší"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:122
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#: rc.cpp:320
-#, fuzzy
-#| msgid ""
-#| "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#| "REC-html40/strict.dtd\">\n"
-#| "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#| "css\">\n"
-#| "p, li { white-space: pre-wrap; }\n"
-#| "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
-#| "font-weight:400; font-style:normal;\">\n"
-#| "<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-#| "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
-#| "\">Highest</p></body></html>"
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Bitstream Vera Sans'; font-"
-"size:10pt; font-weight:400; font-style:italic;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span "
-"style=\" font-family:'Sans Serif';\">Highest</span></p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Nejvyšší</"
-"p></body></html>"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:153
-#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: rc.cpp:327
-msgid "Target Bitrate ~"
-msgstr "Cílový datový tok ~"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:200
-#. i18n: ectx: property (text), widget (QLabel, label_kbits)
-#. i18n: file: widgets/oggencwidgetUI.ui:269
-#. i18n: ectx: property (text), widget (QLabel, label_maxbitrate_kbps)
-#. i18n: file: widgets/oggencwidgetUI.ui:348
-#. i18n: ectx: property (text), widget (QLabel, label_minbitrate_kbps)
-#: rc.cpp:330 rc.cpp:339 rc.cpp:345
-msgid "kbit/s"
-msgstr "kbit/s"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:210
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_minbitrate)
-#: rc.cpp:333
-msgid "Set minimum bitrate"
-msgstr "Stanovit nejnižší datový tok"
-
-#. i18n: file: widgets/oggencwidgetUI.ui:246
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_maxbitrate)
-#: rc.cpp:336
-msgid "Set maximum bitrate"
-msgstr "Stanovit nejvyšší datový tok"
-
-#. i18n: file: widgets/remoteserversettingswidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_upload)
-#. i18n: file: audex.kcfg:58
-#. i18n: ectx: label, entry (upload), group (general)
-#: rc.cpp:351 rc.cpp:540
-msgid "Upload files to server"
-msgstr "Odeslat soubory na server"
-
-#. i18n: file: widgets/remoteserversettingswidgetUI.ui:51
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:354
-msgid "URL:"
-msgstr "Internetová adresa (URL):"
-
-#. i18n: file: widgets/flacwidgetUI.ui:29
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:357
-msgid "Compression"
-msgstr "Komprese"
-
-#. i18n: file: widgets/flacwidgetUI.ui:96
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#. i18n: file: widgets/lamewidgetUI.ui:196
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#. i18n: file: widgets/faacwidgetUI.ui:99
-#. i18n: ectx: property (text), widget (QLabel, label_highest)
-#: rc.cpp:363 rc.cpp:418 rc.cpp:437
-msgid ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Highest</"
-"p></body></html>"
-msgstr ""
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-"REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
-"\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
-"weight:400; font-style:normal;\">\n"
-"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Nejvyšší</"
-"p></body></html>"
-
-#. i18n: file: widgets/customwidgetUI.ui:29
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:373
-msgid "Command Pattern:"
-msgstr "Vzor příkazu:"
-
-#. i18n: file: widgets/lamewidgetUI.ui:41
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
-#: rc.cpp:379
-msgid "Quality/Bitrate"
-msgstr "Kvalita/Datový tok"
-
-#. i18n: file: widgets/lamewidgetUI.ui:53
-#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_medium)
-#: rc.cpp:382
-msgid ""
-"This preset should provide near transparency to most people on most music."
-msgstr ""
-"Tato předvolba by měla být pro většinu lidí u většiny hudby dobře "
-"poslouchatelná."
-
-#. i18n: file: widgets/lamewidgetUI.ui:56
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_medium)
-#: rc.cpp:385
-msgid "Medium (140...185 kbit/s)"
-msgstr "Střední (140...185 kbit/s)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:69
-#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_extreme)
-#: rc.cpp:388
-msgid ""
-"If you have extremely good hearing and similar equipment, this preset will "
-"generally provide slightly higher quality than the \"standard\" mode"
-msgstr ""
-"Pokud máte neobyčejně dobrý sluch a podobně neobyčejné vybavení, poskytne "
-"vám tato předvolba obecně vyšší kvalitu, než jakou poskytuje \"průměrný\" "
-"režim."
-
-#. i18n: file: widgets/lamewidgetUI.ui:72
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_extreme)
-#: rc.cpp:391
-msgid "Extreme (220...260 kbits/s)"
-msgstr "Extrémní (220...260 kbits/s)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:98
-#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_standard)
-#: rc.cpp:394
-msgid ""
-"This preset should generally be transparent to most people on most music and "
-"is already quite high in quality."
-msgstr ""
-"Tato předvolba by měla být pro většinu lidí u většiny hudby obecně dobře "
-"poslouchatelná jelikož kvalita záznamu je docela vysoká."
-
-#. i18n: file: widgets/lamewidgetUI.ui:101
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_standard)
-#: rc.cpp:397
-msgid "Standard (170...210 kbit/s)"
-msgstr "Obvyklá (170...210 kbit/s)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:114
-#. i18n: ectx: property (toolTip), widget (QRadioButton, radioButton_insane)
-#: rc.cpp:400
-msgid ""
-"This preset will usually be overkill for most people and most situations, "
-"but if you must have the absolute highest quality with no regard to "
-"filesize, this is the way to go."
-msgstr ""
-"Tato předvolba bude obvykle pro většinu lidí a většinu situací až "
-"přespříliš, ale jestliže musíte mít vyloženě nejvyšší kvalitu bez ohledu na "
-"velikost souboru, je toto právě ta cesta, kterou se chcete dát."
-
-#. i18n: file: widgets/lamewidgetUI.ui:117
-#. i18n: ectx: property (text), widget (QRadioButton, radioButton_insane)
-#: rc.cpp:403
-msgid "Insane (320 kbit/s)"
-msgstr "Šílená (320 kbit/s)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:140
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_cbr)
-#: rc.cpp:409
-msgid "Constant Bitrate"
-msgstr "Stálý datový tok"
-
-#. i18n: file: widgets/lamewidgetUI.ui:153
-#. i18n: ectx: property (text), widget (QLabel, label_targetbitrate)
-#: rc.cpp:412
-msgid "Target Bitrate (kbit/s)"
-msgstr "Cílový datový tok (kbit/s)"
-
-#. i18n: file: widgets/lamewidgetUI.ui:239
-#. i18n: ectx: property (text), widget (QCheckBox, checkBox_embedcover)
-#: rc.cpp:425
-msgid "Embed cover in music file"
-msgstr "Vložit obal do hudebního souboru"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:23
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_overwriteExistingFiles)
-#. i18n: file: audex.kcfg:14
-#. i18n: ectx: label, entry (overwriteExistingFiles), group (general)
-#: rc.cpp:447 rc.cpp:507
-msgid "Overwrite existing files"
-msgstr "Přepsat stávající soubory"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:30
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_deletePartialFiles)
-#. i18n: file: audex.kcfg:18
-#. i18n: ectx: label, entry (deletePartialFiles), group (general)
-#: rc.cpp:450 rc.cpp:510
-msgid "Delete partial files after cancel"
-msgstr "Po zrušení operace smazat neúplné soubory"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:37
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_ejectCDTray)
-#: rc.cpp:453
-msgid "Eject CD tray after finished extraction"
-msgstr "Vysunout CD z mechaniky po skončení získávání dat"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:44
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_cddbLookupAuto)
-#. i18n: file: audex.kcfg:26
-#. i18n: ectx: label, entry (cddbLookupAuto), group (general)
-#: rc.cpp:456 rc.cpp:516
-msgid "Perform CDDB lookup automatically"
-msgstr "Provést vyhledání v CDDB automaticky"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:51
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_coverLookupAuto)
-#: rc.cpp:459
-msgid "Perform cover lookup automatically"
-msgstr "Provést vyhledání obalu automaticky"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:66
-#. i18n: ectx: property (text), widget (QLabel, label)
-#: rc.cpp:462
-msgid "Number of covers to fetch:"
-msgstr "Počet obalů, který se má natáhnout:"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:106
-#. i18n: ectx: property (text), widget (QLabel, label_wikipediaLocale)
-#: rc.cpp:468
-msgid "Localization:"
-msgstr "Překlad:"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:126
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
-#: rc.cpp:471
-msgid "Device"
-msgstr "Zařízení"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:139
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_paranoiaMode)
-#. i18n: file: audex.kcfg:46
-#. i18n: ectx: label, entry (paranoiaMode), group (general)
-#: rc.cpp:474 rc.cpp:531
-msgid "Full paranoia mode (best quality)"
-msgstr "Úplný režim paranoia (nejlepší kvalita)"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:146
-#. i18n: ectx: property (text), widget (QCheckBox, kcfg_neverSkip)
-#. i18n: file: audex.kcfg:50
-#. i18n: ectx: label, entry (neverSkip), group (general)
-#: rc.cpp:477 rc.cpp:534
-msgid "Never skip on read error"
-msgstr "Nikdy nepřeskakovat při chybě čtení"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:156
-#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: rc.cpp:480
-msgid "Paths"
-msgstr "Cesty"
-
-#. i18n: file: widgets/generalsettingswidgetUI.ui:164
-#. i18n: ectx: property (text), widget (QLabel, label_basePath)
-#: rc.cpp:483
-msgid "Base path to store music files:"
-msgstr "Základní adresář pro uložení hudebních souborů:"
-
-#. i18n: file: widgets/profilewidgetUI.ui:21
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_add)
-#: rc.cpp:486
+#: widgets/profilewidgetUI.ui:21
 msgid "Add..."
 msgstr "Přidat..."
 
-#. i18n: file: widgets/profilewidgetUI.ui:28
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_rem)
-#: rc.cpp:489
+#: widgets/profilewidgetUI.ui:28
 msgid "Remove"
 msgstr "Odstranit"
 
-#. i18n: file: widgets/profilewidgetUI.ui:35
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_mod)
-#: rc.cpp:492
+#: widgets/profilewidgetUI.ui:35
 msgid "Modify..."
 msgstr "Pozměnit"
 
-#. i18n: file: widgets/profilewidgetUI.ui:42
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_copy)
-#: rc.cpp:495
+#: widgets/profilewidgetUI.ui:42
 msgid "Copy"
 msgstr "Kopírovat"
 
-#. i18n: file: widgets/profilewidgetUI.ui:85
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_load)
-#: rc.cpp:501
+#: widgets/profilewidgetUI.ui:85
 msgid "Load..."
 msgstr "Nahrát..."
 
-#. i18n: file: widgets/profilewidgetUI.ui:92
 #. i18n: ectx: property (text), widget (KPushButton, kpushbutton_save)
-#: rc.cpp:504
+#: widgets/profilewidgetUI.ui:92
 msgid "Save..."
 msgstr "Uložit..."
 
-#. i18n: file: audex.kcfg:22
-#. i18n: ectx: label, entry (ejectCDTray), group (general)
-#: rc.cpp:513
-msgid "Eject CD tray after extraction finished"
-msgstr "Vysunout CD z mechaniky po skončení získávání dat"
-
-#. i18n: file: audex.kcfg:30
-#. i18n: ectx: label, entry (coverLookupAuto), group (general)
-#: rc.cpp:519
-msgid "Perform cover lookup (amazon) automatically"
-msgstr "Provést vyhledání obalu automaticky (služba Amazon)"
-
-#. i18n: file: audex.kcfg:34
-#. i18n: ectx: label, entry (wikipediaLocale), group (general)
-#: rc.cpp:522
-msgid "Wikipedia localization"
-msgstr "Překlad do národních jazyků pro službu Wikipedie"
-
-#. i18n: file: audex.kcfg:38
-#. i18n: ectx: label, entry (fetchCount), group (general)
-#: rc.cpp:525
-msgid "Number of covers to fetch"
-msgstr "Počet obalů, který se má natáhnout"
-
-#. i18n: file: audex.kcfg:42
-#. i18n: ectx: label, entry (cdDevice), group (general)
-#: rc.cpp:528
-msgid "CD Device"
-msgstr "Zařízení CD"
-
-#. i18n: file: audex.kcfg:54
-#. i18n: ectx: label, entry (basePath), group (general)
-#: rc.cpp:537
-msgid "Base path to store music files"
-msgstr "Základní adresář pro uložení hudebních souborů"
-
-#. i18n: file: audex.kcfg:62
-#. i18n: ectx: label, entry (url), group (general)
-#: rc.cpp:543
-msgid "URL of server"
-msgstr "Adresa serveru"
-
-#. i18n: file: audexui.rc:6
-#. i18n: ectx: Menu (file)
-#: rc.cpp:548
-msgid "&Audex"
-msgstr "&Audex"
-
-#. i18n: file: audexui.rc:13
-#. i18n: ectx: Menu (cddb)
-#: rc.cpp:551
-msgid "&CDDB"
-msgstr "&CDDB"
-
-#. i18n: file: audexui.rc:18
-#. i18n: ectx: Menu (titlecorrectiontools)
-#: rc.cpp:554
-msgctxt "@title:menu"
-msgid "Title Correction Tools"
-msgstr "Nástroj na opravu názvů"
-
-#. i18n: file: audexui.rc:25
-#. i18n: ectx: Menu (settings)
-#: rc.cpp:557
-msgid "&Settings"
-msgstr "&Nastavení"
-
-#~ msgid ""
-#~ "Unable to create temporary folder \"%1\". Please check. Abort operation."
-#~ msgstr ""
-#~ "Nelze vytvořit adresář s dočasnými soubory \"%1\". Prověřte to, prosím. "
-#~ "Operace byla zrušena."
-
-#~ msgid "Temporary folder name \"%1\" must not be empty."
-#~ msgstr "Název složky s dočasnými soubory \"%1\" nesmí zůstat nevyplněn."
-
-#~ msgid "Please set one."
-#~ msgstr "Jeden, prosím, vyberte."
-
-#~ msgid "View Cover"
-#~ msgstr "Zobrazit obal"
-
-#~ msgid "Overall Progress (Ripping Track)"
-#~ msgstr "Celkový postup (při získávání stopy)"
-
-#~ msgid "Hashlist \"%1\" successfully stored."
-#~ msgstr "Hašový seznam \"%1\" byl úspěšně uložen."
-
-#, fuzzy
-#~| msgid "Swap artists and titles"
-#~ msgid "no_swap_artists_and_titles_warn"
-#~ msgstr "Vyměnit všechny umělce a názvy"
-
-#, fuzzy
-#~| msgid "Capitalize"
-#~ msgid "no_capitalize_warn"
-#~ msgstr "Velká počáteční písmena"
-
-#~ msgid ""
-#~ "<p>This tag will be replaced with the artist of the individual track.<p></"
-#~ "p>It is especially useful on compilation CDs.</p>"
-#~ msgstr ""
-#~ "<p>Tato značka bude nahrazena umělcem jednotlivé stopy.<p></p>Obzvláště "
-#~ "je to užitečné u CD se sbírkami.</p>"
-
-#~ msgid ""
-#~ "<p>This tag will be replaced with the track title. Normally each track on "
-#~ "a CD has its own title.</p>"
-#~ msgstr ""
-#~ "<p>Tato značka bude nahrazena názvem stopy. Obyčejně má každá stopa na "
-#~ "CD  svůj vlastní název.</p>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<p>This tag will be replaced with the track number of the individual "
-#~| "track.</p>\n"
-#~| "<hr />\n"
-#~| "<p>This tag has two properties:\n"
-#~| "<ul><li><i>length</i> defines how many digits the number should at least "
-#~| "consist of (Default: 2).</li><li><i>fillchar</i> sets the character used "
-#~| "to fill the free spaces in front of the number, if it has fewer digits "
-#~| "than <i>length</i>. (Default: 0).</li></ul></p>"
-#~ msgid ""
-#~ "<p>This tag will be replaced with the track number of the individual "
-#~ "track.</p>\n"
-#~ "<hr />\n"
-#~ "<p>This tag has two properties:\n"
-#~ "<ul><li><i>length</i> defines how many digits the number should consist "
-#~ "of at least (Default: 2).</li><li><i>fillchar</i> sets the character "
-#~ "usedto fill the free spaces in front of the number, if it has less digits "
-#~ "than defined by <i>length</i>. (Default: 0).</li></ul></p>"
-#~ msgstr ""
-#~ "<p>Tato značka bude u jednotlivé stopy nahrazena číslem stopy.</p>\n"
-#~ "<hr />\n"
-#~ "<p>Tato značka má dvě vlastnosti:\n"
-#~ "<ul><li><i>délka</i> určuje, z kolika číslic má číslo přinejmenším "
-#~ "sestávat (Výchozí: 2).</li><li><i>znak pro vyplnění</i> stanoví znak, "
-#~ "kterým se vyplní volné mezery před číslem, jestliže má menší počet "
-#~ "číslic, než jak je stanoveno v nastavení vlastnosti <i>délka</i>. "
-#~ "(Výchozí: 0).</li></ul></p>"
-
-#, fuzzy
-#~| msgid ""
-#~| "<p>This tag will be replaced with the temporary filename of the cover, e."
-#~| "g. to insert the cover in the id3 v2.3 tag with LAME. The cover file "
-#~| "will be created automatically by Audex.</p>\n"
-#~| "<hr />\n"
-#~| "<p>This tag has six properties:<ul>\n"
-#~| "<li><i>format</i> defines the image format. Possible values are \"PNG\", "
-#~| "\"JPG\" and \"GIF\" (Default: \"JPG\"). </li>\n"
-#~| "<li><i>x</i> (width) and <i>y</i> (height) can be used to resize the "
-#~| "cover image. If these are not set, then size of the cover image will not "
-#~| "be changed.</li>\n"
-#~| "<li><i>usenocover</i> if this is set to <i>true</i> then the image which "
-#~| "is shown if no cover for the current album is set will be used. "
-#~| "(Default: false.)</li>\n"
-#~| "<li><i>preparam</i> and <i>postparam</i> define parameters inserted "
-#~| "before (pre) or behind (post) the filename of the temporary cover. </"
-#~| "li></ul>\n"
-#~| "<i>These values are <b>only</b> shown if a cover set, or \"usenocover\" "
-#~| "is set to \"true\".</i></p>\n"
-#~| "<hr />\n"
-#~| "<p>Examples:</p>\n"
-#~| "<p><code>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</"
-#~| "code></p>\n"
-#~| "<p>A filename of an JPG image with the size of 300x300 will be inserted. "
-#~| "If no cover is set, this variable will be replaced by nothing, otherwise "
-#~| "something like <i>/tmp/cover.123.jpg</i> will be inserted.</p>\n"
-#~| "<hr />\n"
-#~| "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#~| "bear this in mind, if you set the format and size.</i></p>"
-#~ msgid ""
-#~ "<p>This tag will be replaced with the temporary filename of the cover, e."
-#~ "g. to insert the cover in the id3 v2.3 tag with LAME. The cover file will "
-#~ "be created automatically by Audex.</p>\n"
-#~ "<hr />\n"
-#~ "<p>This tag has six properties:<ul>\n"
-#~ "<li><i>format</i> defines the image format. Possible values are \"PNG\", "
-#~ "\"JPG\" and \"GIF\" (Default: \"JPG\"). </li>\n"
-#~ "<li><i>x</i> (width) and <i>y</i> (height) can be used to resize the "
-#~ "cover image. If these are not set, then size of the cover image won't be "
-#~ "changed.</li>\n"
-#~ "<li><i>usenocover</i> if this is set to <i>true</i> then the image which "
-#~ "is shown if no cover for the current album is set will b used. (Default: "
-#~ "false).</li>\n"
-#~ "<li><i>preparam</i> and <i>postparam</i> define parameters inserted "
-#~ "before (pre) or behind (post) the filename of the temporary cover. </li></"
-#~ "ul>\n"
-#~ "<i>These value are <b>only</b> shown if a cover set, or \"usenocover\" is "
-#~ "set to \"true\".</i></p>\n"
-#~ "<hr />\n"
-#~ "<p>Eamples:</p>\n"
-#~ "<p><code>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</"
-#~ "code></p>\n"
-#~ "<p>A filename of an JPG image with the size of 300x300 will be inserted. "
-#~ "If no cover is set, this variable will be replaced by nothing, otherwise "
-#~ "something like <i>/tmp/cover.123.jpg</i> will be inserted.</p>\n"
-#~ "<hr />\n"
-#~ "<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
-#~ "bear this in mind, if you set the format and size.</i></p>"
-#~ msgstr ""
-#~ "<p>Tato značka bude nahrazena dočasným názvem souboru obalu, např. aby "
-#~ "byl tento obal vložen do značky id3 v2.3 s LAME. Soubor obalu bude "
-#~ "Audexem automaticky vytvořen.</p>\n"
-#~ "<hr />\n"
-#~ "<p>Tato značka má šest vlastností:<ul>\n"
-#~ "<li><i>formát</i> stanovuje formát obrázku. Možnými hodnotami jsou \"PNG"
-#~ "\", \"JPG\" a \"GIF\" (Výchozí: \"JPG\"). </li>\n"
-#~ "<li><i>x</i> (šířka) a <i>y</i> (výška) mohou být použity pro změnu "
-#~ "velikosti  obrázku obalu. Pokud nejsou nastaveny, velikost obrázku obalu "
-#~ "nebude změněna.</li>\n"
-#~ "<li><i>nepoužívat obal</i> pokud je nastaveno na <i>ano</i>, bude se "
-#~ "používat obrázek, který se ukazuje, jestliže pro aktuální album není "
-#~ "nastaven žádný obal. (Výchozí: ne).</li>\n"
-#~ "<li><i>parametr před (preparam)</i> a <i>parametr po (postparam)</i> "
-#~ "stanovuje parametry vložené před (pre) nebo za (post) název souboru s "
-#~ "dočasným obalem. </li></ul>\n"
-#~ "<i>Tyto hodnoty se ukazují <b>pouze</b> když soubor obalu, nebo "
-#~ "\"nepoužívat obal\" je nastaveno na \"ano\".</i></p>\n"
-#~ "<hr />\n"
-#~ "<p>Příklady:</p>\n"
-#~ "<p><code>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</"
-#~ "code></p>\n"
-#~ "<p>Bude vložen název souboru obrázku JPG o velikosti 300x300. Pokud není "
-#~ "nastaven žádný obal, nebude tato proměnná nahrazena ničím, jinak něco na "
-#~ "způsob <i>/tmp/cover.123.jpg</i> bude vloženo.</p>\n"
-#~ "<hr />\n"
-#~ "<p><i><b>Poznámka:</b> LAME vyhazuje soubory obalů, které jsou větší než "
-#~ "128 kB. Mějte to, prosím, na paměti, když nastavujete formát a velikost.</"
-#~ "i></p>"
-
-#~ msgid ""
-#~ "This will be replaced with a temporary WAV file created by Audex from CD "
-#~ "audio track. You can use it as a normal input file for your command line "
-#~ "encoder."
-#~ msgstr ""
-#~ "Toto bude nahrazeno dočasným souborem WaV vytvořeným Audexem ze zvukové "
-#~ "stopy na CD. Můžete jej použít jako obvyklý vstupní soubor pro svůj kodér "
-#~ "v příkazové řádce."
-
-#~ msgid ""
-#~ "This tag will be replaced with the full output filename and path. Use it "
-#~ "as the output for your command line encoder."
-#~ msgstr ""
-#~ "Tato značka bude nahrazena úplným názvem souboru a cestou. Použijte je "
-#~ "jako výstup pro svůj kodér v příkazové řádce."
-
-#~ msgid ""
-#~ "<p>This tag will be replaced with the file suffix.</p>\n"
-#~ "<p>It is defined by the profile. In most cases it will be either \"mp3\" "
-#~ "or \"ogg\".</p>"
-#~ msgstr ""
-#~ "<p>Tato značka bude nahrazena příponou souboru.</p>\n"
-#~ "<p>Je to určeno podle profilu. Ve většině případů to bude buď \"mp3\" "
-#~ "nebo \"ogg\".</p>"
-
-#, fuzzy
-#~| msgid "Format:"
-#~ msgid "Form"
-#~ msgstr "Formát:"
-
-#~ msgid "Vendor:"
-#~ msgstr "Prodejce:"
-
-#~ msgid "Model:"
-#~ msgstr "Model:"
-
-#~ msgid "Firmware Version:"
-#~ msgstr "Verze firmwaru:"
-
-#~ msgid "Block Device:"
-#~ msgstr "Obstavit zařízení:"
-
-#~ msgid "max. Read Speed:"
-#~ msgstr "Max. rychlost čtení:"
-
-#~ msgid "Yes"
-#~ msgstr "Ano"
-
-#~ msgid "No"
-#~ msgstr "Ne"
-
-#, fuzzy
-#~| msgid "Information text:"
-#~ msgid "Drive Information"
-#~ msgstr "Informační text:"
-
-#~ msgid "You have not specified an encoder for the profile, please set one."
-#~ msgstr "Nezadal jste pro profil žádný kodér. Jeden, prosím, určete."
-
-#~ msgid "The given hashlist file format is unknown: it must be SFV."
-#~ msgstr "Zadaný formát souboru hašového seznamu je neznámý: musí to být SFV."
-
-#~ msgid "Ripping of CD %1 - %2 finished"
-#~ msgstr "Získávání skladeb z CD %1 - %2 bylo dokončeno"
-
-#~ msgid "Ripping of Track %1/%2 (%3 - %4) finished"
-#~ msgstr "Získávání stopy %1/%2 (%3 - %4) bylo dokončeno"
-
-#, fuzzy
-#~| msgid "Title"
-#~ msgid "Title %1"
-#~ msgstr "Název skladby"
-
-#, fuzzy
-#~ msgid "Offset"
-#~ msgstr "Vyrovnání stopy:"
-
-#~ msgid "Optical Drive"
-#~ msgstr "Optická mechanika"
-
-#~ msgid " kB/sec"
-#~ msgstr " kB/s"
-
-#~ msgid "CD-ROM"
-#~ msgstr "CD-ROM"
-
-#~ msgid "CD-Recordable"
-#~ msgstr "Zapisovatelné CD"
-
-#~ msgid "CD-Rewriteable"
-#~ msgstr "Přepisovatelné CD"
-
-#~ msgid "Save cover"
-#~ msgstr "Uložit obal"
-
-#, fuzzy
-#~| msgid "Unable to create ProfileModel object."
-#~ msgid "Unable to create DriveModel object."
-#~ msgstr "Předmět ProfileModel nelze vytvořit."
-
-#, fuzzy
-#~| msgid "Unable to create CDDAModel object."
-#~ msgid "Unable to create AudioDiscModel object."
-#~ msgstr "Předmět CDDAModel nelze vytvořit."
-
-#~ msgid "Drive Info..."
-#~ msgstr "Informace o mechanice..."
-
-#~ msgid "Select no tracks"
-#~ msgstr "Odznačit všechny stopy"
-
-#~ msgid "Profile Name:"
-#~ msgstr "Název profilu:"
-
-#~ msgid "<h2>Artist - Album</h2>"
-#~ msgstr "<h2>Umělec - Album</h2>"
-
-#~ msgid ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
-#~ "font-weight:400; font-style:italic;\">\n"
-#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">No "
-#~ "settings are needed for wave files.</p></body></html>"
-#~ msgstr ""
-#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
-#~ "REC-html40/strict.dtd\">\n"
-#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
-#~ "css\">\n"
-#~ "p, li { white-space: pre-wrap; }\n"
-#~ "</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; "
-#~ "font-weight:400; font-style:italic;\">\n"
-#~ "<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
-#~ "left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Pro "
-#~ "soubory WAV není potřeba žádných nastavení.</p></body></html>"
-
-#, fuzzy
-#~| msgid "Disc ID:"
-#~ msgid "Disc %1"
-#~ msgstr "ID disku"
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: widgets/remoteserversettingswidgetUI.ui:51
+msgid "URL:"
+msgstr "Internetová adresa (URL):"

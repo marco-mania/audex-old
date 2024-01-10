@@ -54,6 +54,7 @@ private slots:
   void insDate();
   void insGenre();
   void insSuffix();
+  void insNoOfTracks();
 
   void update_example();
 

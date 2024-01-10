@@ -8,7 +8,7 @@ set(DEBIAN_PACKAGE_DESCRIPTION "Audex")
 set(DEBIAN_PACKAGE_SECTION "Multimedia")
 set(CPACK_SOURCE_GENERATOR "TBZ2")
 set(CPACK_PACKAGE_VERSION_MAJOR "0")
-set(CPACK_PACKAGE_VERSION_MINOR "74")
+set(CPACK_PACKAGE_VERSION_MINOR "76")
 set(CPACK_PACKAGE_VERSION_BETA " beta 1")
 set(CPACK_PACKAGE_CONTACT "Marco Nelles <audex@maniatek.com>")
 set(AUDEX_VERSION "${CPACK_PACKAGE_VERSION_MAJOR}.${CPACK_PACKAGE_VERSION_MINOR}${CPACK_PACKAGE_VERSION_BETA}")
@@ -122,6 +122,5 @@ install(FILES audex-rip-audiocd.desktop DESTINATION ${DATA_INSTALL_DIR}/solid/ac
 
 add_subdirectory(icons)
 add_subdirectory(images)
-add_subdirectory(po)
 
 macro_display_feature_log()

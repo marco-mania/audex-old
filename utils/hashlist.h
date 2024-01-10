@@ -22,6 +22,8 @@
 #include <sys/fcntl.h>
 #include <sys/mman.h>
 
+#include <unistd.h>
+
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>

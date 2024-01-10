@@ -1,3 +1,15 @@
+Changelog 0.76 beta 1 (uddebo release)
+* Fix google cover fetcher
+* Fix compile issues with GCC 4.7
+* Small bugfixes...
+
+Changelog 0.75 beta 1 (kray release)
+* New variable: Total number of audio tracks
+* New variable: Audex name and version
+* New variable: Encoder name and version
+* Extended eyeD3 command line (total number of tracks, Audex name and version, Encoder name and version)
+* New feature: Use Unity DBus API to show overall progress, and current track number.
+
 Changelog 0.74 beta 1 (daktari release)
 * New feature: Simple cue sheet support (but does not detect pregaps yet)
 * New feature: Single file rip

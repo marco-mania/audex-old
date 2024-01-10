@@ -132,7 +132,7 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
 			if (isAudioTrack(index.row()+1)) {
                           QString t = cd_info.track(index.row()).get(KCDDB::Title).toString();
                           if (t.isEmpty()) {
-			    if (disc_info == DiscNoInfo) return i18n("Track %1").arg(index.row()+1);
+			    if (disc_info == DiscNoInfo) return i18n("Track %1", index.row()+1);
 			    return compact_disc->trackTitle(index.row()+1);
 			  }
 			  return t;
@@ -761,7 +761,7 @@ bool CDDAModel::submitCDDB() {
   if (result != KCDDB::Success) {
     switch (result) {
       case KCDDB::ServerError : error = Error(KCDDB::resultToString(result), i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."), Error::ERROR, this); break;
-      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Can't find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this); break;
+      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this); break;
       case KCDDB::NoResponse : error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."), Error::ERROR, this); break;
       case KCDDB::CannotSave : error = Error(KCDDB::resultToString(result), i18n("Please contact the CDDB server administrator."), Error::ERROR, this); break;
       case KCDDB::InvalidCategory : error = Error(KCDDB::resultToString(result), i18n("This should not happen. Please make a bug report."), Error::ERROR, this); break;
@@ -891,7 +891,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
   if ((result != KCDDB::Success) && (result != KCDDB::MultipleRecordFound)) {
     switch (result) {
       case KCDDB::ServerError : error = Error(KCDDB::resultToString(result), i18n("There is an error with the CDDB server. Please wait or contact the administrator of the CDDB server."), Error::ERROR, this); break;
-      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Can't find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this); break;
+      case KCDDB::HostNotFound : error = Error(KCDDB::resultToString(result), i18n("Cannot find the CDDB server. Check your network. Maybe the CDDB server is offline."), Error::ERROR, this); break;
       case KCDDB::NoResponse : error = Error(KCDDB::resultToString(result), i18n("Please wait, maybe the server is busy, or contact the CDDB server administrator."), Error::ERROR, this); break;
       case KCDDB::InvalidCategory : error = Error(KCDDB::resultToString(result), i18n("This should not happen. Please make a bug report."), Error::ERROR, this); break;
       case KCDDB::UnknownError : error = Error(KCDDB::resultToString(result), i18n("Please make a bug report and contact the CDDB server administrator."), Error::ERROR, this); break;

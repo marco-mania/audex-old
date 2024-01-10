@@ -45,6 +45,7 @@ SimplePatternWizardDialog::SimplePatternWizardDialog(const QString& pattern, con
   connect(ui.kpushbutton_date, SIGNAL(clicked()), this, SLOT(insDate()));
   connect(ui.kpushbutton_genre, SIGNAL(clicked()), this, SLOT(insGenre()));
   connect(ui.kpushbutton_suffix, SIGNAL(clicked()), this, SLOT(insSuffix()));
+  connect(ui.kpushbutton_nooftracks, SIGNAL(clicked()), this, SLOT(insNoOfTracks()));
 
   this->pattern = pattern;
   this->suffix = suffix;
@@ -86,6 +87,8 @@ void SimplePatternWizardDialog::about_schemes() {
                                "<tr><td>$genre</td><td>The genre of the CD.</td></tr>"
                                "<tr><td>$cdno</td><td>The CD number of a multi-CD album. Often compilations consist of several CDs. <i>Note:</i> If the multi-CD flag is <b>not</b> set for the current CD, than this value will be just empty.</td></tr>"
                                "<tr><td>$suffix</td><td>The filename extension (e.g. \".jpg\", \".m3u\", \".md5\" ...).</td></tr>"
+                               "<tr><td>$nooftracks</td><td>The total number of audio tracks of the CD.</td></tr>"
+                               "<tr><td>$audex</td><td>Audex name and version.</td></tr>"
                                "</table></p>"),
                           ui.kurllabel_aboutschemes);
 }
@@ -148,6 +151,13 @@ void SimplePatternWizardDialog::insSuffix() {
   update_example();
 }
 
+void SimplePatternWizardDialog::insNoOfTracks() {
+  QString text = ui.klineedit_pattern->text();
+  text.insert(ui.klineedit_pattern->cursorPosition(), QString("$"VAR_NO_OF_TRACKS));
+  ui.klineedit_pattern->setText(text);
+  update_example();
+}
+
 bool SimplePatternWizardDialog::save() {
   pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
@@ -157,7 +167,7 @@ bool SimplePatternWizardDialog::save() {
 void SimplePatternWizardDialog::update_example() {
   PatternParser patternparser;
   QString filename = patternparser.parseSimplePattern(ui.klineedit_pattern->text(),
-	1, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, FALSE);
+	1, 12, "Meat Loaf", "Bat Out Of Hell III", "2006", "Rock", suffix, FALSE);
   ui.klineedit_example->setText(filename);
   ui.klineedit_example->setCursorPosition(0);
 }
