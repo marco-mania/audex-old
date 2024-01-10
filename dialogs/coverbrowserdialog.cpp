@@ -23,6 +23,7 @@ CoverBrowserDialog::CoverBrowserDialog(QImage *cover, const QString& locale, QWi
   Q_UNUSED(parent);
 
   setup(cover, locale);
+  showButtonSeparator(true);
 
 }
 
@@ -70,22 +71,23 @@ void CoverBrowserDialog::enable_select_button() {
 void CoverBrowserDialog::add_item(const QImage& cover, const QString& caption, int no) {
   QListWidgetItem *item = new QListWidgetItem;
   item->setText(caption);
-  item->setToolTip(i18n("%1\nCover size: %2x%3", caption, cover.width(), cover.height()));
+  item->setToolTip(i18n("%1\nCover Size: %2x%3", caption, cover.width(), cover.height()));
   item->setIcon(QIcon(QPixmap::fromImage(cover.scaled(128, 128, Qt::IgnoreAspectRatio, Qt::SmoothTransformation))));
   item->setData(Qt::UserRole, no-1);
   ui.listWidget->addItem(item);
-  ui.label->setText(i18n("Fetching cover %1 / %2...", no, cover_fetcher.count()));
+  ui.label->setText(i18n("Fetching Cover %1 / %2...", no, cover_fetcher.count()));
 }
 
 void CoverBrowserDialog::all_fetched() {
-  ui.label->setText(i18n("Found %1 covers", cover_fetcher.count()));
+  ui.label->setText(i18n("Found %1 Covers", cover_fetcher.count()));
 }
 
 void CoverBrowserDialog::nothing_fetched() {
-  ui.label->setText(i18n("Found no covers"));
+  ui.label->setText(i18n("No Covers Found"));
 }
 
 void CoverBrowserDialog::setup(QImage *cover, const QString& locale) {
+  static const int constIconSize=128;
 
   this->cover = cover;
 
@@ -94,20 +96,22 @@ void CoverBrowserDialog::setup(QImage *cover, const QString& locale) {
 
   setMainWidget(widget);
 
-  setCaption(i18n("Fetch cover from amazon"));
+  setCaption(i18n("Fetch Cover From Amazon"));
   setButtons(KDialog::Ok | KDialog::Cancel);
 
   connect(&cover_fetcher, SIGNAL(fetched(const QImage&, const QString&, int)), this, SLOT(add_item(const QImage&, const QString&, int)));
   connect(&cover_fetcher, SIGNAL(allFetched()), this, SLOT(all_fetched()));
   connect(&cover_fetcher, SIGNAL(nothingFetched()), this, SLOT(nothing_fetched()));
 
-  ui.listWidget->setIconSize(QSize(128, 128));
+  ui.listWidget->setIconSize(QSize(constIconSize, constIconSize));
   ui.listWidget->setWordWrap(TRUE);
   ui.listWidget->setViewMode(QListView::IconMode);
   connect(ui.listWidget, SIGNAL(itemSelectionChanged()), this, SLOT(enable_select_button()));
   connect(ui.listWidget, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(select_this(QListWidgetItem*)));
+  ui.listWidget->setMinimumSize((constIconSize+12)*4, (constIconSize+12)*2);
   enable_select_button();
 
   cover_fetcher.setLocale(locale);
+  
 
 }

@@ -26,7 +26,7 @@
 #include <KFileDialog>
 #include <KTextBrowser>
 
-#include "simplemaskwizarddialog.h"
+#include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatainfowidgetUI.h"
 
@@ -35,17 +35,17 @@ class ProfileDataInfoDialog : public KDialog {
   Q_OBJECT
 
 public:
-  ProfileDataInfoDialog(const QStringList& text, const QString& mask, const QString& suffix, QWidget *parent = 0);
+  ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent = 0);
   ~ProfileDataInfoDialog();
 
   QStringList text;
-  QString mask;
+  QString pattern;
   QString suffix;
 
 protected slots:
   virtual void slotButtonClicked(int button);
 
-  void mask_wizard();
+  void pattern_wizard();
 
 private slots:
   void trigger_changed();

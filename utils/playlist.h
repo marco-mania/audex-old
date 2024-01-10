@@ -33,7 +33,7 @@ public:
   Playlist(const QStringList& filenames, CDDAModel *model);
   ~Playlist();
 
-  QStringList asM3U(bool absolutePath = FALSE) const;
+  QStringList asM3U(bool absolutePath = FALSE, bool merge = FALSE) const;
   QStringList asPLS(bool absolutePath = FALSE) const;
   QStringList asXSPF() const;
 

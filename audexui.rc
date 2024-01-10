@@ -6,13 +6,13 @@
     <Menu name="file" noMerge="1"><text>&amp;Audex</text>
       <Action name="eject"/>
       <Separator/>
-      <Action name="extract"/>
+      <Action name="rip"/>
       <Separator/>
       <Action name="file_quit"/>
     </Menu>
     <Menu name="cddb"><text>&amp;CDDB</text>
       <Action name="fetch" />
-      <Action name="submit" />
+      <!-- <Action name="submit" /> -->
       <Separator/>
       <Menu name="titlecorrectiontools">
         <text context="@title:menu">Title correction tools</text>
@@ -22,8 +22,9 @@
         <Action name="autofillartists" />
       </Menu>
     </Menu>
-    <Menu name="settings">
-      <Action name="configure" />
+    <Menu name="settings"><text>&amp;Settings</text>
+      <Merge name="StandardToolBarMenuHandler" />
+      <Action name="preferences" append="configure_merge"/>
     </Menu>
   </MenuBar>
 
@@ -34,11 +35,8 @@
     <Action name="profile" />
     <Separator lineSeparator="true" />
     <Action name="fetch" />
-    <Action name="extract" />
     <Separator lineSeparator="true" />
-    <Action name="configure" />
-    <Separator lineSeparator="true" />
-    <Action name="file_quit" />
+    <Action name="rip" />
   </ToolBar>
 
 </kpartgui>

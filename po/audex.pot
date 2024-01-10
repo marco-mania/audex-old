@@ -1,0 +1,1725 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-03-30 18:07+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dialogs/patternwizarddialog.cpp:30
+msgid "Filename Pattern Wizard"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:91
+msgid "Modify Profile"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:147
+msgid "Create Profile"
+msgstr ""
+
+#: dialogs/profiledatadialog.cpp:151
+msgid "New Profile"
+msgstr ""
+
+#: dialogs/profiledatainfodialog.cpp:34
+msgid "Info Settings"
+msgstr ""
+
+#: dialogs/profiledatainfodialog.cpp:102
+msgid "Usable Variables For Text Template"
+msgstr ""
+
+#: dialogs/profiledatainfodialog.cpp:107
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\"><html><head><style type=\"text/css\">p, li { white-"
+"space: pre-wrap; }</style></head><body>Variables will be replaced by a "
+"special value and can even contain attributes.<br />For example the "
+"variable<div style=\"font-family:monospace; background: #b3c1d6; color: black"
+"\"><pre>$artist</pre></div>or the equivalent<br /><div style=\"font-family:"
+"monospace; background: #b3c1d6; color: black\"><pre>${artist}</pre></"
+"div>will be replaced by the relevant artist of the cd.<br />Also variables "
+"can have attributes. See this example:<div style=\"font-family:monospace; "
+"background: #b3c1d6; color: black\"><pre>${today format=\"yyyy-MM-dd\" }</"
+"pre></div>This means, that the current date is printed. To define how this "
+"is done, you can set a format. The examplewould result to the output 2008-10-"
+"07, as this would be the current date. See below for more details.<br /><br /"
+">You can make use of the following variables:<br /><table "
+"border=1><thead><tr><th>Tag</th><th>Variable</th><th>Description</"
+"th><th>Example</th></tr></thead><tbody><tr><td>$artist</td><td></"
+"td><td>Prints the relevant artist of the extracted cd.</td><td></td></"
+"tr><tr><td>$title</td><td></td><td>Prints the relevant title of the "
+"extracted cd.</td><td></td></tr><tr><td>$date</td><td></td><td>Prints the "
+"relevant date (usually release year) of the extracted cd.</td><td></td></"
+"tr><tr><td>$genre;</td><td></td><td>Prints the relevant genre of the "
+"extracted cd.</td><td></td></tr><tr><td>$size</td><td>iec,precision</"
+"td><td>Prints the overall size of all extracted (compressed) music files "
+"(incl. the cover). The attribute iec can be one of the following: b, k, m, "
+"g. b means byte, k KiB, m MiB and g GiB. The attribute precision gives the "
+"number of decimal places. Default attributes are iec=\"m\" and precision=\"2"
+"\"</td><td>${size iec=\"k\" precision=\"2\"}</td></tr><tr><td>$length</"
+"td><td></td><td>Prints the relevant overall length of all extracted tracks. "
+"The format is min:sec.</td><td></td></tr><tr><td>$nooftracks</td><td></"
+"td><td>Prints the total number of extracted tracks.</td><td></td></"
+"tr><tr><td>$discid</td><td>base</td><td>Prints the discid of the current cd. "
+"The attribute base is the base of the number. The default is 16 "
+"(hexadecimal).</td><td>${discid base=\"16\"}</td></tr><tr><td>$today</"
+"td><td>format</td><td>Prints the current date. The attribute format "
+"specifies the output (*).</td><td>${today format=\"yyyy-MM-dddd\"}</td></"
+"tr><tr><td>$now</td><td>format</td><td>Prints the current date and/or time. "
+"The attribute format specifies the output (*).</td><td>${now format=\"yyyy-"
+"MM-dddd hh:mm:ss\"}</td></tr></tbody></table><br /><br />(* date/time format "
+"expressions)<table cellpadding=\"2\" cellspacing=\"1\" border=\"1"
+"\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></tr></"
+"thead><tr valign=\"top\"><td>d</td><td>The day as a number without a leading "
+"zero (1 to 31).</td></tr><tr valign=\"top\"><td>dd</td><td>The day as a "
+"number with a leading zero (01 to 31).</td></tr><tr valign=\"top\"><td>ddd</"
+"td><td>The abbreviated localized day name (e.g&#x2e; 'Mon' to 'Sun').</td></"
+"tr><tr valign=\"top\"><td>dddd</td><td>The long localized day name (e."
+"g&#x2e; 'Monday' to 'Sunday').</td></tr><tr valign=\"top\"><td>M</td><td>The "
+"month as a number without a leading zero (1 to 12).</td></tr><tr valign=\"top"
+"\"><td>MM</td><td>The month as a number with a leading zero (01 to 12).</"
+"td></tr><tr valign=\"top\"><td>MMM</td><td>The abbreviated localized month "
+"name (e.g&#x2e; 'Jan' to 'Dec').</td></tr><tr valign=\"top\"><td>MMMM</"
+"td><td>The long localized month name (e.g&#x2e; 'January' to 'December').</"
+"td></tr><tr valign=\"top\"><td>yy</td><td>The year as two digit number (00 "
+"to 99).</td></tr><tr valign=\"top\"><td>yyyy</td><td>The year as four digit "
+"number.</td></tr></table><br /><table cellpadding=\"2\" cellspacing=\"1\" "
+"border=\"1\"><thead><tr valign=\"top\"><th>Expression</th><th>Output</th></"
+"tr></thead><tr valign=\"top\"><td>h</td><td>The hour without a leading zero "
+"(0 to 23 or 1 to 12 if AM/PM display).</td></tr><tr valign=\"top\"><td>hh</"
+"td><td>The hour with a leading zero (00 to 23 or 01 to 12 if AM/PM display)."
+"</td></tr><tr valign=\"top\"><td>H</td><td>The hour without a leading zero "
+"(0 to 23, even with AM/PM display).</td></tr><tr valign=\"top\"><td>HH</"
+"td><td>The hour with a leading zero (00 to 23, even with AM/PM display).</"
+"td></tr><tr valign=\"top\"><td>m</td><td>The minute without a leading zero "
+"(0 to 59).</td></tr><tr valign=\"top\"><td>mm</td><td>The minute with a "
+"leading zero (00 to 59).</td></tr><tr valign=\"top\"><td>s</td><td>The "
+"second without a leading zero (0 to 59).</td></tr><tr valign=\"top\"><td>ss</"
+"td><td>The second with a leading zero (00 to 59).</td></tr><tr valign=\"top"
+"\"><td>z</td><td>The milliseconds without leading zeroes (0 to 999).</td></"
+"tr><tr valign=\"top\"><td>zz</td><td>The milliseconds with leading zeroes "
+"(000 to 999).</td></tr><tr valign=\"top\"><td>AP or A</td><td>Interpret as "
+"an AM/PM time. AP must be either 'AM' or 'PM'.</td></tr><tr valign=\"top"
+"\"><td>ap or a</td><td>Interpret as an AM/PM time. ap must be either 'am' or "
+"'pm'.</td></tr></table></body></html>"
+msgstr ""
+
+#: dialogs/profiledatainfodialog.cpp:215
+msgid "Load text template"
+msgstr ""
+
+#: dialogs/profiledatainfodialog.cpp:227
+msgid "Save text template"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:30
+msgid "Rip And Encode"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:39
+msgid "Ripping Track  0 / %1"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:40
+msgid "Encoding Track  0 / %1"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:113
+msgid "Do you really want to cancel?"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:114
+msgid "Cancel"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:127
+msgid "Ripping Track"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:127
+msgid "Ripping Track %1 / %2"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:135
+msgid "Waiting for an encoding job..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:139
+msgid "Encoding Track"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:139
+msgid "Encoding Track %1 / %2"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:181
+#: dialogs/extractingprogressdialog.cpp:188
+#, c-format
+msgid "Speed: %1x"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:199
+msgid "All jobs successfully done."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:203
+#: dialogs/extractingprogressdialog.cpp:204
+msgid "Finished!"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:208
+msgid "At least one job failed."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:212
+#: dialogs/extractingprogressdialog.cpp:213
+msgid "Failed!"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:221
+msgid "Show encoding log..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:225
+msgid "Show rip log..."
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:261
+msgid ""
+"Ripping speed is extremly slow for the last 5 minutes by now.\n"
+"Due to extraction quality, audex is so configured, never skip any detected "
+"error. So if your disc is really broken extracting maybe never ends.\n"
+"In some cases only this drive can't rip audio data from this disc. Maybe try "
+"another one.\n"
+"\n"
+"However, do you want to continue extraction?"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:264
+msgid "Cancel extraction"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:273
+msgid "Encoding protocol"
+msgstr ""
+
+#: dialogs/extractingprogressdialog.cpp:279
+msgid "Ripping protocol"
+msgstr ""
+
+#: dialogs/cddaheaderdatadialog.cpp:62 widgets/cddaheaderwidget.cpp:459
+msgid "Edit Data"
+msgstr ""
+
+#: dialogs/profiledataplaylistdialog.cpp:33
+#: dialogs/profiledatahashlistdialog.cpp:33
+msgid "Playlist Settings"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:51
+msgid "Searching for covers..."
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:74
+msgid ""
+"%1\n"
+"Cover Size: %2x%3"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:78
+msgid "Fetching Cover %1 / %2..."
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:82
+msgid "Found %1 Covers"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:86
+msgid "No Covers Found"
+msgstr ""
+
+#: dialogs/coverbrowserdialog.cpp:99
+msgid "Fetch Cover From Amazon"
+msgstr ""
+
+#: dialogs/commandwizarddialog.cpp:30
+msgid "Command Pattern Wizard"
+msgstr ""
+
+#: dialogs/simplepatternwizarddialog.cpp:30
+msgid "Pattern Wizard"
+msgstr ""
+
+#: dialogs/protocoldialog.cpp:33
+msgid "Save"
+msgstr ""
+
+#: dialogs/protocoldialog.cpp:62
+msgid "Save "
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:37
+msgid "Cover Settings"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:54
+msgid "JPEG (Joint Photographic Experts Group)"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:55
+msgid "PNG (Portable Network Graphics)"
+msgstr ""
+
+#: dialogs/profiledatacoverdialog.cpp:56
+msgid "BMP (Windows Bitmap)"
+msgstr ""
+
+#: utils/encoderassistant.h:66
+msgid "MP3"
+msgstr ""
+
+#: utils/encoderassistant.h:91
+msgid "Ogg Vorbis"
+msgstr ""
+
+#: utils/encoderassistant.h:119
+msgid "FLAC (Uncompressed)"
+msgstr ""
+
+#: utils/encoderassistant.h:128
+msgid "AAC"
+msgstr ""
+
+#: utils/encoderassistant.h:144
+msgid "WAVE (Raw Uncompressed)"
+msgstr ""
+
+#: utils/encoderassistant.h:151 rc.cpp:487
+msgid "Custom"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:32 utils/cddaparanoia.cpp:41
+msgid "Internal device error."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:32
+msgid "Check your device and make a bug report."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:70
+msgid "Extracting finished."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:95
+msgid "Ripping track %1 (%2:%3)..."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:97
+msgid "Start reading track %1 with %2 sectors"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:136
+msgid "User canceled extracting."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:139
+msgid "An error occured while ripping track %1."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:141
+msgid "Ripping OK (Track %1)."
+msgstr ""
+
+#: utils/cddaextractthread.cpp:144
+msgid "Reading finished"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:187
+msgid ""
+"fixup edge (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:191
+msgid ""
+"fixup atom (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:196
+msgid ""
+"scratch detected (absolute sector %1, relative sector %2, track time pos %3:%"
+"4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:200
+msgid "repair (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:205
+msgid "skip (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:209
+msgid "drift (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:213
+msgid "backoff (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:223
+msgid ""
+"fixup dropped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:227
+msgid ""
+"fixup duped (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:231
+msgid ""
+"Read error detected (absolute sector %1, relative sector %2, track time pos %"
+"3:%4)"
+msgstr ""
+
+#: utils/cddaextractthread.cpp:232
+msgid ""
+"READ ERROR (absolute sector %1, relative sector %2, track time pos %3:%4)"
+msgstr ""
+
+#: utils/upload.cpp:61
+msgid "Uploading file %1 to server. Please wait..."
+msgstr ""
+
+#: utils/upload.cpp:68
+msgid "Finished uploading file %1 to server."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:56
+msgid "Command pattern is empty."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:68
+msgid "Encoding track %1..."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:86
+msgid "Deleted partial file \"%1\"."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:91
+msgid "User canceled encoding."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:139
+msgid "Encoding OK (\"%1\")."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:141
+msgid "An error occured while encoding file \"%1\"."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:142 utils/encoderwrapper.cpp:154
+#: utils/encoderwrapper.cpp:156 utils/encoderwrapper.cpp:162
+msgid "Please check your profile."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:152
+msgid "%1 failed to start."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:152
+msgid ""
+"Either it is missing, or you may have insufficient permissions to invoke the "
+"program."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:154
+msgid "%1 crashed some time after starting successfully."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:156
+msgid "%1 timed out. This should not happen."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:158
+msgid "An error occurred when attempting to write to %1."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:158
+msgid ""
+"For example, the proc may not be running, or it may have closed its input "
+"channel."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:160
+msgid "An error occurred when attempting to read from %1."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:160
+msgid "For example, the proc may not be running."
+msgstr ""
+
+#: utils/encoderwrapper.cpp:162
+msgid "An unknown error occurred to %1. This should not happen."
+msgstr ""
+
+#: utils/cddaparanoia.cpp:41
+msgid ""
+"Check your device. Is it really \"%1\"? If so also check your permissions on "
+"\"%1\"."
+msgstr ""
+
+#: utils/coverfetcher.cpp:110
+msgid "There was an error communicating with Amazon."
+msgstr ""
+
+#: utils/coverfetcher.cpp:110
+msgid "Try again later. Otherwise make a bug report."
+msgstr ""
+
+#: utils/coverfetcher.cpp:121
+msgid "amazon server: Empty response."
+msgstr ""
+
+#: utils/coverfetcher.cpp:122 utils/coverfetcher.cpp:172
+#: utils/coverfetcher.cpp:185
+msgid "Try again later. Make a bug report."
+msgstr ""
+
+#: utils/coverfetcher.cpp:171 utils/coverfetcher.cpp:184
+msgid "The XML obtained from Amazon is invalid."
+msgstr ""
+
+#: widgets/profilewidget.cpp:79
+msgid "Do you really want to delete profile \"%1\"?"
+msgstr ""
+
+#: widgets/profilewidget.cpp:80
+msgid "Delete profile"
+msgstr ""
+
+#: widgets/profilewidget.cpp:123
+msgid "Save cover"
+msgstr ""
+
+#: widgets/profilewidget.cpp:130
+msgid "Load profiles"
+msgstr ""
+
+#: widgets/profilewidget.cpp:139
+msgid ""
+"<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, "
+"etc.)?</p><p><font style=\"font-style:italic;\">This will attempt to create "
+"some sample profiles based upon any found codecs.</font></p>"
+msgstr ""
+
+#: widgets/profilewidget.cpp:141 widgets/profilewidget.cpp:151 rc.cpp:607
+msgid "Codec Scan"
+msgstr ""
+
+#: widgets/profilewidget.cpp:147
+msgid "No new codecs found"
+msgstr ""
+
+#: widgets/profilewidget.cpp:149
+msgid "1 new profile added"
+msgstr ""
+
+#: widgets/profilewidget.cpp:150
+msgid "%1 new profiles added"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:24
+msgid "International/USA"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:25
+msgid "Germany"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:26
+msgid "France"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:27
+msgid "Canada"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:28
+msgid "Japan"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:29
+msgid "UK"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:32
+msgid "English"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:33
+msgid "Deutsch"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:34
+msgid "Français"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:35
+msgid "Polski"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:36
+msgid "日本語"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:37
+msgid "Italiano"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:38
+msgid "Nederlands"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:39
+msgid "Español"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:40
+msgid "Português"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:41
+msgid "Svenska"
+msgstr ""
+
+#: widgets/generalsettingswidget.cpp:50
+msgid "None detected"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:423
+msgid "Released: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:424
+msgid "Genre: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:425
+msgid "CD Number: "
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:460
+msgid "Wikipedia"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:485
+msgid "No CD in drive"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:637
+msgid "Load cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:645
+msgid "Save Cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:653
+msgid "View Cover"
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:735
+msgid "Fetch Cover From Amazon..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:740
+msgid "Set Custom Cover..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:745
+msgid "Save Cover To File..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:750
+msgid "Show Full Size Cover..."
+msgstr ""
+
+#: widgets/cddaheaderwidget.cpp:755
+msgid "Remove Cover"
+msgstr ""
+
+#: models/cddamodel.h:41
+msgid "Rip"
+msgstr ""
+
+#: models/cddamodel.h:42
+msgid "Track"
+msgstr ""
+
+#: models/cddamodel.h:43
+msgid "Artist"
+msgstr ""
+
+#: models/cddamodel.h:44
+msgid "Title"
+msgstr ""
+
+#: models/cddamodel.h:45
+msgid "Length"
+msgstr ""
+
+#: models/profilemodel.h:150
+msgid " (Mobile Quality)"
+msgstr ""
+
+#: models/profilemodel.h:151
+msgid " (Normal Quality)"
+msgstr ""
+
+#: models/profilemodel.h:152
+msgid " (Extreme Quality)"
+msgstr ""
+
+#: models/cddamodel.cpp:26
+msgid "Unable to create KCompactDisc object."
+msgstr ""
+
+#: models/cddamodel.cpp:26 models/cddamodel.cpp:38
+msgid ""
+"This is an internal error. Check your hardware. If all okay please make bug "
+"report."
+msgstr ""
+
+#: models/cddamodel.cpp:38
+msgid "Unable to create KCDDB object."
+msgstr ""
+
+#: models/cddamodel.cpp:606 mainwindow.cpp:174
+msgid "No disc in drive"
+msgstr ""
+
+#: models/cddamodel.cpp:607
+msgid "Disc in drive"
+msgstr ""
+
+#: models/cddamodel.cpp:608 mainwindow.cpp:187
+msgid "Drive tray open"
+msgstr ""
+
+#: models/cddamodel.cpp:609 mainwindow.cpp:191
+msgid "Drive not ready"
+msgstr ""
+
+#: models/cddamodel.cpp:610 mainwindow.cpp:195
+msgid "Drive error"
+msgstr ""
+
+#: models/cddamodel.cpp:613
+msgid "No drive status available"
+msgstr ""
+
+#: models/cddamodel.cpp:622
+msgid "Disc playing"
+msgstr ""
+
+#: models/cddamodel.cpp:623
+msgid "Disc paused"
+msgstr ""
+
+#: models/cddamodel.cpp:624
+msgid "Disc stopped"
+msgstr ""
+
+#: models/cddamodel.cpp:627
+msgid "No disc status available"
+msgstr ""
+
+#: models/cddamodel.cpp:636
+msgid "Audio disc"
+msgstr ""
+
+#: models/cddamodel.cpp:637
+msgid "No audio disc"
+msgstr ""
+
+#: models/cddamodel.cpp:640
+msgid "No disc type information available"
+msgstr ""
+
+#: models/cddamodel.cpp:649
+msgid "CD-Text"
+msgstr ""
+
+#: models/cddamodel.cpp:650
+msgid "CDDB"
+msgstr ""
+
+#: models/cddamodel.cpp:651
+msgid "Phonon Metadata"
+msgstr ""
+
+#: models/cddamodel.cpp:654
+msgid "No disc information available"
+msgstr ""
+
+#: models/cddamodel.cpp:792
+msgid "No entry found in CDDB."
+msgstr ""
+
+#: models/cddamodel.cpp:792
+msgid ""
+"This means no data found in the CDDB database. Please enter the data "
+"manually. Maybe try another CDDB server."
+msgstr ""
+
+#: models/cddamodel.cpp:809
+msgid "Select CDDB Entry"
+msgstr ""
+
+#: models/cddamodel.cpp:810
+msgid "Select a CDDB entry:"
+msgstr ""
+
+#: models/profilemodel.cpp:117
+msgid "Profile name must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:118
+msgid "You've given no name for the profile. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:127
+msgid "Profile encoder is not defined."
+msgstr ""
+
+#: models/profilemodel.cpp:128
+msgid "You've given no encoder for the profile. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:137
+msgid "Profile filename pattern is not defined."
+msgstr ""
+
+#: models/profilemodel.cpp:138
+msgid "You've given no filename pattern for the profile. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:151
+msgid "The image file format is unknown."
+msgstr ""
+
+#: models/profilemodel.cpp:152
+msgid ""
+"Your given image file format is unknown. Please choose on of these formats: "
+"JPG/JPEG, PNG or BMP."
+msgstr ""
+
+#: models/profilemodel.cpp:161
+msgid "Cover name must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:162
+msgid "You've given no name for the cover. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:172
+msgid "The playlist file format is unknown."
+msgstr ""
+
+#: models/profilemodel.cpp:173
+msgid ""
+"Your given playlist file format is unknown. Please choose on of these "
+"formats: M3U, PLS or XSPF."
+msgstr ""
+
+#: models/profilemodel.cpp:182
+msgid "Playlist name must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:183
+msgid "You've given no name for the playlist. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:195
+msgid "Info text name must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:196
+msgid "You've given no name for the info text file. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:205
+msgid "Info text file name suffix must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:206
+msgid "You've given no suffix for the info text file. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:216
+msgid "The hashlist file format is unknown."
+msgstr ""
+
+#: models/profilemodel.cpp:217
+msgid ""
+"Your given hashlist file format is unknown. Please choose on of these "
+"formats: SFV."
+msgstr ""
+
+#: models/profilemodel.cpp:226
+msgid "Hashlist name must not be empty."
+msgstr ""
+
+#: models/profilemodel.cpp:227
+msgid "You've given no name for the hashlist. Please set one."
+msgstr ""
+
+#: models/profilemodel.cpp:251
+msgid "Profile name already exists."
+msgstr ""
+
+#: models/profilemodel.cpp:252
+msgid ""
+"Your profile name %1 already exists in the set of profiles. Please choose an "
+"unique one."
+msgstr ""
+
+#: models/profilemodel.cpp:268
+msgid "Profile index already exists."
+msgstr ""
+
+#: models/profilemodel.cpp:269
+msgid ""
+"Your profile index %1 already exists in the set of profiles. Please choose "
+"an unique one."
+msgstr ""
+
+#: models/profilemodel.cpp:318
+msgid "Unknown error. No index found in profile model."
+msgstr ""
+
+#: models/profilemodel.cpp:319
+msgid "This is an internal error. Please report."
+msgstr ""
+
+#: mainwindow.cpp:26
+msgid "Unable to create ProfileModel object."
+msgstr ""
+
+#: mainwindow.cpp:26 mainwindow.cpp:39
+msgid ""
+"Internal error. Check your hardware. If all okay please make bug report."
+msgstr ""
+
+#: mainwindow.cpp:39
+msgid "Unable to create CDDAModel object."
+msgstr ""
+
+#: mainwindow.cpp:112
+msgid "No disc information set. Do you really want to continue?"
+msgstr ""
+
+#: mainwindow.cpp:113
+msgid "Disc information not found"
+msgstr ""
+
+#: mainwindow.cpp:116
+msgid "no_disc_info_warn"
+msgstr ""
+
+#: mainwindow.cpp:136
+msgid "General settings"
+msgstr ""
+
+#: mainwindow.cpp:139
+msgid "Profiles"
+msgstr ""
+
+#: mainwindow.cpp:159
+msgid "Remote Server"
+msgstr ""
+
+#: mainwindow.cpp:170
+msgid "No Status information available"
+msgstr ""
+
+#: mainwindow.cpp:178
+msgid "Audio disc in drive"
+msgstr ""
+
+#: mainwindow.cpp:232
+msgid "Fetching CDDB information..."
+msgstr ""
+
+#: mainwindow.cpp:314
+msgid "Split titles"
+msgstr ""
+
+#: mainwindow.cpp:315
+msgid ""
+"Please set a divider string. Be aware of empty spaces.\n"
+"\n"
+"Divider:"
+msgstr ""
+
+#: mainwindow.cpp:325
+msgid "Do you really want to swap all artists and titles?"
+msgstr ""
+
+#: mainwindow.cpp:326 mainwindow.cpp:437
+msgid "Swap artists and titles"
+msgstr ""
+
+#: mainwindow.cpp:329
+msgid "no_swap_artists_and_titles_warn"
+msgstr ""
+
+#: mainwindow.cpp:338
+msgid "Do you really want to capitalize all artists and titles?"
+msgstr ""
+
+#: mainwindow.cpp:339
+msgid "Capitalize artists and titles"
+msgstr ""
+
+#: mainwindow.cpp:342
+msgid "no_capitalize_warn"
+msgstr ""
+
+#: mainwindow.cpp:351
+msgid "Do you really want to autofill track artists?"
+msgstr ""
+
+#: mainwindow.cpp:352
+msgid "Autofill artists"
+msgstr ""
+
+#: mainwindow.cpp:355
+msgid "no_autofill_warn"
+msgstr ""
+
+#: mainwindow.cpp:375
+msgid "Eject"
+msgstr ""
+
+#: mainwindow.cpp:382
+msgid "Profile: "
+msgstr ""
+
+#: mainwindow.cpp:394
+msgid "&Profile: "
+msgstr ""
+
+#: mainwindow.cpp:400
+msgid "Profile"
+msgstr ""
+
+#: mainwindow.cpp:408
+msgid "Fetch Info"
+msgstr ""
+
+#: mainwindow.cpp:415
+msgid "Submit Info"
+msgstr ""
+
+#: mainwindow.cpp:423
+msgid "Rip..."
+msgstr ""
+
+#: mainwindow.cpp:432
+msgid "Split titles..."
+msgstr ""
+
+#: mainwindow.cpp:442
+msgid "Capitalize"
+msgstr ""
+
+#: mainwindow.cpp:447
+msgid "Auto fill artists"
+msgstr ""
+
+#: rc.cpp:3 rc.cpp:524
+msgid "Overwrite existing files"
+msgstr ""
+
+#: rc.cpp:6 rc.cpp:527
+msgid "Delete partial files after cancel"
+msgstr ""
+
+#: rc.cpp:9
+msgid "Eject CD tray after extraction finished"
+msgstr ""
+
+#: rc.cpp:12
+msgid "Perform CDDB lookup automatically"
+msgstr ""
+
+#: rc.cpp:15
+msgid "Amazon localization"
+msgstr ""
+
+#: rc.cpp:18
+msgid "Wikipedia localization"
+msgstr ""
+
+#: rc.cpp:21
+msgid "CD Device"
+msgstr ""
+
+#: rc.cpp:24 rc.cpp:548
+msgid "Full paranoia mode (best quality)"
+msgstr ""
+
+#: rc.cpp:27 rc.cpp:551
+msgid "Never skip on read error"
+msgstr ""
+
+#: rc.cpp:30
+msgid "Base path to store music files"
+msgstr ""
+
+#: rc.cpp:33 rc.cpp:619
+msgid "Upload files to server"
+msgstr ""
+
+#: rc.cpp:36
+msgid "URL of server"
+msgstr ""
+
+#: rc.cpp:39 rc.cpp:85 rc.cpp:133 rc.cpp:139 rc.cpp:216 rc.cpp:231 rc.cpp:240
+#: rc.cpp:249 rc.cpp:273 rc.cpp:374 rc.cpp:386 rc.cpp:389 rc.cpp:438
+#: rc.cpp:457 rc.cpp:512 rc.cpp:521 rc.cpp:560 rc.cpp:573 rc.cpp:592
+#: rc.cpp:616 rc.cpp:625
+msgid "Form"
+msgstr ""
+
+#: rc.cpp:42
+msgid "Example:"
+msgstr ""
+
+#: rc.cpp:45 rc.cpp:148 rc.cpp:282
+msgid ""
+"<p>This tag will be replaced with artist of the whole CD.</p>\n"
+"<hr />\n"
+"<p>If your CD is a compilation, then this tag represents the title in most "
+"cases.</p>"
+msgstr ""
+
+#: rc.cpp:50 rc.cpp:153 rc.cpp:287
+msgid "Album Artist"
+msgstr ""
+
+#: rc.cpp:53 rc.cpp:156 rc.cpp:290
+msgid ""
+"<p>This tag will be replaced with the title of the whole CD.</p>\n"
+"<hr />\n"
+"<p>If your CD is a compilation, then this tag represents the subtitle in "
+"most cases.</p>"
+msgstr ""
+
+#: rc.cpp:58 rc.cpp:161 rc.cpp:295
+msgid "Album Title"
+msgstr ""
+
+#: rc.cpp:61 rc.cpp:185 rc.cpp:319
+msgid ""
+"<p>This tag will be replaced with the CD number of a multi-CD album. Often "
+"compilations consist of several CDs.</p>\n"
+"<hr />\n"
+"<p>This tag has two properties:\n"
+"<ul><li><i>length</i> defines how many digits the number should consist of "
+"at least (Default: 2).</li>\n"
+"<li><i>fillchar</i> sets the char taken to fill the free spaces in front of "
+"the number, if it has less digits than defined by <i>length</i>. (Default: "
+"0).</li></ul></p>\n"
+"<hr />\n"
+"<p>Note: This tag will only be replaced if the multi-CD flag is enabled for "
+"the CD.</p>"
+msgstr ""
+
+#: rc.cpp:70 rc.cpp:194 rc.cpp:328
+msgid "CD #"
+msgstr ""
+
+#: rc.cpp:73 rc.cpp:197 rc.cpp:331
+msgid ""
+"This tag will be replaced with the release date of the CD. In almost all "
+"cases this is the year."
+msgstr ""
+
+#: rc.cpp:76 rc.cpp:200 rc.cpp:334
+msgid "Date"
+msgstr ""
+
+#: rc.cpp:79 rc.cpp:203 rc.cpp:337
+msgid "This tag will be replaced with the genre."
+msgstr ""
+
+#: rc.cpp:82 rc.cpp:206 rc.cpp:340
+msgid "Genre"
+msgstr ""
+
+#: rc.cpp:88
+msgid "Profile Name:"
+msgstr ""
+
+#: rc.cpp:91
+msgid "Encoder"
+msgstr ""
+
+#: rc.cpp:94
+msgid "Filenames"
+msgstr ""
+
+#: rc.cpp:97 rc.cpp:383
+msgid "Pattern:"
+msgstr ""
+
+#: rc.cpp:100
+msgid "Create FAT32 compatible filenames"
+msgstr ""
+
+#: rc.cpp:103
+msgid "Extra Files"
+msgstr ""
+
+#: rc.cpp:106
+msgid "Store cover file in target folder"
+msgstr ""
+
+#: rc.cpp:109 rc.cpp:115 rc.cpp:121 rc.cpp:127
+msgid "Settings.."
+msgstr ""
+
+#: rc.cpp:112
+msgid "Create playlist in target folder"
+msgstr ""
+
+#: rc.cpp:118
+msgid "Store info file in target folder"
+msgstr ""
+
+#: rc.cpp:124
+msgid "Store hashlist in target folder"
+msgstr ""
+
+#: rc.cpp:130
+msgid "Store discid in target folder"
+msgstr ""
+
+#: rc.cpp:136
+msgid "TextLabel"
+msgstr ""
+
+#: rc.cpp:142 rc.cpp:276
+msgid "Album Example:"
+msgstr ""
+
+#: rc.cpp:145 rc.cpp:279
+msgid "Sampler Example:"
+msgstr ""
+
+#: rc.cpp:164 rc.cpp:298
+msgid ""
+"<p>This tag will be replaced with the artist of the individual track.<p></"
+"p>It is especially useful on compilation CDs.</p>"
+msgstr ""
+
+#: rc.cpp:167 rc.cpp:301
+msgid "Track Artist"
+msgstr ""
+
+#: rc.cpp:170 rc.cpp:304
+msgid ""
+"<p>This tag will be replaced with the track title. Normally each track on a "
+"CD has its own title.</p>"
+msgstr ""
+
+#: rc.cpp:173 rc.cpp:307
+msgid "Track Title"
+msgstr ""
+
+#: rc.cpp:176 rc.cpp:310
+msgid ""
+"<p>This tag will be replaced with the track number of the individual track.</"
+"p>\n"
+"<hr />\n"
+"<p>This tag has two properties:\n"
+"<ul><li><i>length</i> defines how many digits the number should consist of "
+"at least (Default: 2).</li><li><i>fillchar</i> sets the character usedto "
+"fill the free spaces in front of the number, if it has less digits than "
+"defined by <i>length</i>. (Default: 0).</li></ul></p>"
+msgstr ""
+
+#: rc.cpp:182 rc.cpp:316
+msgid "Track #"
+msgstr ""
+
+#: rc.cpp:209
+msgid ""
+"<p>This tag will be replaced with the file suffix.</p>\n"
+"<p>It is defined by the profile. In most cases it will be either \"mp3\" or "
+"\"ogg\".</p>"
+msgstr ""
+
+#: rc.cpp:213
+msgid "Suffix"
+msgstr ""
+
+#: rc.cpp:219
+msgid "Scale before store:"
+msgstr ""
+
+#: rc.cpp:222
+msgid "x"
+msgstr ""
+
+#: rc.cpp:225 rc.cpp:234 rc.cpp:243
+msgid "Format:"
+msgstr ""
+
+#: rc.cpp:228
+msgid "Cover pattern:"
+msgstr ""
+
+#: rc.cpp:237 rc.cpp:246
+msgid "Name/Pattern:"
+msgstr ""
+
+#: rc.cpp:252
+msgid "<h2>Artist - Album</h2>"
+msgstr ""
+
+#: rc.cpp:255
+msgid "Ripping Track 8 / 12"
+msgstr ""
+
+#: rc.cpp:258 rc.cpp:270
+msgid "Speed: 0x"
+msgstr ""
+
+#: rc.cpp:261
+msgid "Overall Ripping Progress"
+msgstr ""
+
+#: rc.cpp:264
+msgid "Encoding Track 8 / 12"
+msgstr ""
+
+#: rc.cpp:267
+msgid "KSqueezedTextLabel"
+msgstr ""
+
+#: rc.cpp:343
+msgid ""
+"<p>This tag will be replaced with the temporary filename of the cover, e.g. "
+"to insert the cover in the id3 v2.3 tag with LAME. The cover file will be "
+"created automatically by Audex.</p>\n"
+"<hr />\n"
+"<p>This tag has six properties:<ul>\n"
+"<li><i>format</i> defines the image format. Possible values are \"PNG\", "
+"\"JPG\" and \"GIF\" (Default: \"JPG\"). </li>\n"
+"<li><i>x</i> (width) and <i>y</i> (height) can be used to resize the cover "
+"image. If these are not set, then size of the cover image won't be changed.</"
+"li>\n"
+"<li><i>usenocover</i> if this is set to <i>true</i> then the image which is "
+"shown if no cover for the current album is set will b used. (Default: false)."
+"</li>\n"
+"<li><i>preparam</i> and <i>postparam</i> define parameters inserted before "
+"(pre) or behind (post) the filename of the temporary cover. </li></ul>\n"
+"<i>These value are <b>only</b> shown if a cover set, or \"usenocover\" is "
+"set to \"true\".</i></p>\n"
+"<hr />\n"
+"<p>Eamples:</p>\n"
+"<p><code>${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"-ti \"}</"
+"code></p>\n"
+"<p>A filename of an JPG image with the size of 300x300 will be inserted. If "
+"no cover is set, this variable will be replaced by nothing, otherwise "
+"something like <i>/tmp/cover.123.jpg</i> will be inserted.</p>\n"
+"<hr />\n"
+"<p><i><b>Note:</b> LAME discards cover files larger than 128 KiB. Please "
+"bear this in mind, if you set the format and size.</i></p>"
+msgstr ""
+
+#: rc.cpp:359
+msgid "Cover File"
+msgstr ""
+
+#: rc.cpp:362
+msgid ""
+"This will be replaced with a temporary WAV file created by Audex from CD "
+"audio track. You can use it as a normal input file for your command line "
+"encoder."
+msgstr ""
+
+#: rc.cpp:365
+msgid "Input File"
+msgstr ""
+
+#: rc.cpp:368
+msgid ""
+"This tag will be replaced with the full output filename and path. Use it as "
+"the output for your command line encoder."
+msgstr ""
+
+#: rc.cpp:371
+msgid "Output File"
+msgstr ""
+
+#: rc.cpp:377
+msgid "Information text:"
+msgstr ""
+
+#: rc.cpp:380 rc.cpp:454 rc.cpp:509 rc.cpp:518 rc.cpp:570 rc.cpp:589
+#: rc.cpp:659
+msgid "Suffix:"
+msgstr ""
+
+#: rc.cpp:392
+msgid "Various Artists"
+msgstr ""
+
+#: rc.cpp:395
+msgid "Multi CD"
+msgstr ""
+
+#: rc.cpp:398
+msgid "Artist:"
+msgstr ""
+
+#: rc.cpp:401
+msgid "Title:"
+msgstr ""
+
+#: rc.cpp:404
+msgid "CD Number:"
+msgstr ""
+
+#: rc.cpp:407
+msgid "Track Offset:"
+msgstr ""
+
+#: rc.cpp:410
+msgid "Genre:"
+msgstr ""
+
+#: rc.cpp:413
+msgid "Year:"
+msgstr ""
+
+#: rc.cpp:416
+msgid ""
+"Additional\n"
+"Information:"
+msgstr ""
+
+#: rc.cpp:420
+msgid "Disc ID:"
+msgstr ""
+
+#: rc.cpp:423
+msgid "0x00000000"
+msgstr ""
+
+#: rc.cpp:426
+msgid "&Audex"
+msgstr ""
+
+#: rc.cpp:429
+msgid "&CDDB"
+msgstr ""
+
+#: rc.cpp:435
+msgid "&Settings"
+msgstr ""
+
+#: rc.cpp:441 rc.cpp:628
+msgid "Quality"
+msgstr ""
+
+#: rc.cpp:444 rc.cpp:496 rc.cpp:579 rc.cpp:631
+msgid "Lowest"
+msgstr ""
+
+#: rc.cpp:447 rc.cpp:499 rc.cpp:582 rc.cpp:634
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:normal;\">\n"
+"<p align=\"right\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Highest</"
+"p></body></html>"
+msgstr ""
+
+#: rc.cpp:460
+msgid "Quality/Bitrate"
+msgstr ""
+
+#: rc.cpp:463
+msgid ""
+"This preset should provide near transparency to most people on most music."
+msgstr ""
+
+#: rc.cpp:466
+msgid "Medium (140...185 kbit/s)"
+msgstr ""
+
+#: rc.cpp:469
+msgid ""
+"If you have extremely good hearing and similar equipment, this preset will "
+"generally provide slightly higher quality than the \"standard\" mode"
+msgstr ""
+
+#: rc.cpp:472
+msgid "Extreme (220...260 kbits/s)"
+msgstr ""
+
+#: rc.cpp:475
+msgid ""
+"This preset should generally be transparent to most people on most music and "
+"is already quite high in quality."
+msgstr ""
+
+#: rc.cpp:478
+msgid "Standard (170...210 kbit/s)"
+msgstr ""
+
+#: rc.cpp:481
+msgid ""
+"This preset will usually be overkill for most people and most situations, "
+"but if you must have the absolute highest quality with no regard to "
+"filesize, this is the way to go."
+msgstr ""
+
+#: rc.cpp:484
+msgid "Insane (320 kbit/s)"
+msgstr ""
+
+#: rc.cpp:490
+msgid "Constant Bitrate"
+msgstr ""
+
+#: rc.cpp:493
+msgid "Target Bitrate (kbit/s)"
+msgstr ""
+
+#: rc.cpp:506
+msgid "Embed cover in music file"
+msgstr ""
+
+#: rc.cpp:515
+msgid "Command Pattern:"
+msgstr ""
+
+#: rc.cpp:530
+msgid "Eject CD tray after finished extraction"
+msgstr ""
+
+#: rc.cpp:533
+msgid "Automatically lookup CDDB information"
+msgstr ""
+
+#: rc.cpp:536
+msgid "Localizations"
+msgstr ""
+
+#: rc.cpp:539
+msgid "Amazon:"
+msgstr ""
+
+#: rc.cpp:542
+msgid "Wikipedia:"
+msgstr ""
+
+#: rc.cpp:545
+msgid "Device"
+msgstr ""
+
+#: rc.cpp:554
+msgid "Paths"
+msgstr ""
+
+#: rc.cpp:557
+msgid "Base path to store music files:"
+msgstr ""
+
+#: rc.cpp:563
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'Sans Serif'; font-size:10pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-"
+"left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">No "
+"settings are needed for wave files.</p></body></html>"
+msgstr ""
+
+#: rc.cpp:576
+msgid "Compression"
+msgstr ""
+
+#: rc.cpp:595
+msgid "Add..."
+msgstr ""
+
+#: rc.cpp:598
+msgid "Remove"
+msgstr ""
+
+#: rc.cpp:601
+msgid "Modify..."
+msgstr ""
+
+#: rc.cpp:604
+msgid "Copy"
+msgstr ""
+
+#: rc.cpp:610
+msgid "Load..."
+msgstr ""
+
+#: rc.cpp:613
+msgid "Save..."
+msgstr ""
+
+#: rc.cpp:622
+msgid "URL:"
+msgstr ""
+
+#: rc.cpp:641
+msgid "Target Bitrate ~"
+msgstr ""
+
+#: rc.cpp:644 rc.cpp:650 rc.cpp:656
+msgid "kbit/s"
+msgstr ""
+
+#: rc.cpp:647
+msgid "Set minimum bitrate"
+msgstr ""
+
+#: rc.cpp:653
+msgid "Set maximum bitrate"
+msgstr ""
+
+#: core/audex.cpp:113
+msgid "No profile selected. Operation abort."
+msgstr ""
+
+#: core/audex.cpp:125
+msgid ""
+"Unable to create temporary directory \"%1\". Please check. Abort operation."
+msgstr ""
+
+#: core/audex.cpp:137
+msgid "Start ripping and encoding with profile \"%1\"..."
+msgstr ""
+
+#: core/audex.cpp:430
+msgid "Cant find path \"%1\"."
+msgstr ""
+
+#: core/audex.cpp:430 core/audex.cpp:439
+msgid "Please check your path (write access?)"
+msgstr ""
+
+#: core/audex.cpp:439
+msgid "Unable to create directory \"%1\"."
+msgstr ""
+
+#: core/audex.cpp:442
+msgid "Directory \"%1\" successfully created."
+msgstr ""
+
+#: core/audex.cpp:445
+msgid "Directory \"%1\" already exists."
+msgstr ""
+
+#: core/audex.cpp:452
+msgid ""
+"Free space on \"%1\" is less than 200 MB. Problems with low space possible."
+msgstr ""
+
+#: core/audex.cpp:458
+msgid "Warning! File \"%1\" already exists. Overwriting."
+msgstr ""
+
+#: core/audex.cpp:460 core/audex.cpp:562 core/audex.cpp:594 core/audex.cpp:642
+#: core/audex.cpp:681 core/audex.cpp:718
+msgid "Warning! File \"%1\" already exists. Skipping."
+msgstr ""
+
+#: core/audex.cpp:481
+msgid "Temporary directory name \"%1\" must not be empty."
+msgstr ""
+
+#: core/audex.cpp:481
+msgid "Please set one."
+msgstr ""
+
+#: core/audex.cpp:487
+msgid "Temporary directory \"%1\" does not exists."
+msgstr ""
+
+#: core/audex.cpp:487
+msgid "Please check."
+msgstr ""
+
+#: core/audex.cpp:495
+msgid ""
+"Free space on temporary directory \"%1\" is less than 800 MiB. Problems with "
+"low space possible."
+msgstr ""
+
+#: core/audex.cpp:497
+msgid "Temporary directory \"%1\" needs at least 200 MiB of free memory."
+msgstr ""
+
+#: core/audex.cpp:497
+msgid "Please free space or set another path."
+msgstr ""
+
+#: core/audex.cpp:530
+msgid "Eject CD tray"
+msgstr ""
+
+#: core/audex.cpp:567
+msgid "Cover \"%1\" successfully saved."
+msgstr ""
+
+#: core/audex.cpp:620
+msgid "Playlist \"%1\" successfully created."
+msgstr ""
+
+#: core/audex.cpp:655
+msgid "Infofile \"%1\" successfully stored."
+msgstr ""
+
+#: core/audex.cpp:700
+msgid "Hashlist \"%1\" successfully stored."
+msgstr ""
+
+#: core/audex.cpp:727
+msgid "Discid successfully stored."
+msgstr ""

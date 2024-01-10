@@ -1,473 +1,344 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>CommandWizardWidgetUI</class>
- <widget class="QWidget" name="CommandWizardWidgetUI" >
-  <property name="geometry" >
+ <widget class="QWidget" name="CommandWizardWidgetUI">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>415</width>
-    <height>300</height>
+    <width>430</width>
+    <height>241</height>
    </rect>
   </property>
-  <property name="minimumSize" >
-   <size>
-    <width>415</width>
-    <height>300</height>
-   </size>
-  </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" >
-   <item row="0" column="0" >
-    <widget class="QFrame" name="frame" >
-     <property name="frameShape" >
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QVBoxLayout" >
-        <item>
-         <widget class="KLineEdit" name="klineedit_command" />
-        </item>
-        <item>
-         <layout class="QVBoxLayout" >
-          <item>
-           <widget class="QLabel" name="label_album_example" >
-            <property name="maximumSize" >
-             <size>
-              <width>16777215</width>
-              <height>21</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Album Example</string>
-            </property>
-            <property name="buddy" >
-             <cstring>klineedit_album_example</cstring>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KLineEdit" name="klineedit_album_example" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-            <property name="palette" >
-             <palette>
-              <active>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>224</red>
-                  <green>223</green>
-                  <blue>223</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </active>
-              <inactive>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>224</red>
-                  <green>223</green>
-                  <blue>223</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </inactive>
-              <disabled>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>244</red>
-                  <green>244</green>
-                  <blue>244</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </disabled>
-             </palette>
-            </property>
-            <property name="readOnly" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QVBoxLayout" >
-          <item>
-           <widget class="QLabel" name="label_sampler_example" >
-            <property name="maximumSize" >
-             <size>
-              <width>16777215</width>
-              <height>21</height>
-             </size>
-            </property>
-            <property name="text" >
-             <string>Sampler Example</string>
-            </property>
-            <property name="buddy" >
-             <cstring>klineedit_sampler_example</cstring>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="KLineEdit" name="klineedit_sampler_example" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-            <property name="palette" >
-             <palette>
-              <active>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>224</red>
-                  <green>223</green>
-                  <blue>223</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </active>
-              <inactive>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>224</red>
-                  <green>223</green>
-                  <blue>223</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </inactive>
-              <disabled>
-               <colorrole role="Base" >
-                <brush brushstyle="SolidPattern" >
-                 <color alpha="255" >
-                  <red>244</red>
-                  <green>244</green>
-                  <blue>244</blue>
-                 </color>
-                </brush>
-               </colorrole>
-              </disabled>
-             </palette>
-            </property>
-            <property name="readOnly" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="6">
+    <widget class="KLineEdit" name="klineedit_command"/>
    </item>
-   <item row="1" column="0" >
-    <widget class="QFrame" name="frame_2" >
-     <property name="maximumSize" >
+   <item row="1" column="0" colspan="6">
+    <widget class="QLabel" name="label_album_example">
+     <property name="maximumSize">
       <size>
        <width>16777215</width>
-       <height>118</height>
+       <height>21</height>
       </size>
      </property>
-     <property name="frameShape" >
-      <enum>QFrame::StyledPanel</enum>
+     <property name="text">
+      <string>Album Example:</string>
      </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Raised</enum>
+     <property name="buddy">
+      <cstring>klineedit_album_example</cstring>
      </property>
-     <layout class="QGridLayout" name="gridLayout" >
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="KPushButton" name="kpushbutton_albumartist" >
-          <property name="minimumSize" >
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="toolTip" >
-           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag will be replaced with the &lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">artist of the &lt;span style=" font-weight:600;">whole&lt;/span> album.&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Not always the CD is an album.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">If your CD is a compilation, then&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">this tag represents the title in&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">most cases.&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>Album Artist</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_albumtitle" >
-          <property name="minimumSize" >
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="toolTip" >
-           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag will be replaced with the &lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">title of the &lt;span style=" font-weight:600;">whole&lt;/span> album.&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Not always the CD is an album.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">If your CD is a compilation, then&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">this tag represents the subtitle in&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">most cases.&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>Album Title</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_trackartist" >
-          <property name="minimumSize" >
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="toolTip" >
-           <string>This tag will be replaces with the artist 
-of every single track. It makes sense 
-especially on cds with different artists
-each track.</string>
-          </property>
-          <property name="text" >
-           <string>Track Artist</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_tracktitle" >
-          <property name="minimumSize" >
-           <size>
-            <width>0</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="maximumSize" >
-           <size>
-            <width>16777215</width>
-            <height>16777215</height>
-           </size>
-          </property>
-          <property name="toolTip" >
-           <string>This tag will be replaced with the title
-of every single track. Normally each track 
-on a cd holds its own title.</string>
-          </property>
-          <property name="text" >
-           <string>Track Title</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="KPushButton" name="kpushbutton_trackno" >
-          <property name="toolTip" >
-           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag will be replaced with&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">the track number of every single&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">track.&lt;/p>&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag has two properties:&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">"length" defines how many digits&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">the number should consist of at&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">least (Default: 2).&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">With "fillchar" you can set a char&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">taken to fill the free spaces in front&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">of the number, if it has less digits&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">than defined by "length".&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">(Default: 0).&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>Track #</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_cdno" >
-          <property name="toolTip" >
-           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag will be replaced with&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">the cd number of a multi-cd-&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">album. Often compilations also&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">consists of several cds.&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag has two properties:&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">"length" defines how many digits&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">the number should consist of at&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">least (Default: 2).&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">With "fillchar" you can set a char&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">taken to fill the free spaces in front&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">of the number, if it has less digits&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">than defined by "length".&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">(Default: 0).&lt;/p>&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Note: This tag will only be replaced&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">if the multi-cd flag is enabled for the&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">cd.&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>CD #</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_date" >
-          <property name="toolTip" >
-           <string>This tag will be replaces with the release 
-date of the cd. In almost all cases this is 
-the year.</string>
-          </property>
-          <property name="text" >
-           <string>Date</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_genre" >
-          <property name="toolTip" >
-           <string>This tag will be replaced with the
-genre.</string>
-          </property>
-          <property name="text" >
-           <string>Genre</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="2" column="0" >
-       <layout class="QHBoxLayout" name="horizontalLayout" >
-        <item>
-         <widget class="KPushButton" name="kpushbutton_cover_file" >
-          <property name="toolTip" >
-           <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'DejaVu Sans'; font-size:9pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">This tag will be replaced with&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">the temporary filename of the&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">cover, e.g. to insert the&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">cover in the id3 v2.3 tag with &lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">LAME.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">The cover file will be created&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">automatically by Audex.&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">This tag has six properties:&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">"format" defines the image format.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">Possible values are "PNG", "JPG"&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">and "GIF" (Default: "JPG").&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">With "x" (width) and "y" (height) you&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">can rescale the cover. If you don't&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">set these values, the size of the cover &lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">image won't be changed.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">Set "usenocover" to "true" to use image, &lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">which is shown if no cover&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">for the current album is set (Default: false).&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">With "preparam" and "postparam" you&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">can define parameters inserted&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">before (pre) or behind (post) the&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">filename of the temporary cover. These&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">value are &lt;span style=" font-weight:600;">only&lt;/span> shown if the cover set&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">or "usenocover" is set to "true".&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">&lt;span style=" font-style:italic;">Eamples:&lt;/span>&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">${cover format="JPG" x="300" y="300" preparam="-ti "}&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">So a filename of an jpg-image with the size of 300x300&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">will be inserted.&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">If no cover is set, this variable will be replaced by nothing,&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">otherwise something like&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">-ti /tmp/cover.123.jpg&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">will be inserted.&lt;/p>
-&lt;hr />
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">&lt;span style=" font-style:italic;">Note:&lt;/span> LAME discards cover files larger than 128 KiB. Please&lt;/p>
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif'; font-size:10pt;">consider, if you set the format and size.&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-          <property name="text" >
-           <string>Cover File</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_input_file" >
-          <property name="toolTip" >
-           <string>This will be replaced with a temporary wave
-file created by audex from cd audio track.
-You can use it as a normal input file for your
-command line encoder.</string>
-          </property>
-          <property name="text" >
-           <string>Input File</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KPushButton" name="kpushbutton_output_file" >
-          <property name="toolTip" >
-           <string>This tag will be replaced with the full output
-file incl. full path and file suffix. Just use it
-as your output for your command line
-encoder.</string>
-          </property>
-          <property name="text" >
-           <string>Output File</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
     </widget>
+   </item>
+   <item row="2" column="0" colspan="6">
+    <widget class="KLineEdit" name="klineedit_album_example">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>244</red>
+           <green>244</green>
+           <blue>244</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="6">
+    <widget class="QLabel" name="label_sampler_example">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>21</height>
+      </size>
+     </property>
+     <property name="text">
+      <string>Sampler Example:</string>
+     </property>
+     <property name="buddy">
+      <cstring>klineedit_sampler_example</cstring>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="0" colspan="6">
+    <widget class="KLineEdit" name="klineedit_sampler_example">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>224</red>
+           <green>223</green>
+           <blue>223</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>244</red>
+           <green>244</green>
+           <blue>244</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0">
+    <widget class="KPushButton" name="kpushbutton_albumartist">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with artist of the whole CD.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;If your CD is a compilation, then this tag represents the title in most cases.&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Album Artist</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="1" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_albumtitle">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the title of the whole CD.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;If your CD is a compilation, then this tag represents the subtitle in most cases.&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Album Title</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="3" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_trackartist">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the artist of the individual track.&lt;p&gt;&lt;/p&gt;It is especially useful on compilation CDs.&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Track Artist</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="5">
+    <widget class="KPushButton" name="kpushbutton_tracktitle">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the track title. Normally each track on a CD has its own title.&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Track Title</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <widget class="KPushButton" name="kpushbutton_trackno">
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the track number of the individual track.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This tag has two properties:
+&lt;ul&gt;&lt;li&gt;&lt;i&gt;length&lt;/i&gt; defines how many digits the number should consist of at least (Default: 2).&lt;/li&gt;&lt;li&gt;&lt;i&gt;fillchar&lt;/i&gt; sets the character usedto fill the free spaces in front of the number, if it has less digits than defined by &lt;i&gt;length&lt;/i&gt;. (Default: 0).&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Track #</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="1" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_cdno">
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the CD number of a multi-CD album. Often compilations consist of several CDs.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This tag has two properties:
+&lt;ul&gt;&lt;li&gt;&lt;i&gt;length&lt;/i&gt; defines how many digits the number should consist of at least (Default: 2).&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;fillchar&lt;/i&gt; sets the char taken to fill the free spaces in front of the number, if it has less digits than defined by &lt;i&gt;length&lt;/i&gt;. (Default: 0).&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Note: This tag will only be replaced if the multi-CD flag is enabled for the CD.&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>CD #</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="3" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_date">
+     <property name="toolTip">
+      <string>This tag will be replaced with the release date of the CD. In almost all cases this is the year.</string>
+     </property>
+     <property name="text">
+      <string>Date</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="5">
+    <widget class="KPushButton" name="kpushbutton_genre">
+     <property name="toolTip">
+      <string>This tag will be replaced with the genre.</string>
+     </property>
+     <property name="text">
+      <string>Genre</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_cover_file">
+     <property name="toolTip">
+      <string>&lt;p&gt;This tag will be replaced with the temporary filename of the cover, e.g. to insert the cover in the id3 v2.3 tag with LAME. The cover file will be created automatically by Audex.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;This tag has six properties:&lt;ul&gt;
+&lt;li&gt;&lt;i&gt;format&lt;/i&gt; defines the image format. Possible values are &quot;PNG&quot;, &quot;JPG&quot; and &quot;GIF&quot; (Default: &quot;JPG&quot;). &lt;/li&gt;
+&lt;li&gt;&lt;i&gt;x&lt;/i&gt; (width) and &lt;i&gt;y&lt;/i&gt; (height) can be used to resize the cover image. If these are not set, then size of the cover image won't be changed.&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;usenocover&lt;/i&gt; if this is set to &lt;i&gt;true&lt;/i&gt; then the image which is shown if no cover for the current album is set will b used. (Default: false).&lt;/li&gt;
+&lt;li&gt;&lt;i&gt;preparam&lt;/i&gt; and &lt;i&gt;postparam&lt;/i&gt; define parameters inserted before (pre) or behind (post) the filename of the temporary cover. &lt;/li&gt;&lt;/ul&gt;
+&lt;i&gt;These value are &lt;b&gt;only&lt;/b&gt; shown if a cover set, or &quot;usenocover&quot; is set to &quot;true&quot;.&lt;/i&gt;&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;Eamples:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;${cover format=&quot;JPG&quot; x=&quot;300&quot; y=&quot;300&quot; preparam=&quot;-ti &quot;}&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;A filename of an JPG image with the size of 300x300 will be inserted. If no cover is set, this variable will be replaced by nothing, otherwise something like &lt;i&gt;/tmp/cover.123.jpg&lt;/i&gt; will be inserted.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;i&gt;&lt;b&gt;Note:&lt;/b&gt; LAME discards cover files larger than 128 KiB. Please bear this in mind, if you set the format and size.&lt;/i&gt;&lt;/p&gt;</string>
+     </property>
+     <property name="text">
+      <string>Cover File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="2" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_input_file">
+     <property name="toolTip">
+      <string>This will be replaced with a temporary WAV file created by Audex from CD audio track. You can use it as a normal input file for your command line encoder.</string>
+     </property>
+     <property name="text">
+      <string>Input File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="7" column="4" colspan="2">
+    <widget class="KPushButton" name="kpushbutton_output_file">
+     <property name="toolTip">
+      <string>This tag will be replaced with the full output filename and path. Use it as the output for your command line encoder.</string>
+     </property>
+     <property name="text">
+      <string>Output File</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="1" colspan="2">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>16</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
@@ -483,6 +354,22 @@ encoder.</string>
    <header>kpushbutton.h</header>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>klineedit_command</tabstop>
+  <tabstop>klineedit_album_example</tabstop>
+  <tabstop>klineedit_sampler_example</tabstop>
+  <tabstop>kpushbutton_albumartist</tabstop>
+  <tabstop>kpushbutton_albumtitle</tabstop>
+  <tabstop>kpushbutton_trackartist</tabstop>
+  <tabstop>kpushbutton_tracktitle</tabstop>
+  <tabstop>kpushbutton_trackno</tabstop>
+  <tabstop>kpushbutton_cdno</tabstop>
+  <tabstop>kpushbutton_date</tabstop>
+  <tabstop>kpushbutton_genre</tabstop>
+  <tabstop>kpushbutton_cover_file</tabstop>
+  <tabstop>kpushbutton_input_file</tabstop>
+  <tabstop>kpushbutton_output_file</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

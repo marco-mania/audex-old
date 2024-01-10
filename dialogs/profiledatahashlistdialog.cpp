@@ -18,12 +18,12 @@
 
 #include "profiledatahashlistdialog.h"
 
-ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &mask, const QString& format, QWidget *parent) : KDialog(parent) {
+ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &pattern, const QString& format, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->format = format;
-  this->mask = mask;
+  this->pattern = pattern;
 
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
@@ -34,8 +34,8 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &mask, const 
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-  connect(ui.kpushbutton_mask, SIGNAL(clicked()), this, SLOT(mask_wizard()));
-  ui.kpushbutton_mask->setIcon(KIcon("tools-wizard"));
+  connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
+  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
 
   ui.kcombobox_format->addItem("SFV (Simple File Verification)", "SFV");
   {
@@ -44,10 +44,11 @@ ProfileDataHashlistDialog::ProfileDataHashlistDialog(const QString &mask, const 
   }
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_mask->setText(mask);
-  connect(ui.klineedit_mask, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.klineedit_pattern->setText(pattern);
+  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
 }
 
@@ -65,15 +66,15 @@ void ProfileDataHashlistDialog::slotButtonClicked(int button) {
   }
 }
 
-void ProfileDataHashlistDialog::mask_wizard() {
+void ProfileDataHashlistDialog::pattern_wizard() {
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimpleMaskWizardDialog *dialog = new SimpleMaskWizardDialog(ui.klineedit_mask->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_mask->setText(dialog->mask);
+  ui.klineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -83,13 +84,13 @@ void ProfileDataHashlistDialog::mask_wizard() {
 
 void ProfileDataHashlistDialog::trigger_changed() {
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_mask->text() != mask) { enableButtonApply(TRUE); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
 }
 
 bool ProfileDataHashlistDialog::save() {
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  mask = ui.klineedit_mask->text();
+  pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
   return TRUE;
 }

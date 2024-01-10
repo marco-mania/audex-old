@@ -24,6 +24,8 @@
 #include <QString>
 #include <QVariant>
 #include <QModelIndexList>
+#include <QSet>
+#include <QRegExp>
 
 #include <KDebug>
 #include <KLocale>
@@ -34,17 +36,23 @@
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
 
-#include "../utils/error.h"
+#include "utils/error.h"
 
-#define CDDA_MODEL_COLUMN_COUNT		3
-
+#define CDDA_MODEL_COLUMN_RIP_LABEL	i18n("Rip")
+#define CDDA_MODEL_COLUMN_TRACK_LABEL	i18n("Track")
 #define CDDA_MODEL_COLUMN_ARTIST_LABEL	i18n("Artist")
 #define CDDA_MODEL_COLUMN_TITLE_LABEL	i18n("Title")
 #define CDDA_MODEL_COLUMN_LENGTH_LABEL	i18n("Length")
 
-#define CDDA_MODEL_COLUMN_ARTIST_INDEX	0
-#define CDDA_MODEL_COLUMN_TITLE_INDEX	1
-#define CDDA_MODEL_COLUMN_LENGTH_INDEX	2
+enum CDDAColumms {
+  CDDA_MODEL_COLUMN_RIP_INDEX = 0,
+  CDDA_MODEL_COLUMN_TRACK_INDEX,
+  CDDA_MODEL_COLUMN_ARTIST_INDEX,
+  CDDA_MODEL_COLUMN_TITLE_INDEX,
+  CDDA_MODEL_COLUMN_LENGTH_INDEX,
+
+  CDDA_MODEL_COLUMN_COUNT
+};
 
 #define CDDA_MODEL_INTERNAL_ROLE	1982
 
@@ -56,6 +64,9 @@ class CDDAModel : public QAbstractTableModel {
 public:
   CDDAModel(QObject *parent = 0, const QString& device = "/dev/cdrom");
   ~CDDAModel();
+
+  void setDevice(const QString& device);
+  inline const QString& device() const { return _device; }
 
   int rowCount(const QModelIndex &parent = QModelIndex()) const;
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
@@ -82,6 +93,8 @@ public:
   int cdNum() const;
   void setTrackOffset(const int n);
   int trackOffset() const;
+
+  int guessMultiCD(QString& newTitle) const;
   void setMultiCD(const bool multi);
   bool isMultiCD() const;
 
@@ -95,7 +108,7 @@ public:
   void setCover(const QImage& image);
   void clearCover();
 
-  bool guessVarious();
+  bool guessVarious() const;
   void setVarious(bool various);
   bool isVarious();
 
@@ -119,15 +132,12 @@ public:
 
   void clear();
 
-  void setSelection(const QModelIndexList& list);
-  QModelIndexList selection() const;
+  inline const QSet<int>& selectedTracks() const { return sel_tracks; }
+  void toggle(int row);
   bool isTrackInSelection(int n) const;
 
   bool isModified() const;
   void confirm();
-
-  //enum MessageType { mtWarning, mtError };
-  //bool isValid(QString *message, QCDDAModel::MessageType *type);
 
   Error lastError() const;
 
@@ -198,6 +208,8 @@ signals:
   void cddbDataModified();
   void cddbDataSubmited(const bool successful);
 
+  void hasSelection(bool has_selection);
+
 private slots:
   void slot_disc_changed(unsigned int tracks);
   void slot_disc_information(KCompactDisc::DiscInfo info);
@@ -207,7 +219,7 @@ private slots:
   //void submit_cddb_done(KCDDB::Result);
 
 private:
-  QString device;
+  QString _device;
   KCompactDisc::KCompactDisc *compact_disc;
   KCDDB::Client *cddb;
   KCDDB::CDInfo cd_info;
@@ -219,9 +231,9 @@ private:
   DiscInfo disc_info;
   Error error;
 
-  QModelIndexList _selection;
+  QSet<int> sel_tracks;
 
-  QString capitalize(const QString &s);
+  const QString capitalize(const QString &s);
 
   void check_artist_and_title_are_valid();
 

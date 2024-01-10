@@ -24,7 +24,7 @@
 #include <KDebug>
 #include <KDialog>
 
-#include "simplemaskwizarddialog.h"
+#include "simplepatternwizarddialog.h"
 
 #include "ui_profiledataplaylistwidgetUI.h"
 
@@ -33,16 +33,16 @@ class ProfileDataPlaylistDialog : public KDialog {
   Q_OBJECT
 
 public:
-  ProfileDataPlaylistDialog(const QString& format, const QString& mask, QWidget *parent = 0);
+  ProfileDataPlaylistDialog(const QString& format, const QString& pattern, QWidget *parent = 0);
   ~ProfileDataPlaylistDialog();
 
   QString format;
-  QString mask;
+  QString pattern;
 
 protected slots:
   virtual void slotButtonClicked(int button);
 
-  void mask_wizard();
+  void pattern_wizard();
 
 private slots:
   void trigger_changed();

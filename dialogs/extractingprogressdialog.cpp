@@ -27,26 +27,17 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
 
   setMainWidget(widget);
 
-  setCaption(i18n("Extracting Progress"));
+  setCaption(i18n("Rip And Encode"));
 
-  setButtons(None);
+  setButtons(Cancel);
 
   this->profile_model = profile_model;
   this->cdda_model = cdda_model;
 
-  connect(ui.kpushbutton_leave, SIGNAL(clicked()), this, SLOT(cancel()));
-  connect(ui.kpushbutton_encoding_protocol, SIGNAL(clicked()), this, SLOT(open_encoder_protocol_dialog()));
-  connect(ui.kpushbutton_extracting_protocol, SIGNAL(clicked()), this, SLOT(open_extract_protocol_dialog()));
-  ui.kpushbutton_encoding_protocol->hide();
-  ui.kpushbutton_extracting_protocol->hide();
+  ui.label_header->setText(QString("<h2>%1 - %2</h2>").arg(cdda_model->artist()).arg(cdda_model->title()));
 
-  QFont font = ui.label_header->font();
-  font.setBold(TRUE);
-  ui.label_header->setFont(font);
-  ui.label_header->setText(QString("%1 - %2").arg(cdda_model->artist()).arg(cdda_model->title()));
-
-  ui.label_extracting->setText(trUtf8("Extracting Track  0 / %1").arg(cdda_model->numOfAudioTracks()));
-  ui.label_encoding->setText(trUtf8("Encoding Track  0 / %1").arg(cdda_model->numOfAudioTracks()));
+  ui.label_extracting->setText(i18n("Ripping Track  0 / %1", cdda_model->numOfAudioTracks()));
+  ui.label_encoding->setText(i18n("Encoding Track  0 / %1", cdda_model->numOfAudioTracks()));
 
   audex = new Audex(this, profile_model, cdda_model);
 
@@ -62,14 +53,17 @@ ExtractingProgressDialog::ExtractingProgressDialog(ProfileModel *profile_model, 
   connect(audex, SIGNAL(changedExtractTrack(int, int, const QString&, const QString&)), this, SLOT(show_changed_extract_track(int, int, const QString&, const QString&)));
   connect(audex, SIGNAL(changedEncodeTrack(int, int, const QString&)), this, SLOT(show_changed_encode_track(int, int, const QString&)));
   connect(audex, SIGNAL(timeout()), this, SLOT(ask_timeout()));
-  /*connect(audex, SIGNAL(ftpUploadStart(const QString&)), this, SLOT(start_ftp_file_transfer(const QString&)));
-  connect(audex, SIGNAL(ftpUploadProgress(const int, const int)), this, SLOT(progress_ftp_file_transfer(const int, const int)));
-  connect(audex, SIGNAL(ftpUploadFinished(const QString&)), this, SLOT(finished_ftp_file_transfer(const QString&)));*/
 
+  showButtonSeparator(true);
   finished = FALSE;
 
   progressbar_np_flag = FALSE;
+  ui.filename->setText(QString());
 
+  if(cdda_model->numOfAudioTracksInSelection()<2) {
+    ui.label_overall->setVisible(false);
+    ui.progressBar_overall->setVisible(false);
+  }
 }
 
 ExtractingProgressDialog::~ExtractingProgressDialog() {
@@ -89,6 +83,25 @@ int ExtractingProgressDialog::exec() {
 
 }
 
+void ExtractingProgressDialog::slotButtonClicked(int button) {
+  switch(button) {
+    case Cancel:
+      cancel();
+      break;
+    case Close:
+      close();
+      break;
+    case User1:
+      open_encoder_protocol_dialog();
+      break;
+    case User2:
+      open_extract_protocol_dialog();
+      break;
+    default:
+      KDialog::slotButtonClicked(button);
+  }
+}
+
 void ExtractingProgressDialog::cancel() {
 
   if (finished) {
@@ -101,7 +114,7 @@ void ExtractingProgressDialog::cancel() {
 				i18n("Cancel"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no())== KMessageBox::Yes) {
-      ui.kpushbutton_leave->setEnabled(FALSE);
+      setButtons(Close);
       audex->cancel();
     }
 
@@ -111,23 +124,20 @@ void ExtractingProgressDialog::cancel() {
 
 void ExtractingProgressDialog::show_changed_extract_track(int no, int total, const QString& artist, const QString& title) {
 
-  ui.label_extracting->setText("<b>"+i18n("Extracting Track")+QString("&nbsp;&nbsp;%1 / %2").arg(no).arg(total)+"</b>");
-  ui.klineedit_artist->setText(QString("%1").arg(artist));
-  //ui.klineedit_artist->setCursorPosition(0);
-  ui.klineedit_title->setText(QString("%1").arg(title));
-  //ui.klineedit_title->setCursorPosition(0);
+  ui.label_extracting->setText(1==total ? i18n("Ripping Track") : i18n("Ripping Track %1 / %2", no, total));
+  ui.label_track->setText(cdda_model->isVarious() ? QString("(%1 - %2)").arg(artist).arg(title) : QString("(%1)").arg(title));
 
 }
 
 void ExtractingProgressDialog::show_changed_encode_track(int no, int total, const QString& filename) {
 
   if (no==0) {
-    ui.label_encoding->setText("<b>"+i18n("Waiting for an encoding job...")+"</b>");
+    ui.label_encoding->setText("<i>"+i18n("Waiting for an encoding job...")+"</i>");
     ui.label_speed_encoding->clear();
+    ui.filename->setText(QString());
   } else {
-    ui.label_encoding->setText("<b>"+i18n("Encoding Track")+QString("&nbsp;&nbsp;%1 / %2").arg(no).arg(total)+"</b>");
-    ui.klineedit_filename->setText(filename);
-    //ui.klineedit_filename->setCursorPosition(0);
+    ui.label_encoding->setText(1==total ? i18n("Encoding Track") : i18n("Encoding Track %1 / %2", no, total));
+    ui.filename->setText(QChar('(')+filename+QChar(')'));
   }
 
 }
@@ -179,54 +189,42 @@ void ExtractingProgressDialog::show_speed_extract(double speed) {
 
 }
 
-/*void ExtractingProgressDialog::start_ftp_file_transfer(const QString& filename) {
-  show_info(QString("Uploading file %1 to ftp server. Please wait...").arg(filename));
-  QIcon *icon = new QIcon(":/buttons/images/info.png");
-  QListWidgetItem *item = new QListWidgetItem(*icon, "");
-  listWidget->addItem(item);
-  progress_bar = new QProgressBar(listWidget);
-  progress_bar->setValue(0);
-  progress_bar->setMinimum(0);
-  progress_bar->setMaximum(100);
-  progress_bar->setMaximumSize(200, 18);
-  listWidget->setItemWidget(item, progress_bar);
-  listWidget->scrollToItem(item);
-  QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-  pushButton->setEnabled(FALSE);
-}
-
-void ExtractingProgressDialog::progress_ftp_file_transfer(const int percent, const int overall) {
-  Q_UNUSED(overall);
-  progress_bar->setValue(percent);
-}
-
-void ExtractingProgressDialog::finished_ftp_file_transfer(const QString& filename) {
-  show_info(QString("Finished uploading file %1 to ftp server.").arg(filename));
-  QApplication::restoreOverrideCursor();
-  pushButton->setEnabled(TRUE);
-}*/
-
 void ExtractingProgressDialog::conclusion(bool successful) {
 
-  ui.kpushbutton_leave->setEnabled(TRUE);
-  ui.kpushbutton_leave->setText(i18n("Close"));
-  if (audex->encoderProtocol().count()>0) { ui.kpushbutton_encoding_protocol->show(); }
-  if (audex->extractProtocol().count()>0) { ui.kpushbutton_extracting_protocol->show(); }
+  QFlags<KDialog::ButtonCode> buttons=Close;
+
   finished = TRUE;
+  QPalette pal(ui.label_extracting->palette());
+  KColorScheme kcs(QPalette::Active);
   if (successful) {
     QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-ok-apply"), i18n("All jobs successfully done."));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
-    ui.label_extracting->setText("<b><font color=green>"+i18n("Finished!")+"</font></b>");
-    ui.label_encoding->setText("<b><font color=green>"+i18n("Finished!")+"</font></b>");
+    pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::PositiveText));
+    ui.label_extracting->setText("<font style=\"font-weight:bold;\">"+i18n("Finished!")+"</font>");
+    ui.label_encoding->setText("<font style=\"font-weight:bold;\">"+i18n("Finished!")+"</font>");
     ui.progressBar_extracting->setValue(100);
     ui.progressBar_encoding->setValue(100);
   } else {
     QListWidgetItem *item = new QListWidgetItem(KIcon("dialog-cancel"), i18n("At least one job failed."));
+    pal.setBrush(QPalette::Text, kcs.foreground(KColorScheme::NegativeText));
     ui.klistwidget->addItem(item);
     ui.klistwidget->scrollToItem(item);
-    ui.label_extracting->setText("<b><font color=red>"+i18n("Failed!")+"</font></b>");
-    ui.label_encoding->setText("<b><font color=red>"+i18n("Failed!")+"</font></b>");
+    ui.label_extracting->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
+    ui.label_encoding->setText("<font style=\"color:red;font-weight:bold;\">"+i18n("Failed!")+"</font>");
+    if (audex->encoderProtocol().count()>0) { buttons|=User1; }
+    if (audex->extractProtocol().count()>0) { buttons|=User2; }
+  }
+  ui.label_extracting->setPalette(pal);
+  ui.label_encoding->setPalette(pal);
+  setButtons(buttons);
+  if (audex->encoderProtocol().count()>0) {
+    setButtonText(User1, i18n("Show encoding log..."));
+    setButtonIcon(User1, KIcon("media-optical-audio"));
+  }
+  if (audex->extractProtocol().count()>0) {
+    setButtonText(User2, i18n("Show rip log..."));
+    setButtonIcon(User2, KIcon("media-optical"));
   }
 
 }
@@ -262,26 +260,25 @@ void ExtractingProgressDialog::show_error(const QString& message, const QString&
 
 void ExtractingProgressDialog::ask_timeout() {
 
-  if (KMessageBox::questionYesNo(this, i18n("Extraction speed is extremly slow for the last 5 minutes by now.\nDue to extraction quality, audex is so configured, never skip any detected error. "
-				"So if your disc is really broken extracting maybe never ends.\nIn some cases only this drive can't extract audio data from this disc. Maybe try another one.\n\n"
+  if (KMessageBox::questionYesNo(this, i18n("Ripping speed is extremly slow for the last 5 minutes by now.\nDue to extraction quality, audex is so configured, never skip any detected error. "
+				"So if your disc is really broken extracting maybe never ends.\nIn some cases only this drive can't rip audio data from this disc. Maybe try another one.\n\n"
 				"However, do you want to continue extraction?"),
 				i18n("Cancel extraction"),
 				KStandardGuiItem::yes(),
 				KStandardGuiItem::no())== KMessageBox::Yes) {
-    ui.kpushbutton_leave->setEnabled(FALSE);
     audex->cancel();
   }
 
 }
 
 void ExtractingProgressDialog::open_encoder_protocol_dialog() {
-  ProtocolDialog *protocolDialog = new ProtocolDialog(audex->encoderProtocol(), trUtf8("Encoding protocol"), this);
+  ProtocolDialog *protocolDialog = new ProtocolDialog(audex->encoderProtocol(), i18n("Encoding protocol"), this);
   protocolDialog->exec();
   delete protocolDialog;
 }
 
 void ExtractingProgressDialog::open_extract_protocol_dialog() {
-  ProtocolDialog *protocolDialog = new ProtocolDialog(audex->extractProtocol(), trUtf8("Extracting protocol"), this);
+  ProtocolDialog *protocolDialog = new ProtocolDialog(audex->extractProtocol(), i18n("Ripping protocol"), this);
   protocolDialog->exec();
   delete protocolDialog;
 }

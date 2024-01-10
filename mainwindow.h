@@ -22,10 +22,9 @@
 #include <QObject>
 #include <QLabel>
 #include <QComboBox>
-#include <QTableView>
+#include <QTreeView>
 #include <QDockWidget>
 #include <QInputDialog>
-#include <QTimer>
 
 #include <KXmlGuiWindow>
 #include <KApplication>
@@ -47,7 +46,7 @@
 #include <libkcddb/client.h>
 #include <libkcddb/cdinfo.h>
 
-#include "../utils/error.h"
+#include "utils/error.h"
 
 #include "models/cddamodel.h"
 #include "models/profilemodel.h"
@@ -55,11 +54,10 @@
 #include "preferences.h"
 #include "widgets/generalsettingswidget.h"
 #include "widgets/profilewidget.h"
-#include "widgets/ftpsettingswidget.h"
+#include "widgets/remoteserversettingswidget.h"
 #include "widgets/cddaheaderwidget.h"
 
 #include "dialogs/extractingprogressdialog.h"
-#include "dialogs/assistantdialog.h"
 
 class MainWindow : public KXmlGuiWindow {
 
@@ -69,9 +67,10 @@ public:
   MainWindow(QWidget *parent = 0);
   ~MainWindow();
 
-  void startAssistant();
+private:
+  bool firstStart();
 
-private slots:
+private Q_SLOTS:
   void eject();
   void cddb_lookup();
   void cddb_submit();
@@ -95,20 +94,21 @@ private slots:
   void configuration_updated(const QString& dialog_name);
 
   void current_profile_updated_from_ui(int row);
-  void current_profile_updated(int row);
   void update_profile_action();
 
   void split_titles();
   void swap_artists_and_titles();
   void capitalize();
   void auto_fill_artists();
+  void toggle(const QModelIndex &idx);
+  void resizeColumns();
 
 private:
   CDDAModel *cdda_model;
   ProfileModel *profile_model;
 
   QLabel *profile_label;
-  QComboBox *profile_combobox;
+  KComboBox *profile_combobox;
   QLabel *status_label;
   QLabel *mode_label;
   QLabel *cddb_label;
@@ -116,12 +116,15 @@ private:
   void setup_actions();
   void setup_layout();
 
-  QTableView *cdda_table_view;
+  QTreeView *cdda_tree_view;
 
   QDockWidget *cdda_header_dock;
   CDDAHeaderWidget *cdda_header_widget;
 
   bool layout_enabled;
+
+  int current_profile_index;
+  void set_profile(int profile_index);
 
 };
 

@@ -1,1 +1,1 @@
-install( FILES canada.png france.png germany.png italy.png japan.png netherlands.png poland.png portugal.png spain.png sweden.png usa.png nocover.png amazon.png  DESTINATION  ${DATA_INSTALL_DIR}/audex/images)
+install( FILES canada.png france.png germany.png italy.png japan.png netherlands.png poland.png portugal.png spain.png sweden.png usa.png uk.png nocover.png amazon.png  DESTINATION  ${DATA_INSTALL_DIR}/audex/images)

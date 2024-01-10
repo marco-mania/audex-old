@@ -24,10 +24,11 @@
 #include <KDebug>
 #include <KDialog>
 #include <KMessageBox>
+#include <KColorScheme>
 
-#include "../models/cddamodel.h"
-#include "../models/profilemodel.h"
-#include "../core/audex.h"
+#include "models/cddamodel.h"
+#include "models/profilemodel.h"
+#include "core/audex.h"
 
 #include "protocoldialog.h"
 
@@ -45,6 +46,7 @@ public slots:
   int exec();
 
 private slots:
+  void slotButtonClicked(int button);
   void cancel();
 
   void show_changed_extract_track(int no, int total, const QString& artist, const QString& title);
@@ -57,10 +59,6 @@ private slots:
   void show_speed_encode(double speed);
   void show_speed_extract(double speed);
 
-  /*void start_ftp_file_transfer(const QString& filename);
-  void progress_ftp_file_transfer(const int percent, const int overall);
-  void finished_ftp_file_transfer(const QString& filename);*/
-
   void conclusion(bool successful);
 
   void show_info(const QString& message);
@@ -69,6 +67,7 @@ private slots:
 
   void ask_timeout();
 
+private:
   void open_encoder_protocol_dialog();
   void open_extract_protocol_dialog();
 

@@ -24,7 +24,7 @@
 
 #include <KDebug>
 
-#include "../models/cddamodel.h"
+#include "models/cddamodel.h"
 
 #include "ui_cddaheaderdatawidgetUI.h"
 

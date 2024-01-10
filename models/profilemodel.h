@@ -19,6 +19,8 @@
 #ifndef PROFILEMODEL_HEADER
 #define PROFILEMODEL_HEADER
 
+#include <limits.h>
+
 #include <QAbstractTableModel>
 #include <QVariant>
 #include <QString>
@@ -31,78 +33,123 @@
 #include <KGlobal>
 #include <KMessageBox>
 
-#include "../utils/error.h"
+#include "utils/error.h"
+#include "utils/encoderassistant.h"
 
-#define PROFILE_MODEL_COLUMN_COUNT			22
+#define DEFAULT_PROFILEINDEX		-1
+#define DEFAULT_NAME			""
 
-#define PROFILE_MODEL_COLUMN_NAME_LABEL			i18n("Name")
-#define PROFILE_MODEL_COLUMN_MASK_LABEL			i18n("Mask")
-#define PROFILE_MODEL_COLUMN_COMMAND_LABEL		i18n("Command")
-#define PROFILE_MODEL_COLUMN_SUFFIX_LABEL		i18n("Suffix")
-#define PROFILE_MODEL_COLUMN_PROFILEINDEX_LABEL		i18n("Profile Index")
-#define PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_LABEL	i18n("FAT32 Compatible Filenames")
-#define PROFILE_MODEL_COLUMN_SC_LABEL			i18n("Store cover");
-#define PROFILE_MODEL_COLUMN_SC_SCALE_LABEL		i18n("Scale cover")
-#define PROFILE_MODEL_COLUMN_SC_SIZE_LABEL		i18n("Size of cover")
-#define PROFILE_MODEL_COLUMN_SC_FORMAT_LABEL		i18n("Format of the cover to store")
-#define PROFILE_MODEL_COLUMN_SC_NAME_LABEL		i18n("Name of the cover to store")
-#define PROFILE_MODEL_COLUMN_PL_LABEL			i18n("Playlist")
-#define PROFILE_MODEL_COLUMN_PL_FORMAT_LABEL		i18n("Playlist format")
-#define PROFILE_MODEL_COLUMN_PL_NAME_LABEL		i18n("Playlist name")
-#define PROFILE_MODEL_COLUMN_DISCID_LABEL		i18n("Store discid")
-#define PROFILE_MODEL_COLUMN_INF_LABEL			i18n("Store infos")
-#define PROFILE_MODEL_COLUMN_INF_TEXT_LABEL		i18n("Info text")
-#define PROFILE_MODEL_COLUMN_INF_NAME_LABEL		i18n("Info name")
-#define PROFILE_MODEL_COLUMN_INF_SUFFIX_LABEL		i18n("Info suffix")
-#define PROFILE_MODEL_COLUMN_HL_LABEL			i18n("Store hashlist")
-#define PROFILE_MODEL_COLUMN_HL_FORMAT_LABEL		i18n("Hashlist format")
-#define PROFILE_MODEL_COLUMN_HL_NAME_LABEL		i18n("Hashlist name")
+#define DEFAULT_ENCODER_SELECTED	0
 
-#define PROFILE_MODEL_COLUMN_NAME_INDEX			0
-#define PROFILE_MODEL_COLUMN_MASK_INDEX			1
-#define PROFILE_MODEL_COLUMN_COMMAND_INDEX		2
-#define PROFILE_MODEL_COLUMN_SUFFIX_INDEX		3
-#define PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX		4
-#define PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX	5
-#define PROFILE_MODEL_COLUMN_SC_INDEX			6
-#define PROFILE_MODEL_COLUMN_SC_SCALE_INDEX		7
-#define PROFILE_MODEL_COLUMN_SC_SIZE_INDEX		8
-#define PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX		9
-#define PROFILE_MODEL_COLUMN_SC_NAME_INDEX		10
-#define PROFILE_MODEL_COLUMN_PL_INDEX			11
-#define PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX		12
-#define PROFILE_MODEL_COLUMN_PL_NAME_INDEX		13
-#define PROFILE_MODEL_COLUMN_DISCID_INDEX		14
-#define PROFILE_MODEL_COLUMN_INF_INDEX			15
-#define PROFILE_MODEL_COLUMN_INF_TEXT_INDEX		16
-#define PROFILE_MODEL_COLUMN_INF_NAME_INDEX		17
-#define PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX		18
-#define PROFILE_MODEL_COLUMN_HL_INDEX			19
-#define PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX		20
-#define PROFILE_MODEL_COLUMN_HL_NAME_INDEX		21
+#define DEFAULT_ENCODER_PARAMETERS	""
 
-#define PROFILE_MODEL_NAME_KEY				"name"
-#define PROFILE_MODEL_MASK_KEY				"mask"
-#define PROFILE_MODEL_COMMAND_KEY			"command"
-#define PROFILE_MODEL_SUFFIX_KEY			"suffix"
+#define DEFAULT_PATTERN			"$"VAR_ALBUM_ARTIST"/$"VAR_ALBUM_TITLE"/$"VAR_TRACK_NO" - $"VAR_TRACK_TITLE".$"VAR_SUFFIX
+
+#define DEFAULT_FAT32			FALSE
+
+#define DEFAULT_SC			TRUE
+#define DEFAULT_SC_SCALE		FALSE
+#define DEFAULT_SC_SIZE			QSize(300, 300)
+#define DEFAULT_SC_FORMAT		"JPG"
+#define DEFAULT_SC_NAME			"$"VAR_ALBUM_TITLE
+
+#define DEFAULT_PL			TRUE
+#define DEFAULT_PL_FORMAT		"M3U"
+#define DEFAULT_PL_NAME			"$"VAR_ALBUM_TITLE
+
+#define DEFAULT_DISCID			FALSE
+
+#define DEFAULT_INF			FALSE
+#define DEFAULT_INF_TEXT		QStringList()
+#define DEFAULT_INF_NAME		"info"
+#define DEFAULT_INF_SUFFIX		"nfo"
+
+#define DEFAULT_HL			FALSE
+#define DEFAULT_HL_FORMAT		"SFV"
+#define DEFAULT_HL_NAME			"checksums"
+
+enum ProfileColumns {
+
+  PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX = 0,
+  PROFILE_MODEL_COLUMN_NAME_INDEX,
+
+  PROFILE_MODEL_COLUMN_ENCODER_SELECTED_INDEX,
+
+  PROFILE_MODEL_COLUMN_PATTERN_INDEX,
+
+  PROFILE_MODEL_COLUMN_FAT32COMPATIBLE_INDEX,
+
+  PROFILE_MODEL_COLUMN_SC_INDEX,
+  PROFILE_MODEL_COLUMN_SC_SCALE_INDEX,
+  PROFILE_MODEL_COLUMN_SC_SIZE_INDEX,
+  PROFILE_MODEL_COLUMN_SC_FORMAT_INDEX,
+  PROFILE_MODEL_COLUMN_SC_NAME_INDEX,
+
+  PROFILE_MODEL_COLUMN_PL_INDEX,
+  PROFILE_MODEL_COLUMN_PL_FORMAT_INDEX,
+  PROFILE_MODEL_COLUMN_PL_NAME_INDEX,
+
+  PROFILE_MODEL_COLUMN_DISCID_INDEX,
+
+  PROFILE_MODEL_COLUMN_INF_INDEX,
+  PROFILE_MODEL_COLUMN_INF_TEXT_INDEX,
+  PROFILE_MODEL_COLUMN_INF_NAME_INDEX,
+  PROFILE_MODEL_COLUMN_INF_SUFFIX_INDEX,
+
+  PROFILE_MODEL_COLUMN_HL_INDEX,
+  PROFILE_MODEL_COLUMN_HL_FORMAT_INDEX,
+  PROFILE_MODEL_COLUMN_HL_NAME_INDEX,
+
+  PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_INDEX,
+  PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_INDEX,
+  PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_INDEX,
+  PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_INDEX,
+  PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_INDEX,
+  PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_INDEX,
+
+  PROFILE_MODEL_COLUMN_NUM
+
+};
+
 #define PROFILE_MODEL_PROFILEINDEX_KEY			"profile_key"
+#define PROFILE_MODEL_NAME_KEY				"name"
+#define PROFILE_MODEL_ENCODER_SELECTED_KEY		"current_encoder"
+
+#define PROFILE_MODEL_PATTERN_KEY			"pattern"
+
 #define PROFILE_MODEL_FAT32COMPATIBLE_KEY		"fat32_compatible"
+
 #define PROFILE_MODEL_SC_KEY				"sc"
 #define PROFILE_MODEL_SC_SCALE_KEY			"sc_scale"
 #define PROFILE_MODEL_SC_SIZE_KEY			"sc_size"
 #define PROFILE_MODEL_SC_FORMAT_KEY			"sc_format"
 #define PROFILE_MODEL_SC_NAME_KEY			"sc_name"
+
 #define PROFILE_MODEL_PL_KEY				"pl"
 #define PROFILE_MODEL_PL_FORMAT_KEY			"pl_format"
 #define PROFILE_MODEL_PL_NAME_KEY			"pl_name"
+
 #define PROFILE_MODEL_DISCID_KEY			"discid"
+
 #define PROFILE_MODEL_INF_KEY				"inf"
 #define PROFILE_MODEL_INF_TEXT_KEY			"inf_text"
 #define PROFILE_MODEL_INF_NAME_KEY			"inf_name"
 #define PROFILE_MODEL_INF_SUFFIX_KEY			"inf_suffix"
+
 #define PROFILE_MODEL_HL_KEY				"hl"
 #define PROFILE_MODEL_HL_FORMAT_KEY			"hl_format"
 #define PROFILE_MODEL_HL_NAME_KEY			"hl_name"
+
+#define PROFILE_MODEL_COLUMN_ENCODER_LAME_PARAMETERS_KEY	"lame_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_OGGENC_PARAMETERS_KEY	"oggenc_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_FLAC_PARAMETERS_KEY	"flac_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_FAAC_PARAMETERS_KEY	"faac_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_WAVE_PARAMETERS_KEY	"wave_parameters"
+#define PROFILE_MODEL_COLUMN_ENCODER_CUSTOM_PARAMETERS_KEY	"custom_parameters"
+
+#define LABEL_MOBILE_QUALITY				i18n(" (Mobile Quality)")
+#define LABEL_NORMAL_QUALITY				i18n(" (Normal Quality)")
+#define LABEL_EXTREME_QUALITY				i18n(" (Extreme Quality)")
 
 typedef QMap<QString,QVariant> Profile;
 
@@ -117,16 +164,29 @@ public:
   int columnCount(const QModelIndex &parent = QModelIndex()) const;
   QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
   bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
-  QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const;
   bool removeRows(int row, int count, const QModelIndex& parent = QModelIndex());
-  bool insertRows(int row, int count, const QModelIndex & parent = QModelIndex());
+  bool insertRows(int row, int count, const QModelIndex& parent = QModelIndex());
 
+  int currentProfileIndex() const;
   int currentProfileRow() const;
 
   void clear();
 
   bool nameExists(const QString& name) const;
-  int profileIndexMax() const;
+  bool indexExists(int profile_index) const;
+  int getNewIndex() const;
+
+  void sortItems();
+
+
+  /**BEGIN: EncoderAssistant related */
+  void autoCreate(); //scans the system for encoders and create standard profiles
+  EncoderAssistant::Encoder getSelectedEncoderFromCurrentIndex();
+  const Parameters getSelectedEncoderParametersFromCurrentIndex();
+  const QString getSelectedEncoderPatternFromCurrentIndex();
+  const QString getSelectedEncoderSuffixFromCurrentIndex();
+  /**END: EncoderAssistant related */
+
 
   Error lastError() const;
 
@@ -134,28 +194,20 @@ public slots:
   void commit();
   void revert();
 
-  void copy(const int profileRow);
+  int copy(const int profileRow);
 
   bool saveProfilesToFile(const QString& filename);
   bool loadProfilesFromFile(const QString& filename);
 
-  void setCurrentProfileRow(int row);
+  void setCurrentProfileIndex(int profile_index);
 
 signals:
-  void currentProfileChanged(const int row);
-
   void profilesRemovedOrInserted();
 
 private:
-  const Profile newProfile(const QString& name = "", const QString& mask = "", const QString& command = "", const QString& suffix = "",
-		const int profileIndex = -1, const bool fat32Compatible = FALSE,
-		const bool storeCover = FALSE, const bool storeCoverScale = FALSE, const QSize& storeCoverSize = QSize(300, 300),
-		const QString& storeCoverFormat = "JPEG", const QString& storeCoverName = "cover",
-		const bool playlist = FALSE, const QString& playlistFormat = "M3U", const QString& playlistName = "playlist",
-		const bool discid = FALSE, const bool inf = FALSE, const QStringList& infoText = QStringList(), const QString& infoName = "info", const QString& infoSuffix = "nfo",
-		const bool hashlist = FALSE, const QString& hashlistFormat = "SFV", const QString& hashlistName = "checksums");
+  const Profile newProfile();
   QList<Profile> cache;
-  int current_profile_row;
+  int current_profile_index;
 
   Error error;
 

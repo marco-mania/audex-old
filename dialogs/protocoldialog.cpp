@@ -29,20 +29,33 @@ ProtocolDialog::ProtocolDialog(const QStringList& protocol, const QString& title
 
   setCaption(title);
 
-  setButtons(None);
+  setButtons(User1|Close);
+  setButtonText(User1, i18n("Save"));
+  setButtonIcon(User1, KIcon("document-save-as"));
 
   ui.ktextedit->setPlainText(protocol.join("\n"));
 
-  connect(ui.kpushbutton_close, SIGNAL(clicked()), this, SLOT(close()));
-  connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save()));
-
   this->protocol = protocol;
   this->title = title;
+  showButtonSeparator(true);
 
 }
 
 ProtocolDialog::~ProtocolDialog() {
 
+}
+
+void ProtocolDialog::slotButtonClicked(int button) {
+  switch(button) {
+    case User1:
+      save();
+      break;
+    case Close:
+      close();
+      break;
+    default:
+      KDialog::slotButtonClicked(button);
+  }
 }
 
 void ProtocolDialog::save() {

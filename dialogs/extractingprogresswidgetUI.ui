@@ -5,429 +5,178 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>450</width>
-    <height>570</height>
+    <width>518</width>
+    <height>376</height>
    </rect>
-  </property>
-  <property name="minimumSize" >
-   <size>
-    <width>450</width>
-    <height>570</height>
-   </size>
   </property>
   <property name="windowTitle" >
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" >
-   <item row="0" column="0" >
-    <widget class="QFrame" name="frame" >
+  <layout class="QVBoxLayout" name="verticalLayout" >
+   <item>
+    <widget class="QLabel" name="label_header" >
+     <property name="font" >
+      <font>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
+     <property name="text" >
+      <string>&lt;h2>Artist - Album&lt;/h2></string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="KListWidget" name="klistwidget" >
      <property name="minimumSize" >
       <size>
-       <width>16</width>
-       <height>44</height>
+       <width>500</width>
+       <height>0</height>
       </size>
      </property>
-     <property name="frameShape" >
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="QLabel" name="label_header" >
-          <property name="font" >
-           <font>
-            <pointsize>10</pointsize>
-           </font>
-          </property>
-          <property name="text" >
-           <string>&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
-p, li { white-space: pre-wrap; }
-&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:9pt;">&lt;span style=" font-size:12pt; font-weight:600;">Enigma - The Cross Of Changes&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>195</width>
-            <height>16</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
     </widget>
    </item>
-   <item row="1" column="0" >
-    <widget class="KListWidget" name="klistwidget" />
-   </item>
-   <item row="2" column="0" >
-    <widget class="QFrame" name="frame_3" >
-     <property name="frameShape" >
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_extracting" >
-          <property name="text" >
-           <string>Extracting Track 8 / 12</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>201</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_speed_extracting" >
-          <property name="text" >
-           <string>Speed: 0x</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType" >
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>4</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0" >
-       <widget class="QProgressBar" name="progressBar_extracting" >
-        <property name="maximumSize" >
-         <size>
-          <width>16777215</width>
-          <height>18</height>
-         </size>
-        </property>
-        <property name="value" >
-         <number>0</number>
-        </property>
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>4</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_overall" >
-          <property name="text" >
-           <string>Overall Extracting Progress</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="3" column="0" >
-       <widget class="QProgressBar" name="progressBar_overall" >
-        <property name="maximumSize" >
-         <size>
-          <width>16777215</width>
-          <height>18</height>
-         </size>
-        </property>
-        <property name="value" >
-         <number>0</number>
-        </property>
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="4" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="QLabel" name="label_artist" >
-          <property name="enabled" >
-           <bool>true</bool>
-          </property>
-          <property name="minimumSize" >
-           <size>
-            <width>80</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Track Artist:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>klineedit_artist</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KLineEdit" name="klineedit_artist" >
-          <property name="readOnly" >
-           <bool>true</bool>
-          </property>
-          <property name="squeezedTextEnabled" >
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item row="5" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="QLabel" name="label_title" >
-          <property name="minimumSize" >
-           <size>
-            <width>80</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Track Title:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>klineedit_title</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KLineEdit" name="klineedit_title" >
-          <property name="readOnly" >
-           <bool>true</bool>
-          </property>
-          <property name="squeezedTextEnabled" >
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="3" column="0" >
-    <widget class="QFrame" name="frame_2" >
-     <property name="frameShape" >
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow" >
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QGridLayout" >
-      <item row="0" column="0" >
-       <layout class="QHBoxLayout" >
-        <property name="spacing" >
-         <number>6</number>
-        </property>
-        <property name="margin" >
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QLabel" name="label_encoding" >
-          <property name="text" >
-           <string>Encoding Track 8 / 12</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>201</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_speed_encoding" >
-          <property name="text" >
-           <string>Speed: 0x</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer>
-          <property name="orientation" >
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType" >
-           <enum>QSizePolicy::Fixed</enum>
-          </property>
-          <property name="sizeHint" stdset="0" >
-           <size>
-            <width>4</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-      <item row="1" column="0" >
-       <widget class="QProgressBar" name="progressBar_encoding" >
-        <property name="maximumSize" >
-         <size>
-          <width>16777215</width>
-          <height>18</height>
-         </size>
-        </property>
-        <property name="value" >
-         <number>0</number>
-        </property>
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0" >
-       <layout class="QHBoxLayout" >
-        <item>
-         <widget class="QLabel" name="label_filename" >
-          <property name="minimumSize" >
-           <size>
-            <width>80</width>
-            <height>0</height>
-           </size>
-          </property>
-          <property name="text" >
-           <string>Filename:</string>
-          </property>
-          <property name="buddy" >
-           <cstring>klineedit_filename</cstring>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="KLineEdit" name="klineedit_filename" >
-          <property name="readOnly" >
-           <bool>true</bool>
-          </property>
-          <property name="squeezedTextEnabled" >
-           <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item row="4" column="0" >
-    <layout class="QHBoxLayout" >
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout" >
      <item>
-      <spacer>
-       <property name="orientation" >
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0" >
-        <size>
-         <width>41</width>
-         <height>27</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="KPushButton" name="kpushbutton_extracting_protocol" >
+      <widget class="QLabel" name="label_extracting" >
        <property name="text" >
-        <string>Extracting protocol...</string>
+        <string>Ripping Track 8 / 12</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_encoding_protocol" >
-       <property name="text" >
-        <string>Encoding protocol...</string>
+      <widget class="KSqueezedTextLabel" name="label_track" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font" >
+        <font>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="textElideMode" >
+        <enum>Qt::ElideLeft</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="KPushButton" name="kpushbutton_leave" >
+      <widget class="QLabel" name="label_speed_extracting" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text" >
-        <string>Cancel</string>
+        <string>Speed: 0x</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
       </widget>
      </item>
     </layout>
    </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar_extracting" >
+     <property name="value" >
+      <number>0</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_overall" >
+     <property name="text" >
+      <string>Overall Ripping Progress</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar_overall" >
+     <property name="value" >
+      <number>0</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" >
+     <item>
+      <widget class="QLabel" name="label_encoding" >
+       <property name="text" >
+        <string>Encoding Track 8 / 12</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="KSqueezedTextLabel" name="filename" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font" >
+        <font>
+         <italic>true</italic>
+        </font>
+       </property>
+       <property name="text" >
+        <string>KSqueezedTextLabel</string>
+       </property>
+       <property name="textElideMode" >
+        <enum>Qt::ElideLeft</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="label_speed_encoding" >
+       <property name="sizePolicy" >
+        <sizepolicy vsizetype="Preferred" hsizetype="MinimumExpanding" >
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text" >
+        <string>Speed: 0x</string>
+       </property>
+       <property name="alignment" >
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QProgressBar" name="progressBar_encoding" >
+     <property name="value" >
+      <number>0</number>
+     </property>
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
  <customwidgets>
-  <customwidget>
-   <class>KLineEdit</class>
-   <extends>QLineEdit</extends>
-   <header>klineedit.h</header>
-  </customwidget>
   <customwidget>
    <class>KListWidget</class>
    <extends>QListWidget</extends>
    <header>klistwidget.h</header>
   </customwidget>
   <customwidget>
-   <class>KPushButton</class>
-   <extends>QPushButton</extends>
-   <header>kpushbutton.h</header>
+   <class>KSqueezedTextLabel</class>
+   <extends>QLabel</extends>
+   <header>ksqueezedtextlabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

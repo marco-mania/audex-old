@@ -261,7 +261,7 @@ static void processScanlines(QImage &img, int sy, int ey, int sx, int ex) {
       green = qMin(green, 255);
       blue = qMin(blue, 255);
 
-      dst[x] = qRgb(red, green, blue);
+      dst[x] = qRgba(red, green, blue, qAlpha(dst[x]));
     }
   }
 
@@ -318,7 +318,7 @@ CDDAHeaderWidget ::CDDAHeaderWidget(CDDAModel *cddaModel, QWidget* parent, const
   timer.setInterval(40);
   connect(&timer, SIGNAL(timeout()), this, SLOT(trigger_repaint()));
 
-  setMinimumSize(QSize(500, (int)(cover_size*1.6)));
+  setMinimumSize(QSize(cover_size+(padding*2), (int)(cover_size*1.4)+(padding*2)));
 
   update();
 
@@ -329,7 +329,7 @@ CDDAHeaderWidget::~CDDAHeaderWidget() {
 }
 
 QSize CDDAHeaderWidget::sizeHint() const {
-  return QSize(500, (int)(cover_size*1.6));
+  return QSize((cover_size*1.5)+(padding*2), (int)(cover_size*1.4)+(padding*2));
 }
 
 void CDDAHeaderWidget::setCover(const QImage& cover) {
@@ -374,15 +374,18 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
   QPainter p;
 
   p.begin(this);
-  p.fillRect(rect(), Qt::black);
+  p.fillRect(rect(), palette().background());
 
   if (enabled) {
+    bool vertical=rect().height()>rect().width() && rect().width()<((cover_size+padding)*2);
+    int  xOffset=vertical ? padding : (padding*2)+cover_size,
+         yOffset=vertical ? (padding*2)+cover_size+24 : padding;
 
     QImage scaled_cover = cover.scaled((int)(scale_factor*cover_size), (int)(scale_factor*cover_size), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-    QImage faded_cover = fadeImage(scaled_cover, 1-opacity_factor, QColor(Qt::black));
+    QImage faded_cover = fadeImage(scaled_cover, 1-opacity_factor, palette().background().color());
 
     p.drawImage((cover_size/2-(scaled_cover.width()/2))+padding, (cover_size/2-(scaled_cover.height()/2))+padding, faded_cover);
-    cover_rect = QRectF(padding, padding, scaled_cover.width(), scaled_cover.height());
+    cover_rect = QRect(padding, padding, scaled_cover.width(), scaled_cover.height());
 
     QImage mirror_img = mirrorImage(faded_cover);
     //we shear it a along the x axis to produce the nice leaning to the side effect. (valid only for MirrorOverX)
@@ -391,39 +394,60 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
 
     p.drawImage((cover_size/2-(scaled_cover.width()/2))+padding, (cover_size/2-(scaled_cover.height()/2))+padding+mirror_img.height()+5, mirror_img);
 
-    p.setPen(QPen(Qt::white));
+    p.setBrush(palette().text());
 
-    QFont font;
-    font.setPixelSize(18);
+    QFont font(QApplication::font());
+    int   pixelSize(font.pixelSize()==-1 ? (font.pointSize()*QX11Info::appDpiX()+36)/72 : font.pixelSize()),
+          width=rect().width()-(xOffset+1);
+    font.setPixelSize((int)((((double)pixelSize)*1.5)+0.5));
     font.setBold(TRUE);
     p.setFont(font);
-    p.drawText(60+cover_size, padding+font.pixelSize(), cdda_model->artist());
+    yOffset+=p.fontMetrics().lineSpacing()*1.2;
+    p.drawText(xOffset, yOffset,
+               p.fontMetrics().elidedText(cdda_model->artist(), Qt::ElideRight, width));
 
-    font.setPixelSize(12);
+    font.setPixelSize(pixelSize);
     font.setBold(TRUE);
     font.setItalic(TRUE);
     p.setFont(font);
-    p.drawText(60+cover_size, padding+25+font.pixelSize(), cdda_model->title());
+    yOffset+=pixelSize;
+    p.drawText(xOffset, yOffset,
+               p.fontMetrics().elidedText(cdda_model->title(), Qt::ElideRight, width));
 
+    yOffset+=p.fontMetrics().lineSpacing()*1.5;
     font.setBold(FALSE);
     font.setItalic(FALSE);
     p.setFont(font);
 
-    int i = 55;
+    QFontMetrics fm(font);
+    QString      yearLabel(i18n("Released: ")),
+                 genreLabel(i18n("Genre: ")),
+                 cdNoLabel(i18n("CD Number: "));
+    int          maxWidth(fm.width(yearLabel));
+
+    if((width=fm.width(genreLabel))>maxWidth)
+        maxWidth=width;
+    if (cdda_model->isMultiCD() && (width=fm.width(cdNoLabel)))
+        maxWidth=width;
+
+    width=rect().width()-(xOffset+1);
+
     if (!cdda_model->year().isEmpty()) {
-      p.drawText(60+cover_size, padding+i+font.pixelSize(), i18n("Release Year: "));
-      p.drawText(180+cover_size, padding+i+font.pixelSize(), cdda_model->year());
-      i += 14;
+      p.drawText(xOffset, yOffset, yearLabel);
+      p.drawText(xOffset+maxWidth, yOffset,
+                 fm.elidedText(cdda_model->year(), Qt::ElideRight, width-maxWidth));
+      yOffset += fm.lineSpacing();
     }
     if (!cdda_model->genre().isEmpty()) {
-      p.drawText(60+cover_size, padding+i+font.pixelSize(), i18n("Genre: "));
-      p.drawText(180+cover_size, padding+i+font.pixelSize(), cdda_model->genre());
-      i += 14;
+      p.drawText(xOffset, yOffset, genreLabel);
+      p.drawText(xOffset+maxWidth, yOffset,
+                 fm.elidedText(cdda_model->genre(), Qt::ElideRight, width-maxWidth));
+      yOffset += fm.lineSpacing();
     }
     if (cdda_model->isMultiCD()) {
-      p.drawText(60+cover_size, padding+i+font.pixelSize(), i18n("CD Number: "));
-      p.drawText(180+cover_size, padding+i+font.pixelSize(), QString("%1").arg(cdda_model->cdNum()));
-      i += 14;
+      p.drawText(xOffset, yOffset, cdNoLabel);
+      p.drawText(xOffset+maxWidth, yOffset, QString().setNum(cdda_model->cdNum()));
+      yOffset += fm.lineSpacing();
     }
 
     font.setUnderline(TRUE);
@@ -431,18 +455,30 @@ void CDDAHeaderWidget::paintEvent(QPaintEvent *event) {
 
     //links
 
-    QFontMetrics fm(font);
+    fm = QFontMetrics(font);
     QString link1 = i18n("Edit Data");
     QString link2 = i18n("Wikipedia");
-    p.drawText(60+cover_size, padding+cover_size-12, fm.width(link1), 16, Qt::TextSingleLine, link1);
-    p.drawText(68+fm.width(link1)+cover_size, padding+cover_size-12, fm.width(link2), 16, Qt::TextSingleLine, link2);
-    link1_rect = QRectF(60+cover_size, padding+cover_size-12, fm.width(link1), 12);
-    link2_rect = QRectF(68+fm.width(link1)+cover_size, padding+cover_size-12, fm.width(link2), 12);
+    KColorScheme kcs(QPalette::Active);
+    p.setPen(kcs.foreground(KColorScheme::LinkText).color());
 
+    link1_rect = fm.boundingRect(link1);
+    link2_rect = fm.boundingRect(link2);
+
+    yOffset=vertical ? yOffset+fm.lineSpacing() : (yOffset>(padding+cover_size) ? yOffset : (padding+cover_size));
+    p.drawText(xOffset, yOffset, link1);
+    p.drawText(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset, link2);
+    link1_rect=QRect(xOffset, yOffset+link1_rect.y(),
+                     link1_rect.width(), link1_rect.height());
+    link2_rect=QRect(xOffset+(link1_rect.height()/2)+link1_rect.width(), yOffset+link2_rect.y(),
+                     link2_rect.width(), link2_rect.height());
   } else { //disabled
 
-    QFont font;
-    font.setPixelSize(18);
+    QFont font(QApplication::font());
+    if(-1==font.pixelSize()) {
+      font.setPointSizeF(font.pointSizeF()*1.5);
+    } else {
+      font.setPixelSize(font.pixelSize()*1.5);
+    }
     font.setBold(TRUE);
     font.setItalic(TRUE);
     p.setFont(font);
@@ -606,7 +642,7 @@ void CDDAHeaderWidget::load() {
 }
 
 void CDDAHeaderWidget::save() {
-  QString cover = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "image/png image/jpeg image/jpg image/gif image/bmp", this, i18n("Save cover"));
+  QString cover = KFileDialog::getSaveFileName(KUrl(QDir::homePath()), "image/png image/jpeg image/jpg image/gif image/bmp", this, i18n("Save Cover"));
   if (!cover.isEmpty()) {
     cdda_model->cover().save(cover);
   }
@@ -614,7 +650,7 @@ void CDDAHeaderWidget::save() {
 
 void CDDAHeaderWidget::view_cover() {
   KDialog *dialog = new KDialog(this);
-  dialog->setCaption(i18n("View cover"));
+  dialog->setCaption(i18n("View Cover"));
   dialog->setButtons(KDialog::Ok);
   QLabel *label = new QLabel();
   label->setScaledContents(TRUE);
@@ -645,7 +681,6 @@ void CDDAHeaderWidget::edit_data() {
 }
 
 void CDDAHeaderWidget::wikipedia() {
-  //QDesktopServices::openUrl(QUrl(QString("http://%1.wikipedia.org/wiki/").arg("de") + KUrl::toPercentEncoding(cdda_model->artist())));
 
   int locale = Preferences::wikipediaLocale();
   QString l;
@@ -697,27 +732,27 @@ void CDDAHeaderWidget::setup_actions() {
   action_collection = new KActionCollection(this);
 
   KAction* fetchCoverAction = new KAction(this);
-  fetchCoverAction->setText(i18n("Fetch cover from amazon..."));
+  fetchCoverAction->setText(i18n("Fetch Cover From Amazon..."));
   action_collection->addAction("fetch", fetchCoverAction);
   connect(fetchCoverAction, SIGNAL(triggered(bool)), this, SLOT(amazon()));
 
   KAction* loadCoverAction = new KAction(this);
-  loadCoverAction->setText(i18n("Load own cover..."));
+  loadCoverAction->setText(i18n("Set Custom Cover..."));
   action_collection->addAction("load", loadCoverAction);
   connect(loadCoverAction, SIGNAL(triggered(bool)), this, SLOT(load()));
 
   KAction* saveCoverAction = new KAction(this);
-  saveCoverAction->setText(i18n("Save cover to file..."));
+  saveCoverAction->setText(i18n("Save Cover To File..."));
   action_collection->addAction("save", saveCoverAction);
   connect(saveCoverAction, SIGNAL(triggered(bool)), this, SLOT(save()));
 
   KAction* viewCoverAction = new KAction(this);
-  viewCoverAction->setText(i18n("Show full size cover..."));
+  viewCoverAction->setText(i18n("Show Full Size Cover..."));
   action_collection->addAction("view", viewCoverAction);
   connect(viewCoverAction, SIGNAL(triggered(bool)), this, SLOT(view_cover()));
 
   KAction* removeCoverAction = new KAction(this);
-  removeCoverAction->setText(i18n("Remove cover"));
+  removeCoverAction->setText(i18n("Remove Cover"));
   action_collection->addAction("remove", removeCoverAction);
   connect(removeCoverAction, SIGNAL(triggered(bool)), this, SLOT(remove()));
 

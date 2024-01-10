@@ -16,8 +16,8 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-#ifndef KAUDEX_HEADER
-#define KAUDEX_HEADER
+#ifndef AUDEX_HEADER
+#define AUDEX_HEADER
 
 #include <QQueue>
 #include <QString>
@@ -27,18 +27,19 @@
 #include <KDebug>
 #include <KLocale>
 
-#include "../models/profilemodel.h"
-#include "../models/cddamodel.h"
-#include "../utils/maskparser.h"
-#include "../utils/playlist.h"
-#include "../utils/wait.h"
-#include "../utils/cddaextractthread.h"
-#include "../utils/wavefilewriter.h"
-#include "../utils/encoderwrapper.h"
-#include "../utils/diskfreespace.h"
-#include "../utils/pid.h"
-#include "../utils/ftpupload.h"
-#include "../utils/hashlist.h"
+#include "models/profilemodel.h"
+#include "models/cddamodel.h"
+#include "utils/patternparser.h"
+#include "utils/playlist.h"
+#include "utils/wait.h"
+#include "utils/cddaextractthread.h"
+#include "utils/wavefilewriter.h"
+#include "utils/encoderwrapper.h"
+#include "utils/diskfreespace.h"
+#include "utils/pid.h"
+#include "utils/upload.h"
+#include "utils/hashlist.h"
+#include "utils/parameters.h"
 
 #include "preferences.h"
 
@@ -67,7 +68,7 @@ class AudexJobs : public QObject {
   Q_OBJECT
 public:
   AudexJobs(QObject *parent = 0) : QObject(parent) {
-    job_in_progress = false;
+    job_in_progress = FALSE;
   }
   ~AudexJobs() {
     for (int i = 0; i < cache.count(); i++) {
@@ -81,12 +82,12 @@ public:
     if (job_queue.isEmpty()) {
       return NULL;
     } else {
-      job_in_progress = true;
+      job_in_progress = TRUE;
       return job_queue.dequeue();
     }
   }
   void reportJobFinished() {
-    job_in_progress = false;
+    job_in_progress = FALSE;
   }
   bool jobInProgress() {
     return job_in_progress;
@@ -188,11 +189,24 @@ private:
   AudexJobs *jobs;
   WaveFileWriter *wave_file_writer;
 
+  QString p_profile_name;
+  QString p_suffix;
+
+  inline static QString temp_path() {
+    static QString tmp;
+    if (tmp.isEmpty()) {
+      QStringList dirs = KGlobal::dirs()->resourceDirs("tmp");
+      tmp = dirs.size()?dirs[0]:"/var/tmp/";
+    }
+    return tmp;
+  }
+
   bool construct_target_filename(QString& targetFilename,
 	int trackno, int cdno, int gindex,
 	const QString& artist, const QString& title,
 	const QString& tartist, const QString& ttitle,
-	const QString& date, const QString& genre, const QString& ext, const QString& basepath,
+	const QString& date, const QString& genre,
+	const QString& ext, const QString& basepath,
 	bool fat_compatible,
 	bool overwrite_existing_files, bool is_first_track);
 

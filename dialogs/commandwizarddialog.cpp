@@ -27,7 +27,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
 
   setMainWidget(widget);
 
-  setCaption(i18n("Command Mask Wizard"));
+  setCaption(i18n("Command Pattern Wizard"));
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
@@ -51,6 +51,7 @@ CommandWizardDialog::CommandWizardDialog(const QString& command, QWidget *parent
   this->command = command;
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
   update_example();
 
@@ -78,77 +79,77 @@ void CommandWizardDialog::trigger_changed() {
 
 void CommandWizardDialog::insAlbumArtist() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_ALBUM_ARTIST));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_ARTIST));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insAlbumTitle() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_ALBUM_TITLE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_ALBUM_TITLE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackArtist() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_ARTIST));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_ARTIST));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackTitle() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_TITLE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_TITLE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insTrackNo() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_TRACK_NO));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_TRACK_NO));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCDNo() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_CDNO));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_CDNO));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insDate() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_DATE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_DATE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insGenre() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_GENRE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_GENRE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insCoverFile() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_COVER_FILE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_COVER_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insInFile() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_INPUT_FILE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_INPUT_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
 
 void CommandWizardDialog::insOutFile() {
   QString text = ui.klineedit_command->text();
-  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(TAG_OUTPUT_FILE));
+  text.insert(ui.klineedit_command->cursorPosition(), "$"+QString(VAR_OUTPUT_FILE));
   ui.klineedit_command->setText(text);
   update_example();
 }
@@ -160,19 +161,19 @@ bool CommandWizardDialog::save() {
 }
 
 void CommandWizardDialog::update_example() {
-  MaskParser maskparser;
-  QString filename = maskparser.parseCommandMask(ui.klineedit_command->text(),
-	"/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
-	2, 1, 1,
-	"Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
-	"2006", "Rock", "ogg", QImage(), "~", FALSE, QDir::tempPath(), TRUE);
+  PatternParser patternparser;
+  QString filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
+        "/tmp/tmp.wav", QString("%1/music/Meat Loaf/02 - Meat Loaf - Blind As A Bat.ogg").arg(QDir::homePath()),
+        2, 1, 1,
+        "Meat Loaf", "Bat Out Of Hell III", "Meat Loaf", "Blind As A Bat",
+        "2006", "Rock", "ogg", QImage(), FALSE, QDir::tempPath(), TRUE);
   ui.klineedit_album_example->setText(filename);
   ui.klineedit_album_example->setCursorPosition(0);
-  filename = maskparser.parseCommandMask(ui.klineedit_command->text(),
-	"/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
-	4, 2, 1,
-	"Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
-	"2003", "Darkwave", "ogg", QImage(), "~", FALSE, QDir::tempPath(), TRUE);
+  filename = patternparser.parseCommandPattern(ui.klineedit_command->text(),
+        "/tmp/tmp.wav", QString("%1/music/Alternative Hits/Volume 4/04 - Wolfsheim - Approaching Lightspeed.ogg").arg(QDir::homePath()),
+        4, 2, 1,
+        "Alternative Hits", "Volume 4", "Wolfsheim", "Approaching Lightspeed",
+        "2003", "Darkwave", "ogg", QImage(), FALSE, QDir::tempPath(), TRUE);
   ui.klineedit_sampler_example->setText(filename);
   ui.klineedit_sampler_example->setCursorPosition(0);
 }

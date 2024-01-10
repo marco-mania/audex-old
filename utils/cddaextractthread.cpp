@@ -92,7 +92,7 @@ void CDDAExtractThread::run() {
   {
     QString min = QString("%1").arg((sectors_all / 75) / 60, 2, 10, QChar('0'));
     QString sec = QString("%1").arg((sectors_all / 75) % 60, 2, 10, QChar('0'));
-    emit info(i18n("Extracting track %1 (%2:%3)...", track, min, sec));
+    emit info(i18n("Ripping track %1 (%2:%3)...", track, min, sec));
   }
   extract_protocol.append(i18n("Start reading track %1 with %2 sectors", track, sectors_all));
 
@@ -136,9 +136,9 @@ void CDDAExtractThread::run() {
     emit error(i18n("User canceled extracting."));
 
   if (b_error)
-    emit error(i18n("An error occured while extracting track %1.", track));
+    emit error(i18n("An error occured while ripping track %1.", track));
 
-  if ((!b_interrupt) && (!b_error)) emit info(i18n("Extracting OK (Track %1).", track));
+  if ((!b_interrupt) && (!b_error)) emit info(i18n("Ripping OK (Track %1).", track));
 
   kDebug () << "Reading finished.";
   extract_protocol.append(i18n("Reading finished"));

@@ -27,24 +27,24 @@ profileWidget::profileWidget(ProfileModel *profileModel, QWidget *parent) : prof
   }
 
   listView->setModel(profile_model);
-  listView->setModelColumn(0);
+  listView->setModelColumn(1);
   connect(listView->selectionModel(), SIGNAL(selectionChanged(const QItemSelection&, const QItemSelection&)), this, SLOT(update()));
   connect(listView, SIGNAL(doubleClicked(const QModelIndex&)), this, SLOT(mod_profile(const QModelIndex&)));
   connect(kpushbutton_add, SIGNAL(clicked()), this, SLOT(add_profile()));
   connect(kpushbutton_rem, SIGNAL(clicked()), this, SLOT(rem_profile()));
   connect(kpushbutton_mod, SIGNAL(clicked()), this, SLOT(mod_profile()));
   connect(kpushbutton_copy, SIGNAL(clicked()), this, SLOT(copy_profile()));
-  connect(kpushbutton_wizard, SIGNAL(clicked()), this, SLOT(assistant()));
   connect(kpushbutton_load, SIGNAL(clicked()), this, SLOT(load_profiles()));
   connect(kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_profiles()));
+  connect(kpushbutton_init, SIGNAL(clicked()), this, SLOT(init_profiles()));
 
   kpushbutton_add->setIcon(KIcon("list-add"));
   kpushbutton_rem->setIcon(KIcon("list-remove"));
 
-  kpushbutton_wizard->setIcon(KIcon("tools-wizard"));
-
   kpushbutton_load->setIcon(KIcon("document-open"));
   kpushbutton_save->setIcon(KIcon("document-save"));
+
+  kpushbutton_init->setIcon(KIcon("view-refresh"));
 
   update();
 
@@ -67,8 +67,6 @@ void profileWidget::add_profile() {
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
   delete dialog;
-
-  profile_model->commit();
 
   listView->setCurrentIndex(profile_model->index(profile_model->rowCount(), 0));
 
@@ -104,8 +102,6 @@ void profileWidget::mod_profile(const QModelIndex& index) {
 
   delete dialog;
 
-  profile_model->commit();
-
   update();
 
 }
@@ -117,17 +113,10 @@ void profileWidget::mod_profile() {
 }
 
 void profileWidget::copy_profile() {
-  int rs = profile_model->rowCount();
-  profile_model->copy(listView->currentIndex().row());
+  int rs = profile_model->copy(listView->currentIndex().row());
   profile_model->commit();
   listView->setCurrentIndex(profile_model->index(rs, 0));
   update();
-}
-
-void profileWidget::assistant() {
-  AssistantDialog *dialog = new AssistantDialog(profile_model, this);
-  if (dialog->exec() == QDialog::Accepted) update();
-  delete dialog;
 }
 
 void profileWidget::save_profiles() {
@@ -142,4 +131,25 @@ void profileWidget::load_profiles() {
   if (!filename.isEmpty()) {
     profile_model->loadProfilesFromFile(filename);
   }
+}
+
+void profileWidget::init_profiles() {
+
+  if (KMessageBox::Yes == KMessageBox::questionYesNo(this,
+       i18n("<p>Do you wish to rescan your system for codecs (Lame, Ogg Vorbis, Flac, etc.)?</p>"
+            "<p><font style=\"font-style:italic;\">This will attempt to create some sample profiles based upon any found codecs.</font></p>"),
+       i18n("Codec Scan"))) {
+
+    int sizeBefore = profile_model->rowCount();
+    profile_model->autoCreate();
+    int diff = profile_model->rowCount()-sizeBefore;
+    KMessageBox::information(this, 0==diff
+                                     ? i18n("No new codecs found")
+                                     : 1==diff
+                                       ? i18n("1 new profile added")
+                                       : i18n("%1 new profiles added", diff),
+                                 i18n("Codec Scan"));
+
+  }
+
 }

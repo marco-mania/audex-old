@@ -20,18 +20,26 @@
 #define PROFILEDATADIALOG_H
 
 #include <QWidget>
+#include <QStackedWidget>
 
 #include <KDebug>
 #include <KDialog>
 
-#include "../models/profilemodel.h"
+#include "models/profilemodel.h"
+#include "utils/encoderassistant.h"
 
-#include "profiledatacoverdialog.h"
-#include "profiledataplaylistdialog.h"
-#include "profiledatainfodialog.h"
-#include "profiledatahashlistdialog.h"
-#include "maskwizarddialog.h"
-#include "commandwizarddialog.h"
+#include "widgets/lamewidget.h"
+#include "widgets/oggencwidget.h"
+#include "widgets/flacwidget.h"
+#include "widgets/faacwidget.h"
+#include "widgets/wavewidget.h"
+#include "widgets/customwidget.h"
+
+#include "dialogs/profiledatacoverdialog.h"
+#include "dialogs/profiledataplaylistdialog.h"
+#include "dialogs/profiledatainfodialog.h"
+#include "dialogs/profiledatahashlistdialog.h"
+#include "dialogs/patternwizarddialog.h"
 
 #include "ui_profiledatawidgetUI.h"
 
@@ -47,14 +55,16 @@ protected slots:
   virtual void slotButtonClicked(int button);
 
 private slots:
+  void set_encoder(const int encoder);
+  void set_encoder_by_combobox(const int index);
   void trigger_changed();
+
   void enable_settings_cover(bool enabled);
   void enable_settings_playlist(bool enabled);
   void enable_settings_info(bool enabled);
   void enable_settings_hashlist(bool enabled);
 
-  void mask_wizard();
-  void command_wizard();
+  void pattern_wizard();
 
   void cover_settings();
   void playlist_settings();
@@ -66,22 +76,38 @@ private:
   ProfileModel *profile_model;
   int profile_row;
 
+  lameWidget *lame_widget;
+  Parameters lame_parameters;
+  oggencWidget *oggenc_widget;
+  Parameters oggenc_parameters;
+  flacWidget *flac_widget;
+  Parameters flac_parameters;
+  faacWidget *faac_widget;
+  Parameters faac_parameters;
+  waveWidget *wave_widget;
+  Parameters wave_parameters;
+  customWidget *custom_widget;
+  Parameters custom_parameters;
+  void set_encoder_widget(const EncoderAssistant::Encoder encoder);
+
   bool pdcd_scale;
   QSize pdcd_size;
   QString pdcd_format;
-  QString pdcd_mask;
+  QString pdcd_pattern;
 
   QString pdpd_format;
-  QString pdpd_mask;
+  QString pdpd_pattern;
 
   QStringList pdid_text;
-  QString pdid_mask;
+  QString pdid_pattern;
   QString pdid_suffix;
 
   QString pdhd_format;
-  QString pdhd_mask;
+  QString pdhd_pattern;
 
   bool save();
+
+  Error error;
 
 };
 

@@ -20,15 +20,14 @@
 
 CDDAModel::CDDAModel(QObject *parent, const QString& device) : QAbstractTableModel(parent) {
 
-  this->device = device;
-
   compact_disc = new KCompactDisc();
   if (!compact_disc) {
     kDebug() << "Unable to create KCompactDisc object. Low mem?";
     error = Error(i18n("Unable to create KCompactDisc object."), i18n("This is an internal error. Check your hardware. If all okay please make bug report."), Error::ERROR, this);
     return;
   }
-  compact_disc->setDevice(device, FALSE, 50, "cdin");
+
+  setDevice(device);
   connect(compact_disc, SIGNAL(discChanged(unsigned int)), this, SLOT(slot_disc_changed(unsigned int)));
   connect(compact_disc, SIGNAL(discInformation(KCompactDisc::DiscInfo)), this, SLOT(slot_disc_information(KCompactDisc::DiscInfo)));
   connect(compact_disc, SIGNAL(discStatusChanged(KCompactDisc::DiscStatus)), this, SLOT(slot_disc_status_changed(KCompactDisc::DiscStatus)));
@@ -58,9 +57,13 @@ CDDAModel::~CDDAModel() {
 
 }
 
+void CDDAModel::setDevice(const QString& device) {
+  this->_device = device;
+  compact_disc->setDevice(device, 50, FALSE);
+}
+
 int CDDAModel::rowCount(const QModelIndex &parent) const {
-  Q_UNUSED(parent);
-  return compact_disc->tracks();
+  return parent.isValid()?0:compact_disc->tracks();
 }
 
 int CDDAModel::columnCount(const QModelIndex &parent) const {
@@ -83,7 +86,7 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
   }
 
   if (role == Qt::TextAlignmentRole) {
-    return int(Qt::AlignRight | Qt::AlignVCenter);
+    return int(Qt::AlignLeft | Qt::AlignVCenter);
   }
 
   /*if (role == Qt::ForegroundRole) {
@@ -98,10 +101,23 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
   }*/
 
   if ((role == Qt::DisplayRole)
+	|| (role == Qt::CheckStateRole && index.column()==CDDA_MODEL_COLUMN_RIP_INDEX)
 	|| (role == CDDA_MODEL_INTERNAL_ROLE)
 	|| (role == Qt::EditRole)) {
 
     switch (index.column()) {
+      case CDDA_MODEL_COLUMN_RIP_INDEX :
+			if (role == Qt::CheckStateRole) {
+			  return isTrackInSelection(index.row()+1)?Qt::Checked:Qt::Unchecked;
+			}
+			break;
+      case CDDA_MODEL_COLUMN_TRACK_INDEX :
+			return index.row()+1+(trackOffset()>1?trackOffset():0);
+      case CDDA_MODEL_COLUMN_LENGTH_INDEX :
+			if (role==CDDA_MODEL_INTERNAL_ROLE)
+			  return lengthOfTrack(index.row()+1);
+			else
+			  return QString("%1:%2").arg(lengthOfTrack(index.row()+1) / 60, 2, 10, QChar('0')).arg(lengthOfTrack(index.row()+1) % 60, 2, 10, QChar('0'));
       case CDDA_MODEL_COLUMN_ARTIST_INDEX :
 			if (isAudioTrack(index.row()+1)) {
                           QString a = cd_info.track(index.row()).get(KCDDB::Artist).toString();
@@ -116,8 +132,6 @@ QVariant CDDAModel::data(const QModelIndex &index, int role) const {
 			  return t;
                         }
 			break;
-      case CDDA_MODEL_COLUMN_LENGTH_INDEX : if (role==CDDA_MODEL_INTERNAL_ROLE) return lengthOfTrack(index.row()+1); else
-							return QString("%1:%2").arg(lengthOfTrack(index.row()+1) / 60, 2, 10, QChar('0')).arg(lengthOfTrack(index.row()+1) % 60, 2, 10, QChar('0'));
       default : ;
     }
 
@@ -174,13 +188,20 @@ QVariant CDDAModel::headerData(int section, Qt::Orientation orientation, int rol
   Q_UNUSED(orientation);
 
   if (orientation == Qt::Horizontal) {
-    if (role == Qt::DisplayRole) {
-      switch (section) {
-        case CDDA_MODEL_COLUMN_ARTIST_INDEX : return CDDA_MODEL_COLUMN_ARTIST_LABEL;
-        case CDDA_MODEL_COLUMN_TITLE_INDEX : return CDDA_MODEL_COLUMN_TITLE_LABEL;
-        case CDDA_MODEL_COLUMN_LENGTH_INDEX : return CDDA_MODEL_COLUMN_LENGTH_LABEL;
-        default : ;
-      }
+    switch (role) {
+      case Qt::DisplayRole :
+        switch (section) {
+          case CDDA_MODEL_COLUMN_RIP_INDEX : return CDDA_MODEL_COLUMN_RIP_LABEL;
+          case CDDA_MODEL_COLUMN_TRACK_INDEX : return CDDA_MODEL_COLUMN_TRACK_LABEL;
+          case CDDA_MODEL_COLUMN_LENGTH_INDEX : return CDDA_MODEL_COLUMN_LENGTH_LABEL;
+          case CDDA_MODEL_COLUMN_ARTIST_INDEX : return CDDA_MODEL_COLUMN_ARTIST_LABEL;
+          case CDDA_MODEL_COLUMN_TITLE_INDEX : return CDDA_MODEL_COLUMN_TITLE_LABEL;
+          default : ;
+        }
+	break;
+      case Qt::TextAlignmentRole :
+        return Qt::AlignLeft;
+      default : ;
     }
   } else if (orientation == Qt::Vertical) {
     if (role == Qt::DisplayRole) {
@@ -332,6 +353,29 @@ int CDDAModel::trackOffset() const {
   return cd_info.get("DTRACKOFFSET").toInt();
 }
 
+int CDDAModel::guessMultiCD(QString& newTitle) const {
+
+  if (compact_disc->isNoDisc() || compact_disc->discId()==0) return -1;
+  QString t = cd_info.get(KCDDB::Title).toString();
+  QRegExp rx1("[\\(|\\[]* *([c|C][d|D]|[d|D][i|I][s|S][k|c|K|C]) *[0-9]* *[\\)|\\]]* *$");
+  int i = rx1.indexIn(t);
+  if (i>=0) {
+    QString frac = t.mid(i);
+    QRegExp rx2("(\\d+)");
+    rx2.indexIn(frac);
+    bool ok;
+    int cdnum = rx2.cap(0).toInt(&ok);
+    if (ok) {
+      if (cdnum<0) return -1;
+      if (cdnum==0) cdnum = 1;
+      newTitle = t.left(i).trimmed();
+      return cdnum;
+    }
+  }
+  return -1;
+
+}
+
 void CDDAModel::setMultiCD(const bool multi) {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return;
   if (multi != cd_info.get("DMULTICD").toBool()) {
@@ -388,7 +432,7 @@ void CDDAModel::clearCover() {
   reset();
 }
 
-bool CDDAModel::guessVarious() {
+bool CDDAModel::guessVarious() const {
   if (compact_disc->isNoDisc() || compact_disc->discId()==0) return FALSE;
   QString a;
   for (int i = 0; i < cd_info.numberOfTracks(); ++i) {
@@ -487,13 +531,7 @@ int CDDAModel::numOfAudioTracks() const {
 }
 
 int CDDAModel::numOfAudioTracksInSelection() const {
-  if (_selection.count()==0) return numOfTracks();
-  int c = 0;
-  for (int i = 0; i < _selection.count(); i++) {
-    if ((_selection[i].row() < 0) || (_selection[i].row() >= numOfTracks()) || (!isAudioTrack(_selection[i].row()+1))) continue;
-    c++;
-  }
-  return c;
+  return sel_tracks.count();
 }
 
 int CDDAModel::length() const {
@@ -509,11 +547,10 @@ int CDDAModel::lengthOfAudioTracks() const {
 }
 
 int CDDAModel::lengthOfAudioTracksInSelection() const {
-  if (_selection.count()==0) return lengthOfAudioTracks();
+  QSet<int>::ConstIterator it(sel_tracks.begin()), end(sel_tracks.end());
   int l = 0;
-  for (int i = 0; i < _selection.count(); i++) {
-    if ((_selection[i].row() < 0) || (_selection[i].row() >= numOfTracks()) || (!isAudioTrack(_selection[i].row()+1))) continue;
-    l += lengthOfTrack(i+1);
+  for (; it != end; ++it) {
+    if (isAudioTrack(*it)) l += lengthOfTrack(*it);
   }
   return l;
 }
@@ -532,21 +569,20 @@ void CDDAModel::clear() {
   reset();
 }
 
-void CDDAModel::setSelection(const QModelIndexList& selection) {
-  this->_selection = selection;
-}
+void CDDAModel::toggle(int row) {
 
-QModelIndexList CDDAModel::selection() const {
-  return _selection;
+  if (sel_tracks.contains(row+1)) {
+    sel_tracks.remove(row+1);
+  } else {
+    sel_tracks.insert(row+1);
+  }
+
+  emit hasSelection(0 != sel_tracks.size());
+
 }
 
 bool CDDAModel::isTrackInSelection(int n) const {
-  //if nothing is selected, behave like all selected
-  if (_selection.count() == 0) return TRUE;
-  for (int i = 0; i < _selection.count(); ++i) {
-    if (_selection.at(i).row() == n-1) return TRUE;
-  }
-  return FALSE;
+  return sel_tracks.contains(n);
 }
 
 bool CDDAModel::isModified() const {
@@ -687,6 +723,13 @@ void CDDAModel::slot_disc_changed(unsigned int tracks) {
   clear();
   confirm();
 
+  sel_tracks.clear();
+  for (unsigned int i = 1; i <= tracks; ++i) {
+    if (isAudioTrack(i)) sel_tracks.insert(i);
+  }
+
+  emit hasSelection(0!=sel_tracks.size());
+
   if (tracks > 0) disc_type = DiscContainsAudioTracks; else disc_type = DiscContainsNoAudioTracks;
   emit discChanged(disc_type);
 
@@ -787,6 +830,13 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
   set_default_values();
   disc_info = DiscCDDBInfo;
   setVarious(guessVarious());
+  QString newTitle;
+  int cdnum = guessMultiCD(newTitle);
+  if (cdnum > 0) {
+    setMultiCD(TRUE);
+    setCDNum(cdnum);
+    setTitle(newTitle);
+  }
   reset();
 
   emit cddbLookupDone(TRUE);
@@ -795,7 +845,7 @@ void CDDAModel::lookup_cddb_done(KCDDB::Result result) {
 
 }
 
-QString CDDAModel::capitalize(const QString &s) {
+const QString CDDAModel::capitalize(const QString &s) {
 
   QStringList stringlist = s.split(" ", QString::SkipEmptyParts);
   for (int i = 0; i < stringlist.count(); i++) {

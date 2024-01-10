@@ -18,12 +18,12 @@
 
 #include "profiledatainfodialog.h"
 
-ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QString& mask, const QString& suffix, QWidget *parent) : KDialog(parent) {
+ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QString& pattern, const QString& suffix, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->text = text;
-  this->mask = mask;
+  this->pattern = pattern;
   this->suffix = suffix;
 
   QWidget *widget = new QWidget(this);
@@ -35,14 +35,14 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-  connect(ui.kpushbutton_mask, SIGNAL(clicked()), this, SLOT(mask_wizard()));
-  ui.kpushbutton_mask->setIcon(KIcon("tools-wizard"));
+  connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
+  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
 
   ui.ktextedit_text->setPlainText(text.join("\n"));
   connect(ui.ktextedit_text, SIGNAL(textChanged()), this, SLOT(trigger_changed()));
 
-  ui.klineedit_mask->setText(mask);
-  connect(ui.klineedit_mask, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.klineedit_pattern->setText(pattern);
+  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   ui.klineedit_suffix->setText(suffix);
   connect(ui.klineedit_suffix, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
@@ -56,6 +56,7 @@ ProfileDataInfoDialog::ProfileDataInfoDialog(const QStringList& text, const QStr
   connect(ui.kpushbutton_save, SIGNAL(clicked()), this, SLOT(save_text()));
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
 }
 
@@ -73,13 +74,13 @@ void ProfileDataInfoDialog::slotButtonClicked(int button) {
   }
 }
 
-void ProfileDataInfoDialog::mask_wizard() {
+void ProfileDataInfoDialog::pattern_wizard() {
 
-  SimpleMaskWizardDialog *dialog = new SimpleMaskWizardDialog(ui.klineedit_mask->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_mask->setText(dialog->mask);
+  ui.klineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -90,7 +91,7 @@ void ProfileDataInfoDialog::mask_wizard() {
 void ProfileDataInfoDialog::trigger_changed() {
   if (ui.ktextedit_text->toPlainText().split("\n") != text) { enableButtonApply(TRUE); return; }
   if (ui.klineedit_suffix->text() != suffix) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_mask->text() != mask) { enableButtonApply(TRUE); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
 }
 
@@ -98,7 +99,7 @@ void ProfileDataInfoDialog::help() {
 
    KDialog *dialog = new KDialog(this);
    dialog->resize(QSize(700, 480));
-   dialog->setCaption(i18n("Usable variables for text template"));
+   dialog->setCaption(i18n("Usable Variables For Text Template"));
    dialog->setButtons(KDialog::Ok);
 
    KTextBrowser *tb = new KTextBrowser(dialog);
@@ -237,7 +238,7 @@ void ProfileDataInfoDialog::save_text() {
 bool ProfileDataInfoDialog::save() {
   text = ui.ktextedit_text->toPlainText().split("\n");
   suffix = ui.klineedit_suffix->text();
-  mask = ui.klineedit_mask->text();
+  pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
   return TRUE;
 }

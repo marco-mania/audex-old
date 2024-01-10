@@ -37,6 +37,7 @@ public:
   ~ProtocolDialog();
 
 private slots:
+  void slotButtonClicked(int button);
   void save();
 
 private:

@@ -25,7 +25,7 @@
 #include <KDebug>
 #include <KDialog>
 
-#include "../utils/maskparser.h"
+#include "utils/patternparser.h"
 
 #include "ui_commandwizardwidgetUI.h"
 

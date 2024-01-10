@@ -20,11 +20,12 @@
 #include <KAboutData>
 #include <KCmdLineArgs>
 
+#include "config.h"
 #include "mainwindow.h"
 
 int main (int argc, char *argv[]) {
 
-  KAboutData aboutData("audex", 0, ki18n("Audex"), "0.62",
+  KAboutData aboutData("audex", 0, ki18n("Audex"), AUDEX_VERSION,
                        ki18n("CDDA Extractor for KDE"),
                        KAboutData::License_GPL,
                        ki18n("(c) 2007-2009 by Marco Nelles"),
@@ -33,13 +34,13 @@ int main (int argc, char *argv[]) {
                        "audex@maniatek.de");
   aboutData.addAuthor(ki18n("Marco Nelles"), ki18n("Current maintainer"), "marco@maniatek.de");
   aboutData.addCredit(ki18n("freedb.org"), ki18n("Special thanks to freedb.org for providing a free CDDB-like CD database"), 0, "http://freedb.org");
+  aboutData.addCredit(ki18n("Craig Drummond"), ki18n("GUI improvements"), 0, "");
 
   KCmdLineArgs::init(argc, argv, &aboutData);
   KApplication app;
 
   MainWindow* window = new MainWindow();
   window->show();
-  window->startAssistant();
 
   return app.exec();
 

@@ -21,80 +21,173 @@
 
 #include <QString>
 #include <QStringList>
+#include <QMap>
 
 #include <KDebug>
 #include <KLocale>
 #include <KProcess>
 
-#define OGGVORBIS	"Ogg Vorbis"
-#define FLAC		"FLAC"
-#define MP3		"MP3"
-#define M4A		"M4A (AAC)"
-#define WAVE		"RIFF WAVE"
+#include "utils/parameters.h"
+#include "utils/patternparser.h"
 
-#define OGGVORBIS_BIN	"oggenc"
-#define FLAC_BIN	"flac"
-#define MP3_BIN		"lame"
-#define M4A_BIN		"faac"
-#define WAVE_BIN	"mv"
+#define ENCODER_LAME_SUFFIX_KEY		"suffix"
+#define ENCODER_LAME_PRESET_KEY		"preset"
+#define ENCODER_LAME_PRESET_MEDIUM	0
+#define ENCODER_LAME_PRESET_STANDARD	1
+#define ENCODER_LAME_PRESET_EXTREME	2
+#define ENCODER_LAME_PRESET_INSANE	3
+#define ENCODER_LAME_PRESET_CUSTOM	4
+#define ENCODER_LAME_CBR_KEY		"cbr"
+#define ENCODER_LAME_BITRATE_KEY	"bitrate"
+#define ENCODER_LAME_EMBED_COVER_KEY	"embed_cover"
 
-#define OGGVORBIS_VER	"-v"
-#define FLAC_VER	"-v"
-#define MP3_VER		"--version"
-#define M4A_VER		""
-#define WAVE_VER	""
+#define ENCODER_OGGENC_SUFFIX_KEY	"suffix"
+#define ENCODER_OGGENC_QUALITY_KEY	"quality"
+#define ENCODER_OGGENC_MINBITRATE_KEY	"minbitrate"
+#define ENCODER_OGGENC_MINBITRATE_VALUE_KEY	"minbitrate_value"
+#define ENCODER_OGGENC_MAXBITRATE_KEY	"maxbitrate"
+#define ENCODER_OGGENC_MAXBITRATE_VALUE_KEY	"maxbitrate_value"
 
-#define OGGVORBIS_SUFF	"ogg"
-#define FLAC_SUFF	"flac"
-#define MP3_SUFF	"mp3"
-#define M4A_SUFF	"m4a"
-#define WAVE_SUFF	"wav"
+#define ENCODER_FLAC_SUFFIX_KEY		"suffix"
+#define ENCODER_FLAC_COMPRESSION_KEY	"compression"
 
-#define OGGVORBIS_CMD	"oggenc -q %1 -c \"Artist=$tartist\" -c \"Title=$ttitle\" -c \"Album=$title\" -c \"Date=$date\" -c \"Tracknumber=$trackno\" -c \"Genre=$genre\" -o $o $i"
-#define FLAC_CMD	"flac -T=Artist=\"$tartist\" -T=Title=\"$ttitle\" -T=Album=\"$title\" -T=Date=\"$date\" -T=Tracknumber=\"$trackno\" -T=Genre=\"$genre\" -o $o $i"
-#define MP3_CMD		"lame -V %1 --id3v2-only --ignore-tag-errors --tt \"$ttitle\" --ta \"$tartist\" --tl \"$title\" --ty \"$date\" --tn $trackno --tg \"$genre\" ${cover format=\"JPG\" x=\"300\" y=\"300\" preparam=\"--ti \"} $i $o"
-#define M4A_CMD		"faac -q %1 -w --title \"$ttitle\" --artist \"$tartist\" --album \"$title\" --year \"$date\" --track $trackno --disc $cdno --genre \"$genre\" -o $o $i"
-#define WAVE_CMD	"mv $i $o"
+#define ENCODER_FAAC_SUFFIX_KEY		"suffix"
+#define ENCODER_FAAC_QUALITY_KEY	"quality"
 
-class EncoderAssistant : public QObject {
+#define ENCODER_WAVE_SUFFIX_KEY		"suffix"
 
-  Q_OBJECT
+#define ENCODER_CUSTOM_SUFFIX_KEY	"suffix"
+#define ENCODER_CUSTOM_COMMAND_PATTERN_KEY	"command_pattern"
 
-public:
-  EncoderAssistant(QObject* parent = 0);
-  ~EncoderAssistant();
 
-  enum Quality {
-    QMobile,
-    QCompromise,
-    QHQArchival
-  };
+/******************/
+/* default values */
+/******************/
+#define ENCODER_LAME_NAME		i18n("MP3")
+#define ENCODER_LAME_BIN		"lame"
+#define ENCODER_LAME_VERSION_PARA	"--version"
+#define ENCODER_LAME_SUFFIX		"mp3"
+
+/* preset normal quality */
+#define ENCODER_LAME_PRESET		1
+#define ENCODER_LAME_CBR		"false"
+#define ENCODER_LAME_BITRATE		192
+#define ENCODER_LAME_EMBED_COVER	"false"
+
+/* preset mobile quality */
+#define ENCODER_LAME_PRESET_M		4
+#define ENCODER_LAME_CBR_M		"false"
+#define ENCODER_LAME_BITRATE_M		128
+#define ENCODER_LAME_EMBED_COVER_M	"false"
+
+/* preset extreme quality */
+#define ENCODER_LAME_PRESET_X		2
+#define ENCODER_LAME_CBR_X		"false"
+#define ENCODER_LAME_BITRATE_X		192
+#define ENCODER_LAME_EMBED_COVER_X	"false"
+
+
+
+#define ENCODER_OGGENC_NAME		i18n("Ogg Vorbis")
+#define ENCODER_OGGENC_BIN		"oggenc"
+#define ENCODER_OGGENC_VERSION_PARA	"-v"
+#define ENCODER_OGGENC_SUFFIX		"ogg"
+
+/* preset normal quality */
+#define ENCODER_OGGENC_QUALITY		4
+#define ENCODER_OGGENC_MINBITRATE	FALSE
+#define ENCODER_OGGENC_MINBITRATE_VALUE	80
+#define ENCODER_OGGENC_MAXBITRATE	FALSE
+#define ENCODER_OGGENC_MAXBITRATE_VALUE	256
+
+/* preset mobile quality */
+#define ENCODER_OGGENC_QUALITY_M	2
+#define ENCODER_OGGENC_MINBITRATE_M	FALSE
+#define ENCODER_OGGENC_MINBITRATE_VALUE_M	80
+#define ENCODER_OGGENC_MAXBITRATE_M	TRUE
+#define ENCODER_OGGENC_MAXBITRATE_VALUE_M	224
+
+/* preset extreme quality */
+#define ENCODER_OGGENC_QUALITY_X	6
+#define ENCODER_OGGENC_MINBITRATE_X	FALSE
+#define ENCODER_OGGENC_MINBITRATE_VALUE_X	80
+#define ENCODER_OGGENC_MAXBITRATE_X	FALSE
+#define ENCODER_OGGENC_MAXBITRATE_VALUE_X	256
+
+
+
+#define ENCODER_FLAC_NAME		i18n("FLAC (Uncompressed)")
+#define ENCODER_FLAC_BIN		"flac"
+#define ENCODER_FLAC_VERSION_PARA	"-v"
+#define ENCODER_FLAC_SUFFIX		"flac"
+
+#define ENCODER_FLAC_COMPRESSION	5
+
+
+
+#define ENCODER_FAAC_NAME		i18n("AAC")
+#define ENCODER_FAAC_BIN		"faac"
+#define ENCODER_FAAC_VERSION_PARA	"--help"
+#define ENCODER_FAAC_SUFFIX		"aac"
+
+/* preset normal quality */
+#define ENCODER_FAAC_QUALITY		130
+
+/* preset mobile quality */
+#define ENCODER_FAAC_QUALITY_M		100
+
+/* preset extreme quality */
+#define ENCODER_FAAC_QUALITY_X		200
+
+
+
+#define ENCODER_WAVE_NAME		i18n("WAVE (Raw Uncompressed)")
+#define ENCODER_WAVE_BIN		"mv"
+#define ENCODER_WAVE_VERSION_PARA	"--help"
+#define ENCODER_WAVE_SUFFIX		"wav"
+
+
+
+#define ENCODER_CUSTOM_NAME		i18n("Custom")
+#define ENCODER_CUSTOM_BIN		""
+#define ENCODER_CUSTOM_VERSION_PARA	""
+#define ENCODER_CUSTOM_SUFFIX		""
+#define ENCODER_CUSTOM_COMMAND_PATTERN	""
+
+
+
+#define ENCODER_NUM			6
+
+
+namespace EncoderAssistant {
 
   enum Encoder {
-    EOggEnc,
-    EFLAC,
-    ELAME,
-    EFAAC,
-    EWAVE
+    LAME = 0,
+    OGGENC,
+    FLAC,
+    FAAC,
+    WAVE,
+    CUSTOM,
+    NUM
   };
 
-  const QStringList encoderList();
-  const QStringList availableEncoderList();
-  const QStringList availableEncoderListWithVersions();
+  const QString name(const Encoder encoder);
 
-  const QString suffix(const Encoder encoder = EOggEnc);
-  EncoderAssistant::Encoder encoderByListText(const QString& text = OGGVORBIS);
+  bool available(const Encoder encoder);
+  const QString version(const Encoder encoder);
+  const QString pattern(const Encoder encoder, const Parameters& parameters);
 
-  bool encoderAvailable(const Encoder encoder = EOggEnc);
-  const QString encoderVersion(const Encoder encoder = EOggEnc);
-  const QString encoderMask(const Encoder encoder = EOggEnc, const Quality quality = QCompromise);
-  bool encoderSupportQuality(const Encoder encoder = EOggEnc);
+  enum Quality {
+    MOBILE = 0,
+    NORMAL,
+    EXTREME
+  };
 
-signals:
-  void error(const QString& message,
-	const QString& details = QString());
-  void warning(const QString& message);
-  void info(const QString& message);
+  Parameters stdParameters(const Encoder encoder, const Quality quality);
+
+  const QMap<int,QString> encoderList();
+  const QMap<int,QString> availableEncoderNameList();
+  const QMap<int,QString> availableEncoderNameListWithVersions();
 
 };
 

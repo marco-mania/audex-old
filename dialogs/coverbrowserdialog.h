@@ -24,7 +24,7 @@
 
 #include <KDialog>
 
-#include "../utils/coverfetcher.h"
+#include "utils/coverfetcher.h"
 
 #include "ui_coverbrowserwidgetUI.h"
 

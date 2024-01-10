@@ -31,6 +31,7 @@
 #include <QDesktopServices>
 #include <QFontMetrics>
 #include <QFont>
+#include <QX11Info>
 
 #include <KAction>
 #include <KActionCollection>
@@ -40,13 +41,14 @@
 #include <KDebug>
 #include <KStandardDirs>
 #include <KUrl>
+#include <KColorScheme>
 
 #include "preferences.h"
 
-#include "../models/cddamodel.h"
-#include "../dialogs/coverbrowserdialog.h"
-#include "../dialogs/cddaheaderdatadialog.h"
-#include "../utils/coverfetcher.h"
+#include "models/cddamodel.h"
+#include "dialogs/coverbrowserdialog.h"
+#include "dialogs/cddaheaderdatadialog.h"
+#include "utils/coverfetcher.h"
 
 // fixed point defines
 #define FP_BITS 10
@@ -135,13 +137,13 @@ private:
   bool fade_in;
   bool fade_out;
 
-  QRectF cover_rect;
+  QRect cover_rect;
   bool cursor_on_cover;
 
-  QRectF link1_rect;
+  QRect link1_rect;
   bool cursor_on_link1;
 
-  QRectF link2_rect;
+  QRect link2_rect;
   bool cursor_on_link2;
 
   void setup_actions();

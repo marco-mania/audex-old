@@ -24,7 +24,7 @@
 #include <KDebug>
 #include <KDialog>
 
-#include "simplemaskwizarddialog.h"
+#include "simplepatternwizarddialog.h"
 
 #include "ui_profiledatacoverwidgetUI.h"
 
@@ -33,18 +33,18 @@ class ProfileDataCoverDialog : public KDialog {
   Q_OBJECT
 
 public:
-  ProfileDataCoverDialog(const bool scale, const QSize& size, const QString& format, const QString& mask, QWidget *parent = 0);
+  ProfileDataCoverDialog(const bool scale, const QSize& size, const QString& format, const QString& pattern, QWidget *parent = 0);
   ~ProfileDataCoverDialog();
 
   bool scale;
   QSize size;
   QString format;
-  QString mask;
+  QString pattern;
 
 protected slots:
   virtual void slotButtonClicked(int button);
 
-  void mask_wizard();
+  void pattern_wizard();
 
 private slots:
   void trigger_changed();

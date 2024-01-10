@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
- 
+
 #include "cddaparanoia.h"
 
 /* some of this code in here is based on k3b 0.8.x sourcecode */
@@ -152,7 +152,7 @@ int CDDAParanoia::lengthOfAudioTracks() {
 int CDDAParanoia::numOfFramesOfAudioTracks() {
   if (numOfTracks() > 0) {
     int frames = 0;
-    for (int i = 1; i <= numOfTracks(); i++) {
+    for (int i = 1; i <= numOfTracks(); ++i) {
       if (isAudioTrack(i)) frames += numOfFramesOfTrack(i);
     }
     return frames;
@@ -165,7 +165,7 @@ int CDDAParanoia::numOfSkippedFrames(int n) {
     if (n < 1) n = 1;
     if (n > numOfTracks()) n = numOfTracks();
     int frames = 0;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n; ++i) {
       if (!isAudioTrack(i)) frames += numOfFramesOfTrack(i);
     }
     return frames;

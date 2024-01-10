@@ -20,7 +20,20 @@
 
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
-  cdda_model = new CDDAModel(this, Preferences::cdDevice());
+  profile_model = new ProfileModel(this);
+  if (!profile_model) {
+    kDebug() << "Unable to create ProfileModel object. Low mem?";
+    KMessageBox::detailedError(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
+    return;
+  }
+  if (profile_model->lastError().isValid()) {
+    KMessageBox::detailedError(this, profile_model->lastError().message(), profile_model->lastError().details());
+    return;
+  }
+
+  bool updated = firstStart();
+
+  cdda_model = new CDDAModel(this, KCompactDisc::cdromDeviceUrl(Preferences::cdDevice()).path());
   if (!cdda_model) {
     kDebug() << "Unable to create CDDAModel object. Low mem?";
     KMessageBox::detailedError(this, i18n("Unable to create CDDAModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
@@ -42,18 +55,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
   connect(cdda_model, SIGNAL(cddbDataModified()), this, SLOT(update_layout()));
   connect(cdda_model, SIGNAL(cddbDataSubmited(bool)), this, SLOT(enable_submit(bool)));
 
-  profile_model = new ProfileModel(this);
-  if (!profile_model) {
-    kDebug() << "Unable to create ProfileModel object. Low mem?";
-    KMessageBox::detailedError(this, i18n("Unable to create ProfileModel object."), i18n("Internal error. Check your hardware. If all okay please make bug report."));
-    return;
-  }
-  if (profile_model->lastError().isValid()) {
-    KMessageBox::detailedError(this, profile_model->lastError().message(), profile_model->lastError().details());
-    return;
-  }
   connect(profile_model, SIGNAL(profilesRemovedOrInserted()), this, SLOT(update_profile_action()));
-  connect(profile_model, SIGNAL(currentProfileChanged(int)), this, SLOT(current_profile_updated(int)));
 
   setup_actions();
   setup_layout();
@@ -61,27 +63,36 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent) {
 
   enable_layout(FALSE);
 
+  if (updated) {
+    update();
+    resize(650, 500);
+  }
+
 }
 
-void MainWindow::startAssistant() {
+bool MainWindow::firstStart() {
+
   if (Preferences::firstStart()) {
-    AssistantDialog *dialog = new AssistantDialog(profile_model, this);
-    if (dialog->exec() == QDialog::Accepted) {
-      update();
-      current_profile_updated(profile_model->currentProfileRow());
-    }
-    delete dialog;
+    profile_model->autoCreate();
+    profile_model->commit();
     Preferences::setFirstStart(FALSE);
     Preferences::self()->writeConfig();
+    return TRUE;
   }
+
+  return FALSE;
+
 }
 
 MainWindow::~MainWindow() {
+
   delete profile_model;
   delete cdda_model;
+
 }
 
 void MainWindow::eject() {
+  kDebug() << "eject requested";
   cdda_model->eject();
 }
 
@@ -105,8 +116,6 @@ void MainWindow::extract() {
 				i18n("no_disc_info_warn"))== KMessageBox::No) return;
 
   }
-
-  cdda_model->setSelection(cdda_table_view->selectionModel()->selectedRows());
 
   ExtractingProgressDialog *dialog = new ExtractingProgressDialog(profile_model, cdda_model, this);
 
@@ -147,13 +156,12 @@ void MainWindow::configure() {
     }
   }
 
-  KPageWidgetItem *ftpPage = dialog->addPage(new ftpSettingsWidget(), i18n("FTP"));
-  ftpPage->setIcon(KIcon("network-server"));
+  KPageWidgetItem *remoteServerPage = dialog->addPage(new remoteServerSettingsWidget(), i18n("Remote Server"));
+  remoteServerPage->setIcon(KIcon("network-server"));
 
   connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(configuration_updated(const QString&)));
 
   dialog->exec();
-
 }
 
 void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
@@ -169,9 +177,10 @@ void MainWindow::drive_status_changed(const CDDAModel::DriveStatus status) {
     case CDDAModel::DriveReady :
       status_label->setText(i18n("Audio disc in drive"));
       enable_layout(TRUE);
+      resizeColumns();
       if (Preferences::cddbLookupAuto()) {
         kDebug() << "Performing cddb auto lookup";
-        QTimer::singleShot(5000, this, SLOT(cddb_lookup()));
+        QTimer::singleShot(0, this, SLOT(cddb_lookup()));
       }
       break;
     case CDDAModel::DriveOpen :
@@ -220,7 +229,7 @@ void MainWindow::disc_info_changed(const CDDAModel::DiscInfo info) {
 
 void MainWindow::cddb_lookup_start() {
   statusBar()->addWidget(cddb_label);
-  cddb_label->setText("<font color=red>"+i18n("Fetching CDDB information...")+"</font>");
+  cddb_label->setText(i18n("Fetching CDDB information..."));
 }
 
 void MainWindow::cddb_lookup_done(const bool successful) {
@@ -233,17 +242,16 @@ void MainWindow::cddb_lookup_done(const bool successful) {
 }
 
 void MainWindow::update_layout() {
-  cdda_table_view->resizeColumnsToContents();
   if (!cdda_model->isVarious()) {
-    cdda_table_view->hideColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
+    cdda_tree_view->hideColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
   } else {
-    cdda_table_view->showColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
+    cdda_tree_view->showColumn(CDDA_MODEL_COLUMN_ARTIST_INDEX);
   }
 }
 
 void MainWindow::enable_layout(bool enabled) {
   layout_enabled = enabled;
-  cdda_table_view->setEnabled(enabled);
+  cdda_tree_view->setEnabled(enabled);
   cdda_header_dock->setEnabled(enabled);
   cdda_header_widget->setEnabled(enabled);
   actionCollection()->action("profile_label")->setEnabled((profile_model->rowCount() > 0) && (enabled));
@@ -254,7 +262,7 @@ void MainWindow::enable_layout(bool enabled) {
     actionCollection()->action("submit")->setEnabled(enabled);
   else
     actionCollection()->action("submit")->setEnabled(FALSE);
-  actionCollection()->action("extract")->setEnabled(enabled);
+  actionCollection()->action("rip")->setEnabled(enabled);
   actionCollection()->action("splittitles")->setEnabled(enabled);
   actionCollection()->action("swapartistsandtitles")->setEnabled(enabled);
   actionCollection()->action("capitalize")->setEnabled(enabled);
@@ -272,27 +280,32 @@ void MainWindow::disable_submit() {
 void MainWindow::configuration_updated(const QString& dialog_name) {
   Q_UNUSED(dialog_name);
   Preferences::self()->writeConfig();
+  QString dev = KCompactDisc::cdromDeviceUrl(Preferences::cdDevice()).path();
+  if (dev != cdda_model->device()) {
+    cdda_model->setDevice(dev);
+  }
 }
 
 void MainWindow::current_profile_updated_from_ui(int row) {
-  KConfig config;
-  KConfigGroup uicg(&config, "Profiles");
-  uicg.writeEntry("Standard", row);
-  profile_model->setCurrentProfileRow(row);
-}
-
-void MainWindow::current_profile_updated(int row) {
-  KConfig config;
-  KConfigGroup uicg(&config, "Profiles");
-  uicg.writeEntry("Standard", row);
-  profile_combobox->setCurrentIndex(row);
+  current_profile_index = profile_model->rowCount() > 0
+                          ? profile_model->data(profile_model->index(row, PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX)).toInt()
+                          : -1;
+  profile_model->setCurrentProfileIndex(current_profile_index);
 }
 
 void MainWindow::update_profile_action() {
+
+  // When the Profile model emits 'reset' the profile combo clears its current settings.
+  // Therefore, we need to try and reset these...
+  if (profile_combobox->currentText().isEmpty()) {
+    set_profile(current_profile_index);
+  }
+
   if (layout_enabled) {
     actionCollection()->action("profile_label")->setEnabled(profile_model->rowCount() > 0);
     actionCollection()->action("profile")->setEnabled(profile_model->rowCount() > 0);
   }
+
 }
 
 void MainWindow::split_titles() {
@@ -345,6 +358,17 @@ void MainWindow::auto_fill_artists() {
 
 }
 
+void MainWindow::toggle(const QModelIndex &idx) {
+  if (idx.isValid() && idx.column() == CDDA_MODEL_COLUMN_RIP_INDEX) {
+    cdda_model->toggle(idx.row());
+  }
+}
+
+void MainWindow::resizeColumns() {
+  for (int i = 0; i < CDDA_MODEL_COLUMN_COUNT; ++i)
+    cdda_tree_view->resizeColumnToContents(i);
+}
+
 void MainWindow::setup_actions() {
 
   KAction* ejectAction = new KAction(this);
@@ -356,21 +380,14 @@ void MainWindow::setup_actions() {
 
   profile_label = new QLabel(this);
   profile_label->setText(i18n("Profile: "));
-  profile_combobox = new QComboBox(this);
+  profile_combobox = new KComboBox(this);
   profile_combobox->setModel(profile_model);
-  profile_combobox->setModelColumn(0);
+  profile_combobox->setModelColumn(1);
   profile_combobox->setMinimumWidth(80);
   profile_combobox->setMaximumWidth(220);
   profile_combobox->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
   profile_combobox->resize(QSize(220, profile_combobox->height()));
-  if (profile_model->rowCount() > 0) {
-    KConfig config;
-    KConfigGroup uicg(&config, "Profiles");
-    int row = uicg.readEntry("Standard", 0);
-    if ((row < 0) || (row >= profile_model->rowCount())) row = 0;
-    profile_combobox->setCurrentIndex(row);
-    profile_model->setCurrentProfileRow(row);
-  }
+  set_profile(profile_model->currentProfileIndex());
   connect(profile_combobox, SIGNAL(currentIndexChanged(int)), this, SLOT(current_profile_updated_from_ui(int)));
 
   KAction *plabelAction = new KAction(this);
@@ -403,18 +420,13 @@ void MainWindow::setup_actions() {
   cddbSubmitAction->setEnabled(FALSE);
 
   KAction* extractAction = new KAction(this);
-  extractAction->setText(i18n("Extract CDDA..."));
+  extractAction->setText(i18n("Rip..."));
   extractAction->setIcon(KIcon("media-optical-audio"));
   extractAction->setShortcut(Qt::CTRL + Qt::Key_X);
-  actionCollection()->addAction("extract", extractAction);
+  actionCollection()->addAction("rip", extractAction);
   connect(extractAction, SIGNAL(triggered(bool)), this, SLOT(extract()));
 
-  KAction* configureAction = new KAction(this);
-  configureAction->setText(i18n("Configure..."));
-  configureAction->setIcon(KIcon("configure"));
-  configureAction->setShortcut(Qt::CTRL + Qt::Key_C);
-  actionCollection()->addAction("configure", configureAction);
-  connect(configureAction, SIGNAL(triggered(bool)), this, SLOT(configure()));
+  actionCollection()->addAction("preferences", KStandardAction::preferences(this, SLOT(configure()), this));
 
   KAction* splitTitlesAction = new KAction(this);
   splitTitlesAction->setText(i18n("Split titles..."));
@@ -442,22 +454,28 @@ void MainWindow::setup_actions() {
 
 void MainWindow::setup_layout() {
 
-  cdda_table_view = new QTableView(this);
-  cdda_table_view->setModel(cdda_model);
-  cdda_table_view->setAlternatingRowColors(TRUE);
-  cdda_table_view->setSelectionBehavior(QAbstractItemView::SelectRows);
-  cdda_table_view->setEditTriggers(QAbstractItemView::EditKeyPressed | QAbstractItemView::DoubleClicked);
+  cdda_tree_view = new QTreeView(this);
+  cdda_tree_view->setModel(cdda_model);
+  cdda_tree_view->setAlternatingRowColors(TRUE);
+  cdda_tree_view->setSelectionBehavior(QAbstractItemView::SelectRows);
+  cdda_tree_view->setEditTriggers(QAbstractItemView::EditKeyPressed | QAbstractItemView::DoubleClicked);
+  cdda_tree_view->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
+  cdda_tree_view->setIndentation(0);
+  cdda_tree_view->setAllColumnsShowFocus(TRUE);
+  connect(cdda_tree_view, SIGNAL(clicked(const QModelIndex&)), SLOT(toggle(const QModelIndex&)));
+  connect(cdda_model, SIGNAL(discInfoChanged(const CDDAModel::DiscInfo)), SLOT(resizeColumns()));
+  connect(cdda_model, SIGNAL(hasSelection(bool)), actionCollection()->action("rip"), SLOT(setEnabled(bool)));
 
   cdda_header_dock = new QDockWidget(this);
   cdda_header_dock->setObjectName("cdda_header_dock");
   cdda_header_dock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
   cdda_header_dock->setAllowedAreas(Qt::AllDockWidgetAreas);
 
-  setCentralWidget(cdda_table_view);
+  setCentralWidget(cdda_tree_view);
   cdda_header_widget = new CDDAHeaderWidget(cdda_model, cdda_header_dock);
   connect(cdda_header_widget, SIGNAL(headerDataChanged()), this, SLOT(update_layout()));
   cdda_header_dock->setWidget(cdda_header_widget);
-  addDockWidget(Qt::TopDockWidgetArea, cdda_header_dock);
+  addDockWidget(Qt::LeftDockWidgetArea, cdda_header_dock);
 
   status_label = new QLabel();
   status_label->setAlignment(Qt::AlignHCenter);
@@ -466,5 +484,24 @@ void MainWindow::setup_layout() {
   cddb_label = new QLabel();
   cddb_label->setAlignment(Qt::AlignHCenter);
   cddb_label->setMinimumSize(QSize(100, 10));
+
+}
+
+void MainWindow::set_profile(int profile_index) {
+
+  if (profile_model->rowCount()) {
+    int row = 0;
+    for (int i = 0; i < profile_model->rowCount(); ++i) {
+      if (profile_model->data(profile_model->index(i, PROFILE_MODEL_COLUMN_PROFILEINDEX_INDEX)).toInt() == profile_index) {
+        row = i;
+        break;
+      }
+    }
+    profile_combobox->setCurrentIndex(row);
+    profile_model->setCurrentProfileIndex(profile_index);
+    current_profile_index = profile_index;
+  } else {
+    current_profile_index = -1;
+  }
 
 }

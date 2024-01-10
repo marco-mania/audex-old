@@ -29,10 +29,10 @@ Playlist::~Playlist() {
 
 }
 
-QStringList Playlist::asM3U(bool absolutePath) const {
+QStringList Playlist::asM3U(bool absolutePath, bool merge) const {
 
   QStringList playlist;
-  playlist.append("#EXTM3U");
+  if (!merge) playlist.append("#EXTM3U");
 
   int j = 0;
   for (int i = 0; i < model->rowCount(); ++i) {
@@ -66,6 +66,7 @@ QStringList Playlist::asPLS(bool absolutePath) const {
   int j = 0;
   for (int i = 0; i < model->rowCount(); ++i) {
     if (!model->isAudioTrack(i+1)) continue;
+    if (!model->isTrackInSelection(i+1)) continue;
     ++j;
     if (absolutePath) {
       playlist.append(QString("File%1=%2").arg(i+1).arg(filenamelist[i]));
@@ -106,6 +107,7 @@ QStringList Playlist::asXSPF() const {
   for (int i = 0; i < model->rowCount(); ++i) {
 
     if (!model->isAudioTrack(i+1)) continue;
+    if (!model->isTrackInSelection(i+1)) continue;
     ++j;
 
     QDomElement track = doc.createElement("track");

@@ -18,14 +18,14 @@
 
 #include "profiledatacoverdialog.h"
 
-ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& size, const QString& format, const QString &mask, QWidget *parent) : KDialog(parent) {
+ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& size, const QString& format, const QString &pattern, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->scale = scale;
   this->size = size;
   this->format = format;
-  this->mask = mask;
+  this->pattern = pattern;
 
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
@@ -38,8 +38,8 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-  connect(ui.kpushbutton_mask, SIGNAL(clicked()), this, SLOT(mask_wizard()));
-  ui.kpushbutton_mask->setIcon(KIcon("tools-wizard"));
+  connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
+  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
 
   ui.checkBox_scale->setChecked(scale);
   enable_scale(ui.checkBox_scale->isChecked());
@@ -60,10 +60,11 @@ ProfileDataCoverDialog::ProfileDataCoverDialog(const bool scale, const QSize& si
   }
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_mask->setText(mask);
-  connect(ui.klineedit_mask, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.klineedit_pattern->setText(pattern);
+  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
 }
 
@@ -81,15 +82,15 @@ void ProfileDataCoverDialog::slotButtonClicked(int button) {
   }
 }
 
-void ProfileDataCoverDialog::mask_wizard() {
+void ProfileDataCoverDialog::pattern_wizard() {
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimpleMaskWizardDialog *dialog = new SimpleMaskWizardDialog(ui.klineedit_mask->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_mask->setText(dialog->mask);
+  ui.klineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -102,13 +103,12 @@ void ProfileDataCoverDialog::trigger_changed() {
   if (ui.kintspinbox_x->value() != size.width()) { enableButtonApply(TRUE); return; }
   if (ui.kintspinbox_y->value() != size.height()) { enableButtonApply(TRUE); return; }
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_mask->text() != mask) { enableButtonApply(TRUE); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
 }
 
 void ProfileDataCoverDialog::enable_scale(bool enabled) {
   ui.label_x->setEnabled(enabled);
-  ui.label_y->setEnabled(enabled);
   ui.kintspinbox_x->setEnabled(enabled);
   ui.kintspinbox_y->setEnabled(enabled);
 }
@@ -117,7 +117,7 @@ bool ProfileDataCoverDialog::save() {
   scale = ui.checkBox_scale->isChecked();
   size = QSize(ui.kintspinbox_x->value(), ui.kintspinbox_y->value());
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  mask = ui.klineedit_mask->text();
+  pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
   return TRUE;
 }

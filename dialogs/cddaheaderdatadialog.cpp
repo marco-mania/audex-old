@@ -59,7 +59,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
 
   setMainWidget(widget);
 
-  setCaption(i18n("Edit CDDA header data"));
+  setCaption(i18n("Edit Data"));
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
   QStringList genres; for (int i = 0; i < GENRE_MAX; ++i) genres.append(QString().fromAscii(ID3_GENRES[i]));
@@ -95,6 +95,7 @@ CDDAHeaderDataDialog::CDDAHeaderDataDialog(CDDAModel *cddaModel, QWidget *parent
   enable_checkbox_multicd(cdda_model->isMultiCD());
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
 }
 

@@ -18,12 +18,12 @@
 
 #include "profiledataplaylistdialog.h"
 
-ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, const QString &mask, QWidget *parent) : KDialog(parent) {
+ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, const QString &pattern, QWidget *parent) : KDialog(parent) {
 
   Q_UNUSED(parent);
 
   this->format = format;
-  this->mask = mask;
+  this->pattern = pattern;
 
   QWidget *widget = new QWidget(this);
   ui.setupUi(widget);
@@ -34,8 +34,8 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, cons
 
   setButtons(KDialog::Ok | KDialog::Cancel | KDialog::Apply);
 
-  connect(ui.kpushbutton_mask, SIGNAL(clicked()), this, SLOT(mask_wizard()));
-  ui.kpushbutton_mask->setIcon(KIcon("tools-wizard"));
+  connect(ui.kpushbutton_pattern, SIGNAL(clicked()), this, SLOT(pattern_wizard()));
+  ui.kpushbutton_pattern->setIcon(KIcon("tools-wizard"));
 
   ui.kcombobox_format->addItem("M3U (Textbased Winamp Playlist)", "M3U");
   ui.kcombobox_format->addItem("PLS (Textbased Playlist)", "PLS");
@@ -46,10 +46,11 @@ ProfileDataPlaylistDialog::ProfileDataPlaylistDialog(const QString& format, cons
   }
   connect(ui.kcombobox_format, SIGNAL(currentIndexChanged(int)), this, SLOT(trigger_changed()));
 
-  ui.klineedit_mask->setText(mask);
-  connect(ui.klineedit_mask, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
+  ui.klineedit_pattern->setText(pattern);
+  connect(ui.klineedit_pattern, SIGNAL(textEdited(const QString&)), this, SLOT(trigger_changed()));
 
   enableButtonApply(FALSE);
+  showButtonSeparator(true);
 
 }
 
@@ -67,15 +68,15 @@ void ProfileDataPlaylistDialog::slotButtonClicked(int button) {
   }
 }
 
-void ProfileDataPlaylistDialog::mask_wizard() {
+void ProfileDataPlaylistDialog::pattern_wizard() {
 
   QString suffix = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString().toLower();
 
-  SimpleMaskWizardDialog *dialog = new SimpleMaskWizardDialog(ui.klineedit_mask->text(), suffix, this);
+  SimplePatternWizardDialog *dialog = new SimplePatternWizardDialog(ui.klineedit_pattern->text(), suffix, this);
 
   if (dialog->exec() != QDialog::Accepted) { delete dialog; return; }
 
-  ui.klineedit_mask->setText(dialog->mask);
+  ui.klineedit_pattern->setText(dialog->pattern);
 
   delete dialog;
 
@@ -85,13 +86,13 @@ void ProfileDataPlaylistDialog::mask_wizard() {
 
 void ProfileDataPlaylistDialog::trigger_changed() {
   if (ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString() != format) { enableButtonApply(TRUE); return; }
-  if (ui.klineedit_mask->text() != mask) { enableButtonApply(TRUE); return; }
+  if (ui.klineedit_pattern->text() != pattern) { enableButtonApply(TRUE); return; }
   enableButtonApply(FALSE);
 }
 
 bool ProfileDataPlaylistDialog::save() {
   format = ui.kcombobox_format->itemData(ui.kcombobox_format->currentIndex()).toString();
-  mask = ui.klineedit_mask->text();
+  pattern = ui.klineedit_pattern->text();
   enableButtonApply(FALSE);
   return TRUE;
 }

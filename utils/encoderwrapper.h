@@ -26,14 +26,14 @@
 #include <KLocale>
 #include <KProcess>
 
-#include "maskparser.h"
+#include "utils/patternparser.h"
 
 class EncoderWrapper : public QObject {
 
   Q_OBJECT
 
 public:
-  EncoderWrapper(QObject* parent = 0, const QString& commandMask = "", const bool deleteFractionFiles = TRUE);
+  EncoderWrapper(QObject* parent = 0, const QString& commandPattern = "", const bool deleteFractionFiles = TRUE);
   ~EncoderWrapper();
 
   bool isProcessing();
@@ -44,7 +44,7 @@ public slots:
 	int cdno, int trackoffset,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, const QImage& cover, const QString& basepath,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover,
 	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output);
   void cancel();
@@ -64,7 +64,7 @@ signals:
   void info(const QString& message);
 
 private:
-  QString command_mask;
+  QString command_pattern;
   bool delete_fraction_files;
 
   QString encoder;

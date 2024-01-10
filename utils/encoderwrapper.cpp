@@ -18,9 +18,9 @@
 
 #include "encoderwrapper.h"
 
-EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandMask, const bool deleteFractionFiles) : QObject(parent) {
+EncoderWrapper::EncoderWrapper(QObject* parent, const QString& commandPattern, const bool deleteFractionFiles) : QObject(parent) {
 
-  command_mask = commandMask;
+  command_pattern = commandPattern;
   delete_fraction_files = deleteFractionFiles;
 
   connect(&proc, SIGNAL(readyReadStandardError()), this, SLOT(parseOutput()));
@@ -46,17 +46,17 @@ bool EncoderWrapper::encode(int n,
 	int cdno, int trackoffset,
 	const QString& artist, const QString& album,
 	const QString& tartist, const QString& ttitle,
-	const QString& genre, const QString& date, const QString& suffix, const QImage& cover, const QString& basepath,
+	const QString& genre, const QString& date, const QString& suffix, const QImage& cover,
 	bool fat_compatible, const QString& tmppath,
 	const QString& input, const QString& output) {
 
   if (!processing) processing = 1; else return FALSE;
   termination = FALSE;
 
-  if (command_mask.isEmpty()) { emit error(i18n("Command mask is empty.")); return FALSE; }
+  if (command_pattern.isEmpty()) { emit error(i18n("Command pattern is empty.")); return FALSE; }
 
-  MaskParser maskparser;
-  QString command = maskparser.parseCommandMask(command_mask, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, basepath, fat_compatible, tmppath);
+  PatternParser patternparser;
+  QString command = patternparser.parseCommandPattern(command_pattern, input, output, n, cdno, trackoffset, artist, album, tartist, ttitle, date, genre, suffix, cover, fat_compatible, tmppath);
 
   kDebug() << "executing command " << command;
   proc.setShellCommand(command);
@@ -110,10 +110,9 @@ void EncoderWrapper::parseOutput() {
     QString output(rawoutput); QStringList list = output.trimmed().split("\n");
     _protocol << list;
     for (int i = 0; i < list.count(); ++i) {
-      //if (list.at(i).contains('%')) {
       if (list.at(i).contains('%')) {
         QString line = list.at(i);
-        int startPos = line.indexOf(QRegExp("\\d+[,]?\\d*\\%"));
+        int startPos = line.indexOf(QRegExp("\\d+[,.]?\\d*\\%"));
         if (startPos == -1) continue;
         QString p = line.mid(startPos);
         p = p.left(p.indexOf('%'));

@@ -26,11 +26,10 @@
 #include <KDialog>
 #include <KFileDialog>
 #include <KIcon>
+#include <KMessageBox>
 
-#include "../models/profilemodel.h"
-
-#include "../dialogs/profiledatadialog.h"
-#include "../dialogs/assistantdialog.h"
+#include "models/profilemodel.h"
+#include "dialogs/profiledatadialog.h"
 
 #include "ui_profilewidgetUI.h"
 
@@ -53,9 +52,9 @@ private slots:
   void mod_profile(const QModelIndex& index);
   void mod_profile();
   void copy_profile();
-  void assistant();
   void save_profiles();
   void load_profiles();
+  void init_profiles();
 private:
   ProfileModel *profile_model;
 };

@@ -26,6 +26,7 @@ generalSettingsWidget::generalSettingsWidget(QWidget* parent) : generalSettingsW
   kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/france.png")), i18n("France"), "fr");
   kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/canada.png")), i18n("Canada"), "ca");
   kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/japan.png")), i18n("Japan"), "jp");
+  kcfg_amazonLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/uk.png")), i18n("UK"), "en_GB");
 
   kcfg_wikipediaLocale->clear();
   kcfg_wikipediaLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/usa.png")), i18n("English"), "en");
@@ -39,11 +40,19 @@ generalSettingsWidget::generalSettingsWidget(QWidget* parent) : generalSettingsW
   kcfg_wikipediaLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/portugal.png")), i18n("Português"), "pt");
   kcfg_wikipediaLocale->addItem(QIcon(KStandardDirs::locate("data", "audex/images/sweden.png")), i18n("Svenska"), "sv");
 
-  urlreq_tempPath->setMode(KFile::Directory);
-  urlreq_tempPath->lineEdit()->setObjectName("kcfg_tempPath");
-  urlreq_basePath->setMode(KFile::Directory);
+  urlreq_basePath->setMode(KFile::Directory|KFile::LocalOnly);
   urlreq_basePath->lineEdit()->setObjectName("kcfg_basePath");
 
+  QStringList devices = KCompactDisc::cdromDeviceNames();
+  kcfg_cdDevice->clear();
+
+  if (devices.isEmpty()) {
+    kcfg_cdDevice->addItem(i18n("None detected"));
+  } else {
+    foreach (const QString &dev, devices) {
+      kcfg_cdDevice->addItem(dev + " (" + KCompactDisc::cdromDeviceUrl(dev).path() + ")");
+    }
+  }
 }
 
 generalSettingsWidget::~generalSettingsWidget() {
